@@ -1,3 +1,7 @@
+ortho:
+    resource: "@OrthoBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
