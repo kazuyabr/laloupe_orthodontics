@@ -1,0 +1,24 @@
+OrthoBundle\Entity\Adjonctions:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\AdjonctionsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titreAdj:
+            type: string
+            length: 255
+            column: titre_adj
+        imgAdj:
+            type: string
+            length: 255
+            nullable: true
+            column: img_adj
+        commentairesAdj:
+            type: text
+            column: commentaires_adj
+    lifecycleCallbacks: {  }

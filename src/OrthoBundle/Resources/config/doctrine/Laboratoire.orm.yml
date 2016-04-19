@@ -1,0 +1,36 @@
+OrthoBundle\Entity\Laboratoire:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\LaboratoireRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomLabo:
+            type: string
+            length: 255
+            column: nom_labo
+        adresseLabo:
+            type: string
+            length: 255
+            column: adresse_labo
+        codepostalLabo:
+            type: string
+            length: 255
+            column: codepostal_labo
+        villeLabo:
+            type: string
+            length: 255
+            column: ville_labo
+        mailLabo:
+            type: string
+            length: 255
+            column: mail_labo
+        telephoneLabo:
+            type: string
+            length: 255
+            column: telephone_labo
+    lifecycleCallbacks: {  }

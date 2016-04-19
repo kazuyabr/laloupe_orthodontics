@@ -1,0 +1,27 @@
+OrthoBundle\Entity\Listepatients:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\ListepatientsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fidCab:
+            type: integer
+            column: fid_cab
+        datenaissancePatient:
+            type: string
+            length: 255
+            column: datenaissance_patient
+        nomPatient:
+            type: string
+            length: 255
+            column: nom_patient
+        prenomPatient:
+            type: string
+            length: 255
+            column: prenom_patient
+    lifecycleCallbacks: {  }

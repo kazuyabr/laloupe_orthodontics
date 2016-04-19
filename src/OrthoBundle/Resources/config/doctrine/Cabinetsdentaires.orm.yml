@@ -1,0 +1,39 @@
+OrthoBundle\Entity\Cabinetsdentaires:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\CabinetsdentairesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fidLabo:
+            type: integer
+            column: fid_labo
+        nomCab:
+            type: string
+            length: 255
+            column: nom_cab
+        adresseCab:
+            type: string
+            length: 255
+            column: adresse_cab
+        codepostalCab:
+            type: string
+            length: 255
+            column: codepostal_cab
+        villeCab:
+            type: string
+            length: 255
+            column: ville_cab
+        mailCab:
+            type: string
+            length: 255
+            column: mail_cab
+        telephoneCab:
+            type: string
+            length: 255
+            column: telephone_cab
+    lifecycleCallbacks: {  }
