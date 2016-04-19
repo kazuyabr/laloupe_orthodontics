@@ -1,0 +1,35 @@
+OrthoBundle\Entity\Commandes:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\CommandesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fidCab:
+            type: integer
+            column: fid_cab
+        fidLabo:
+            type: integer
+            column: fid_labo
+        fidPatient:
+            type: integer
+            column: fid_patient
+        fnomPatient:
+            type: string
+            length: 255
+            column: fnom_patient
+        dateretour:
+            type: date
+        datecommande:
+            type: date
+        fidApp:
+            type: integer
+            column: fid_app
+        fidAdj:
+            type: integer
+            column: fid_adj
+    lifecycleCallbacks: {  }

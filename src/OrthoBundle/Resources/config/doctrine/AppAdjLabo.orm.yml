@@ -1,0 +1,22 @@
+OrthoBundle\Entity\AppAdjLabo:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\AppAdjLaboRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fidApp:
+            type: integer
+            column: fid_app
+        fidAdj:
+            type: integer
+            nullable: true
+            column: fid_adj
+        fidLabo:
+            type: integer
+            column: fid_labo
+    lifecycleCallbacks: {  }

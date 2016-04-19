@@ -1,0 +1,23 @@
+OrthoBundle\Entity\Appareillages:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\AppareillagesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titreApp:
+            type: string
+            length: 255
+            column: titre_app
+        imgApp:
+            type: string
+            length: 255
+            column: img_app
+        commentairesApp:
+            type: text
+            column: commentaires_app
+    lifecycleCallbacks: {  }

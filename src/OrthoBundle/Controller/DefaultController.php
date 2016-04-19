@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('OrthoBundle:Default:index.html.twig');
     }
+
+    public function formulaireAction()
+    {
+        return $this->render('OrthoBundle:Default:formulaire.html.twig');
+    }
 }
