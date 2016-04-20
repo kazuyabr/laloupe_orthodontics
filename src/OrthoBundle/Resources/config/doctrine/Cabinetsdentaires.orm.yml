@@ -9,9 +9,8 @@ OrthoBundle\Entity\Cabinetsdentaires:
             generator:
                 strategy: AUTO
     fields:
-        fidLabo:
-            type: integer
-            column: fid_labo
+
+
         nomCab:
             type: string
             length: 255
@@ -36,4 +35,13 @@ OrthoBundle\Entity\Cabinetsdentaires:
             type: string
             length: 255
             column: telephone_cab
+
+    manyToOne:
+        fidLabo:
+            targetEntity: Laboratoire
+            inversedBy: Cabinetsdentaires
+            joinColumn:
+                name: fid_labo
+                referencedColumn: id_labo
+                nullable: false
     lifecycleCallbacks: {  }

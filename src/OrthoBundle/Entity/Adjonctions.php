@@ -29,6 +29,11 @@ class Adjonctions
      */
     private $commentairesAdj;
 
+    /**
+     * @var int
+     */
+    private $compteurAdj;
+
 
     /**
      * Get id
@@ -107,5 +112,17 @@ class Adjonctions
     public function getCommentairesAdj()
     {
         return $this->commentairesAdj;
+    }
+
+    public function setCompteurAdj($compteurAdj)
+    {
+        $this->compteurAdj = $compteurAdj;
+
+        return $this;
+    }
+
+    public function getCompteurAdj()
+    {
+        return $this->compteurAdj;
     }
 }

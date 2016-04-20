@@ -21,4 +21,9 @@ OrthoBundle\Entity\Adjonctions:
         commentairesAdj:
             type: text
             column: commentaires_adj
+        compteurAdj:
+            type: integer
+            nullable: false
+            column: compteur_adj
+
     lifecycleCallbacks: {  }
