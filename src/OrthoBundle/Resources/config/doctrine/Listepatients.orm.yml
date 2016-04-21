@@ -9,9 +9,6 @@ OrthoBundle\Entity\Listepatients:
             generator:
                 strategy: AUTO
     fields:
-        fidCab:
-            type: integer
-            column: fid_cab
         datenaissancePatient:
             type: string
             length: 255
@@ -24,4 +21,13 @@ OrthoBundle\Entity\Listepatients:
             type: string
             length: 255
             column: prenom_patient
+
+    manyToOne:
+        fidCab:
+            targetEntity: Cabinetsdentaires
+            inversedBy: Listepatients
+            joinColumn:
+                name: fid_cab
+                referencedColumn: id
+                nullable: false
     lifecycleCallbacks: {  }
