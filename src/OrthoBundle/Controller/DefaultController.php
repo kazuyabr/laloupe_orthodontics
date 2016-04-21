@@ -2,6 +2,7 @@
 
 namespace OrthoBundle\Controller;
 
+use OrthoBundle\Form\LaboratoireType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -13,6 +14,7 @@ class DefaultController extends Controller
 
     public function formulaireAction()
     {
-        return $this->render('OrthoBundle:Default:formulaire.html.twig');
+        $form = $this->createForm(new LaboratoireType());
+        return $this->render('OrthoBundle:Default:formulaire.html.twig', array('form'=>$form->createView()));
     }
 }
