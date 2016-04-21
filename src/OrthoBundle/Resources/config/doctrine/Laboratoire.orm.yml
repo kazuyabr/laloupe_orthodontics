@@ -3,11 +3,11 @@ OrthoBundle\Entity\Laboratoire:
     table: null
     repositoryClass: OrthoBundle\Repository\LaboratoireRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
+        idLabo:
+                            type: integer
+                            id: true
+                            generator:
+                                strategy: AUTO
     fields:
         nomLabo:
             type: string

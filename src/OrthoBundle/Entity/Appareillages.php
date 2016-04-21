@@ -12,7 +12,7 @@ class Appareillages
     /**
      * @var int
      */
-    private $id;
+    private $idApp;
 
     /**
      * @var string
@@ -42,7 +42,7 @@ class Appareillages
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idApp;
     }
 
     /**

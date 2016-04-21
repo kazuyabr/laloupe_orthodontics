@@ -12,7 +12,7 @@ class Laboratoire
     /**
      * @var int
      */
-    private $id;
+    private $idLabo;
 
     /**
      * @var string
@@ -46,13 +46,13 @@ class Laboratoire
 
 
     /**
-     * Get id
+     * Get idLabo
      *
      * @return integer 
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idLabo;
     }
 
     /**

@@ -3,7 +3,7 @@ OrthoBundle\Entity\AppAdjLabo:
     table: null
     repositoryClass: OrthoBundle\Repository\AppAdjLaboRepository
     id:
-        id:
+        idAppAdjLabo:
             type: integer
             id: true
             generator:

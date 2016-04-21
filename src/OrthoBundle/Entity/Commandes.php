@@ -12,7 +12,7 @@ class Commandes
     /**
      * @var int
      */
-    private $id;
+    private $idCommande;
 
     /**
      * @var int
@@ -60,9 +60,9 @@ class Commandes
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdCommande()
     {
-        return $this->id;
+        return $this->idCommande;
     }
 
     /**

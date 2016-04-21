@@ -3,7 +3,7 @@ OrthoBundle\Entity\Listepatients:
     table: null
     repositoryClass: OrthoBundle\Repository\ListepatientsRepository
     id:
-        id:
+        idPatient:
             type: integer
             id: true
             generator:
@@ -28,6 +28,7 @@ OrthoBundle\Entity\Listepatients:
             inversedBy: Listepatients
             joinColumn:
                 name: fid_cab
-                referencedColumn: id
+                referencedColumnName: id_cab
                 nullable: false
+                unique: false
     lifecycleCallbacks: {  }

@@ -3,14 +3,12 @@ OrthoBundle\Entity\Cabinetsdentaires:
     table: null
     repositoryClass: OrthoBundle\Repository\CabinetsdentairesRepository
     id:
-        id:
+        idCab:
             type: integer
             id: true
             generator:
                 strategy: AUTO
     fields:
-
-
         nomCab:
             type: string
             length: 255
@@ -37,11 +35,11 @@ OrthoBundle\Entity\Cabinetsdentaires:
             column: telephone_cab
 
     manyToOne:
-        fidLabo:
-            targetEntity: Laboratoire
-            inversedBy: Cabinetsdentaires
-            joinColumn:
-                name: fid_labo
-                referencedColumn: id_labo
-                nullable: false
+            fidLabo:
+                targetEntity: Laboratoire
+                inversedBy: Cabinetsdentaires
+                joinColumn:
+                    name: fid_labo
+                    referencedColumnName: id_labo
+                    nullable: false
     lifecycleCallbacks: {  }

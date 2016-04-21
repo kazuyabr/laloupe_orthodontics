@@ -3,7 +3,7 @@ OrthoBundle\Entity\Commandes:
     table: null
     repositoryClass: OrthoBundle\Repository\CommandesRepository
     id:
-        id:
+        idCommande:
             type: integer
             id: true
             generator:

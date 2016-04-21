@@ -12,7 +12,7 @@ class AppAdjLabo
     /**
      * @var int
      */
-    private $id;
+    private $idAppAdjLabo;
 
     /**
      * @var int
@@ -37,7 +37,7 @@ class AppAdjLabo
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idAppAdjLabo;
     }
 
     /**

@@ -3,7 +3,7 @@ OrthoBundle\Entity\Appareillages:
     table: null
     repositoryClass: OrthoBundle\Repository\AppareillagesRepository
     id:
-        id:
+        idApp:
             type: integer
             id: true
             generator:

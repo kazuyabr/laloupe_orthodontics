@@ -12,7 +12,7 @@ class Adjonctions
     /**
      * @var int
      */
-    private $id;
+    private $idAdj;
 
     /**
      * @var string
@@ -40,9 +40,9 @@ class Adjonctions
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdAdj()
     {
-        return $this->id;
+        return $this->idAdj;
     }
 
     /**

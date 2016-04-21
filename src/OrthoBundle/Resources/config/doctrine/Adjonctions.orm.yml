@@ -3,7 +3,7 @@ OrthoBundle\Entity\Adjonctions:
     table: null
     repositoryClass: OrthoBundle\Repository\AdjonctionsRepository
     id:
-        id:
+        idAdj:
             type: integer
             id: true
             generator:
