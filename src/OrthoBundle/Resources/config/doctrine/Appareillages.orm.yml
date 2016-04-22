@@ -24,4 +24,9 @@ OrthoBundle\Entity\Appareillages:
             type: integer
             nullable : false
             column : compteur_app
+
+    manyToMany:
+        fidCommande:
+            targetEntity: Commandes
+            mappedBy: Appareillages
     lifecycleCallbacks: {  }

@@ -14,6 +14,8 @@ class Appareillages
      */
     private $idApp;
 
+    private $fidCommande;
+
     /**
      * @var string
      */

@@ -14,6 +14,8 @@ class Adjonctions
      */
     private $idAdj;
 
+    private $fkidCommande;
+
     /**
      * @var string
      */

@@ -9,9 +9,6 @@ OrthoBundle\Entity\Commandes:
             generator:
                 strategy: AUTO
     fields:
-        fidLaboratoire:
-            type: integer
-            column: fid_laboratoire
         fnomPatient:
             type: string
             length: 255
@@ -20,12 +17,7 @@ OrthoBundle\Entity\Commandes:
             type: date
         datecommande:
             type: date
-        fidApp:
-            type: integer
-            column: fid_app
-        fidAdj:
-            type: integer
-            column: fid_adj
+
 
     manyToOne:
         fidCabinet:
@@ -43,5 +35,38 @@ OrthoBundle\Entity\Commandes:
                 name: fid_patient
                 referencedColumnName: id_patient
                 nullable: false
+
+        fidLaboratoire:
+            targetEntity: Laboratoire
+            inversedBy: Commandes
+            joinColumn:
+                name: fid_laboratoire
+                referencedColumnName: id_labo
+                nullable: false
+
+    manyToMany:
+         fidApp:
+             targetEntity: Appareillages
+             inversedBy: Commandes
+             joinTable:
+                 name: Commandes_Appareillages
+                 joinColumns:
+                     Commandes_id:
+                         referencedColumnName: id_commande
+                 inverseJoinColumns:
+                     Appareillages_id:
+                         referencedColumnName: id_app
+
+         fidAdj:
+             targetEntity: Adjonctions
+             inversedBy: Commandes
+             joinTable:
+                 name: Commandes_Adjonctions
+                 joinColumns:
+                     Commandes_id:
+                         referencedColumnName: id_commande
+                 inverseJoinColumns:
+                     Adjonctions_id:
+                         referencedColumnName: id_adj
 
     lifecycleCallbacks: {  }

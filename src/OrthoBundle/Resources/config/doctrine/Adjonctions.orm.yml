@@ -26,4 +26,9 @@ OrthoBundle\Entity\Adjonctions:
             nullable: false
             column: compteur_adj
 
+    manyToMany:
+        fkidCommande:
+            targetEntity: Commandes
+            mappedBy: Adjonctions
+
     lifecycleCallbacks: {  }

@@ -9,14 +9,36 @@ OrthoBundle\Entity\AppAdjLabo:
             generator:
                 strategy: AUTO
     fields:
+
+
+
+
+    manyToOne:
         fidApp:
-            type: integer
-            column: fid_app
+            targetEntity: Appareillages
+            inversedBy: AppAdjLabo
+            joinColumn:
+                name: fid_app
+                referencedColumnName: id_app
+                nullable: false
+                unique: false
+
         fidAdj:
-            type: integer
-            nullable: true
-            column: fid_adj
+            targetEntity: Adjonctions
+            inversedBy: AppAdjLabo
+            joinColumn:
+                name: fid_adj
+                referencedColumnName: id_adj
+                nullable: false
+                unique: false
+
         fidLabo:
-            type: integer
-            column: fid_labo
+            targetEntity: Laboratoire
+            inversedBy: Commandes
+            joinColumn:
+                name: fid_labo
+                referencedColumnName: id_labo
+                nullable: false
+                unique: false
+
     lifecycleCallbacks: {  }
