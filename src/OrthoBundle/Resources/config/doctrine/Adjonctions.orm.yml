@@ -3,7 +3,7 @@ OrthoBundle\Entity\Adjonctions:
     table: null
     repositoryClass: OrthoBundle\Repository\AdjonctionsRepository
     id:
-        id:
+        idAdj:
             type: integer
             id: true
             generator:
@@ -21,4 +21,14 @@ OrthoBundle\Entity\Adjonctions:
         commentairesAdj:
             type: text
             column: commentaires_adj
+        compteurAdj:
+            type: integer
+            nullable: false
+            column: compteur_adj
+
+    manyToMany:
+        fkidCommande:
+            targetEntity: Commandes
+            mappedBy: Adjonctions
+
     lifecycleCallbacks: {  }

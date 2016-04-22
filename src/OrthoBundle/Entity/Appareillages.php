@@ -12,7 +12,9 @@ class Appareillages
     /**
      * @var int
      */
-    private $id;
+    private $idApp;
+
+    private $fidCommande;
 
     /**
      * @var string
@@ -29,6 +31,11 @@ class Appareillages
      */
     private $commentairesApp;
 
+    /**
+     * @var int
+     */
+    private $compteurApp;
+
 
     /**
      * Get id
@@ -37,7 +44,7 @@ class Appareillages
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idApp;
     }
 
     /**
@@ -107,5 +114,17 @@ class Appareillages
     public function getCommentairesApp()
     {
         return $this->commentairesApp;
+    }
+    
+    public function setCompteurApp($compteurApp)
+    {
+        $this->compteurApp = $compteurApp;
+        
+        return $this;
+    }
+    
+    public function getCompteurApp()
+    {
+        return $this->compteurApp;
     }
 }

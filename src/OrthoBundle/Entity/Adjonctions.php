@@ -12,7 +12,9 @@ class Adjonctions
     /**
      * @var int
      */
-    private $id;
+    private $idAdj;
+
+    private $fkidCommande;
 
     /**
      * @var string
@@ -29,15 +31,20 @@ class Adjonctions
      */
     private $commentairesAdj;
 
+    /**
+     * @var int
+     */
+    private $compteurAdj;
+
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdAdj()
     {
-        return $this->id;
+        return $this->idAdj;
     }
 
     /**
@@ -107,5 +114,17 @@ class Adjonctions
     public function getCommentairesAdj()
     {
         return $this->commentairesAdj;
+    }
+
+    public function setCompteurAdj($compteurAdj)
+    {
+        $this->compteurAdj = $compteurAdj;
+
+        return $this;
+    }
+
+    public function getCompteurAdj()
+    {
+        return $this->compteurAdj;
     }
 }

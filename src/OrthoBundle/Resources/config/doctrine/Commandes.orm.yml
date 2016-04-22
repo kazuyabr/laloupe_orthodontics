@@ -3,21 +3,12 @@ OrthoBundle\Entity\Commandes:
     table: null
     repositoryClass: OrthoBundle\Repository\CommandesRepository
     id:
-        id:
+        idCommande:
             type: integer
             id: true
             generator:
                 strategy: AUTO
     fields:
-        fidCab:
-            type: integer
-            column: fid_cab
-        fidLabo:
-            type: integer
-            column: fid_labo
-        fidPatient:
-            type: integer
-            column: fid_patient
         fnomPatient:
             type: string
             length: 255
@@ -26,10 +17,56 @@ OrthoBundle\Entity\Commandes:
             type: date
         datecommande:
             type: date
-        fidApp:
-            type: integer
-            column: fid_app
-        fidAdj:
-            type: integer
-            column: fid_adj
+
+
+    manyToOne:
+        fidCabinet:
+            targetEntity: Cabinetsdentaires
+            inversedBy: Commandes
+            joinColumn:
+                name: fid_cabinet
+                referencedColumnName: id_cab
+                nullable: false
+
+        fidPatient:
+            targetEntity: Listepatients
+            inversedBy: Commandes
+            joinColumn:
+                name: fid_patient
+                referencedColumnName: id_patient
+                nullable: false
+
+        fidLaboratoire:
+            targetEntity: Laboratoire
+            inversedBy: Commandes
+            joinColumn:
+                name: fid_laboratoire
+                referencedColumnName: id_labo
+                nullable: false
+
+    manyToMany:
+         fidApp:
+             targetEntity: Appareillages
+             inversedBy: Commandes
+             joinTable:
+                 name: Commandes_Appareillages
+                 joinColumns:
+                     Commandes_id:
+                         referencedColumnName: id_commande
+                 inverseJoinColumns:
+                     Appareillages_id:
+                         referencedColumnName: id_app
+
+         fidAdj:
+             targetEntity: Adjonctions
+             inversedBy: Commandes
+             joinTable:
+                 name: Commandes_Adjonctions
+                 joinColumns:
+                     Commandes_id:
+                         referencedColumnName: id_commande
+                 inverseJoinColumns:
+                     Adjonctions_id:
+                         referencedColumnName: id_adj
+
     lifecycleCallbacks: {  }
