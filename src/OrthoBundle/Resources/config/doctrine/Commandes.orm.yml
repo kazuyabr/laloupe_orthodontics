@@ -9,12 +9,9 @@ OrthoBundle\Entity\Commandes:
             generator:
                 strategy: AUTO
     fields:
-        fidCab:
+        fidLaboratoire:
             type: integer
-            column: fid_cab
-        fidLabo:
-            type: integer
-            column: fid_labo
+            column: fid_laboratoire
         fidPatient:
             type: integer
             column: fid_patient
@@ -32,4 +29,13 @@ OrthoBundle\Entity\Commandes:
         fidAdj:
             type: integer
             column: fid_adj
+
+    manyToOne:
+        fidCabinet:
+            targetEntity: Cabinetsdentaires
+            inversedBy: Commandes
+            joinColumn:
+                name: fid_cabinet
+                referencedColumnName: id_cab
+                nullable: false
     lifecycleCallbacks: {  }

@@ -4,10 +4,10 @@ OrthoBundle\Entity\Laboratoire:
     repositoryClass: OrthoBundle\Repository\LaboratoireRepository
     id:
         idLabo:
-                            type: integer
-                            id: true
-                            generator:
-                                strategy: AUTO
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
     fields:
         nomLabo:
             type: string

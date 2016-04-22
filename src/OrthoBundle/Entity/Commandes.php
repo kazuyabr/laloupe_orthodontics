@@ -17,12 +17,12 @@ class Commandes
     /**
      * @var int
      */
-    private $fidCab;
+    private $fidCabinet;
 
     /**
      * @var int
      */
-    private $fidLabo;
+    private $fidLaboratoire;
 
     /**
      * @var int
@@ -71,9 +71,9 @@ class Commandes
      * @param integer $fidCab
      * @return Commandes
      */
-    public function setFidCab($fidCab)
+    public function setFidCab($fidCabinet)
     {
-        $this->fidCab = $fidCab;
+        $this->fidCabinet = $fidCabinet;
 
         return $this;
     }
@@ -85,7 +85,7 @@ class Commandes
      */
     public function getFidCab()
     {
-        return $this->fidCab;
+        return $this->fidCabinet;
     }
 
     /**
@@ -94,9 +94,9 @@ class Commandes
      * @param integer $fidLabo
      * @return Commandes
      */
-    public function setFidLabo($fidLabo)
+    public function setFidLabo($fidLaboratoire)
     {
-        $this->fidLabo = $fidLabo;
+        $this->fidLaboratoire = $fidLaboratoire;
 
         return $this;
     }
@@ -108,7 +108,7 @@ class Commandes
      */
     public function getFidLabo()
     {
-        return $this->fidLabo;
+        return $this->fidLaboratoire;
     }
 
     /**
