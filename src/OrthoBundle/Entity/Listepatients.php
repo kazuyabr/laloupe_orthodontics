@@ -12,7 +12,7 @@ class Listepatients
     /**
      * @var int
      */
-    private $id;
+    private $idPatient;
 
     /**
      * @var int
@@ -42,7 +42,7 @@ class Listepatients
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idPatient;
     }
 
     /**

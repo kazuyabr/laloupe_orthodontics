@@ -12,7 +12,7 @@ class Cabinetsdentaires
     /**
      * @var int
      */
-    private $id;
+    private $idCab;
 
     /**
      * @var int
@@ -51,21 +51,16 @@ class Cabinetsdentaires
 
 
     /**
-     * Get id
+     * Get idCab
      *
      * @return integer 
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idCab;
     }
 
-    /**
-     * Set fidLabo
-     *
-     * @param integer $fidLabo
-     * @return Cabinetsdentaires
-     */
+    
     public function setFidLabo($fidLabo)
     {
         $this->fidLabo = $fidLabo;
