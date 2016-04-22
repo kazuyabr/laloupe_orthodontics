@@ -68,10 +68,10 @@ class Commandes
     /**
      * Set fidCab
      *
-     * @param integer $fidCab
+     * @param integer $fidCabinet
      * @return Commandes
      */
-    public function setFidCab($fidCabinet)
+    public function setFidCabinet($fidCabinet)
     {
         $this->fidCabinet = $fidCabinet;
 
@@ -79,22 +79,22 @@ class Commandes
     }
 
     /**
-     * Get fidCab
+     * Get fidCabinet
      *
      * @return integer 
      */
-    public function getFidCab()
+    public function getFidCabinet()
     {
         return $this->fidCabinet;
     }
 
     /**
-     * Set fidLabo
+     * Set fidLaboratoire
      *
-     * @param integer $fidLabo
+     * @param integer $fidLaboratoire
      * @return Commandes
      */
-    public function setFidLabo($fidLaboratoire)
+    public function setFidLaboratoire($fidLaboratoire)
     {
         $this->fidLaboratoire = $fidLaboratoire;
 
@@ -102,11 +102,11 @@ class Commandes
     }
 
     /**
-     * Get fidLabo
+     * Get fidLaboratoire
      *
      * @return integer 
      */
-    public function getFidLabo()
+    public function getFidLaboratoire()
     {
         return $this->fidLaboratoire;
     }
