@@ -1,90 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="systeme_onglets">
-    <div class="onglets">
-        <span class="onglet_0 onglet" id="onglet_quoi" onclick="javascript:change_onglet('quoi');">Formulaire</span>
-        <span class="onglet_0 onglet" id="onglet_qui" onclick="javascript:change_onglet('qui');">Site du Labo</span>
-        <span class="onglet_0 onglet" id="onglet_pourquoi" onclick="javascript:change_onglet('pourquoi');">Lien n°2</span>
-        <span class="onglet_0 onglet" id="onglet_lien3" onclick="javascript:change_onglet('lien3');">Lien n°3</span>
-        <span class="onglet_0 onglet" id="onglet_lien4" onclick="javascript:change_onglet('lien4');">Lien n°4</span>
-        <span class="onglet_0 onglet" id="onglet_lien5" onclick="javascript:change_onglet('lien5');">Lien n°5</span>
+    <div class="navbar_homepage">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="active"> <a href="#">Formulaire</a> </li>
+                    <li> <a href="#">Site du labo</a> </li>
+                    <li> <a href="#">Lien 2</a> </li>
+                    <li> <a href="#">Lien 3</a> </li>
+                    <li> <a href="#">Lien 4</a> </li>
+                    <li> <a href="#">Lien 5</a> </li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <div class="contenu_onglets">
-        <div class="contenu_onglet" id="contenu_onglet_quoi">
-            <h1>Formulaire</h1>
-            {{ form_start(form) }}
 
-                <label for="fidPatient">ID du patient :</label>
-                {{ form_errors(form.fidPatient) }}
-                {{ form_widget(form.fidPatient) }}
-                <br />
 
-                <label for="fnomPatient">Prénom du patient :</label>
-                {{ form_errors(form.fnomPatient) }}
-                {{ form_widget(form.fnomPatient) }}
-                <br />
+ <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
 
-                <label for="dateretour">Date de retour souhaitée :</label>
-                {{ form_errors(form.dateretour) }}
-                {{ form_widget(form.dateretour) }}
-                <br />
+{{ form_start(form) }}
 
-                <label for="fidApp">Appareillages :</label>
-                {{ form_errors(form.fidApp) }}
-                {{ form_widget(form.fidApp) }}
-                <br />
+    <span><label for="fidPatient">ID du patient :</label>   </span>
+    {{ form_errors(form.fidPatient) }}
+    {{ form_widget(form.fidPatient) }}
+    <br />
 
-                <label for="fidAdj">Adjonctions :</label>
-                {{ form_errors(form.fidAdj) }}
-                {{ form_widget(form.fidAdj) }}
-                <br />
-                <input type="submit" value =">> ENVOYER  !! <<" />
-            {{ form_end(form) }}
-        </div>
-        <div class="contenu_onglet" id="contenu_onglet_qui">
-            <h1>Qui?</h1>
-            C'est un script r&eacute;alis&eacute; par Ybouane,<br />
-            Webmaster du site <a href="http://www.supportduweb.com/">http://www.supportduweb.com/</a>
-        </div>
-        <div class="contenu_onglet" id="contenu_onglet_pourquoi">
-            <h1>Pourquoi?</h1>
-            Pour simplifier la navigation et la diviser en parties
-        </div>
-        <div class="contenu_onglet" id="contenu_onglet_lien3">
-            <h1>Pourquoi?</h1>
-            Pour simplifier la navigation et la diviser en parties
-        </div>
-        <div class="contenu_onglet" id="contenu_onglet_lien4">
-            <h1>Pourquoi?</h1>
-            Pour simplifier la navigation et la diviser en parties
-        </div>
-        <div class="contenu_onglet" id="contenu_onglet_lien5">
-            <h1>Pouirquoi?</h1>
-            Pour simplifier la navigation et la diviser en parties
-        </div>
-    </div>
-</div>
+    <label for="fnomPatient">Prénom du patient :</label>
+    {{ form_errors(form.fnomPatient) }}
+    {{ form_widget(form.fnomPatient) }}
+    <br />
+
+    <label for="dateretour">Date de retour souhaitée :</label>
+    {{ form_errors(form.dateretour) }}
+    {{ form_widget(form.dateretour) }}
+    <br />
+
+    <label for="fidApp">Appareillages :</label>
+    {{ form_errors(form.fidApp) }}
+    {{ form_widget(form.fidApp) }}
+    <br />
+
+    <label for="fidAdj">Adjonctions :</label>
+    &nbsp;{{ form_errors(form.fidAdj) }}
+    {{ form_widget(form.fidAdj) }}
+    <br />
+    <input type="submit" value =">> ENVOYER  !! <<" />
+{{ form_end(form) }}
+
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript">
 
-        function change_onglet(name)
-        {
-            document.getElementById('onglet_'+anc_onglet).className = 'onglet_0 onglet';
-            document.getElementById('onglet_'+name).className = 'onglet_1 onglet';
-            document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
-            document.getElementById('contenu_onglet_'+name).style.display = 'block';
-            anc_onglet = name;
-        }
-
-    </script>
-
-    <script type="text/javascript">
-        var anc_onglet = 'quoi';
-        change_onglet(anc_onglet);
-    </script>
 {% endblock %}
 
 

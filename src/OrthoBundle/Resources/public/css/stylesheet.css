@@ -1,39 +1,5 @@
-.onglet
+#commandes_fidApp, #commandes_fidAdj
 {
-    display:inline-block;
-    margin-left:6px;
-    margin-right:40px;
-    padding:3px;
+    width: 300px;
+}
 
-    cursor:pointer;
-}
-.onglet_0 /* Les deux onglets inactifs */
-{
-    background: #FFFFFF;
-
-}
-.onglet_1 /* L'onglet actif */
-{
-    background: white;
-    border-bottom:0px solid black;
-    padding-bottom:4px;
-    color: #65B32E;
-}
-.contenu_onglet
-{
-    margin-top:6px;
-    margin-left: 5px;
-    padding:5px;
-    display:none;
-}
-ul
-{
-    margin-top:30px;
-    margin-bottom:0px;
-    margin-left:-10px
-}
-h1
-{
-    margin:0px;
-    padding:0px;
-}
