@@ -4,12 +4,11 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Néo 3D | Orthodontics{% endblock %}</title>
         {% block stylesheets %}
-            <!-- Appel de nos feuilles de style CSS -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}" />
-
             <!-- Appel des bibliothèques Bootstrap -->
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}" />
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}" />
+            <!-- Appel de nos feuilles de style CSS -->
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
