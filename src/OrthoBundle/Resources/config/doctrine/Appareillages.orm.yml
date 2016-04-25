@@ -29,4 +29,5 @@ OrthoBundle\Entity\Appareillages:
         fidCommande:
             targetEntity: Commandes
             mappedBy: Appareillages
+
     lifecycleCallbacks: {  }
