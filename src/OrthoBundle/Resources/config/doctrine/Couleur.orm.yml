@@ -1,0 +1,16 @@
+OrthoBundle\Entity\Couleur:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\CouleurRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomCouleur:
+            type: string
+            length: 255
+            column: nom_couleur
+    lifecycleCallbacks: {  }

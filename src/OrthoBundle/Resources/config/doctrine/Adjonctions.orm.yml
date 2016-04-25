@@ -13,6 +13,10 @@ OrthoBundle\Entity\Adjonctions:
             type: string
             length: 255
             column: titre_adj
+        familleAdj:
+            type: string
+            length: 3
+            column: famille_adj
         imgAdj:
             type: string
             length: 255
@@ -25,6 +29,16 @@ OrthoBundle\Entity\Adjonctions:
             type: integer
             nullable: false
             column: compteur_adj
+        infoComLaboAdj:
+            type: string
+            length: 255
+            column: info_com_labo_adj
+            nullable: true
+        infoComCabAdj:
+            type: string
+            length: 255
+            column: info_com_cab_adj
+            nullable: true
 
     manyToMany:
         fkidCommande:

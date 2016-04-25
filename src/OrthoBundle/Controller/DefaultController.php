@@ -19,6 +19,4 @@ class DefaultController extends Controller
         $form = $this->createForm(new CommandesType());
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array('form'=>$form->createView()));
     }
-
-    
 }
