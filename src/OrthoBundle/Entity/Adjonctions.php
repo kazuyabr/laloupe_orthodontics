@@ -24,6 +24,11 @@ class Adjonctions
     /**
      * @var string
      */
+    private $familleAdj;
+
+    /**
+     * @var string
+     */
     private $imgAdj;
 
     /**
@@ -35,6 +40,16 @@ class Adjonctions
      * @var int
      */
     private $compteurAdj;
+
+    /**
+     * @var string
+     */
+    private $infoComLaboAdj;
+
+    /**
+     * @var string
+     */
+    private $infoComCabAdj;
 
 
     /**

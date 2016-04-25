@@ -1,0 +1,13 @@
+OrthoBundle\Entity\Commandes:
+    properties:
+        fidPatient:
+            - NotBlank: ~
+
+        dateretour:
+            - NotBlank: ~
+
+        fidApp:
+            - NotBlank: ~
+
+        fidAdj:
+            - NotBlank: ~

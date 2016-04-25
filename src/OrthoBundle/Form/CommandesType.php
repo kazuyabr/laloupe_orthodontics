@@ -2,6 +2,7 @@
 
 namespace OrthoBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -30,8 +31,17 @@ class CommandesType extends AbstractType
             ->add('dateretour', DateType::class, array(
                 "label" => "Date de retour souhaitée"
             ))
-            ->add('fidApp')
-            ->add('fidAdj')
+            ->add('fidApp', 'entity', array(
+                'class' => 'OrthoBundle:Appareillages',
+                'property' => 'titre_app',
+                'multiple' => 'true'
+            ))
+            ->add('fidAdj', EntityType::class, array(
+                'class' => 'OrthoBundle:Adjonctions',
+                'property' => 'titre_adj',
+                'multiple' => 'true'
+            ))
+
         ;
     }
     

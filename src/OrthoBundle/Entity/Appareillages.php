@@ -24,6 +24,11 @@ class Appareillages
     /**
      * @var string
      */
+    private $familleApp;
+
+    /**
+     * @var string
+     */
     private $imgApp;
 
     /**
@@ -35,6 +40,16 @@ class Appareillages
      * @var int
      */
     private $compteurApp;
+
+    /**
+     * @var string
+     */
+    private $infoComLaboApp;
+
+    /**
+     * @var string
+     */
+    private $infoComCabApp;
 
 
     /**
