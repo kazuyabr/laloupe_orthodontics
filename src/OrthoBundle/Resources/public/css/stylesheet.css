@@ -1,5 +1,31 @@
 #commandes_fidApp, #commandes_fidAdj
 {
     width: 300px;
+    padding: 5px;
 }
+
+form
+{
+    background-color: silver;
+    background-image: url("img/image_form.png");
+    padding-left:20px;
+    padding-top:20px;
+    border-radius:15px ;
+    margin-right:500px;
+    height:500px;
+
+}
+input
+{
+    margin: 10px;
+}
+
+button{
+    margin: 20px!important;
+    text-align: center!important;
+
+}
+
+
+
 
