@@ -215,4 +215,14 @@ class Cabinetsdentaires
     {
         return $this->telephoneCab;
     }
+
+    /**
+     * Get idCab
+     *
+     * @return integer 
+     */
+    public function getIdCab()
+    {
+        return $this->idCab;
+    }
 }

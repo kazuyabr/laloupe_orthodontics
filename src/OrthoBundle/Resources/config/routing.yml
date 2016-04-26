@@ -4,4 +4,9 @@ ortho_homepage:
 
 ortho_formulaire:
     path:     /formulaire
-    defaults: { _controller: OrthoBundle:Default:formulaire }
+    defaults: { _controller: OrthoBundle:Default:create }
+
+envoi_bdd:
+    path:     /envoiok
+    defaults: { _controller: OrthoBundle:Default:envoi }
+    methods: [POST, GET]

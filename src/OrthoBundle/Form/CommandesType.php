@@ -44,7 +44,7 @@ class CommandesType extends AbstractType
 
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
