@@ -16,7 +16,6 @@ OrthoBundle\Entity\AppAdjLabo:
     manyToOne:
         fidApp:
             targetEntity: Appareillages
-            inversedBy: AppAdjLabo
             joinColumn:
                 name: fid_app
                 referencedColumnName: id_app
@@ -25,7 +24,6 @@ OrthoBundle\Entity\AppAdjLabo:
 
         fidAdj:
             targetEntity: Adjonctions
-            inversedBy: AppAdjLabo
             joinColumn:
                 name: fid_adj
                 referencedColumnName: id_adj
@@ -34,7 +32,6 @@ OrthoBundle\Entity\AppAdjLabo:
 
         fidLabo:
             targetEntity: Laboratoire
-            inversedBy: Commandes
             joinColumn:
                 name: fid_labo
                 referencedColumnName: id_labo

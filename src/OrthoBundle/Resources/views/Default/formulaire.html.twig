@@ -1,12 +1,49 @@
+{% extends 'base.html.twig' %}
+
 
 {# src/OC/PlatformBundle/Resources/views/Advert/form.html.twig #}
 
-<h3>Formulaire de commandes</h3>
+{% block body %}
 
-<div class="well">
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="submit">
-    {{ form_end(form) }}
+ <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
+<form method="post">
+{{ form_start(form) }}
 
-</div>
+    <span><label for="fidPatient">ID du patient :</label>   </span>
+    {{ form_errors(form.fidPatient) }}
+    {{ form_widget(form.fidPatient) }}
+    <br />
+
+    <label for="fnomPatient">Prénom du patient :</label>
+    {{ form_errors(form.fnomPatient) }}
+    {{ form_widget(form.fnomPatient) }}
+    <br />
+
+    <label for="dateretour">Date de retour souhaitée :</label>
+    {{ form_errors(form.dateretour) }}
+    {{ form_widget(form.dateretour) }}
+    <br />
+
+    <label for="fidApp">Appareillages :</label>
+    {{ form_errors(form.fidApp) }}
+    {{ form_widget(form.fidApp) }}
+    <br />
+
+    <label for="fidAdj">Adjonctions :</label>
+    &nbsp;{{ form_errors(form.fidAdj) }}
+    {{ form_widget(form.fidAdj) }}
+    <br />
+    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-envelope" style="color:#4f4;"></span> ENVOYER !</button>
+{{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+
+
+
+
+

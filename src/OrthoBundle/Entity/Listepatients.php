@@ -9,6 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Listepatients
 {
+    public function __toString()
+    {
+        return $this->nomPatient;
+    }
+
+
+
+
+
+
+    
     /**
      * @var int
      */
@@ -135,5 +146,15 @@ class Listepatients
     public function getPrenomPatient()
     {
         return $this->prenomPatient;
+    }
+
+    /**
+     * Get idPatient
+     *
+     * @return integer 
+     */
+    public function getIdPatient()
+    {
+        return $this->idPatient;
     }
 }

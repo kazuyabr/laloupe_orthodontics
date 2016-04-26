@@ -22,15 +22,13 @@ OrthoBundle\Entity\Commandes:
     manyToOne:
         fidCabinet:
             targetEntity: Cabinetsdentaires
-            inversedBy: Commandes
             joinColumn:
                 name: fid_cabinet
                 referencedColumnName: id_cab
-                nullable: false
+                nullable: true
 
         fidPatient:
             targetEntity: Listepatients
-            inversedBy: Commandes
             joinColumn:
                 name: fid_patient
                 referencedColumnName: id_patient
@@ -38,11 +36,10 @@ OrthoBundle\Entity\Commandes:
 
         fidLaboratoire:
             targetEntity: Laboratoire
-            inversedBy: Commandes
             joinColumn:
                 name: fid_laboratoire
                 referencedColumnName: id_labo
-                nullable: false
+                nullable: true
 
     manyToMany:
          fidApp:
@@ -69,4 +66,5 @@ OrthoBundle\Entity\Commandes:
                      Adjonctions_id:
                          referencedColumnName: id_adj
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+          prePersist: [setCreatedAtValue]

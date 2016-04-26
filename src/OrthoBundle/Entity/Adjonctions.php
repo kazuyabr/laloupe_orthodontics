@@ -24,6 +24,11 @@ class Adjonctions
     /**
      * @var string
      */
+    private $familleAdj;
+
+    /**
+     * @var string
+     */
     private $imgAdj;
 
     /**
@@ -35,6 +40,16 @@ class Adjonctions
      * @var int
      */
     private $compteurAdj;
+
+    /**
+     * @var string
+     */
+    private $infoComLaboAdj;
+
+    /**
+     * @var string
+     */
+    private $infoComCabAdj;
 
 
     /**
@@ -126,5 +141,114 @@ class Adjonctions
     public function getCompteurAdj()
     {
         return $this->compteurAdj;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fkidCommande = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set familleAdj
+     *
+     * @param string $familleAdj
+     * @return Adjonctions
+     */
+    public function setFamilleAdj($familleAdj)
+    {
+        $this->familleAdj = $familleAdj;
+
+        return $this;
+    }
+
+    /**
+     * Get familleAdj
+     *
+     * @return string 
+     */
+    public function getFamilleAdj()
+    {
+        return $this->familleAdj;
+    }
+
+    /**
+     * Set infoComLaboAdj
+     *
+     * @param string $infoComLaboAdj
+     * @return Adjonctions
+     */
+    public function setInfoComLaboAdj($infoComLaboAdj)
+    {
+        $this->infoComLaboAdj = $infoComLaboAdj;
+
+        return $this;
+    }
+
+    /**
+     * Get infoComLaboAdj
+     *
+     * @return string 
+     */
+    public function getInfoComLaboAdj()
+    {
+        return $this->infoComLaboAdj;
+    }
+
+    /**
+     * Set infoComCabAdj
+     *
+     * @param string $infoComCabAdj
+     * @return Adjonctions
+     */
+    public function setInfoComCabAdj($infoComCabAdj)
+    {
+        $this->infoComCabAdj = $infoComCabAdj;
+
+        return $this;
+    }
+
+    /**
+     * Get infoComCabAdj
+     *
+     * @return string 
+     */
+    public function getInfoComCabAdj()
+    {
+        return $this->infoComCabAdj;
+    }
+
+    /**
+     * Add fkidCommande
+     *
+     * @param \OrthoBundle\Entity\Commandes $fkidCommande
+     * @return Adjonctions
+     */
+    public function addFkidCommande(\OrthoBundle\Entity\Commandes $fkidCommande)
+    {
+        $this->fkidCommande[] = $fkidCommande;
+
+        return $this;
+    }
+
+    /**
+     * Remove fkidCommande
+     *
+     * @param \OrthoBundle\Entity\Commandes $fkidCommande
+     */
+    public function removeFkidCommande(\OrthoBundle\Entity\Commandes $fkidCommande)
+    {
+        $this->fkidCommande->removeElement($fkidCommande);
+    }
+
+    /**
+     * Get fkidCommande
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFkidCommande()
+    {
+        return $this->fkidCommande;
     }
 }
