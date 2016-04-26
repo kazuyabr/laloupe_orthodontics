@@ -30,6 +30,10 @@
                             class="active"{% endif %}>
                             <a href="{{ path('envoi_bdd') }}">Récap</a>
                         </li>
+                        <li {% if app.request.get('_route') == 'uploads_index' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('uploads_index') }}">Upload</a>
+                        </li>
                         <li> <a href="#">Site du labo</a> </li>
                         <li> <a href="#">Lien 3</a> </li>
                         <li> <a href="#">Lien 4</a> </li>
