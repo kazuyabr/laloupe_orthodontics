@@ -26,7 +26,7 @@ OrthoBundle\Entity\Commandes:
             joinColumn:
                 name: fid_cabinet
                 referencedColumnName: id_cab
-                nullable: false
+                nullable: true
 
         fidPatient:
             targetEntity: Listepatients
@@ -42,7 +42,7 @@ OrthoBundle\Entity\Commandes:
             joinColumn:
                 name: fid_laboratoire
                 referencedColumnName: id_labo
-                nullable: false
+                nullable: true
 
     manyToMany:
          fidApp:
@@ -69,4 +69,5 @@ OrthoBundle\Entity\Commandes:
                      Adjonctions_id:
                          referencedColumnName: id_adj
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+          prePersist: [setCreatedAtValue]

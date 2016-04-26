@@ -19,9 +19,7 @@ class CommandesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fidPatient', IntegerType::class, array(
-                "label" => "n° d'ID du patient"
-                ))
+            ->add('fidPatient')
             ->add('fnomPatient', TextType::class, array(
                 'attr' => array(
                     'placeholder' => 'Mme. / Mr. ...'
