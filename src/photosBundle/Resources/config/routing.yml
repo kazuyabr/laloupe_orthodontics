@@ -1,3 +1,7 @@
+photos_uploads:
+    resource: "@photosBundle/Resources/config/routing/uploads.yml"
+    prefix:   /uploads
+
 photos_homepage:
     path:     /
     defaults: { _controller: photosBundle:Default:index }

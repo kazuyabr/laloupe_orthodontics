@@ -11,3 +11,6 @@ OrthoBundle\Entity\Commandes:
 
         fidAdj:
             - NotBlank: ~
+
+        file:
+            - Image: ~
