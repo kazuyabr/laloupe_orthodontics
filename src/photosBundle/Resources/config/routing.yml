@@ -3,5 +3,5 @@ photos_uploads:
     prefix:   /uploads
 
 photos_homepage:
-    path:     /
+    path:     /truc
     defaults: { _controller: photosBundle:Default:index }
