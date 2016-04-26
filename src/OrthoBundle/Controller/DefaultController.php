@@ -2,10 +2,12 @@
 
 namespace OrthoBundle\Controller;
 
+use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Form\CommandesType;
 use OrthoBundle\Form\LaboratoireType;
 use OrthoBundle\Form\ListepatientsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\BrowserKit\Request;
 
 class DefaultController extends Controller
 {
@@ -18,5 +20,32 @@ class DefaultController extends Controller
     {
         $form = $this->createForm(new CommandesType());
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array('form'=>$form->createView()));
+    }
+
+
+    public function createAction()
+    {
+        $commandes  = new Commandes();
+        $form    = $this->createForm(new CommandesType(), $commandes);
+
+        if ($form->isValid() && $form->isSubmitted()) {
+            $em = $this->getDoctrine()->getEntityManager();
+
+            $em->persist($commandes);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('envoi_bdd'));
+        }
+
+        return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
+            'entity' => $commandes,
+            'form'   => $form->createView()
+        ));
+    }
+
+
+    public function envoiAction()
+    {
+        return $this->render('OrthoBundle:Default:envoiok.html.twig');
     }
 }

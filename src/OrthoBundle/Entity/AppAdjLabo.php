@@ -108,4 +108,14 @@ class AppAdjLabo
     {
         return $this->fidLabo;
     }
+
+    /**
+     * Get idAppAdjLabo
+     *
+     * @return integer 
+     */
+    public function getIdAppAdjLabo()
+    {
+        return $this->idAppAdjLabo;
+    }
 }

@@ -192,4 +192,14 @@ class Laboratoire
     {
         return $this->telephoneLabo;
     }
+
+    /**
+     * Get idLabo
+     *
+     * @return integer 
+     */
+    public function getIdLabo()
+    {
+        return $this->idLabo;
+    }
 }

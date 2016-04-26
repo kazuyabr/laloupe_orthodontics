@@ -18,7 +18,7 @@
 
 
  <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
-
+<form method="post">
 {{ form_start(form) }}
 
     <span><label for="fidPatient">ID du patient :</label>   </span>
@@ -45,6 +45,7 @@
     &nbsp;{{ form_errors(form.fidAdj) }}
     {{ form_widget(form.fidAdj) }}
     <br />
+
     <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-envelope" style="color:#4f4;"></span> ENVOYER !</button>
 {{ form_end(form) }}
 

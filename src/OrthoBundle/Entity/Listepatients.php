@@ -136,4 +136,14 @@ class Listepatients
     {
         return $this->prenomPatient;
     }
+
+    /**
+     * Get idPatient
+     *
+     * @return integer 
+     */
+    public function getIdPatient()
+    {
+        return $this->idPatient;
+    }
 }
