@@ -1,31 +1,42 @@
+
 body {
     margin: 0 1.5em;
-    background-color: silver;
+    background-color:#20B2AA;
 }
+
 
 #commandes_fidApp, #commandes_fidAdj {
     width: 300px;
     padding: 5px;
 }
 
-form {
-    background-color: #20B2AA;
-    background-image: url("img/image_form.png");
-    padding: 20px;
-    border-radius: 15px ;
-    width: 700px;
-    /*margin-right: 500px;*/
-    /*height: 500px;*/
-}
 
-input {
+
+form
+{
+    background-color: silver;
+    padding-left:20px;
+    padding-top:20px;
+    border-radius:15px ;
+    margin-right:200px;
+    margin-left: 200px;
+    height:500px;
+
+}
+h3
+{
+    text-align: center;
+}
+input
+{
     margin: 10px;
 }
 
-.btn {
-    margin: 20px 0 !important;
-    text-align: center!important;
+button {
+    margin: 20px !important;
+    text-align: center !important;
 }
+
 
 .navbar-inverse {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,c8d7eb+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100;Grey+Blue+Gloss+%231 */
@@ -39,10 +50,6 @@ input {
     margin: 0 -1.5em;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    color: darkslategrey;
-    background-color: transparent;
-}
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
     /*text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);*/
@@ -51,7 +58,5 @@ input {
     color: whitesmoke;
 }
 
-/*.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    color: #fff;
-    background-color: rgba(63, 76, 107, 0.5);
-}*/
+
+
