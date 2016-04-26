@@ -7,7 +7,7 @@ use OrthoBundle\Form\CommandesType;
 use OrthoBundle\Form\LaboratoireType;
 use OrthoBundle\Form\ListepatientsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -23,13 +23,13 @@ class DefaultController extends Controller
     }
 
 
-    public function createAction()
+    public function createAction(Request $request)
     {
 
         $commandes  = new Commandes();
         $request = $this->getRequest();
         $form    = $this->createForm(new CommandesType(), $commandes);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid() && $form->isSubmitted())
         {

@@ -10,8 +10,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Commandes
 {
 
-   
-    
+
+    public function __toString()
+    {
+        return $this->fnomPatient;
+    }
+
+    public function setCreatedAtValue()
+    {
+        $this->setDatecommande(new \DateTime());
+    }
+
+
     /**
      * @var int
      */

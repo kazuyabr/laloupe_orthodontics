@@ -19,11 +19,8 @@ class CommandesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fidPatient', EntityType::class, array(
-                    'class' => 'OrthoBundle:Listepatients',
-                    'property' => 'id_patient',
-                    'multiple' => 'true'
-                ))
+
+            ->add('fidPatient')
             ->add('fnomPatient', TextType::class, array(
                 'attr' => array(
                     'placeholder' => 'Mme. / Mr. ...'
