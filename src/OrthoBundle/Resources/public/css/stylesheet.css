@@ -4,6 +4,10 @@ body {
     background-color:silver;
 }
 
+#ours {
+    width: 100%;
+
+}
 
 #commandes_fidApp, #commandes_fidAdj {
     width: 300px;
