@@ -35,11 +35,11 @@ OrthoBundle\Entity\Cabinetsdentaires:
             column: telephone_cab
 
     manyToOne:
-            fidLabo:
-                targetEntity: Laboratoire
-                inversedBy: Cabinetsdentaires
-                joinColumn:
-                    name: fid_labo
-                    referencedColumnName: id_labo
-                    nullable: false
+        fidLabo:
+            targetEntity: Laboratoire
+            inversedBy: Cabinetsdentaires
+            joinColumn:
+                name: fid_labo
+                referencedColumnName: id_labo
+                nullable: false
     lifecycleCallbacks: {  }
