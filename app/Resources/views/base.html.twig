@@ -18,13 +18,19 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
 
-                        <li class="..." {% if active_links.link1 is defined %} active{% endif %}>
-
-                        <li><a href="{{ path('ortho_homepage') }}">Accueil</a></li>
-
-                        <li class="active"> <a href="{{ path('ortho_formulaire') }}">Formulaire</a> </li>
+                        <li {% if app.request.get('_route') == 'ortho_homepage' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('ortho_homepage') }}">Accueil</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'ortho_formulaire' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'envoi_bdd' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('envoi_bdd') }}">Récap</a>
+                        </li>
                         <li> <a href="#">Site du labo</a> </li>
-                        <li> <a href="{{ path('envoi_bdd') }}">Récap</a> </li>
                         <li> <a href="#">Lien 3</a> </li>
                         <li> <a href="#">Lien 4</a> </li>
                         <li> <a href="#">Lien 5</a> </li>
