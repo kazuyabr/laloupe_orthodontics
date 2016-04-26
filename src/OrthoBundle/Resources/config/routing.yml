@@ -5,6 +5,7 @@ ortho_homepage:
 ortho_formulaire:
     path:     /formulaire
     defaults: { _controller: OrthoBundle:Default:create }
+    methods: [POST, GET]
 
 envoi_bdd:
     path:     /envoiok

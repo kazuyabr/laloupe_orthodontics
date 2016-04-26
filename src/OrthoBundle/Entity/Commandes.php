@@ -10,10 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Commandes
 {
 
-    public function __toString()
-    {
-        return $this->fidApp;
-    }
+   
     
     /**
      * @var int

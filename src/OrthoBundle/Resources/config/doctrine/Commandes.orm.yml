@@ -22,7 +22,6 @@ OrthoBundle\Entity\Commandes:
     manyToOne:
         fidCabinet:
             targetEntity: Cabinetsdentaires
-            inversedBy: Commandes
             joinColumn:
                 name: fid_cabinet
                 referencedColumnName: id_cab
@@ -30,7 +29,6 @@ OrthoBundle\Entity\Commandes:
 
         fidPatient:
             targetEntity: Listepatients
-            inversedBy: Commandes
             joinColumn:
                 name: fid_patient
                 referencedColumnName: id_patient
@@ -38,7 +36,6 @@ OrthoBundle\Entity\Commandes:
 
         fidLaboratoire:
             targetEntity: Laboratoire
-            inversedBy: Commandes
             joinColumn:
                 name: fid_laboratoire
                 referencedColumnName: id_labo

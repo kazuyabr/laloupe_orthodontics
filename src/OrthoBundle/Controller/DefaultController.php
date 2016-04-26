@@ -25,11 +25,15 @@ class DefaultController extends Controller
 
     public function createAction()
     {
-        $commandes  = new Commandes();
-        $form    = $this->createForm(new CommandesType(), $commandes);
 
-        if ($form->isValid() && $form->isSubmitted()) {
-            $em = $this->getDoctrine()->getEntityManager();
+        $commandes  = new Commandes();
+        $request = $this->getRequest();
+        $form    = $this->createForm(new CommandesType(), $commandes);
+        $form->bind($request);
+
+        if ($form->isValid() && $form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
 
             $em->persist($commandes);
             $em->flush();

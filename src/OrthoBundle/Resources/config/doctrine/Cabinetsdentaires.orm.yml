@@ -37,9 +37,9 @@ OrthoBundle\Entity\Cabinetsdentaires:
     manyToOne:
             fidLabo:
                 targetEntity: Laboratoire
-                inversedBy: Cabinetsdentaires
                 joinColumn:
                     name: fid_labo
                     referencedColumnName: id_labo
                     nullable: false
+
     lifecycleCallbacks: {  }
