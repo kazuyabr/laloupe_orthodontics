@@ -12,7 +12,7 @@ class Couleur
     /**
      * @var int
      */
-    private $id;
+    private $idCouleur;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class Couleur
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idCouleur;
     }
 
     /**

@@ -12,7 +12,7 @@ class Motif
     /**
      * @var int
      */
-    private $id;
+    private $idMotif;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class Motif
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idMotif;
     }
 
     /**

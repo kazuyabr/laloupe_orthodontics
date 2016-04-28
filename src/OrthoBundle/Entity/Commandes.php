@@ -13,7 +13,7 @@ class Commandes
 
     public function __toString()
     {
-        return $this->fnomPatient;
+        return $this->nomPatient;
     }
 
     public function setCreatedAtValue()
@@ -45,7 +45,7 @@ class Commandes
     /**
      * @var string
      */
-    private $fnomPatient;
+    private $nomPatient;
 
     /**
      * @var \DateTime
@@ -66,6 +66,12 @@ class Commandes
      * @var int
      */
     private $fidAdj;
+
+    
+    private $fidCouleur;
+
+    private $fidMotif;
+
 
 
     /**
@@ -153,9 +159,9 @@ class Commandes
      * @param string $fnomPatient
      * @return Commandes
      */
-    public function setFnomPatient($fnomPatient)
+    public function setFnomPatient($nomPatient)
     {
-        $this->fnomPatient = $fnomPatient;
+        $this->nomPatient = $nomPatient;
 
         return $this;
     }
@@ -167,7 +173,7 @@ class Commandes
      */
     public function getFnomPatient()
     {
-        return $this->fnomPatient;
+        return $this->nomPatient;
     }
 
     /**
