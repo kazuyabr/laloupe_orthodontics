@@ -27,13 +27,6 @@ OrthoBundle\Entity\Commandes:
                 referencedColumnName: id_cab
                 nullable: true
 
-        fidPatient:
-            targetEntity: Listepatients
-            joinColumn:
-                name: fid_patient
-                referencedColumnName: id_patient
-                nullable: false
-
         fidLaboratoire:
             targetEntity: Laboratoire
             joinColumn:
