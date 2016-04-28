@@ -20,8 +20,8 @@ class CommandesType extends AbstractType
     {
         $builder
 
-            ->add('fidPatient')
-            ->add('fnomPatient', TextType::class, array(
+            ->add('referencePatient')
+            ->add('prenomPatient', TextType::class, array(
                 'attr' => array(
                     'placeholder' => 'Ex: Jean'
                 ),

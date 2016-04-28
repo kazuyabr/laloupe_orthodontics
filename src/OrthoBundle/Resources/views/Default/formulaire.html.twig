@@ -9,14 +9,14 @@
 <form action="{{ path('ortho_formulaire') }}"method="post">
 {{ form_start(form) }}
 
-    <span><label for="fidPatient">ID du patient :</label>   </span>
-    {{ form_errors(form.fidPatient) }}
-    {{ form_widget(form.fidPatient) }}
+    <span><label for="referencePatient">Référence du patient [Nom ou ID] :</label>   </span>
+    {{ form_errors(form.referencePatient) }}
+    {{ form_widget(form.referencePatient) }}
     <br />
 
     <label for="fnomPatient">Prénom du patient :</label>
-    {{ form_errors(form.fnomPatient) }}
-    {{ form_widget(form.fnomPatient) }}
+    {{ form_errors(form.prenomPatient) }}
+    {{ form_widget(form.prenomPatient) }}
     <br />
 
     <label for="dateretour">Date de retour souhaitée :</label>

@@ -176,7 +176,7 @@ class Commandes
     /**
      * Get fnomPatient
      *
-     * @return string 
+     * @return string
      */
     public function getFnomPatient()
     {
