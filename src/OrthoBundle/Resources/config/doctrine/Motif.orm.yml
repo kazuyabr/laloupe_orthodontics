@@ -3,7 +3,7 @@ OrthoBundle\Entity\Motif:
     table: null
     repositoryClass: OrthoBundle\Repository\MotifRepository
     id:
-        id:
+        idMotif:
             type: integer
             id: true
             generator:

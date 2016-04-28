@@ -20,10 +20,10 @@ class CommandesType extends AbstractType
     {
         $builder
 
-            ->add('fidPatient')
-            ->add('fnomPatient', TextType::class, array(
+            ->add('referencePatient')
+            ->add('prenomPatient', TextType::class, array(
                 'attr' => array(
-                    'placeholder' => 'Mme. / Mr. ...'
+                    'placeholder' => 'Ex: Jean'
                 ),
                     'label' => 'Prénom Patient',
                 ))
@@ -40,6 +40,9 @@ class CommandesType extends AbstractType
                 'property' => 'titre_adj',
                 'multiple' => 'true'
             ))
+            ->add('fidCouleur')
+
+            ->add('fidMotif')
 
         ;
     }

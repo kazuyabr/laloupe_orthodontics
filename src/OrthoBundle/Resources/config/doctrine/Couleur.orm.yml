@@ -3,7 +3,7 @@ OrthoBundle\Entity\Couleur:
     table: null
     repositoryClass: OrthoBundle\Repository\CouleurRepository
     id:
-        id:
+        idCouleur:
             type: integer
             id: true
             generator:

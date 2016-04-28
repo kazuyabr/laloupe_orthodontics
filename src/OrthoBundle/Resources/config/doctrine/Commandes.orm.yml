@@ -9,15 +9,19 @@ OrthoBundle\Entity\Commandes:
             generator:
                 strategy: AUTO
     fields:
-        fnomPatient:
+
+        referencePatient:
             type: string
-            length: 255
-            column: fnom_patient
+            length: 125
+            column: reference_patient
+        prenomPatient:
+            type: string
+            length: 125
+            column: prenom_patient
         dateretour:
             type: date
         datecommande:
-            type: date
-
+            type: datetime
 
     manyToOne:
         fidCabinet:
@@ -27,19 +31,26 @@ OrthoBundle\Entity\Commandes:
                 referencedColumnName: id_cab
                 nullable: true
 
-        fidPatient:
-            targetEntity: Listepatients
-            joinColumn:
-                name: fid_patient
-                referencedColumnName: id_patient
-                nullable: false
-
         fidLaboratoire:
             targetEntity: Laboratoire
             joinColumn:
                 name: fid_laboratoire
                 referencedColumnName: id_labo
                 nullable: true
+
+        fidCouleur:
+            targetEntity: OrthoBundle\Entity\Couleur
+            joinColumn:
+                name: fid_couleur
+                referencedColumnName: id_couleur
+                nullable: false
+
+        fidMotif:
+            targetEntity: OrthoBundle\Entity\Motif
+            joinColumn:
+                name: fid_motif
+                referencedColumnName: id_motif
+                nullable: false
 
     manyToMany:
          fidApp:
