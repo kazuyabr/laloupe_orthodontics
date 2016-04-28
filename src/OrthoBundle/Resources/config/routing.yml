@@ -11,3 +11,8 @@ recap_formulaire:
     path:     /recap_formulaire/{id_commande}
     defaults: { _controller: OrthoBundle:Default:envoi, id_commande: default_commande }
     methods: [POST, GET]
+
+envoi_bdd:
+    path:     /envoiok
+    defaults: { _controller: OrthoBundle:Default:envoi }
+    methods: [POST, GET]
