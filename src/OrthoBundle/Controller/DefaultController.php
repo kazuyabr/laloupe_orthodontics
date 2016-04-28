@@ -38,7 +38,7 @@ class DefaultController extends Controller
             $em->persist($commandes);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('envoi_bdd'));
+            return $this->redirect($this->generateUrl('recap_formulaire'));
         }
 
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
@@ -50,6 +50,7 @@ class DefaultController extends Controller
 
     public function envoiAction()
     {
-        return $this->render('OrthoBundle:Default:envoiok.html.twig');
+        return $this->render('OrthoBundle:Default:recap_formulaire.html.twig');
     }
+
 }

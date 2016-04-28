@@ -29,6 +29,6 @@ OrthoBundle\Entity\Listepatients:
             joinColumn:
                 name: fid_cab
                 referencedColumnName: id_cab
-                nullable: false
+                nullable: true
                 unique: false
     lifecycleCallbacks: {  }
