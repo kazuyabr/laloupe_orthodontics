@@ -26,9 +26,9 @@
                             class="active"{% endif %}>
                             <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'envoi_bdd' %}
+                        <li {% if app.request.get('_route') == 'recap_formulaire' %}
                             class="active"{% endif %}>
-                            <a href="{{ path('envoi_bdd') }}">Récap</a>
+                            <a href="{{ path('recap_formulaire') }}">Récap</a>
                         </li>
                         <li {% if app.request.get('_route') == 'uploads_index' %}
                             class="active"{% endif %}>

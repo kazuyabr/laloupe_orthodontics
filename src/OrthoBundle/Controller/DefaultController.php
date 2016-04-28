@@ -38,7 +38,7 @@ class DefaultController extends Controller
             $em->persist($commandes);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('recap_formulaire'));
+            return $this->redirect($this->generateUrl('recap_formulaire', array('idCommande' => $commandes->getIdCommande())));
         }
 
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
