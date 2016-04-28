@@ -9,10 +9,15 @@ OrthoBundle\Entity\Commandes:
             generator:
                 strategy: AUTO
     fields:
-        nomPatient:
+
+        referencePatient:
             type: string
-            length: 255
-            column: nom_patient
+            length: 125
+            column: reference_patient
+        prenomPatient:
+            type: string
+            length: 125
+            column: prenom_patient
         dateretour:
             type: date
         datecommande:
@@ -38,14 +43,14 @@ OrthoBundle\Entity\Commandes:
             joinColumn:
                 name: fid_couleur
                 referencedColumnName: id_couleur
-                nullable: true
+                nullable: false
 
         fidMotif:
             targetEntity: OrthoBundle\Entity\Motif
             joinColumn:
                 name: fid_motif
                 referencedColumnName: id_motif
-                nullable: true
+                nullable: false
 
     manyToMany:
          fidApp:

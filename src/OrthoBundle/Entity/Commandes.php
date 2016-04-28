@@ -13,13 +13,15 @@ class Commandes
 
     public function __toString()
     {
-        return $this->nomPatient;
+        return 'any string';
     }
 
     public function setCreatedAtValue()
     {
         $this->setDatecommande(new \DateTime());
     }
+
+
 
 
     /**
@@ -45,7 +47,12 @@ class Commandes
     /**
      * @var string
      */
-    private $nomPatient;
+    private $referencePatient;
+
+    /**
+     * @var string
+     */
+    private $prenomPatient;
 
     /**
      * @var \DateTime
@@ -320,5 +327,120 @@ class Commandes
     public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
     {
         $this->fidAdj->removeElement($fidAdj);
+    }
+
+    /**
+     * Set nomPatient
+     *
+     * @param string $nomPatient
+     * @return Commandes
+     */
+    public function setNomPatient($nomPatient)
+    {
+        $this->nomPatient = $nomPatient;
+
+        return $this;
+    }
+
+    /**
+     * Get nomPatient
+     *
+     * @return string 
+     */
+    public function getNomPatient()
+    {
+        return $this->nomPatient;
+    }
+
+    /**
+     * Set fidCouleur
+     *
+     * @param \OrthoBundle\Entity\Couleur $fidCouleur
+     * @return Commandes
+     */
+    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur = null)
+    {
+        $this->fidCouleur = $fidCouleur;
+
+        return $this;
+    }
+
+    /**
+     * Get fidCouleur
+     *
+     * @return \OrthoBundle\Entity\Couleur 
+     */
+    public function getFidCouleur()
+    {
+        return $this->fidCouleur;
+    }
+
+    /**
+     * Set fidMotif
+     *
+     * @param \OrthoBundle\Entity\Motif $fidMotif
+     * @return Commandes
+     */
+    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif = null)
+    {
+        $this->fidMotif = $fidMotif;
+
+        return $this;
+    }
+
+    /**
+     * Get fidMotif
+     *
+     * @return \OrthoBundle\Entity\Motif 
+     */
+    public function getFidMotif()
+    {
+        return $this->fidMotif;
+    }
+
+    /**
+     * Set referencePatient
+     *
+     * @param string $referencePatient
+     * @return Commandes
+     */
+    public function setReferencePatient($referencePatient)
+    {
+        $this->referencePatient = $referencePatient;
+
+        return $this;
+    }
+
+    /**
+     * Get referencePatient
+     *
+     * @return string 
+     */
+    public function getReferencePatient()
+    {
+        return $this->referencePatient;
+    }
+
+    /**
+     * Set prenomPatient
+     *
+     * @param string $prenomPatient
+     * @return Commandes
+     */
+    public function setPrenomPatient($prenomPatient)
+    {
+        $this->prenomPatient = $prenomPatient;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomPatient
+     *
+     * @return string 
+     */
+    public function getPrenomPatient()
+    {
+        return $this->prenomPatient;
     }
 }

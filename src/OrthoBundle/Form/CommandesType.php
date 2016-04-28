@@ -23,7 +23,7 @@ class CommandesType extends AbstractType
             ->add('fidPatient')
             ->add('fnomPatient', TextType::class, array(
                 'attr' => array(
-                    'placeholder' => 'Mme. / Mr. ...'
+                    'placeholder' => 'Ex: Jean'
                 ),
                     'label' => 'Prénom Patient',
                 ))
@@ -40,6 +40,9 @@ class CommandesType extends AbstractType
                 'property' => 'titre_adj',
                 'multiple' => 'true'
             ))
+            ->add('fidCouleur')
+
+            ->add('fidMotif')
 
         ;
     }

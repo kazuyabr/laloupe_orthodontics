@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Motif
 {
+
+    public function __toString()
+    {
+        return $this->nomMotif;
+    }
+
     /**
      * @var int
      */
@@ -51,5 +57,15 @@ class Motif
     public function getNomMotif()
     {
         return $this->nomMotif;
+    }
+
+    /**
+     * Get idMotif
+     *
+     * @return integer 
+     */
+    public function getIdMotif()
+    {
+        return $this->idMotif;
     }
 }

@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Couleur
 {
+
+    public function __toString()
+    {
+        return $this->nomCouleur;
+    }
+
     /**
      * @var int
      */
@@ -51,5 +57,15 @@ class Couleur
     public function getNomCouleur()
     {
         return $this->nomCouleur;
+    }
+
+    /**
+     * Get idCouleur
+     *
+     * @return integer 
+     */
+    public function getIdCouleur()
+    {
+        return $this->idCouleur;
     }
 }
