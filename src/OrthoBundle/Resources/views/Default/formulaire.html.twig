@@ -5,7 +5,7 @@
 {% block body %}
 
  <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
-<form action="{{ path('ortho_formulaire') }}"method="post">
+<form action="{{ path('ortho_formulaire') }}" method="post">
 {{ form_start(form) }}
 
     <span><label for="referencePatient">Référence du patient [Nom ou ID] :</label>   </span>
@@ -29,23 +29,25 @@
     <br />
 
     <label for="fidAdj">Adjonctions :</label>
-    &nbsp;{{ form_errors(form.fidAdj) }}
+    {{ form_errors(form.fidAdj) }}
     {{ form_widget(form.fidAdj) }}
     <br />
-
-
-    <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope" style="color:#4f4;"></span> ENVOYER !</button>
-
-
+    
     <label for="nomCouleur">Couleur :</label>
     {{ form_errors(form.fidCouleur) }}
     {{ form_widget(form.fidCouleur) }}
+    &nbsp;
 
-    &nbsp;<label for="nomMotif">Motif :</label>
+    <label for="nomMotif">Motif :</label>
     {{ form_errors(form.fidMotif) }}
     {{ form_widget(form.fidMotif) }}
     <br />
 
+    <label for="comment">Commentaires :</label>
+    {{ form_errors(form.comment) }}
+    {{ form_widget(form.comment) }}
+
+    <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
 
 {{ form_end(form) }}
 
