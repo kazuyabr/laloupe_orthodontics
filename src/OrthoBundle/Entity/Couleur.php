@@ -35,7 +35,7 @@ class Couleur
     {
         return $this->idCouleur;
     }
-
+    
     /**
      * Set nomCouleur
      *
