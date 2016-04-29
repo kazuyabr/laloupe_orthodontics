@@ -2,11 +2,11 @@
 body {
     margin: 0 1.5em;
     background-color:silver;
+
 }
 
 #ours {
     width: 100%;
-
 }
 
 #commandes_fidApp, #commandes_fidAdj {

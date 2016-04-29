@@ -10,9 +10,6 @@ OrthoBundle\Entity\AppAdjLabo:
                 strategy: AUTO
     fields:
 
-
-
-
     manyToOne:
         fidApp:
             targetEntity: Appareillages

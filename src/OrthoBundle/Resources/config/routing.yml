@@ -7,7 +7,7 @@ ortho_formulaire:
     defaults: { _controller: OrthoBundle:Default:create }
     methods: [POST, GET]
 
-envoi_bdd:
-    path:     /envoiok
+recap_formulaire:
+    path:     /recap_formulaire/
     defaults: { _controller: OrthoBundle:Default:envoi }
     methods: [POST, GET]
