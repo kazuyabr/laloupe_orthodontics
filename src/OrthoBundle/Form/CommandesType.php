@@ -44,13 +44,13 @@ class CommandesType extends AbstractType
             ->add('fidApp', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
-                'multiple' => 'true'
+                'multiple' => 'false'
             ))
             
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
-                'multiple' => 'true'
+                'multiple' => 'false'
             ))
             
             ->add('fidCouleur')

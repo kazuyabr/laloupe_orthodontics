@@ -9,5 +9,5 @@ ortho_formulaire:
 
 recap_formulaire:
     path:     /recap_formulaire/
-    defaults: { _controller: OrthoBundle:Default:envoi }
+    defaults: { _controller: OrthoBundle:Default:formulaireRecap }
     methods: [POST, GET]
