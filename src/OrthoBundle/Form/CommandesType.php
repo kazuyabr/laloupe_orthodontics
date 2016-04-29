@@ -2,12 +2,15 @@
 
 namespace OrthoBundle\Form;
 
+use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Finder\Comparator\DateComparator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Tests\Extension\Core\Type\DateTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommandesType extends AbstractType
@@ -21,29 +24,35 @@ class CommandesType extends AbstractType
         $builder
 
             ->add('referencePatient')
+            
             ->add('prenomPatient', TextType::class, array(
                 'attr' => array(
                     'placeholder' => 'Ex: Jean'
                 ),
-                    'label' => 'Prénom Patient',
+                    'label' => 'Prénom Patient'
                 ))
+            
             ->add('dateretour', DateType::class, array(
-                "label" => "Date de retour souhaitée"
+                "label" => "Date de retour souhaitée",
             ))
+            
             ->add('fidApp', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
-                'multiple' => 'true'
+                'multiple' => 'false'
             ))
+            
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
-                'multiple' => 'true'
+                'multiple' => 'false'
             ))
+            
             ->add('fidCouleur')
 
             ->add('fidMotif')
 
+            ->add('comment')
         ;
     }
 
