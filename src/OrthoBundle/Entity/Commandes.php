@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Commandes
 {
 
-
     public function __toString()
     {
         return 'any string';
@@ -20,9 +19,6 @@ class Commandes
     {
         $this->setDatecommande(new \DateTime());
     }
-
-
-
 
     /**
      * @var int
@@ -55,7 +51,7 @@ class Commandes
     private $prenomPatient;
 
     /**
-     * @var \DateTime
+     * @var \Date
      */
     private $dateretour;
 
@@ -79,6 +75,7 @@ class Commandes
 
     private $fidMotif;
 
+    private $comment;
 
 
     /**
@@ -158,29 +155,6 @@ class Commandes
     public function getFidPatient()
     {
         return $this->fidPatient;
-    }
-
-    /**
-     * Set fnomPatient
-     *
-     * @param string $fnomPatient
-     * @return Commandes
-     */
-    public function setFnomPatient($nomPatient)
-    {
-        $this->nomPatient = $nomPatient;
-
-        return $this;
-    }
-
-    /**
-     * Get fnomPatient
-     *
-     * @return string
-     */
-    public function getFnomPatient()
-    {
-        return $this->nomPatient;
     }
 
     /**
@@ -328,30 +302,7 @@ class Commandes
     {
         $this->fidAdj->removeElement($fidAdj);
     }
-
-    /**
-     * Set nomPatient
-     *
-     * @param string $nomPatient
-     * @return Commandes
-     */
-    public function setNomPatient($nomPatient)
-    {
-        $this->nomPatient = $nomPatient;
-
-        return $this;
-    }
-
-    /**
-     * Get nomPatient
-     *
-     * @return string 
-     */
-    public function getNomPatient()
-    {
-        return $this->nomPatient;
-    }
-
+    
     /**
      * Set fidCouleur
      *
@@ -437,10 +388,34 @@ class Commandes
     /**
      * Get prenomPatient
      *
-     * @return string 
+     * @return string
      */
     public function getPrenomPatient()
     {
         return $this->prenomPatient;
     }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return Commandes
+     */
+    public function setComments($comment)
+    {
+        $this->comments = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
 }
