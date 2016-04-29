@@ -8,7 +8,7 @@
 <form action="{{ path('ortho_formulaire') }}"method="post">
 {{ form_start(form) }}
 
-    <span><label for="referencePatient">Référence du patient [Nom ou ID] :</label>   </span>
+    <label for="referencePatient">Référence du patient :</label>
     {{ form_errors(form.referencePatient) }}
     {{ form_widget(form.referencePatient) }}
     <br />

@@ -23,15 +23,20 @@ class CommandesType extends AbstractType
     {
         $builder
 
-            ->add('referencePatient')
-            
-            ->add('prenomPatient', TextType::class, array(
+            ->add('referencePatient', 'text', array(
                 'attr' => array(
-                    'placeholder' => 'Ex: Jean'
+                    'placeholder' => 'Nom ou ID'
                 ),
-                    'label' => 'Prénom Patient'
-                ))
-            
+                'label' => 'Référence Patient'
+            ))
+
+            ->add('prenomPatient', 'text', array(
+                'attr' => array(
+                    'placeholder' => 'Ex : Jean'
+                ),
+                'label' => 'Prénom Patient'
+            ))
+
             ->add('dateretour', DateType::class, array(
                 "label" => "Date de retour souhaitée",
             ))
@@ -52,7 +57,9 @@ class CommandesType extends AbstractType
 
             ->add('fidMotif')
 
-            ->add('comment')
+            ->add('comment', 'textarea')
+
+            //->add('nomduchamp', 'typedechamp', 'autresparams')
         ;
     }
 
