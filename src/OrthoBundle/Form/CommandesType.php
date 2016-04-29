@@ -2,6 +2,7 @@
 
 namespace OrthoBundle\Form;
 
+use OrthoBundle\Entity\Couleur;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -38,6 +39,11 @@ class CommandesType extends AbstractType
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
+                'multiple' => 'true'
+            ))
+            ->add('nomCouleur', EntityType::class, array(
+                'class' => 'OrthoBundle:Couleur',
+                'property' => 'nom_couleur',
                 'multiple' => 'true'
             ))
 

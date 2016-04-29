@@ -29,7 +29,7 @@ class Couleur
     {
         return $this->id;
     }
-
+    
     /**
      * Set nomCouleur
      *
