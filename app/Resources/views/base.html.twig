@@ -20,7 +20,8 @@
 
                         <li {% if app.request.get('_route') == 'ortho_homepage' %}
                             class="active"{% endif %}>
-                            <a href="#">Accueil</a>
+
+                            <a href="{{ path('fos_user_security_login') }}">Accueil</a>
                         </li>
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
