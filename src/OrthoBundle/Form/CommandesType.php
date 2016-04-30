@@ -2,11 +2,9 @@
 
 namespace OrthoBundle\Form;
 
-<<<<<<< HEAD
+
 use OrthoBundle\Entity\Couleur;
-=======
 use Doctrine\DBAL\Types\DateTimeType;
->>>>>>> 3ed4447bd867e1add26fc41f9d877d93f6145a98
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Comparator\DateComparator;
 use Symfony\Component\Form\AbstractType;
@@ -51,20 +49,12 @@ class CommandesType extends AbstractType
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
-<<<<<<< HEAD
 
-            ->add('fidCouleur')
-
-            ->add('fidMotif')
-            
-=======
-            
             ->add('fidCouleur')
 
             ->add('fidMotif')
 
             ->add('comment')
->>>>>>> 3ed4447bd867e1add26fc41f9d877d93f6145a98
         ;
     }
 
