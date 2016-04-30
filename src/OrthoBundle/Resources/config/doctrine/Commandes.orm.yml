@@ -22,6 +22,8 @@ OrthoBundle\Entity\Commandes:
             type: date
         datecommande:
             type: datetime
+        comment:
+            type: text
 
     manyToOne:
         fidCabinet:

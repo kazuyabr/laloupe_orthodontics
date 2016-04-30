@@ -12,7 +12,7 @@ class Commandes
 
     public function __toString()
     {
-        return 'any string';
+        return ;
     }
 
     public function setCreatedAtValue()
@@ -418,4 +418,17 @@ class Commandes
         return $this->comment;
     }
 
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return Commandes
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
 }

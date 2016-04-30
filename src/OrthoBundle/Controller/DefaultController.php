@@ -53,9 +53,11 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:recap_formulaire.html.twig');
     }
 
+
     public function showAction()
     {
-        $idCommande = $this->getIdCommande();
+        $idCommande = intval($_GET['idCommande']);
+
         $em = $this->getDoctrine()->getManager();
         $affichagerecap = $em->getRepository('OrthoBundle:Commandes')->find($idCommande);
 

@@ -8,7 +8,6 @@ ortho_formulaire:
     methods: [POST, GET]
 
 recap_formulaire:
-    path:     /recap_formulaire/
+    path:     /recap_formulaire
     defaults: { _controller: OrthoBundle:Default:formulaireRecap }
     methods: [POST, GET]
-
