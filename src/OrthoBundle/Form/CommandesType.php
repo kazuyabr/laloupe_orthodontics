@@ -2,6 +2,7 @@
 
 namespace OrthoBundle\Form;
 
+use OrthoBundle\Entity\Couleur;
 use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Comparator\DateComparator;
@@ -52,7 +53,7 @@ class CommandesType extends AbstractType
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
-            
+
             ->add('fidCouleur')
 
             ->add('fidMotif')

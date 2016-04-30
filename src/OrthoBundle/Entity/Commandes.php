@@ -12,7 +12,7 @@ class Commandes
 
     public function __toString()
     {
-        return 'any string';
+        return ;
     }
 
     public function setCreatedAtValue()
