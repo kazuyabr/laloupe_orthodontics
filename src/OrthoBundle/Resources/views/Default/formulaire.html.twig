@@ -36,7 +36,6 @@
     <label for="nomCouleur">Couleur :</label>
     {{ form_errors(form.fidCouleur) }}
     {{ form_widget(form.fidCouleur) }}
-    &nbsp;
 
     <label for="nomMotif">Motif :</label>
     {{ form_errors(form.fidMotif) }}
@@ -54,5 +53,10 @@
 {% endblock %}
 
 {% block javascripts %}
-
+    <script type="text/javascript" src="jquery.js"></script>
+    <script>
+        $("#id_app").click(function() {
+            field.val( field.val()+$(this).data('commentaires_app') );
+        });
+    </script>
 {% endblock %}
