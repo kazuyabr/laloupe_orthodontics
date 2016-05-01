@@ -1,9 +1,13 @@
+ortho_homepage:
+    path:     /
+    defaults: { _controller: OrthoBundle:Default:index }
+
 ortho_formulaire:
     path:     /formulaire
     defaults: { _controller: OrthoBundle:Default:create }
     methods: [POST, GET]
 
 recap_formulaire:
-    path:     /recap_formulaire/
+    path:     /recap_formulaire
     defaults: { _controller: OrthoBundle:Default:show }
     methods: [POST, GET]
