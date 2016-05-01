@@ -20,7 +20,8 @@
 
                         <li {% if app.request.get('_route') == 'ortho_homepage' %}
                             class="active"{% endif %}>
-                            <a href="{{ path('ortho_homepage') }}">Accueil</a>
+
+                            <a href="{{ path('fos_user_security_login') }}">Accueil</a>
                         </li>
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
@@ -34,7 +35,8 @@
                             class="active"{% endif %}>
                             <a href="{{ path('uploads_index') }}">Upload</a>
                         </li>
-                        <li> <a href="#">Site du labo</a> </li>
+                        <li> <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
+                        </li>
                         <li> <a href="#">Lien 3</a> </li>
                         <li> <a href="#">Lien 4</a> </li>
                         <li> <a href="#">Lien 5</a> </li>

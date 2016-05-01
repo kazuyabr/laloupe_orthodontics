@@ -54,13 +54,13 @@ class CommandesType extends AbstractType
                 'multiple' => 'false'
             ))
 
+
             ->add('fidCouleur')
 
             ->add('fidMotif')
 
             ->add('comment', 'textarea')
 
-            //->add('nomduchamp', 'typedechamp', 'autresparams')
         ;
     }
 
