@@ -17,9 +17,9 @@ body {
     display: block;
 }
 
-#textComments {
+#commandes_comment {
     padding: 5px;
-    width: 500px;
+    width: 50%;
     display: block;
     min-height: 200px;
 }
@@ -77,6 +77,3 @@ button {
     height: 100px;
     width: auto;
 }
-
-
-
