@@ -53,10 +53,12 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script>
-        $("#id_app").click(function() {
-            field.val( field.val()+$(this).data('commentaires_app') );
+        //$("#commandes_fidApp").click(
+        document.getElementById('commandes_fidApp').addEventListener('click', function() {
+            var id_app = this.options[this.selectedIndex].value;
+            console.log(id_app);
         });
     </script>
 {% endblock %}
