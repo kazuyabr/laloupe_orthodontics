@@ -7,13 +7,7 @@
 
     <h3>Cabinet du Dr. Simon . 28510 . Chicoville . ID 5894</h3>
 
-    {{ affichagerecap ? affichagerecap.referencePatient }}
-    {{ affichagerecap ? affichagerecap.prenomPatient }}
-    {{ affichagerecap ? affichagerecap.dateretour|date('Y-m-d') }}
-
-    {{ affichagerecap ? affichagerecap.fidCouleur }}
-    {{ affichagerecap ? affichagerecap.fidMotif }}
-    {{ affichagerecap ? affichagerecap.comment}}
+    {{ affichagerecap.referencePatient }}
 
 
 {% endblock %}
