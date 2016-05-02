@@ -18,8 +18,7 @@ security:
 
         in_memory:
             memory: ~
-            users:
-                admin: { password: adminpass, roles: 'ROLE_ADMIN' }
+
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
