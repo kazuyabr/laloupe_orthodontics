@@ -1,5 +1,3 @@
-#/var/www/html/laloupe_orthodontics/src/photosBundle/Resources/config/routing/uploads.yml
-
 uploads_index:
     path:     /
     defaults: { _controller: "photosBundle:Uploads:index" }

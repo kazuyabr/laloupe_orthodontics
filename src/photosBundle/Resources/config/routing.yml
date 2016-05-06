@@ -1,5 +1,3 @@
-#/var/www/html/laloupe_orthodontics/src/photosBundle/Resources/config/routing.yml
-
 photos_uploads:
     resource: "@photosBundle/Resources/config/routing/uploads.yml"
     prefix:   /uploads

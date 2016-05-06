@@ -1,0 +1,9 @@
+app_post:
+    resource: "@AppBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+homepage:
+    path:     /
+    defaults: { _controller: fos_user_security_login }
+
+
