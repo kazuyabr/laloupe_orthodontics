@@ -78,5 +78,29 @@ button {
     width: auto;
 }
 
+.header_recap
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coche_vert
+{
+    text-align: center;
+    width: 4%;
+    float: left;
+}
+
+.header_recap h2
+{
+    padding-top: 6px;
+    text-align: center;
+}
+
+#imprimante
+{
+
+}
+
 
 
