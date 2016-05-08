@@ -18,10 +18,9 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
 
-                        <li {% if app.request.get('_route') == 'ortho_homepage' %}
+                        <li {% if app.request.get('_route') == 'fos_user_security_login' %}
                             class="active"{% endif %}>
-
-                            <a href="{{ path('fos_user_security_login') }}">Accueil</a>
+                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
                         </li>
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
