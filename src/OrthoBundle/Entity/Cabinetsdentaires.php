@@ -42,12 +42,16 @@ class Cabinetsdentaires
     /**
      * @var string
      */
-    private $mailCab;
+    private $email;
 
     /**
      * @var string
      */
     private $telephoneCab;
+
+    private $username;
+
+    private $password;
 
 
     /**
@@ -224,5 +228,74 @@ class Cabinetsdentaires
     public function getIdCab()
     {
         return $this->idCab;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return Cabinetsdentaires
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return Cabinetsdentaires
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Cabinetsdentaires
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }
