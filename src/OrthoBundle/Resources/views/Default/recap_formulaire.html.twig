@@ -2,12 +2,47 @@
 
 
 {% block body %}
+    <br />
+    <div class="header_recap">
+        <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }} />
+        <h2>Votre formulaire a bien été envoyé ! Merci !</h2>
+    </div>
 
-    <h2>Votre formulaire a bien été envoyé !</h2>
+    <div class="affichage_recapitulatif_formulaire">
+        <h3>Cabinet du Dr. Simon . 28510 . Chicoville . ID 5894</h3>
 
-    <h3>Cabinet du Dr. Simon . 28510 . Chicoville . ID 5894</h3>
+        <strong>Nom du patient:</strong> {{ affichagerecap ? affichagerecap.referencePatient }} <br />
+        <strong>Prénom du patient :</strong> {{ affichagerecap ? affichagerecap.prenomPatient }} <br />
+        <strong>Date de retour souhaité :</strong> {{ affichagerecap ? affichagerecap.dateretour|date('d-m-Y') }} <br />
+        <strong>Impression 3D : </strong> <!-- Affichage du cadre F pour le prestataire d'impression 3D --> <br />
+        <strong>Travail à réaliser :</strong> {{ affichagerecap ? affichagerecap.comment }} <br />
+        <strong>Code couleur :</strong> {{ affichagerecap ? affichagerecap.fidCouleur }} <br />
+        <strong>Motifs :</strong> {{ affichagerecap ? affichagerecap.fidMotif }} <br />
 
-    {{ affichagerecap.referencePatient }}
+        <strong>Date de commande :</strong> {{ affichagerecap ? affichagerecap.datecommande|date('d-m-Y à H:i') }} <br />
+        <strong>Commande envoyée à :</strong> <!-- Faudra récupérer le nom du labo -->
+        <strong>Info commerciale Cabinet :</strong> <!-- Récupérer les infos de pub -->
+    </div>
+
+    <div class="impression_recapitulatif">
+        <!-- Impression récapitulatif du formulaire -->
+        <span onclick="print()">
+            <img id="imprimante" src="{{ asset('bundles/ortho/img/imprimante.png') }}" /> Imprimer
+        </span>
+    </div>
+
+    <div class="envoi_email_recapitulatif">
+        <!-- Envoi par email du formulaire -->
+
+    </div>
+
+    {% if affichagerecap.fidCouleur is defined  %}
+        {{ affichagerecap.fidCouleur }}
+        {% endif %}
+
+
+
+
 
 
 {% endblock %}
