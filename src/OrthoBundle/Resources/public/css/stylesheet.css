@@ -24,16 +24,17 @@ body {
 }
 
 form {
-    background-color: #20B2AA;
+    width: 70%;
+    /* height: 500px; */
+    /*margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;*/
+    margin: 20px auto;
     /* padding-left: 20px; */
     /* padding-top: 20px; */
-    border-radius: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    /* height: 500px; */
-    width: 70%;
     padding: 20px;
-    margin-bottom: 20px;
+    background-color: #20B2AA;
+    border-radius: 15px;
 }
 
 h3
@@ -43,7 +44,7 @@ h3
 
 input
 {
-    margin: 10px;
+    margin: 0 0 10px;
 }
 
 button {
