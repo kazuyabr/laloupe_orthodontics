@@ -150,33 +150,226 @@ class AdjonctionsData extends AbstractFixture
 
 
 
+        $adjonction11 = new Adjonctions();
+        $adjonction11->setTitreAdj('Ressort TMA');
+        $adjonction11->setFamilleAdj('adj');
+        $adjonction11->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction11->setCommentairesAdj('Ajouter un ressort TMA');
+        $adjonction11->setCompteurAdj(0);
+        $adjonction11->setInfoComLaboAdj('');
+        $adjonction11->setInfoComCabAdj('');
+
+        $manager->persist($adjonction11);
+        $manager->flush();
 
 
 
+        $adjonction12 = new Adjonctions();
+        $adjonction12->setTitreAdj('Vérin sectoriel');
+        $adjonction12->setFamilleAdj('adj');
+        $adjonction12->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction12->setCommentairesAdj('Ajouter un Vérin Sectoriel pour');
+        $adjonction12->setCompteurAdj(0);
+        $adjonction12->setInfoComLaboAdj('');
+        $adjonction12->setInfoComCabAdj('');
+
+        $manager->persist($adjonction12);
+        $manager->flush();
 
 
 
+        $adjonction13 = new Adjonctions();
+        $adjonction13->setTitreAdj('Plan général');
+        $adjonction13->setFamilleAdj('adj');
+        $adjonction13->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction13->setCommentairesAdj('Ajouter un Plan général');
+        $adjonction13->setCompteurAdj(0);
+        $adjonction13->setInfoComLaboAdj('');
+        $adjonction13->setInfoComCabAdj('');
+
+        $manager->persist($adjonction13);
+        $manager->flush();
 
 
 
+        $adjonction14 = new Adjonctions();
+        $adjonction14->setTitreAdj("Arc d'Eschler");
+        $adjonction14->setFamilleAdj('adj');
+        $adjonction14->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction14->setCommentairesAdj("Ajouter un arc d'Eschler");
+        $adjonction14->setCompteurAdj(0);
+        $adjonction14->setInfoComLaboAdj('');
+        $adjonction14->setInfoComCabAdj('');
+
+        $manager->persist($adjonction14);
+        $manager->flush();
 
 
 
+        $adjonction15 = new Adjonctions();
+        $adjonction15->setTitreAdj('Boucle de Coffin');
+        $adjonction15->setFamilleAdj('adj');
+        $adjonction15->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction15->setCommentairesAdj('Ajouer une boucle de Coffin');
+        $adjonction15->setCompteurAdj(0);
+        $adjonction15->setInfoComLaboAdj('');
+        $adjonction15->setInfoComCabAdj('');
+
+        $manager->persist($adjonction15);
+        $manager->flush();
 
 
 
+        $adjonction16 = new Adjonctions();
+        $adjonction16->setTitreAdj('Dent prothétique');
+        $adjonction16->setFamilleAdj('adj');
+        $adjonction16->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction16->setCommentairesAdj('Ajouter une dent prothétique  - teinte');
+        $adjonction16->setCompteurAdj(0);
+        $adjonction16->setInfoComLaboAdj('');
+        $adjonction16->setInfoComCabAdj('');
+
+        $manager->persist($adjonction16);
+        $manager->flush();
 
 
 
+        $adjonction17 = new Adjonctions();
+        $adjonction17->setTitreAdj('Disjoncteur');
+        $adjonction17->setFamilleAdj('adj');
+        $adjonction17->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction17->setCommentairesAdj('Ajouter un Disjoncteur');
+        $adjonction17->setCompteurAdj(0);
+        $adjonction17->setInfoComLaboAdj('');
+        $adjonction17->setInfoComCabAdj('');
+
+        $manager->persist($adjonction17);
+        $manager->flush();
 
 
 
+        $adjonction18 = new Adjonctions();
+        $adjonction18->setTitreAdj('Disjoncteur éventail');
+        $adjonction18->setFamilleAdj('adj');
+        $adjonction18->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction18->setCommentairesAdj('Ajouer un Disjoncteur éventail');
+        $adjonction18->setCompteurAdj(0);
+        $adjonction18->setInfoComLaboAdj('');
+        $adjonction18->setInfoComCabAdj('');
+
+        $manager->persist($adjonction18);
+        $manager->flush();
 
 
 
+        $adjonction19 = new Adjonctions();
+        $adjonction19->setTitreAdj('Ecrans latéraux en résine');
+        $adjonction19->setFamilleAdj('adj');
+        $adjonction19->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction19->setCommentairesAdj('Ajouter Ecrans Lateraux en resine');
+        $adjonction19->setCompteurAdj(0);
+        $adjonction19->setInfoComLaboAdj('');
+        $adjonction19->setInfoComCabAdj('');
+
+        $manager->persist($adjonction19);
+        $manager->flush();
 
 
 
+        $adjonction20 = new Adjonctions();
+        $adjonction20->setTitreAdj('Equiplan');
+        $adjonction20->setFamilleAdj('adj');
+        $adjonction20->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction20->setCommentairesAdj('Ajouer un Equiplan');
+        $adjonction20->setCompteurAdj(0);
+        $adjonction20->setInfoComLaboAdj('');
+        $adjonction20->setInfoComCabAdj('');
 
+        $manager->persist($adjonction20);
+        $manager->flush();
+
+
+
+        $adjonction21 = new Adjonctions();
+        $adjonction21->setTitreAdj('Force extra orale');
+        $adjonction21->setFamilleAdj('adj');
+        $adjonction21->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction21->setCommentairesAdj('Ajouter Force extra Orale');
+        $adjonction21->setCompteurAdj(0);
+        $adjonction21->setInfoComLaboAdj('');
+        $adjonction21->setInfoComCabAdj('');
+
+        $manager->persist($adjonction21);
+        $manager->flush();
+
+
+
+        $adjonction22 = new Adjonctions();
+        $adjonction22->setTitreAdj('Grille anti-langue  -  pouce');
+        $adjonction22->setFamilleAdj('adj');
+        $adjonction22->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction22->setCommentairesAdj('Ajouter Grille anti-langue  -  pouce');
+        $adjonction22->setCompteurAdj(0);
+        $adjonction22->setInfoComLaboAdj('');
+        $adjonction22->setInfoComCabAdj('');
+
+        $manager->persist($adjonction22);
+        $manager->flush();
+
+
+
+        $adjonction23 = new Adjonctions();
+        $adjonction23->setTitreAdj('Perle de Tucat');
+        $adjonction23->setFamilleAdj('adj');
+        $adjonction23->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction23->setCommentairesAdj('Ajouter un Perle de Tucat');
+        $adjonction23->setCompteurAdj(0);
+        $adjonction23->setInfoComLaboAdj('');
+        $adjonction23->setInfoComCabAdj('');
+
+        $manager->persist($adjonction23);
+        $manager->flush();
+
+
+
+        $adjonction24 = new Adjonctions();
+        $adjonction24->setTitreAdj('Pare-langue résine');
+        $adjonction24->setFamilleAdj('adj');
+        $adjonction24->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction24->setCommentairesAdj('Ajouter un Pare-langue résine');
+        $adjonction24->setCompteurAdj(0);
+        $adjonction24->setInfoComLaboAdj('');
+        $adjonction24->setInfoComCabAdj('');
+
+        $manager->persist($adjonction24);
+        $manager->flush();
+
+
+
+        $adjonction25 = new Adjonctions();
+        $adjonction25->setTitreAdj('Vis poussoir');
+        $adjonction25->setFamilleAdj('adj');
+        $adjonction25->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction25->setCommentairesAdj('Ajouter Vis poussoir');
+        $adjonction25->setCompteurAdj(0);
+        $adjonction25->setInfoComLaboAdj('');
+        $adjonction25->setInfoComCabAdj('');
+
+        $manager->persist($adjonction25);
+        $manager->flush();
+
+
+
+        $adjonction26 = new Adjonctions();
+        $adjonction26->setTitreAdj('Vérin éventail');
+        $adjonction26->setFamilleAdj('adj');
+        $adjonction26->setImgAdj('http://www.neo3d.fr/imgbase/00000000.jpg');
+        $adjonction26->setCommentairesAdj('Ajouter vérin éventail');
+        $adjonction26->setCompteurAdj(0);
+        $adjonction26->setInfoComLaboAdj('');
+        $adjonction26->setInfoComCabAdj('');
+
+        $manager->persist($adjonction26);
+        $manager->flush();
     }
 }
