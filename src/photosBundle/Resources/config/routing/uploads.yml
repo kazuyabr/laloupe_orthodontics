@@ -23,6 +23,11 @@ uploads_create:
     defaults: { _controller: "photosBundle:Uploads:create" }
     methods:  POST
 
+uploads_update:
+    path:     /{id}/update
+    defaults: { _controller: "photosBundle:uploads:update" }
+    methods:  [POST, PUT]
+
 uploads_delete:
     path:     /{id}/delete
     defaults: { _controller: "photosBundle:Uploads:delete" }

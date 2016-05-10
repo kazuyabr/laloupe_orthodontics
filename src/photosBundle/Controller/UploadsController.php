@@ -202,7 +202,7 @@ class UploadsController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('uploads'));
+        return $this->redirect($this->generateUrl('uploads_index'));
     }
 
     /**
