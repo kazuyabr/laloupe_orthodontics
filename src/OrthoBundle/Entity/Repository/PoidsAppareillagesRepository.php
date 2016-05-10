@@ -1,6 +1,6 @@
 <?php
 
-namespace OrthoBundle\Repository;
+namespace OrthoBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
