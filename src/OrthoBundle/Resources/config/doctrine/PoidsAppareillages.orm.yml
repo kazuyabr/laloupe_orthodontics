@@ -1,0 +1,26 @@
+OrthoBundle\Entity\PoidsAppareillages:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\PoidsAppareillagesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    manyToOne:
+        fidAppareillages:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            inversedBy: appareil
+            joinColumn:
+                name: fid_appareillages
+                referencedColumnName: id_app
+
+        fidLaboratoire:
+            targetEntity: OrthoBundle\Entity\Laboratoire
+            inversedBy: labos
+            joinColumn:
+                name: fid_laboratoire
+                referencedColumnName: id_labo
+    lifecycleCallbacks: {  }

@@ -50,6 +50,8 @@ class Appareillages
      * @var string
      */
     private $infoComCabApp;
+    
+    private $appareil;
 
 
     /**

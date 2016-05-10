@@ -44,6 +44,11 @@ class Laboratoire
      */
     private $telephoneLabo;
 
+    /* Déclaration des variables utilisées pour les relations Doctrine */
+    private $labos;
+
+    /* Fin de déclaration des variables utilisées pour les relations Doctrine */
+
 
     /**
      * Get idLabo

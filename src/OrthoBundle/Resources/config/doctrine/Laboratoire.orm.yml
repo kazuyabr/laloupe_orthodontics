@@ -33,4 +33,9 @@ OrthoBundle\Entity\Laboratoire:
             type: string
             length: 255
             column: telephone_labo
+
+    oneToMany:
+        labos:
+            targetEntity: OrthoBundle\Entity\PoidsAppareillages
+            mappedBy: fidLaboratoire
     lifecycleCallbacks: {  }

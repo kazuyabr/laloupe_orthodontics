@@ -25,10 +25,6 @@ OrthoBundle\Entity\Appareillages:
         commentairesApp:
             type: text
             column: commentaires_app
-        compteurApp:
-            type: integer
-            nullable : false
-            column : compteur_app
         infoComLaboApp:
             type: string
             length: 255
@@ -44,5 +40,10 @@ OrthoBundle\Entity\Appareillages:
         fidCommande:
             targetEntity: Commandes
             mappedBy: Appareillages
+
+    oneToMany:
+        appareil:
+            targetEntity: OrthoBundle\Entity\PoidsAppareillages
+            mappedBy: fidAppareillages
 
     lifecycleCallbacks: {  }
