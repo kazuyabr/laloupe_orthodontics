@@ -3,7 +3,7 @@ OrthoBundle\Entity\Appareillages:
     table: null
     repositoryClass: OrthoBundle\Repository\AppareillagesRepository
     id:
-        idApp:
+        id:
             type: integer
             id: true
             generator:
@@ -37,12 +37,16 @@ OrthoBundle\Entity\Appareillages:
             nullable: true
 
     manyToMany:
-        fidCommande:
-            targetEntity: Commandes
-            mappedBy: Appareillages
+        commandes:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: appareillages
+
+        labos:
+            targetEntity: OrthoBundle\Entity\Laboratoire
+            mappedBy: appareillages
 
     oneToMany:
-        appareil:
+        poids:
             targetEntity: OrthoBundle\Entity\PoidsAppareillages
             mappedBy: fidAppareillages
 

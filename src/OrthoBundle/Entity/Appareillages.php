@@ -9,12 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Appareillages
 {
+    // CUSTOM CODE
+    
+    
+    // GENERATED CODE
+    
     /**
-     * @var int
+     * @var integer
      */
-    private $idApp;
-
-    private $fidCommande;
+    private $id;
 
     /**
      * @var string
@@ -37,11 +40,6 @@ class Appareillages
     private $commentairesApp;
 
     /**
-     * @var int
-     */
-    private $compteurApp;
-
-    /**
      * @var string
      */
     private $infoComLaboApp;
@@ -50,9 +48,31 @@ class Appareillages
      * @var string
      */
     private $infoComCabApp;
-    
-    private $appareil;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poids;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $commandes;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $labos;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->labos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -61,7 +81,7 @@ class Appareillages
      */
     public function getId()
     {
-        return $this->idApp;
+        return $this->id;
     }
 
     /**
@@ -85,6 +105,29 @@ class Appareillages
     public function getTitreApp()
     {
         return $this->titreApp;
+    }
+
+    /**
+     * Set familleApp
+     *
+     * @param string $familleApp
+     * @return Appareillages
+     */
+    public function setFamilleApp($familleApp)
+    {
+        $this->familleApp = $familleApp;
+
+        return $this;
+    }
+
+    /**
+     * Get familleApp
+     *
+     * @return string 
+     */
+    public function getFamilleApp()
+    {
+        return $this->familleApp;
     }
 
     /**
@@ -131,58 +174,6 @@ class Appareillages
     public function getCommentairesApp()
     {
         return $this->commentairesApp;
-    }
-    
-    public function setCompteurApp($compteurApp)
-    {
-        $this->compteurApp = $compteurApp;
-        
-        return $this;
-    }
-    
-    public function getCompteurApp()
-    {
-        return $this->compteurApp;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->fidCommande = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get idApp
-     *
-     * @return integer 
-     */
-    public function getIdApp()
-    {
-        return $this->idApp;
-    }
-
-    /**
-     * Set familleApp
-     *
-     * @param string $familleApp
-     * @return Appareillages
-     */
-    public function setFamilleApp($familleApp)
-    {
-        $this->familleApp = $familleApp;
-
-        return $this;
-    }
-
-    /**
-     * Get familleApp
-     *
-     * @return string 
-     */
-    public function getFamilleApp()
-    {
-        return $this->familleApp;
     }
 
     /**
@@ -232,35 +223,101 @@ class Appareillages
     }
 
     /**
-     * Add fidCommande
+     * Add poids
      *
-     * @param \OrthoBundle\Entity\Commandes $fidCommande
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
      * @return Appareillages
      */
-    public function addFidCommande(\OrthoBundle\Entity\Commandes $fidCommande)
+    public function addPoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
     {
-        $this->fidCommande[] = $fidCommande;
+        $this->poids[] = $poids;
 
         return $this;
     }
 
     /**
-     * Remove fidCommande
+     * Remove poids
      *
-     * @param \OrthoBundle\Entity\Commandes $fidCommande
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
      */
-    public function removeFidCommande(\OrthoBundle\Entity\Commandes $fidCommande)
+    public function removePoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
     {
-        $this->fidCommande->removeElement($fidCommande);
+        $this->poids->removeElement($poids);
     }
 
     /**
-     * Get fidCommande
+     * Get poids
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFidCommande()
+    public function getPoids()
     {
-        return $this->fidCommande;
+        return $this->poids;
+    }
+
+    /**
+     * Add commandes
+     *
+     * @param \OrthoBundle\Entity\Commandes $commandes
+     * @return Appareillages
+     */
+    public function addCommande(\OrthoBundle\Entity\Commandes $commandes)
+    {
+        $this->commandes[] = $commandes;
+
+        return $this;
+    }
+
+    /**
+     * Remove commandes
+     *
+     * @param \OrthoBundle\Entity\Commandes $commandes
+     */
+    public function removeCommande(\OrthoBundle\Entity\Commandes $commandes)
+    {
+        $this->commandes->removeElement($commandes);
+    }
+
+    /**
+     * Get commandes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
+    }
+
+    /**
+     * Add labos
+     *
+     * @param \OrthoBundle\Entity\Laboratoire $labos
+     * @return Appareillages
+     */
+    public function addLabo(\OrthoBundle\Entity\Laboratoire $labos)
+    {
+        $this->labos[] = $labos;
+
+        return $this;
+    }
+
+    /**
+     * Remove labos
+     *
+     * @param \OrthoBundle\Entity\Laboratoire $labos
+     */
+    public function removeLabo(\OrthoBundle\Entity\Laboratoire $labos)
+    {
+        $this->labos->removeElement($labos);
+    }
+
+    /**
+     * Get labos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLabos()
+    {
+        return $this->labos;
     }
 }

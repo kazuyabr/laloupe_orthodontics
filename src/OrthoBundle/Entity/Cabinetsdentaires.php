@@ -225,4 +225,55 @@ class Cabinetsdentaires
     {
         return $this->idCab;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poids;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
+     * @return Cabinetsdentaires
+     */
+    public function addPoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
+    {
+        $this->poids[] = $poids;
+
+        return $this;
+    }
+
+    /**
+     * Remove poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
+     */
+    public function removePoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
+    {
+        $this->poids->removeElement($poids);
+    }
+
+    /**
+     * Get poids
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoids()
+    {
+        return $this->poids;
+    }
+    /**
+     * @var integer
+     */
+    private $id;
+
+
 }

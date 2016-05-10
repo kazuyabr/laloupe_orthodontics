@@ -3,7 +3,7 @@ OrthoBundle\Entity\Cabinetsdentaires:
     table: null
     repositoryClass: OrthoBundle\Repository\CabinetsdentairesRepository
     id:
-        idCab:
+        id:
             type: integer
             id: true
             generator:
@@ -35,12 +35,15 @@ OrthoBundle\Entity\Cabinetsdentaires:
             column: telephone_cab
 
     manyToOne:
-            fidLabo:
-                targetEntity: Laboratoire
-                joinColumn:
-                    name: fid_labo
-                    referencedColumnName: id_labo
-                    nullable: false
+        fidLabo:
+            targetEntity: Laboratoire
+            joinColumn:
+                name: fid_labo
+                referencedColumn: id
+                nullable: false
 
-
+    oneToMany:
+        poids:
+            targetEntity: OrthoBundle\Entity\PoidsAppareillages
+            mappedBy: cabinet
     lifecycleCallbacks: {  }

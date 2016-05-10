@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Commandes
 {
 
+    // CUSTOM CODE
     public function __toString()
     {
         return ;
@@ -19,6 +20,10 @@ class Commandes
     {
         $this->setDatecommande(new \DateTime());
     }
+    
+    
+    
+    // GENRATED CODE
 
     /**
      * @var int
@@ -59,11 +64,7 @@ class Commandes
      * @var \DateTime
      */
     private $datecommande;
-
-    /**
-     * @var int
-     */
-    private $fidApp;
+    
 
     /**
      * @var int
@@ -203,28 +204,7 @@ class Commandes
         return $this->datecommande;
     }
 
-    /**
-     * Set fidApp
-     *
-     * @param integer $fidApp
-     * @return Commandes
-     */
-    public function setFidApp($fidApp)
-    {
-        $this->fidApp = $fidApp;
 
-        return $this;
-    }
-
-    /**
-     * Get fidApp
-     *
-     * @return integer 
-     */
-    public function getFidApp()
-    {
-        return $this->fidApp;
-    }
 
     /**
      * Set fidAdj
@@ -401,7 +381,7 @@ class Commandes
      * @param string $comment
      * @return Commandes
      */
-    public function setComments($comment)
+    public function setComment($comment)
     {
         $this->comments = $comment;
 
@@ -419,16 +399,73 @@ class Commandes
     }
 
 
+   
     /**
-     * Set comment
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $fidApp;
+
+
+    /**
+     * Get fidApp
      *
-     * @param string $comment
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFidApp()
+    {
+        return $this->fidApp;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $appareillages;
+
+
+    /**
+     * Add appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
      * @return Commandes
      */
-    public function setComment($comment)
+    public function addAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
     {
-        $this->comment = $comment;
+        $this->appareillages[] = $appareillages;
 
         return $this;
+    }
+
+    /**
+     * Remove appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     */
+    public function removeAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages->removeElement($appareillages);
+    }
+
+    /**
+     * Get appareillages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAppareillages()
+    {
+        return $this->appareillages;
+    }
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
