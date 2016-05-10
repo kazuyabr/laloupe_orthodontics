@@ -30,12 +30,10 @@ class DefaultController extends Controller
 
         if ($form->isValid() && $form->isSubmitted())
         {
-
             $em = $this->getDoctrine()->getManager();
-
+            
             $em->persist($commandes);
             $em->flush();
-
 
             return $this->redirect($this->generateUrl('recap_formulaire', array(
                 'idCommande' => $commandes->getIdCommande()
