@@ -27,7 +27,7 @@ OrthoBundle\Entity\Commandes:
             nullable: true
         photos:
             type: file
-            
+
 
     manyToOne:
         fidCabinet:
