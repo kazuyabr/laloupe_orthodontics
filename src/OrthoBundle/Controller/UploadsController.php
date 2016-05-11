@@ -1,9 +1,9 @@
 <?php
 
-namespace photosBundle\Controller;
+namespace OrthoBundle\Controller;
 
-use photosBundle\Entity\Uploads;
-use photosBundle\Form\UploadsType;
+use OrthoBundle\Entity\Uploads;
+use OrthoBundle\Form\UploadsType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -23,9 +23,9 @@ class UploadsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('photosBundle:Uploads')->findAll();
+        $entities = $em->getRepository('OrthoBundle:Uploads')->findAll();
 
-        return $this->render('photosBundle:uploads:index.html.twig', array(
+        return $this->render('OrthoBundle:uploads:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class UploadsController extends Controller
             return $this->redirect($this->generateUrl('uploads_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('photosBundle:uploads:new.html.twig', array(
+        return $this->render('OrthoBundle:uploads:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class UploadsController extends Controller
         $entity = new Uploads();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('photosBundle:uploads:new.html.twig', array(
+        return $this->render('OrthoBundle:uploads:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class UploadsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('photosBundle:Uploads')->find($id);
+        $entity = $em->getRepository('OrthoBundle:Uploads')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Images entity.');
@@ -103,7 +103,7 @@ class UploadsController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('photosBundle:uploads:show.html.twig', array(
+        return $this->render('OrthoBundle:uploads:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class UploadsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('photosBundle:Uploads')->find($id);
+        $entity = $em->getRepository('OrthoBundle:Uploads')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Images entity.');
@@ -126,7 +126,7 @@ class UploadsController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('photosBundle:uploads:edit.html.twig', array(
+        return $this->render('OrthoBundle:uploads:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class UploadsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('photosBundle:Uploads')->find($id);
+        $entity = $em->getRepository('OrthoBundle:Uploads')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Images entity.');
@@ -175,7 +175,7 @@ class UploadsController extends Controller
             return $this->redirect($this->generateUrl('uploads_edit', array('id' => $id)));
         }
 
-        return $this->render('photosBundle:uploads:edit.html.twig', array(
+        return $this->render('OrthoBundle:uploads:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class UploadsController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('photosBundle:Uploads')->find($id);
+            $entity = $em->getRepository('OrthoBundle:Uploads')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Images entity.');
@@ -221,6 +221,5 @@ class UploadsController extends Controller
             ->getForm()
             ;
     }
-
 
 }

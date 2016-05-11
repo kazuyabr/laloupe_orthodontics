@@ -1,34 +1,34 @@
 uploads_index:
     path:     /
-    defaults: { _controller: "photosBundle:Uploads:index" }
+    defaults: { _controller: "OrthoBundle:Uploads:index" }
     methods:  GET
 
 uploads_show:
     path:     /{id}/show
-    defaults: { _controller: "photosBundle:Uploads:show" }
+    defaults: { _controller: "OrthoBundle:Uploads:show" }
     methods:  GET
 
 uploads_new:
     path:     /new
-    defaults: { _controller: "photosBundle:Uploads:new" }
+    defaults: { _controller: "OrthoBundle:Uploads:new" }
     methods:  [GET, POST]
 
 uploads_edit:
     path:     /{id}/edit
-    defaults: { _controller: "photosBundle:Uploads:edit" }
+    defaults: { _controller: "OrthoBundle:Uploads:edit" }
     methods:  [GET, POST]
 
 uploads_create:
     path:     /create
-    defaults: { _controller: "photosBundle:Uploads:create" }
+    defaults: { _controller: "OrthoBundle:Uploads:create" }
     methods:  POST
 
 uploads_update:
     path:     /{id}/update
-    defaults: { _controller: "photosBundle:uploads:update" }
+    defaults: { _controller: "OrthoBundle:uploads:update" }
     methods:  [POST, PUT]
 
 uploads_delete:
     path:     /{id}/delete
-    defaults: { _controller: "photosBundle:Uploads:delete" }
+    defaults: { _controller: "OrthoBundle:Uploads:delete" }
     methods:  DELETE

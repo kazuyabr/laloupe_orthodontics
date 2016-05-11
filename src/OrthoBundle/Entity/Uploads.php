@@ -1,8 +1,10 @@
 <?php
 
-namespace photosBundle\Entity;
+namespace OrthoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
+
 
 /**
  * Uploads
@@ -32,7 +34,7 @@ class Uploads
      */
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
+        return __DIR__ . '/../../../web/' .$this->getUploadDir();
     }
     public function getWebPath()
     {

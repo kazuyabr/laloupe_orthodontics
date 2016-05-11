@@ -1,5 +1,5 @@
 photos:
-    resource: "@photosBundle/Resources/config/routing.yml"
+    resource: "@OrthoBundle/Resources/config/routing.yml"
     prefix:   /
 
 ortho:

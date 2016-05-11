@@ -4,6 +4,7 @@ namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Form\CommandesType;
+use OrthoBundle\Form\UploadsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 

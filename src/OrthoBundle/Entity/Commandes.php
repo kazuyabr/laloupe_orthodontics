@@ -77,6 +77,8 @@ class Commandes
 
     private $comment;
 
+    private $photo;
+
 
     /**
      * Get id
@@ -431,4 +433,6 @@ class Commandes
 
         return $this;
     }
+
+
 }

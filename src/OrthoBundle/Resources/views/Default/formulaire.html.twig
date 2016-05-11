@@ -48,9 +48,15 @@
 
     <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
 
+    <form action="{{ path('uploads_new') }}" method="post">
+    <label for="photos">Photos :</label>
+    {{ form_errors(form.comment) }}
+    {{ form_widget(form.comment) }}
 {{ form_end(form) }}
 
 {% endblock %}
+
+
 
 {% block javascripts %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>

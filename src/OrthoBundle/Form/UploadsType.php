@@ -1,6 +1,6 @@
 <?php
 
-namespace photosBundle\Form;
+namespace OrthoBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,7 +21,7 @@ class UploadsType extends AbstractType
     }
     public function getName()
     {
-        return 'photosBundle_Uploads';
+        return 'OrthoBundle_Uploads';
     }
 
     /**
@@ -30,7 +30,7 @@ class UploadsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'photosBundle\Entity\Uploads'
+            'data_class' => 'OrthoBundle\Entity\Uploads'
         ));
     }
 }

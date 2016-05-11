@@ -1,6 +1,6 @@
 <?php
 
-namespace photosBundle\Repository;
+namespace OrthoBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
