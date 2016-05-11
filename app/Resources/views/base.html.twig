@@ -5,6 +5,7 @@
         <title>{% block title %}Néo 3D | Orthodontics{% endblock %}</title>
         {% block stylesheets %}
             <!-- Appel des bibliothèques Bootstrap -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}" />
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}" />
             <!-- Appel de nos feuilles de style CSS -->
@@ -29,10 +30,6 @@
                         <li {% if app.request.get('_route') == 'recap_formulaire' %}
                             class="active"{% endif %}>
                             <a href="{{ path('recap_formulaire') }}">Récap</a>
-                        </li>
-                        <li {% if app.request.get('_route') == 'uploads_index' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('uploads_index') }}">Upload</a>
                         </li>
                         <li> <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
                         </li>
