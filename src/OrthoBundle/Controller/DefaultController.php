@@ -5,6 +5,7 @@ namespace OrthoBundle\Controller;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Form\CommandesType;
+use OrthoBundle\Form\UploadsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 

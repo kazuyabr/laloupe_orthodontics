@@ -83,6 +83,9 @@ class Commandes
      * @var \Doctrine\Common\Collections\Collection
      */
     private $appareillages;
+    
+    
+    private $photo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection

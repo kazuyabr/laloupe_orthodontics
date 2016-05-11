@@ -3,6 +3,7 @@
 namespace OrthoBundle\Form;
 
 use OrthoBundle\Entity\Couleur;
+use OrthoBundle\Form\UploadsType;
 use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Comparator\DateComparator;
@@ -61,8 +62,11 @@ class CommandesType extends AbstractType
 
             ->add('comment', 'textarea')
 
+
+
         ;
     }
+
 
     /**
      * @param OptionsResolver $resolver

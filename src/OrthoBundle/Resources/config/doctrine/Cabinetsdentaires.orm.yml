@@ -25,14 +25,22 @@ OrthoBundle\Entity\Cabinetsdentaires:
             type: string
             length: 255
             column: ville_cab
-        mailCab:
+        email:
             type: string
             length: 255
-            column: mail_cab
+            column: email
         telephoneCab:
             type: string
             length: 255
             column: telephone_cab
+        username:
+            type: string
+            length: 255
+            column: pseudo_cab
+        password:
+            type: string
+            length: 255
+            column: password_cab
 
     manyToOne:
         fidLabo:
