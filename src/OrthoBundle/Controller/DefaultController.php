@@ -26,6 +26,7 @@ class DefaultController extends Controller
         $commandes  = new Commandes();
         $request = $this->getRequest();
         $form    = $this->createForm(new CommandesType(), $commandes);
+        
         $form->handleRequest($request);
 
         if ($form->isValid() && $form->isSubmitted())

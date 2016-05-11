@@ -70,16 +70,17 @@ class Commandes
      */
     private $fidAdj;
 
-    
     private $fidCouleur;
 
     private $fidMotif;
 
     private $comment;
 
+    private $ajoutApp;
+
 
     /**
-     * Get id
+     * Get idCommande
      *
      * @return integer 
      */
@@ -87,9 +88,10 @@ class Commandes
     {
         return $this->idCommande;
     }
+    
 
     /**
-     * Set fidCab
+     * Set fidCabinet
      *
      * @param integer $fidCabinet
      * @return Commandes
@@ -110,6 +112,7 @@ class Commandes
     {
         return $this->fidCabinet;
     }
+    
 
     /**
      * Set fidLaboratoire
@@ -133,6 +136,7 @@ class Commandes
     {
         return $this->fidLaboratoire;
     }
+    
 
     /**
      * Set fidPatient
@@ -156,6 +160,7 @@ class Commandes
     {
         return $this->fidPatient;
     }
+    
 
     /**
      * Set dateretour
@@ -179,6 +184,7 @@ class Commandes
     {
         return $this->dateretour;
     }
+    
 
     /**
      * Set datecommande
@@ -202,6 +208,7 @@ class Commandes
     {
         return $this->datecommande;
     }
+    
 
     /**
      * Set fidApp
@@ -226,6 +233,7 @@ class Commandes
         return $this->fidApp;
     }
 
+    
     /**
      * Set fidAdj
      *
@@ -248,6 +256,8 @@ class Commandes
     {
         return $this->fidAdj;
     }
+    
+    
     /**
      * Constructor
      */
@@ -257,6 +267,7 @@ class Commandes
         $this->fidAdj = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    
     /**
      * Add fidApp
      *
@@ -280,6 +291,7 @@ class Commandes
         $this->fidApp->removeElement($fidApp);
     }
 
+    
     /**
      * Add fidAdj
      *
@@ -302,6 +314,7 @@ class Commandes
     {
         $this->fidAdj->removeElement($fidAdj);
     }
+    
     
     /**
      * Set fidCouleur
@@ -326,6 +339,7 @@ class Commandes
         return $this->fidCouleur;
     }
 
+    
     /**
      * Set fidMotif
      *
@@ -349,6 +363,7 @@ class Commandes
         return $this->fidMotif;
     }
 
+    
     /**
      * Set referencePatient
      *
@@ -372,6 +387,7 @@ class Commandes
         return $this->referencePatient;
     }
 
+    
     /**
      * Set prenomPatient
      *
@@ -395,18 +411,6 @@ class Commandes
         return $this->prenomPatient;
     }
 
-    /**
-     * Set comment
-     *
-     * @param string $comment
-     * @return Commandes
-     */
-    public function setComments($comment)
-    {
-        $this->comments = $comment;
-
-        return $this;
-    }
 
     /**
      * Get comment
@@ -417,7 +421,6 @@ class Commandes
     {
         return $this->comment;
     }
-
 
     /**
      * Set comment
@@ -431,4 +434,28 @@ class Commandes
 
         return $this;
     }
+
+    /**
+     * Get ajoutApp
+     *
+     * @return string
+     */
+    public function getAjoutApp()
+    {
+        return $this->ajoutApp;
+    }
+
+    /**
+     * Set ajoutApp
+     *
+     * @param string $ajoutApp
+     * @return Commandes
+     */
+    public function setAjoutApp($ajoutApp)
+    {
+        $this->ajoutApp = $ajoutApp;
+
+        return $this;
+    }
 }
+

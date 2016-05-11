@@ -47,7 +47,9 @@ class CommandesType extends AbstractType
                 'property' => 'titre_app',
                 'multiple' => 'false'
             ))
-            
+
+            ->add('ajoutApp', 'reset')
+
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
@@ -61,6 +63,8 @@ class CommandesType extends AbstractType
 
             ->add('comment', 'textarea')
 
+            ->add('envoi', 'submit')
+        
         ;
     }
 
