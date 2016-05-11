@@ -61,8 +61,7 @@ class CommandesType extends AbstractType
             ->add('fidMotif')
 
             ->add('comment', 'textarea')
-
-            ->add('file', 'file', array('label' => 'photos', 'required' => false));
+            
 
 
 
