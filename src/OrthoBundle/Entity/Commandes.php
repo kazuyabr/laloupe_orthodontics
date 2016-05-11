@@ -24,7 +24,15 @@ class Commandes
         $this->setDatecommande(new \DateTime());
     }
     
-    
+    private $testimage;
+
+    private $testimage1;
+
+    private $testimage2;
+
+
+
+
 
     // GENRATED CODE
 

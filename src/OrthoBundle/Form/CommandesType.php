@@ -15,6 +15,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Tests\Extension\Core\Type\DateTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
+
 class CommandesType extends AbstractType
 {
     /**
@@ -42,13 +44,13 @@ class CommandesType extends AbstractType
             ->add('dateretour', DateType::class, array(
                 "label" => "Date de retour souhaitée",
             ))
-            
+
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'multiple' => 'false'
             ))
-            
+
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
@@ -70,8 +72,27 @@ class CommandesType extends AbstractType
             ))
 
 
-        ;
+            ->add('testimage', 'file', array(
+                'mapped' => false
+            ))
+
+            ->add('testimage1', 'file', array(
+                'mapped' => false
+            ))
+             ->add('testimage2', 'file', array(
+                    'mapped' => false
+            ));
+
+
+
     }
+
+
+
+
+
+
+
 
 
     /**

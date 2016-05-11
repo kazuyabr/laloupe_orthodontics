@@ -36,6 +36,7 @@ class DefaultController extends Controller
             // Appel de Doctrine
             $em = $this->getDoctrine()->getManager();
 
+
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil)
             {
@@ -68,6 +69,7 @@ class DefaultController extends Controller
             }
             
             $em->persist($commande);
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('recap_formulaire', array(
