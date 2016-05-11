@@ -5,44 +5,50 @@
     <br />
     <div class="header_recap">
         <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }} />
-        <h2>Votre formulaire a bien été envoyé ! Merci !</h2>
+        <div class="col-lg-6 col-lg-offset-2">
+            <h2>Votre formulaire a bien été envoyé ! Merci !</h2>
+        </div>
     </div>
 
-    <div class="affichage_recapitulatif_formulaire">
-        <h3>Cabinet du Dr. Simon . 28510 . Chicoville . ID 5894</h3>
+    <div class="col-lg-9 col-lg-offset-2">
+        <div class="affichage_recapitulatif_formulaire">
+            <!-- A AJOUTER : Nom du cabinet, etc... En lien avec la BDD -->
+            <h3>Cabinet du Dr. Simon . 28510 . Chicoville . ID 5894</h3>
 
-        <strong>Nom du patient:</strong> {{ affichagerecap ? affichagerecap.referencePatient }} <br />
-        <strong>Prénom du patient :</strong> {{ affichagerecap ? affichagerecap.prenomPatient }} <br />
-        <strong>Date de retour souhaité :</strong> {{ affichagerecap ? affichagerecap.dateretour|date('d-m-Y') }} <br />
-        <strong>Impression 3D : </strong> <!-- Affichage du cadre F pour le prestataire d'impression 3D --> <br />
-        <strong>Travail à réaliser :</strong> {{ affichagerecap ? affichagerecap.comment }} <br />
-        <strong>Code couleur :</strong> {{ affichagerecap ? affichagerecap.fidCouleur }} <br />
-        <strong>Motifs :</strong> {{ affichagerecap ? affichagerecap.fidMotif }} <br />
+            <strong>Nom du patient:</strong> {{ affichagerecap ? affichagerecap.referencePatient }} <br />
+            <strong>Prénom du patient :</strong> {{ affichagerecap ? affichagerecap.prenomPatient }} <br />
+            <strong>Date de retour souhaité :</strong> {{ affichagerecap ? affichagerecap.dateretour|date('d-m-Y') }} <br />
+            <strong>Impression 3D : </strong> <!-- Affichage du cadre F pour le prestataire d'impression 3D --> <br />
+            <strong>Travail à réaliser :</strong> {{ affichagerecap ? affichagerecap.comment }} <br />
+            <strong>Code couleur :</strong> {{ affichagerecap ? affichagerecap.fidCouleur }} <br />
+            <strong>Motifs :</strong> {{ affichagerecap ? affichagerecap.fidMotif }} <br />
 
-        <strong>Date de commande :</strong> {{ affichagerecap ? affichagerecap.datecommande|date('d-m-Y à H:i') }} <br />
-        <strong>Commande envoyée à :</strong> <!-- Faudra récupérer le nom du labo -->
-        <strong>Info commerciale Cabinet :</strong> <!-- Récupérer les infos de pub -->
+            <strong>Date de commande :</strong> {{ affichagerecap ? affichagerecap.datecommande|date('d-m-Y à H:i') }} <br />
+            <strong>Commande envoyée à :</strong> <!-- A AJOUTER : Le nom du labo destinataire --> <br />
+            <strong>Info commerciale Cabinet :</strong> <!-- A AJOUTER : Les infos commerciales -->
+        </div>
     </div>
+
+
+
 
     <div class="impression_recapitulatif">
-        <!-- Impression récapitulatif du formulaire -->
+        <div class="col-lg-9 col-lg-offset-2">
+            <!-- Impression récapitulatif du formulaire -->
         <span onclick="print()">
             <img id="imprimante" src="{{ asset('bundles/ortho/img/imprimante.png') }}" /> Imprimer
         </span>
+        </div>
+
     </div>
 
     <div class="envoi_email_recapitulatif">
-        <!-- Envoi par email du formulaire -->
-
+        <div class="col-lg-6 col-lg-offset-2">
+            <!-- A AJOUTER : Le service SwiftMailer -->
+            <img id="image_envoi_email" src=" {{ asset('bundles/ortho/img/envoi_par_email.png') }}" /> Recevoir par email
+        </div>
+        <div class="col-lg-3">
+            <a id="lien_nouveau_formulaire" href="{{ path('ortho_formulaire') }}">Nouveau formulaire</a>
+        </div>
     </div>
-
-    {% if affichagerecap.fidCouleur is defined  %}
-        {{ affichagerecap.fidCouleur }}
-        {% endif %}
-
-
-
-
-
-
 {% endblock %}

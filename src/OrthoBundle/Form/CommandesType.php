@@ -3,6 +3,7 @@
 namespace OrthoBundle\Form;
 
 use OrthoBundle\Entity\Couleur;
+use OrthoBundle\Form\UploadsType;
 use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Comparator\DateComparator;
@@ -42,7 +43,7 @@ class CommandesType extends AbstractType
                 "label" => "Date de retour souhaitée",
             ))
             
-            ->add('fidApp', 'entity', array(
+            ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'multiple' => 'false'
@@ -67,6 +68,7 @@ class CommandesType extends AbstractType
         
         ;
     }
+
 
     /**
      * @param OptionsResolver $resolver

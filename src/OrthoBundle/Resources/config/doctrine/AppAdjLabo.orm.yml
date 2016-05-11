@@ -15,7 +15,7 @@ OrthoBundle\Entity\AppAdjLabo:
             targetEntity: Appareillages
             joinColumn:
                 name: fid_app
-                referencedColumnName: id_app
+                referencedColumn: id
                 nullable: false
                 unique: false
 
@@ -31,7 +31,7 @@ OrthoBundle\Entity\AppAdjLabo:
             targetEntity: Laboratoire
             joinColumn:
                 name: fid_labo
-                referencedColumnName: id_labo
+                referencedColumn: id
                 nullable: false
                 unique: false
 

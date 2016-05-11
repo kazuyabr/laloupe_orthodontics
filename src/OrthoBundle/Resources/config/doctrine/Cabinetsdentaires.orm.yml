@@ -3,7 +3,7 @@ OrthoBundle\Entity\Cabinetsdentaires:
     table: null
     repositoryClass: OrthoBundle\Repository\CabinetsdentairesRepository
     id:
-        idCab:
+        id:
             type: integer
             id: true
             generator:
@@ -25,22 +25,33 @@ OrthoBundle\Entity\Cabinetsdentaires:
             type: string
             length: 255
             column: ville_cab
-        mailCab:
+        email:
             type: string
             length: 255
-            column: mail_cab
+            column: email
         telephoneCab:
             type: string
             length: 255
             column: telephone_cab
+        username:
+            type: string
+            length: 255
+            column: pseudo_cab
+        password:
+            type: string
+            length: 255
+            column: password_cab
 
     manyToOne:
-            fidLabo:
-                targetEntity: Laboratoire
-                joinColumn:
-                    name: fid_labo
-                    referencedColumnName: id_labo
-                    nullable: false
+        fidLabo:
+            targetEntity: Laboratoire
+            joinColumn:
+                name: fid_labo
+                referencedColumn: id
+                nullable: false
 
-
+    oneToMany:
+        poids:
+            targetEntity: OrthoBundle\Entity\PoidsAppareillages
+            mappedBy: cabinet
     lifecycleCallbacks: {  }

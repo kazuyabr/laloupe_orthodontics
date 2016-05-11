@@ -16,12 +16,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage1->setFamilleApp('fix');
         $appareillage1->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0001.jpg');
         $appareillage1->setCommentairesApp('Réaliser un Arc lingual soudé s/ bagues');
-        $appareillage1->setCompteurApp(0);
         $appareillage1->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage1->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage1);
-        $manager->flush();
+        
 
 
 
@@ -30,12 +29,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage2->setFamilleApp('fix');
         $appareillage2->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0002.jpg');
         $appareillage2->setCommentairesApp('Réaliser Arc de Nance soudé s/ bagues');
-        $appareillage2->setCompteurApp(0);
         $appareillage2->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage2->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage2);
-        $manager->flush();
+        
 
 
 
@@ -44,12 +42,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage3->setFamilleApp('fix');
         $appareillage3->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0003.jpg');
         $appareillage3->setCommentairesApp('Réaliser Arc Palatin soudé s/ bagues');
-        $appareillage3->setCompteurApp(0);
         $appareillage3->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage3->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage3);
-        $manager->flush();
+        
 
 
 
@@ -58,12 +55,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage4->setFamilleApp('fix');
         $appareillage4->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0004.jpg');
         $appareillage4->setCommentairesApp('Réaliser un arc Transpalatin soudé s/ bagues');
-        $appareillage4->setCompteurApp(0);
         $appareillage4->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage4->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage4);
-        $manager->flush();
+        
 
 
 
@@ -72,12 +68,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage5->setFamilleApp('fix');
         $appareillage5->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0005.jpg');
         $appareillage5->setCommentairesApp('Réaliser un Arc NTP soudé s/ bagues');
-        $appareillage5->setCompteurApp(0);
         $appareillage5->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage5->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage5);
-        $manager->flush();
+        
 
 
 
@@ -86,12 +81,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage6->setFamilleApp('fix');
         $appareillage6->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0006.jpg');
         $appareillage6->setCommentairesApp('Réaliser un Arc Lingual Idéal soudé s/ bagues');
-        $appareillage6->setCompteurApp(0);
         $appareillage6->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage6->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage6);
-        $manager->flush();
+        
 
 
 
@@ -100,12 +94,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage7->setFamilleApp('fix');
         $appareillage7->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0007.jpg');
         $appareillage7->setCommentairesApp('Réaliser un Arc double de Delaire soudé');
-        $appareillage7->setCompteurApp(0);
         $appareillage7->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage7->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage7);
-        $manager->flush();
+        
 
 
 
@@ -114,12 +107,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage8->setFamilleApp('fix');
         $appareillage8->setImgApp('http://www.neo3d.fr/imgbase/fix/0000fix0008.jpg');
         $appareillage8->setCommentairesApp('Réaliser un Arc QH soudé s/ bagues');
-        $appareillage8->setCompteurApp(0);
         $appareillage8->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage8->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage8);
-        $manager->flush();
+        
 
 
 
@@ -128,12 +120,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage9->setFamilleApp('fix');
         $appareillage9->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage9->setCommentairesApp('Réaliser un Arc Lingual amovible');
-        $appareillage9->setCompteurApp(0);
         $appareillage9->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage9->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage9);
-        $manager->flush();
+        
 
 
 
@@ -142,12 +133,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage10->setFamilleApp('fix');
         $appareillage10->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage10->setCommentairesApp('Réaliser un Arc de Nance amovible');
-        $appareillage10->setCompteurApp(0);
         $appareillage10->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage10->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage10);
-        $manager->flush();
+        
 
 
 
@@ -156,12 +146,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage11->setFamilleApp('fix');
         $appareillage11->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage11->setCommentairesApp('Réaliser un Arc Lingual idéal amovible');
-        $appareillage11->setCompteurApp(0);
         $appareillage11->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage11->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage11);
-        $manager->flush();
+        
 
 
 
@@ -170,12 +159,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage12->setFamilleApp('fix');
         $appareillage12->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage12->setCommentairesApp('Réaliser un Arc Transpalatin amovible');
-        $appareillage12->setCompteurApp(0);
         $appareillage12->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage12->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage12);
-        $manager->flush();
+        
 
 
 
@@ -184,12 +172,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage13->setFamilleApp('fix');
         $appareillage13->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage13->setCommentairesApp('Réaliser un Quad Hélix amovible');
-        $appareillage13->setCompteurApp(0);
         $appareillage13->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage13->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage13);
-        $manager->flush();
+        
 
 
 
@@ -198,12 +185,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage14->setFamilleApp('fix');
         $appareillage14->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage14->setCommentairesApp('Réaliser une grille anti-lanque soudée s/ bagues');
-        $appareillage14->setCompteurApp(0);
         $appareillage14->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage14->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage14);
-        $manager->flush();
+        
 
 
 
@@ -212,12 +198,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage15->setFamilleApp('fix');
         $appareillage15->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage15->setCommentairesApp('Réaliser une grille anti-pouce soudée s/ bagues');
-        $appareillage15->setCompteurApp(0);
         $appareillage15->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage15->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage15);
-        $manager->flush();
+        
 
 
 
@@ -226,12 +211,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage16->setFamilleApp('fix');
         $appareillage16->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage16->setCommentairesApp('Réaliser une boule de tucat soudée s/ bagues');
-        $appareillage16->setCompteurApp(0);
         $appareillage16->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage16->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage16);
-        $manager->flush();
+        
 
 
 
@@ -240,12 +224,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage17->setFamilleApp('fix');
         $appareillage17->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage17->setCommentairesApp('Réaliser un Bi-Hélix soudé sur bagues');
-        $appareillage17->setCompteurApp(0);
         $appareillage17->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage17->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage17);
-        $manager->flush();
+        
 
 
         $appareillage18 = new Appareillages();
@@ -253,12 +236,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage18->setFamilleApp('fix');
         $appareillage18->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage18->setCommentairesApp('Réaliser un Bi-Hélix amovible');
-        $appareillage18->setCompteurApp(0);
         $appareillage18->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage18->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage18);
-        $manager->flush();
+        
 
 
 
@@ -267,12 +249,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage19->setFamilleApp('fix');
         $appareillage19->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage19->setCommentairesApp('Réaliser une contention collée de 2 à 2');
-        $appareillage19->setCompteurApp(0);
         $appareillage19->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage19->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage19);
-        $manager->flush();
+        
 
 
 
@@ -281,12 +262,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage20->setFamilleApp('fix');
         $appareillage20->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage20->setCommentairesApp('Réaliser une contention collée de 3 à 3');
-        $appareillage20->setCompteurApp(0);
         $appareillage20->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage20->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage20);
-        $manager->flush();
+        
 
 
 
@@ -295,12 +275,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage21->setFamilleApp('fix');
         $appareillage21->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage21->setCommentairesApp('Réaliser une contention collée de 4 à 4');
-        $appareillage21->setCompteurApp(0);
         $appareillage21->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage21->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage21);
-        $manager->flush();
+        
 
 
 
@@ -309,12 +288,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage22->setFamilleApp('fix');
         $appareillage22->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage22->setCommentairesApp('Réaliser un disjoncteur 4 bras');
-        $appareillage22->setCompteurApp(0);
         $appareillage22->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage22->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage22);
-        $manager->flush();
+        
 
 
 
@@ -323,12 +301,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage23->setFamilleApp('fix');
         $appareillage23->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage23->setCommentairesApp('Réaliser un disjoncteur 2 bras');
-        $appareillage23->setCompteurApp(0);
         $appareillage23->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage23->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage23);
-        $manager->flush();
+        
 
 
 
@@ -337,12 +314,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage24->setFamilleApp('fix');
         $appareillage24->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage24->setCommentairesApp('Réaliser un Distal Jet');
-        $appareillage24->setCompteurApp(0);
         $appareillage24->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage24->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage24);
-        $manager->flush();
+        
 
 
 
@@ -351,12 +327,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage25->setFamilleApp('fix');
         $appareillage25->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage25->setCommentairesApp("Réaliser un mainteneur d'espace soudé s/ bagues");
-        $appareillage25->setCompteurApp(0);
         $appareillage25->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage25->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage25);
-        $manager->flush();
+        
 
 
 
@@ -365,12 +340,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage26->setFamilleApp('fix');
         $appareillage26->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage26->setCommentairesApp('Réaliser un Plan Rétro Incisif soudé s/ bagues');
-        $appareillage26->setCompteurApp(0);
         $appareillage26->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage26->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage26);
-        $manager->flush();
+        
 
 
 
@@ -379,12 +353,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage27->setFamilleApp('fix');
         $appareillage27->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage27->setCommentairesApp('Réaliser un Plan Rétro Incisif amovible');
-        $appareillage27->setCompteurApp(0);
         $appareillage27->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage27->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage27);
-        $manager->flush();
+        
 
 
 
@@ -393,12 +366,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage28->setFamilleApp('fix');
         $appareillage28->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage28->setCommentairesApp('Réaliser un pendulum');
-        $appareillage28->setCompteurApp(0);
         $appareillage28->setInfoComLaboApp('Fil 0.9 à -20% chez Dentaurum');
         $appareillage28->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage28);
-        $manager->flush();
+        
 
 
 
@@ -407,12 +379,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage29->setFamilleApp('mob');
         $appareillage29->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0001.jpg');
         $appareillage29->setCommentairesApp('Réaliser une Plaque Palatine');
-        $appareillage29->setCompteurApp(0);
         $appareillage29->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage29->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage29);
-        $manager->flush();
+        
 
 
 
@@ -421,12 +392,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage30->setFamilleApp('mob');
         $appareillage30->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0002.jpg');
         $appareillage30->setCommentairesApp('Réaliser une Plaque de Hawley');
-        $appareillage30->setCompteurApp(0);
         $appareillage30->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage30->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage30);
-        $manager->flush();
+        
 
 
 
@@ -435,12 +405,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage31->setFamilleApp('mob');
         $appareillage31->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0003.jpg');
         $appareillage31->setCommentairesApp('Réaliser une Gouttière de Contention');
-        $appareillage31->setCompteurApp(0);
         $appareillage31->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage31->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage31);
-        $manager->flush();
+        
 
 
 
@@ -449,12 +418,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage32->setFamilleApp('mob');
         $appareillage32->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0004.jpg');
         $appareillage32->setCommentairesApp('Réaliser une Plaque Mandibulaire');
-        $appareillage32->setCompteurApp(0);
         $appareillage32->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage32->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage32);
-        $manager->flush();
+        
 
 
 
@@ -463,12 +431,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage33->setFamilleApp('mob');
         $appareillage33->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0005.jpg');
         $appareillage33->setCommentairesApp('Réaliser un monobloc de Lautrou Classe 2');
-        $appareillage33->setCompteurApp(0);
         $appareillage33->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage33->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage33);
-        $manager->flush();
+        
 
 
 
@@ -477,12 +444,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage34->setFamilleApp('mob');
         $appareillage34->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0006.jpg');
         $appareillage34->setCommentairesApp('Réaliser un monobloc de Chabre Classe 2');
-        $appareillage34->setCompteurApp(0);
         $appareillage34->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage34->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage34);
-        $manager->flush();
+        
 
 
 
@@ -491,12 +457,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage35->setFamilleApp('mob');
         $appareillage35->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0007.jpg');
         $appareillage35->setCommentairesApp('Réaliser une bielle de Herbst');
-        $appareillage35->setCompteurApp(0);
         $appareillage35->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage35->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage35);
-        $manager->flush();
+        
 
 
 
@@ -505,12 +470,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage36->setFamilleApp('mob');
         $appareillage36->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0008.jpg');
         $appareillage36->setCommentairesApp('Réaliser une bielle de Tavernier');
-        $appareillage36->setCompteurApp(0);
         $appareillage36->setInfoComLaboApp('Nouvelle résine chez LaboShop !');
         $appareillage36->setInfoComCabApp('Nouvelles bagues RMO slim');
 
         $manager->persist($appareillage36);
-        $manager->flush();
+        
 
 
 
@@ -519,12 +483,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage37->setFamilleApp('mob');
         $appareillage37->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0009.jpg');
         $appareillage37->setCommentairesApp('Réaliser un PUL 1');
-        $appareillage37->setCompteurApp(0);
         $appareillage37->setInfoComLaboApp('PUL -15 % jusqu\'au 30 Juin !');
         $appareillage37->setInfoComCabApp('Formation PUL ! Places disponibles..');
 
         $manager->persist($appareillage37);
-        $manager->flush();
+        
 
 
 
@@ -533,12 +496,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage38->setFamilleApp('mob');
         $appareillage38->setImgApp('http://www.neo3d.fr/imgbase/mob/0000mob0010.jpg');
         $appareillage38->setCommentairesApp('Réalier un PUL 2');
-        $appareillage38->setCompteurApp(0);
         $appareillage38->setInfoComLaboApp('PUL -15 % jusqu\'au 30 Juin !');
         $appareillage38->setInfoComCabApp('Formation PUL ! Places disponibles..');
 
         $manager->persist($appareillage38);
-        $manager->flush();
+        
 
 
 
@@ -547,12 +509,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage39->setFamilleApp('mob');
         $appareillage39->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage39->setCommentairesApp('Réaliser un PUL 3');
-        $appareillage39->setCompteurApp(0);
         $appareillage39->setInfoComLaboApp('PUL -15 % jusqu\'au 30 Juin !');
         $appareillage39->setInfoComCabApp('Formation PUL ! Places disponibles..');
 
         $manager->persist($appareillage39);
-        $manager->flush();
+        
 
 
 
@@ -561,12 +522,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage40->setFamilleApp('mob');
         $appareillage40->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage40->setCommentairesApp('Réaliser un PUL W');
-        $appareillage40->setCompteurApp(0);
         $appareillage40->setInfoComLaboApp('PUL -15 % jusqu\'au 30 Juin !');
         $appareillage40->setInfoComCabApp('Formation PUL ! Places disponibles..');
 
         $manager->persist($appareillage40);
-        $manager->flush();
+        
 
 
 
@@ -575,12 +535,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage41->setFamilleApp('mob');
         $appareillage41->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage41->setCommentairesApp('Réaliser un PUL de contention');
-        $appareillage41->setCompteurApp(0);
         $appareillage41->setInfoComLaboApp('PUL -15 % jusqu\'au 30 Juin !');
         $appareillage41->setInfoComCabApp('Formation PUL ! Places disponibles..');
 
         $manager->persist($appareillage41);
-        $manager->flush();
+        
 
 
 
@@ -589,12 +548,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage42->setFamilleApp('mob');
         $appareillage42->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage42->setCommentairesApp('Réaliser un monobloc de Lautrou de Classe 3');
-        $appareillage42->setCompteurApp(0);
         $appareillage42->setInfoComLaboApp('');
         $appareillage42->setInfoComCabApp('');
 
         $manager->persist($appareillage42);
-        $manager->flush();
+        
 
 
 
@@ -603,12 +561,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage43->setFamilleApp('mob');
         $appareillage43->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage43->setCommentairesApp('Réaliser un monobloc de Chabre de Classe 3');
-        $appareillage43->setCompteurApp(0);
         $appareillage43->setInfoComLaboApp('');
         $appareillage43->setInfoComCabApp('');
 
         $manager->persist($appareillage43);
-        $manager->flush();
+        
 
 
 
@@ -617,12 +574,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage44->setFamilleApp('mob');
         $appareillage44->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage44->setCommentairesApp('Réaliser un Activateur de Classe 2');
-        $appareillage44->setCompteurApp(0);
         $appareillage44->setInfoComLaboApp('');
         $appareillage44->setInfoComCabApp('');
 
         $manager->persist($appareillage44);
-        $manager->flush();
+        
 
 
 
@@ -631,12 +587,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage45->setFamilleApp('mob');
         $appareillage45->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage45->setCommentairesApp('Réaliser un Activateur de Classe 3');
-        $appareillage45->setCompteurApp(0);
         $appareillage45->setInfoComLaboApp('');
         $appareillage45->setInfoComCabApp('');
 
         $manager->persist($appareillage45);
-        $manager->flush();
+        
 
 
 
@@ -645,12 +600,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage46->setFamilleApp('mob');
         $appareillage46->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage46->setCommentairesApp('Réaliser un circonférentiel');
-        $appareillage46->setCompteurApp(0);
         $appareillage46->setInfoComLaboApp('');
         $appareillage46->setInfoComCabApp('');
 
         $manager->persist($appareillage46);
-        $manager->flush();
+        
 
 
 
@@ -659,12 +613,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage47->setFamilleApp('mob');
         $appareillage47->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage47->setCommentairesApp('Réaliser un 3 Pièces de Château');
-        $appareillage47->setCompteurApp(0);
         $appareillage47->setInfoComLaboApp('');
         $appareillage47->setInfoComCabApp('');
 
         $manager->persist($appareillage47);
-        $manager->flush();
+        
 
 
 
@@ -673,12 +626,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage48->setFamilleApp('mob');
         $appareillage48->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage48->setCommentairesApp('Réaliser un Equiplan');
-        $appareillage48->setCompteurApp(0);
         $appareillage48->setInfoComLaboApp('');
         $appareillage48->setInfoComCabApp('');
 
         $manager->persist($appareillage48);
-        $manager->flush();
+        
 
 
 
@@ -687,12 +639,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage49->setFamilleApp('mob');
         $appareillage49->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage49->setCommentairesApp('Réaliser une Gouttière de Herbst (Amoric)');
-        $appareillage49->setCompteurApp(0);
         $appareillage49->setInfoComLaboApp('');
         $appareillage49->setInfoComCabApp('');
 
         $manager->persist($appareillage49);
-        $manager->flush();
+        
 
 
 
@@ -701,12 +652,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage50->setFamilleApp('mob');
         $appareillage50->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage50->setCommentairesApp('Réaliser des gouttières anti-ronflement');
-        $appareillage50->setCompteurApp(0);
         $appareillage50->setInfoComLaboApp('');
         $appareillage50->setInfoComCabApp('');
 
         $manager->persist($appareillage50);
-        $manager->flush();
+        
 
 
 
@@ -715,12 +665,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage51->setFamilleApp('mob');
         $appareillage51->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage51->setCommentairesApp('Réaliser un Optimiseur cinématique');
-        $appareillage51->setCompteurApp(0);
         $appareillage51->setInfoComLaboApp('');
         $appareillage51->setInfoComCabApp('');
 
         $manager->persist($appareillage51);
-        $manager->flush();
+        
 
 
 
@@ -729,12 +678,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage52->setFamilleApp('mob');
         $appareillage52->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage52->setCommentairesApp('Réaliser une Plaque de Korn');
-        $appareillage52->setCompteurApp(0);
         $appareillage52->setInfoComLaboApp('');
         $appareillage52->setInfoComCabApp('');
 
         $manager->persist($appareillage52);
-        $manager->flush();
+        
 
 
 
@@ -743,12 +691,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage53->setFamilleApp('mob');
         $appareillage53->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage53->setCommentairesApp('Réaliser une Plaque de Tucat');
-        $appareillage53->setCompteurApp(0);
         $appareillage53->setInfoComLaboApp('');
         $appareillage53->setInfoComCabApp('');
 
         $manager->persist($appareillage53);
-        $manager->flush();
+        
 
 
 
@@ -757,12 +704,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage54->setFamilleApp('mob');
         $appareillage54->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage54->setCommentairesApp('Réaliser un positionneur');
-        $appareillage54->setCompteurApp(0);
         $appareillage54->setInfoComLaboApp('');
         $appareillage54->setInfoComCabApp('');
 
         $manager->persist($appareillage54);
-        $manager->flush();
+        
 
 
 
@@ -771,12 +717,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage55->setFamilleApp('mob');
         $appareillage55->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage55->setCommentairesApp('Réaliser des Pistes de Planas');
-        $appareillage55->setCompteurApp(0);
         $appareillage55->setInfoComLaboApp('');
         $appareillage55->setInfoComCabApp('');
 
         $manager->persist($appareillage55);
-        $manager->flush();
+        
 
 
 
@@ -785,12 +730,11 @@ class AppareillagesData extends AbstractFixture
         $appareillage56->setFamilleApp('mob');
         $appareillage56->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage56->setCommentairesApp('Réaliser un Protège-Dents');
-        $appareillage56->setCompteurApp(0);
         $appareillage56->setInfoComLaboApp('');
         $appareillage56->setInfoComCabApp('');
 
         $manager->persist($appareillage56);
-        $manager->flush();
+        
 
 
 
@@ -799,14 +743,13 @@ class AppareillagesData extends AbstractFixture
         $appareillage57->setFamilleApp('mob');
         $appareillage57->setImgApp('http://www.neo3d.fr/imgbase/00000000.jpg');
         $appareillage57->setCommentairesApp('Réaliser un Spring Retainer');
-        $appareillage57->setCompteurApp(0);
         $appareillage57->setInfoComLaboApp('');
         $appareillage57->setInfoComCabApp('');
 
         $manager->persist($appareillage57);
+
+
         $manager->flush();
-
-
 
     }
 

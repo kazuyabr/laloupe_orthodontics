@@ -1,0 +1,27 @@
+OrthoBundle\Entity\PoidsAppareillages:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\PoidsAppareillagesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        poids:
+            type: integer
+            nullable: false
+            unique: false
+
+    manyToOne:
+        fidAppareillages:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            inversedBy: poids
+
+        cabinet:
+            targetEntity: OrthoBundle\Entity\Cabinetsdentaires
+            inversedBy: poids
+
+    lifecycleCallbacks: {  }

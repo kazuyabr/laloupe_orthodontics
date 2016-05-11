@@ -3,7 +3,7 @@ OrthoBundle\Entity\Commandes:
     table: null
     repositoryClass: OrthoBundle\Repository\CommandesRepository
     id:
-        idCommande:
+        id:
             type: integer
             id: true
             generator:
@@ -24,20 +24,21 @@ OrthoBundle\Entity\Commandes:
             type: datetime
         comment:
             type: text
+            nullable: true
 
     manyToOne:
         fidCabinet:
             targetEntity: Cabinetsdentaires
             joinColumn:
                 name: fid_cabinet
-                referencedColumnName: id_cab
+                referencedColumn: id
                 nullable: true
 
         fidLaboratoire:
             targetEntity: Laboratoire
             joinColumn:
                 name: fid_laboratoire
-                referencedColumnName: id_labo
+                referencedColumn: id
                 nullable: true
 
         fidCouleur:
@@ -55,17 +56,9 @@ OrthoBundle\Entity\Commandes:
                 nullable: false
 
     manyToMany:
-         fidApp:
+         appareillages:
              targetEntity: Appareillages
-             inversedBy: Commandes
-             joinTable:
-                 name: Commandes_Appareillages
-                 joinColumns:
-                     Commandes_id:
-                         referencedColumnName: id_commande
-                 inverseJoinColumns:
-                     Appareillages_id:
-                         referencedColumnName: id_app
+             inversedBy: commandes
 
          fidAdj:
              targetEntity: Adjonctions
@@ -74,7 +67,7 @@ OrthoBundle\Entity\Commandes:
                  name: Commandes_Adjonctions
                  joinColumns:
                      Commandes_id:
-                         referencedColumnName: id_commande
+                         referencedColumn: id
                  inverseJoinColumns:
                      Adjonctions_id:
                          referencedColumnName: id_adj

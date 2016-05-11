@@ -10,35 +10,52 @@ use Doctrine\ORM\Mapping as ORM;
 class Commandes
 {
 
+    // CUSTOM CODE
+
+    /* Fonction en attente, à compléter plus tard
     public function __toString()
     {
         return ;
     }
+    */
 
     public function setCreatedAtValue()
     {
         $this->setDatecommande(new \DateTime());
     }
+    
+    private $ajoutApp;
+    
 
     /**
-     * @var int
+     * Get ajoutApp
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
      */
-    private $idCommande;
+    public function getAjoutApp()
+    {
+        return $this->ajoutApp;
+    }
 
     /**
-     * @var int
+     * Set ajoutApp
+     *
+     * @param string $ajoutApp
+     * @return Commandes
      */
-    private $fidCabinet;
+    public function setAjoutApp($ajoutApp)
+    {
+        $this->ajoutApp = $ajoutApp;
+
+        return $this;
+    }
+
+    // GENRATED CODE
 
     /**
-     * @var int
+     * @var integer
      */
-    private $fidLaboratoire;
-
-    /**
-     * @var int
-     */
-    private $fidPatient;
+    private $id;
 
     /**
      * @var string
@@ -51,7 +68,7 @@ class Commandes
     private $prenomPatient;
 
     /**
-     * @var \Date
+     * @var \DateTime
      */
     private $dateretour;
 
@@ -61,309 +78,59 @@ class Commandes
     private $datecommande;
 
     /**
-     * @var int
+     * @var string
      */
-    private $fidApp;
+    private $comment;
 
     /**
-     * @var int
+     * @var \OrthoBundle\Entity\Cabinetsdentaires
+     */
+    private $fidCabinet;
+
+    /**
+     * @var \OrthoBundle\Entity\Laboratoire
+     */
+    private $fidLaboratoire;
+
+    /**
+     * @var \OrthoBundle\Entity\Couleur
+     */
+    private $fidCouleur;
+
+    /**
+     * @var \OrthoBundle\Entity\Motif
+     */
+    private $fidMotif;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $appareillages;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
      */
     private $fidAdj;
 
-    private $fidCouleur;
-
-    private $fidMotif;
-
-    private $comment;
-
-    private $ajoutApp;
-
-
-    /**
-     * Get idCommande
-     *
-     * @return integer 
-     */
-    public function getIdCommande()
-    {
-        return $this->idCommande;
-    }
-    
-
-    /**
-     * Set fidCabinet
-     *
-     * @param integer $fidCabinet
-     * @return Commandes
-     */
-    public function setFidCabinet($fidCabinet)
-    {
-        $this->fidCabinet = $fidCabinet;
-
-        return $this;
-    }
-
-    /**
-     * Get fidCabinet
-     *
-     * @return integer 
-     */
-    public function getFidCabinet()
-    {
-        return $this->fidCabinet;
-    }
-    
-
-    /**
-     * Set fidLaboratoire
-     *
-     * @param integer $fidLaboratoire
-     * @return Commandes
-     */
-    public function setFidLaboratoire($fidLaboratoire)
-    {
-        $this->fidLaboratoire = $fidLaboratoire;
-
-        return $this;
-    }
-
-    /**
-     * Get fidLaboratoire
-     *
-     * @return integer 
-     */
-    public function getFidLaboratoire()
-    {
-        return $this->fidLaboratoire;
-    }
-    
-
-    /**
-     * Set fidPatient
-     *
-     * @param integer $fidPatient
-     * @return Commandes
-     */
-    public function setFidPatient($fidPatient)
-    {
-        $this->fidPatient = $fidPatient;
-
-        return $this;
-    }
-
-    /**
-     * Get fidPatient
-     *
-     * @return integer 
-     */
-    public function getFidPatient()
-    {
-        return $this->fidPatient;
-    }
-    
-
-    /**
-     * Set dateretour
-     *
-     * @param \DateTime $dateretour
-     * @return Commandes
-     */
-    public function setDateretour($dateretour)
-    {
-        $this->dateretour = $dateretour;
-
-        return $this;
-    }
-
-    /**
-     * Get dateretour
-     *
-     * @return \DateTime 
-     */
-    public function getDateretour()
-    {
-        return $this->dateretour;
-    }
-    
-
-    /**
-     * Set datecommande
-     *
-     * @param \DateTime $datecommande
-     * @return Commandes
-     */
-    public function setDatecommande($datecommande)
-    {
-        $this->datecommande = $datecommande;
-
-        return $this;
-    }
-
-    /**
-     * Get datecommande
-     *
-     * @return \DateTime 
-     */
-    public function getDatecommande()
-    {
-        return $this->datecommande;
-    }
-    
-
-    /**
-     * Set fidApp
-     *
-     * @param integer $fidApp
-     * @return Commandes
-     */
-    public function setFidApp($fidApp)
-    {
-        $this->fidApp = $fidApp;
-
-        return $this;
-    }
-
-    /**
-     * Get fidApp
-     *
-     * @return integer 
-     */
-    public function getFidApp()
-    {
-        return $this->fidApp;
-    }
-
-    
-    /**
-     * Set fidAdj
-     *
-     * @param integer $fidAdj
-     * @return Commandes
-     */
-    public function setFidAdj($fidAdj)
-    {
-        $this->fidAdj = $fidAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get fidAdj
-     *
-     * @return integer 
-     */
-    public function getFidAdj()
-    {
-        return $this->fidAdj;
-    }
-    
-    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->fidApp = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
         $this->fidAdj = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    
     /**
-     * Add fidApp
+     * Get id
      *
-     * @param \OrthoBundle\Entity\Appareillages $fidApp
-     * @return Commandes
+     * @return integer 
      */
-    public function addFidApp(\OrthoBundle\Entity\Appareillages $fidApp)
+    public function getId()
     {
-        $this->fidApp[] = $fidApp;
-
-        return $this;
+        return $this->id;
     }
 
-    /**
-     * Remove fidApp
-     *
-     * @param \OrthoBundle\Entity\Appareillages $fidApp
-     */
-    public function removeFidApp(\OrthoBundle\Entity\Appareillages $fidApp)
-    {
-        $this->fidApp->removeElement($fidApp);
-    }
-
-    
-    /**
-     * Add fidAdj
-     *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
-     * @return Commandes
-     */
-    public function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
-    {
-        $this->fidAdj[] = $fidAdj;
-
-        return $this;
-    }
-
-    /**
-     * Remove fidAdj
-     *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
-     */
-    public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
-    {
-        $this->fidAdj->removeElement($fidAdj);
-    }
-    
-    
-    /**
-     * Set fidCouleur
-     *
-     * @param \OrthoBundle\Entity\Couleur $fidCouleur
-     * @return Commandes
-     */
-    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur = null)
-    {
-        $this->fidCouleur = $fidCouleur;
-
-        return $this;
-    }
-
-    /**
-     * Get fidCouleur
-     *
-     * @return \OrthoBundle\Entity\Couleur 
-     */
-    public function getFidCouleur()
-    {
-        return $this->fidCouleur;
-    }
-
-    
-    /**
-     * Set fidMotif
-     *
-     * @param \OrthoBundle\Entity\Motif $fidMotif
-     * @return Commandes
-     */
-    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif = null)
-    {
-        $this->fidMotif = $fidMotif;
-
-        return $this;
-    }
-
-    /**
-     * Get fidMotif
-     *
-     * @return \OrthoBundle\Entity\Motif 
-     */
-    public function getFidMotif()
-    {
-        return $this->fidMotif;
-    }
-
-    
     /**
      * Set referencePatient
      *
@@ -387,7 +154,6 @@ class Commandes
         return $this->referencePatient;
     }
 
-    
     /**
      * Set prenomPatient
      *
@@ -404,22 +170,57 @@ class Commandes
     /**
      * Get prenomPatient
      *
-     * @return string
+     * @return string 
      */
     public function getPrenomPatient()
     {
         return $this->prenomPatient;
     }
 
+    /**
+     * Set dateretour
+     *
+     * @param \DateTime $dateretour
+     * @return Commandes
+     */
+    public function setDateretour($dateretour)
+    {
+        $this->dateretour = $dateretour;
+
+        return $this;
+    }
 
     /**
-     * Get comment
+     * Get dateretour
      *
-     * @return string
+     * @return \DateTime 
      */
-    public function getComment()
+    public function getDateretour()
     {
-        return $this->comment;
+        return $this->dateretour;
+    }
+
+    /**
+     * Set datecommande
+     *
+     * @param \DateTime $datecommande
+     * @return Commandes
+     */
+    public function setDatecommande($datecommande)
+    {
+        $this->datecommande = $datecommande;
+
+        return $this;
+    }
+
+    /**
+     * Get datecommande
+     *
+     * @return \DateTime 
+     */
+    public function getDatecommande()
+    {
+        return $this->datecommande;
     }
 
     /**
@@ -436,26 +237,170 @@ class Commandes
     }
 
     /**
-     * Get ajoutApp
+     * Get comment
      *
-     * @return string
+     * @return string 
      */
-    public function getAjoutApp()
+    public function getComment()
     {
-        return $this->ajoutApp;
+        return $this->comment;
     }
 
     /**
-     * Set ajoutApp
+     * Set fidCabinet
      *
-     * @param string $ajoutApp
+     * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
      * @return Commandes
      */
-    public function setAjoutApp($ajoutApp)
+    public function setFidCabinet(\OrthoBundle\Entity\Cabinetsdentaires $fidCabinet = null)
     {
-        $this->ajoutApp = $ajoutApp;
+        $this->fidCabinet = $fidCabinet;
 
         return $this;
     }
-}
 
+    /**
+     * Get fidCabinet
+     *
+     * @return \OrthoBundle\Entity\Cabinetsdentaires 
+     */
+    public function getFidCabinet()
+    {
+        return $this->fidCabinet;
+    }
+
+    /**
+     * Set fidLaboratoire
+     *
+     * @param \OrthoBundle\Entity\Laboratoire $fidLaboratoire
+     * @return Commandes
+     */
+    public function setFidLaboratoire(\OrthoBundle\Entity\Laboratoire $fidLaboratoire = null)
+    {
+        $this->fidLaboratoire = $fidLaboratoire;
+
+        return $this;
+    }
+
+    /**
+     * Get fidLaboratoire
+     *
+     * @return \OrthoBundle\Entity\Laboratoire 
+     */
+    public function getFidLaboratoire()
+    {
+        return $this->fidLaboratoire;
+    }
+
+    /**
+     * Set fidCouleur
+     *
+     * @param \OrthoBundle\Entity\Couleur $fidCouleur
+     * @return Commandes
+     */
+    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur)
+    {
+        $this->fidCouleur = $fidCouleur;
+
+        return $this;
+    }
+
+    /**
+     * Get fidCouleur
+     *
+     * @return \OrthoBundle\Entity\Couleur 
+     */
+    public function getFidCouleur()
+    {
+        return $this->fidCouleur;
+    }
+
+    /**
+     * Set fidMotif
+     *
+     * @param \OrthoBundle\Entity\Motif $fidMotif
+     * @return Commandes
+     */
+    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif)
+    {
+        $this->fidMotif = $fidMotif;
+
+        return $this;
+    }
+
+    /**
+     * Get fidMotif
+     *
+     * @return \OrthoBundle\Entity\Motif 
+     */
+    public function getFidMotif()
+    {
+        return $this->fidMotif;
+    }
+
+    /**
+     * Add appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     * @return Commandes
+     */
+    public function addAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages[] = $appareillages;
+
+        return $this;
+    }
+
+    /**
+     * Remove appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     */
+    public function removeAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages->removeElement($appareillages);
+    }
+
+    /**
+     * Get appareillages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAppareillages()
+    {
+        return $this->appareillages;
+    }
+
+    /**
+     * Add fidAdj
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     * @return Commandes
+     */
+    public function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    {
+        $this->fidAdj[] = $fidAdj;
+
+        return $this;
+    }
+
+    /**
+     * Remove fidAdj
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     */
+    public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    {
+        $this->fidAdj->removeElement($fidAdj);
+    }
+
+    /**
+     * Get fidAdj
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFidAdj()
+    {
+        return $this->fidAdj;
+    }
+}
