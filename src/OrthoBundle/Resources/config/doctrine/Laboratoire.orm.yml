@@ -3,7 +3,7 @@ OrthoBundle\Entity\Laboratoire:
     table: null
     repositoryClass: OrthoBundle\Repository\LaboratoireRepository
     id:
-        idLabo:
+        id:
             type: integer
             id: true
             generator:
@@ -33,4 +33,9 @@ OrthoBundle\Entity\Laboratoire:
             type: string
             length: 255
             column: telephone_labo
+
+    manyToMany:
+        appareillages:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            inversedBy: labos
     lifecycleCallbacks: {  }

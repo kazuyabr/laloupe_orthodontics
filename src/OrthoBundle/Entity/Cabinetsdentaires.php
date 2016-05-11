@@ -10,9 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Cabinetsdentaires
 {
     /**
-     * @var int
+     * @var integer
      */
-    private $idCab;
+    private $id;
 
     /**
      * @var int
@@ -53,18 +53,23 @@ class Cabinetsdentaires
 
     private $password;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poids;
+
 
     /**
      * Get idCab
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
-        return $this->idCab;
+        return $this->id;
     }
 
-    
+
     public function setFidLabo($fidLabo)
     {
         $this->fidLabo = $fidLabo;
@@ -75,7 +80,7 @@ class Cabinetsdentaires
     /**
      * Get fidLabo
      *
-     * @return integer 
+     * @return integer
      */
     public function getFidLabo()
     {
@@ -98,7 +103,7 @@ class Cabinetsdentaires
     /**
      * Get nomCab
      *
-     * @return string 
+     * @return string
      */
     public function getNomCab()
     {
@@ -121,7 +126,7 @@ class Cabinetsdentaires
     /**
      * Get adresseCab
      *
-     * @return string 
+     * @return string
      */
     public function getAdresseCab()
     {
@@ -144,7 +149,7 @@ class Cabinetsdentaires
     /**
      * Get codepostalCab
      *
-     * @return string 
+     * @return string
      */
     public function getCodepostalCab()
     {
@@ -167,34 +172,11 @@ class Cabinetsdentaires
     /**
      * Get villeCab
      *
-     * @return string 
+     * @return string
      */
     public function getVilleCab()
     {
         return $this->villeCab;
-    }
-
-    /**
-     * Set mailCab
-     *
-     * @param string $mailCab
-     * @return Cabinetsdentaires
-     */
-    public function setMailCab($mailCab)
-    {
-        $this->mailCab = $mailCab;
-
-        return $this;
-    }
-
-    /**
-     * Get mailCab
-     *
-     * @return string 
-     */
-    public function getMailCab()
-    {
-        return $this->mailCab;
     }
 
     /**
@@ -213,7 +195,7 @@ class Cabinetsdentaires
     /**
      * Get telephoneCab
      *
-     * @return string 
+     * @return string
      */
     public function getTelephoneCab()
     {
@@ -221,81 +203,131 @@ class Cabinetsdentaires
     }
 
     /**
-     * Get idCab
-     *
-     * @return integer 
+     * Constructor
      */
-    public function getIdCab()
+    public function __construct()
     {
-        return $this->idCab;
+        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Set username
+     * Add poids
      *
-     * @param string $username
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
      * @return Cabinetsdentaires
      */
-    public function setUsername($username)
+    public function addPoids(\OrthoBundle\Entity\PoidsAppareillages $poids)
     {
-        $this->username = $username;
-
-        return $this;
+        $this->poids[] = $poids;
     }
 
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
+        /**
+         * Set username
+         *
+         * @param string $username
+         * @return Cabinetsdentaires
+         */
+        public
+        function setUsername($username)
+        {
+            $this->username = $username;
+
+            return $this;
+        }
+
+        /**
+         * Get username
+         *
+         * @return string
+         */
+        public
+        function getUsername()
+        {
+            return $this->username;
+        }
+
+        /**
+         * Set password
+         *
+         * @param string $password
+         * @return Cabinetsdentaires
+         */
+        public
+        function setPassword($password)
+        {
+            $this->password = $password;
+
+            return $this;
+        }
+
+        /**
+         * Remove poids
+         *
+         * @param \OrthoBundle\Entity\PoidsAppareillages $poids
+         */
+        public
+        function removePoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
+        {
+            $this->poids->removeElement($poids);
+        }
+
+        /**
+         * Get poids
+         *
+         * @return \Doctrine\Common\Collections\Collection
+         */
+        public
+        function getPoids()
+        {
+            return $this->poids;
+        }
+
+
+        /**Get password
+         *
+         * @return string
+         */
+        public
+        function getPassword()
+        {
+            return $this->password;
+        }
+
+        /**
+         * Set email
+         *
+         * @param string $email
+         * @return Cabinetsdentaires
+         */
+        public
+        function setEmail($email)
+        {
+            $this->email = $email;
+
+            return $this;
+        }
+
+        /**
+         * Get email
+         *
+         * @return string
+         */
+        public
+        function getEmail()
+        {
+            return $this->email;
+        }
 
     /**
-     * Set password
+     * Add poids
      *
-     * @param string $password
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
      * @return Cabinetsdentaires
      */
-    public function setPassword($password)
+    public function addPoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
     {
-        $this->password = $password;
+        $this->poids[] = $poids;
 
         return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Cabinetsdentaires
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 }
