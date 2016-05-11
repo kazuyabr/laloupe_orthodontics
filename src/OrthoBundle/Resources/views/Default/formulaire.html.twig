@@ -49,10 +49,6 @@
     <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
 
 
-
-
-
-
         <tbody>
         {% for entity in entity %}
             <tr>
@@ -78,7 +74,10 @@
             <a href="{{ path('uploads_new') }}">Insérer une image</a>
         </li>
     </ul>
-    {{ form_end(form) }}
+
+
+    {{ form(form) }}
+
 
 {% endblock %}
 
