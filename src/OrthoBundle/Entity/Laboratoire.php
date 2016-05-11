@@ -9,8 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Laboratoire
 {
+    
+    
+    // GENERATED CODE
+    
     /**
-     * @var int
+     * @var integer
      */
     private $idLabo;
 
@@ -44,13 +48,25 @@ class Laboratoire
      */
     private $telephoneLabo;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $appareillages;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get idLabo
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdLabo()
     {
         return $this->idLabo;
     }
@@ -194,12 +210,50 @@ class Laboratoire
     }
 
     /**
-     * Get idLabo
+     * Add appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     * @return Laboratoire
+     */
+    public function addAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages[] = $appareillages;
+
+        return $this;
+    }
+
+    /**
+     * Remove appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     */
+    public function removeAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages->removeElement($appareillages);
+    }
+
+    /**
+     * Get appareillages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAppareillages()
+    {
+        return $this->appareillages;
+    }
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Get id
      *
      * @return integer 
      */
-    public function getIdLabo()
+    public function getId()
     {
-        return $this->idLabo;
+        return $this->id;
     }
 }

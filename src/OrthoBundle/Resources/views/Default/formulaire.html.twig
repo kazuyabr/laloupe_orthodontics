@@ -24,8 +24,8 @@
     <br />
 
     <label for="fidApp">Appareillages :</label>
-    {{ form_errors(form.fidApp) }}
-    {{ form_widget(form.fidApp) }}
+    {{ form_errors(form.appareillages) }}
+    {{ form_widget(form.appareillages) }}
     <br />
 
     <label for="fidAdj">Adjonctions :</label>
@@ -48,9 +48,40 @@
 
     <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
 
-{{ form_end(form) }}
+
+        <tbody>
+        {% for entity in entity %}
+            <tr>
+                <td><a href="{{ path('uploads_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('uploads_show', { 'id': entity.id }) }}"><i class="icon-book"></i>Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('uploads_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i>Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('uploads_new') }}">Insérer une image</a>
+        </li>
+    </ul>
+
+
+    {{ form(form) }}
+
 
 {% endblock %}
+
+
 
 {% block javascripts %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>

@@ -1,14 +1,10 @@
 photos:
-    resource: "@photosBundle/Resources/config/routing.yml"
+    resource: "@OrthoBundle/Resources/config/routing.yml"
     prefix:   /
 
 ortho:
     resource: "@OrthoBundle/Resources/config/routing.yml"
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
