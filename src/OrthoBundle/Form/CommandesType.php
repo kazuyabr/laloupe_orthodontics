@@ -43,7 +43,7 @@ class CommandesType extends AbstractType
                 "label" => "Date de retour souhaitée",
             ))
             
-            ->add('fidApp', 'entity', array(
+            ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'multiple' => 'false'
