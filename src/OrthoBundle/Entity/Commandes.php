@@ -22,13 +22,9 @@ class Commandes
     }
     
     
-    
+
     // GENRATED CODE
 
-    /**
-     * @var int
-     */
-    private $idCommande;
 
     /**
      * @var int
@@ -56,7 +52,7 @@ class Commandes
     private $prenomPatient;
 
     /**
-     * @var \Date
+     * @var \DateTime
      */
     private $dateretour;
 
@@ -79,15 +75,7 @@ class Commandes
     private $comment;
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getIdCommande()
-    {
-        return $this->idCommande;
-    }
+  
 
     /**
      * Set fidCab

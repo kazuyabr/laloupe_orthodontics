@@ -12,14 +12,19 @@ class PoidsAppareillages
 
     // CUSTOM CODE
 
+    // Constructeur pour le poids et l'appareillage. On ne peut pas créer une nouvelle instance de classe
+    // [...] Sans définir le cabinet en question et l'appareillage qui lui est lié.
     public function __construct(Cabinetsdentaires $cabinet, Appareillages $appareil)
     {
+        // Déclaration des variables du constructeur.
         $this->cabinet = $cabinet;
         $this->fidAppareillages = $appareil;
     }
 
+    // Méthode incr() : Incrémentation du poids, si ce dernier est renseigné.
     public function incr()
     {
+        // On incrémente juste de 1 avec le "++;"
         $this->poids++;
     }
 
@@ -28,6 +33,9 @@ class PoidsAppareillages
      */
     private $id;
     
+    // Déclaration du poids avec une valeur initiale de 1.
+    // Chaque nouvelle instance de PoidsAppareillages qui sera crée aura sa variable $poids
+    // Qui vaudra 1 (Visible sur la BDD)
     private $poids = 1;
 
     /* Déclaration des variables utilisés pour les relations Doctrine */
