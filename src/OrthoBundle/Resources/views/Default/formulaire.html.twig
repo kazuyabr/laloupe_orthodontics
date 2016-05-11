@@ -53,8 +53,8 @@
     {{ form_errors(form.comment) }}
     {{ form_widget(form.comment) }}
 {{ form_end(form) }}
-
- <h1>Uploads list</h1>
+<div id="upload">
+    <h1>Uploads list</h1>
 
     <table>
         <thead>
@@ -89,6 +89,7 @@
             <a href="{{ path('uploads_new') }}">Create a new entry</a>
         </li>
     </ul>
+    </div>
 
 {% endblock %}
 
