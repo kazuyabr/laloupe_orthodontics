@@ -5,7 +5,6 @@ namespace OrthoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 
-
 /**
  * Uploads
  */
