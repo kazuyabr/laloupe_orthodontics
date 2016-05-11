@@ -11,10 +11,13 @@ class Commandes
 {
 
     // CUSTOM CODE
+
+    /* Fonction en attente, à compléter plus tard
     public function __toString()
     {
         return ;
     }
+    */
 
     public function setCreatedAtValue()
     {
@@ -25,21 +28,11 @@ class Commandes
 
     // GENRATED CODE
 
-
+    
     /**
-     * @var int
+     * @var integer
      */
-    private $fidCabinet;
-
-    /**
-     * @var int
-     */
-    private $fidLaboratoire;
-
-    /**
-     * @var int
-     */
-    private $fidPatient;
+    private $id;
 
     /**
      * @var string
@@ -60,90 +53,105 @@ class Commandes
      * @var \DateTime
      */
     private $datecommande;
-    
 
     /**
-     * @var int
+     * @var string
+     */
+    private $comment;
+
+    /**
+     * @var \OrthoBundle\Entity\Cabinetsdentaires
+     */
+    private $fidCabinet;
+
+    /**
+     * @var \OrthoBundle\Entity\Laboratoire
+     */
+    private $fidLaboratoire;
+
+    /**
+     * @var \OrthoBundle\Entity\Couleur
+     */
+    private $fidCouleur;
+
+    /**
+     * @var \OrthoBundle\Entity\Motif
+     */
+    private $fidMotif;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $appareillages;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
      */
     private $fidAdj;
 
-    
-    private $fidCouleur;
-
-    private $fidMotif;
-
-    private $comment;
-
-
-  
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->fidAdj = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
-     * Set fidCab
+     * Get id
      *
-     * @param integer $fidCabinet
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set referencePatient
+     *
+     * @param string $referencePatient
      * @return Commandes
      */
-    public function setFidCabinet($fidCabinet)
+    public function setReferencePatient($referencePatient)
     {
-        $this->fidCabinet = $fidCabinet;
+        $this->referencePatient = $referencePatient;
 
         return $this;
     }
 
     /**
-     * Get fidCabinet
+     * Get referencePatient
      *
-     * @return integer 
+     * @return string 
      */
-    public function getFidCabinet()
+    public function getReferencePatient()
     {
-        return $this->fidCabinet;
+        return $this->referencePatient;
     }
 
     /**
-     * Set fidLaboratoire
+     * Set prenomPatient
      *
-     * @param integer $fidLaboratoire
+     * @param string $prenomPatient
      * @return Commandes
      */
-    public function setFidLaboratoire($fidLaboratoire)
+    public function setPrenomPatient($prenomPatient)
     {
-        $this->fidLaboratoire = $fidLaboratoire;
+        $this->prenomPatient = $prenomPatient;
 
         return $this;
     }
 
     /**
-     * Get fidLaboratoire
+     * Get prenomPatient
      *
-     * @return integer 
+     * @return string 
      */
-    public function getFidLaboratoire()
+    public function getPrenomPatient()
     {
-        return $this->fidLaboratoire;
-    }
-
-    /**
-     * Set fidPatient
-     *
-     * @param integer $fidPatient
-     * @return Commandes
-     */
-    public function setFidPatient($fidPatient)
-    {
-        $this->fidPatient = $fidPatient;
-
-        return $this;
-    }
-
-    /**
-     * Get fidPatient
-     *
-     * @return integer 
-     */
-    public function getFidPatient()
-    {
-        return $this->fidPatient;
+        return $this->prenomPatient;
     }
 
     /**
@@ -192,92 +200,82 @@ class Commandes
         return $this->datecommande;
     }
 
-
-
     /**
-     * Set fidAdj
+     * Set comment
      *
-     * @param integer $fidAdj
+     * @param string $comment
      * @return Commandes
      */
-    public function setFidAdj($fidAdj)
+    public function setComment($comment)
     {
-        $this->fidAdj = $fidAdj;
+        $this->comment = $comment;
 
         return $this;
     }
 
     /**
-     * Get fidAdj
+     * Get comment
      *
-     * @return integer 
+     * @return string 
      */
-    public function getFidAdj()
+    public function getComment()
     {
-        return $this->fidAdj;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->fidApp = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->fidAdj = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->comment;
     }
 
     /**
-     * Add fidApp
+     * Set fidCabinet
      *
-     * @param \OrthoBundle\Entity\Appareillages $fidApp
+     * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
      * @return Commandes
      */
-    public function addFidApp(\OrthoBundle\Entity\Appareillages $fidApp)
+    public function setFidCabinet(\OrthoBundle\Entity\Cabinetsdentaires $fidCabinet = null)
     {
-        $this->fidApp[] = $fidApp;
+        $this->fidCabinet = $fidCabinet;
 
         return $this;
     }
 
     /**
-     * Remove fidApp
+     * Get fidCabinet
      *
-     * @param \OrthoBundle\Entity\Appareillages $fidApp
+     * @return \OrthoBundle\Entity\Cabinetsdentaires 
      */
-    public function removeFidApp(\OrthoBundle\Entity\Appareillages $fidApp)
+    public function getFidCabinet()
     {
-        $this->fidApp->removeElement($fidApp);
+        return $this->fidCabinet;
     }
 
     /**
-     * Add fidAdj
+     * Set fidLaboratoire
      *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     * @param \OrthoBundle\Entity\Laboratoire $fidLaboratoire
      * @return Commandes
      */
-    public function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    public function setFidLaboratoire(\OrthoBundle\Entity\Laboratoire $fidLaboratoire = null)
     {
-        $this->fidAdj[] = $fidAdj;
+        $this->fidLaboratoire = $fidLaboratoire;
 
         return $this;
     }
 
     /**
-     * Remove fidAdj
+     * Get fidLaboratoire
      *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     * @return \OrthoBundle\Entity\Laboratoire 
      */
-    public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    public function getFidLaboratoire()
     {
-        $this->fidAdj->removeElement($fidAdj);
+        return $this->fidLaboratoire;
     }
-    
+
     /**
      * Set fidCouleur
      *
      * @param \OrthoBundle\Entity\Couleur $fidCouleur
      * @return Commandes
      */
-    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur = null)
+    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur)
     {
         $this->fidCouleur = $fidCouleur;
 
@@ -300,7 +298,7 @@ class Commandes
      * @param \OrthoBundle\Entity\Motif $fidMotif
      * @return Commandes
      */
-    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif = null)
+    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif)
     {
         $this->fidMotif = $fidMotif;
 
@@ -316,98 +314,6 @@ class Commandes
     {
         return $this->fidMotif;
     }
-
-    /**
-     * Set referencePatient
-     *
-     * @param string $referencePatient
-     * @return Commandes
-     */
-    public function setReferencePatient($referencePatient)
-    {
-        $this->referencePatient = $referencePatient;
-
-        return $this;
-    }
-
-    /**
-     * Get referencePatient
-     *
-     * @return string 
-     */
-    public function getReferencePatient()
-    {
-        return $this->referencePatient;
-    }
-
-    /**
-     * Set prenomPatient
-     *
-     * @param string $prenomPatient
-     * @return Commandes
-     */
-    public function setPrenomPatient($prenomPatient)
-    {
-        $this->prenomPatient = $prenomPatient;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomPatient
-     *
-     * @return string
-     */
-    public function getPrenomPatient()
-    {
-        return $this->prenomPatient;
-    }
-
-    /**
-     * Set comment
-     *
-     * @param string $comment
-     * @return Commandes
-     */
-    public function setComment($comment)
-    {
-        $this->comments = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Get comment
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-
-   
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $fidApp;
-
-
-    /**
-     * Get fidApp
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFidApp()
-    {
-        return $this->fidApp;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $appareillages;
-
 
     /**
      * Add appareillages
@@ -441,19 +347,37 @@ class Commandes
     {
         return $this->appareillages;
     }
-    /**
-     * @var integer
-     */
-    private $id;
-
 
     /**
-     * Get id
+     * Add fidAdj
      *
-     * @return integer 
+     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     * @return Commandes
      */
-    public function getId()
+    public function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
     {
-        return $this->id;
+        $this->fidAdj[] = $fidAdj;
+
+        return $this;
+    }
+
+    /**
+     * Remove fidAdj
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     */
+    public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    {
+        $this->fidAdj->removeElement($fidAdj);
+    }
+
+    /**
+     * Get fidAdj
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFidAdj()
+    {
+        return $this->fidAdj;
     }
 }

@@ -36,7 +36,7 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
-            foreach ($commande->getFidApp() as $appareil)
+            foreach ($commande->getAppareillages() as $appareil)
             {
                 // On récupère le cabinet en question qui a passé la commande
                 $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(2); // TODO : Récupérer le vrai cabinet
