@@ -54,6 +54,42 @@
     {{ form_widget(form.comment) }}
 {{ form_end(form) }}
 
+ <h1>Uploads list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Photos</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entity %}
+            <tr>
+                <td><a href="{{ path('uploads_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('uploads_show', { 'id': entity.id }) }}"><i class="icon-book"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('uploads_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('uploads_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+
 {% endblock %}
 
 

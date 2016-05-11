@@ -1,7 +1,7 @@
-photosBundle\Entity\Uploads:
+OrthoBundle\Entity\Uploads:
     type: entity
     table: null
-    repositoryClass: photosBundle\Repository\UploadsRepository
+    repositoryClass: OrthoBundle\Repository\UploadsRepository
     id:
         id:
             type: integer
