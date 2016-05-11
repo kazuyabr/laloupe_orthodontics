@@ -64,6 +64,12 @@ class CommandesType extends AbstractType
 
             ->add('comment', 'textarea')
 
+            ->add('photos', 'file', array(
+                'attr' => array(
+                    'placeholder' => 'Insérer une image'
+                ),
+                'label' => 'Nom image'
+            ))
 
 
             ->add('testimage', 'file', array(
@@ -96,6 +102,7 @@ class CommandesType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'OrthoBundle\Entity\Commandes'
+
         ));
     }
 }
