@@ -19,26 +19,28 @@ class DefaultController extends Controller
     public function formulaireAction()
     {
         $form = $this->createForm(new CommandesType());
-        return $this->render('OrthoBundle:Default:formulaire.html.twig', array('form'=>$form->createView()));
+        return $this->render('OrthoBundle:Default:formulaire.html.twig', array('form' => $form->createView()));
     }
 
     public function createAction()
     {
 
-        $commande  = new Commandes();
+        $commande = new Commandes();
         $request = $this->getRequest();
-        $form    = $this->createForm(new CommandesType(), $commande);
+        $form = $this->createForm(new CommandesType(), $commande);
+        /*if ($form->get()->isClicked($a)) {
+            echo 'bonjour';
+            die;
+        }*/
         $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
-        if ($form->isValid() && $form->isSubmitted())
-        {
+        if ($form->isValid() && $form->isSubmitted()) {
             // Appel de Doctrine
             $em = $this->getDoctrine()->getManager();
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
-            foreach ($commande->getAppareillages() as $appareil)
-            {
+            foreach ($commande->getAppareillages() as $appareil) {
                 // On récupère le cabinet en question qui a passé la commande
                 $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(2); // TODO : Récupérer le vrai cabinet
 
@@ -46,19 +48,16 @@ class DefaultController extends Controller
                 // ET de l'appareil choisi, pour récupérer le poids précis
                 // ATTENTION : le $poids récupéré ici est un objet, contrairement au 
                 // $poids dans l'entité "PoidsAppareillages.php" qui est un entier.
-                $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['cabinet' => $cabinet, 'fidAppareillages' => $appareil ]);
+                $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['cabinet' => $cabinet, 'fidAppareillages' => $appareil]);
 
                 // SI, le poids est déjà renseigné (Si il n'est pas "NULL" en BDD, Faire :
-                if (isset($poids))
-                {
+                if (isset($poids)) {
                     // [...] Appliquer la méthode incr() à notre poids (Voir PoidsAppareillages.php).
                     $poids->incr();
-                }
-                // SINON, (Si le poids est "NULL"), faire :
-                else
-                {
+                } // SINON, (Si le poids est "NULL"), faire :
+                else {
                     // [...] Déclaration d'une nouvelle instance de la classe PoidsAppareillages
-                    
+
                     $poids = new PoidsAppareillages($cabinet, $appareil);
 
                     // On met à jour les données de notre $poids
@@ -66,7 +65,7 @@ class DefaultController extends Controller
                 }
 
             }
-            
+
             $em->persist($commande);
             $em->flush();
 
@@ -77,7 +76,7 @@ class DefaultController extends Controller
 
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'entity' => $commande,
-            'form'   => $form->createView()
+            'form' => $form->createView()
         ));
     }
 

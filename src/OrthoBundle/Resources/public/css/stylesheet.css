@@ -9,7 +9,7 @@ body {
 
 }
 
-#commandes_fidApp, #commandes_fidAdj {
+#commandes_appareillages, #commandes_fidAdj {
     /* width: 300px; */
     width: 50%;
     padding: 5px;
@@ -37,8 +37,7 @@ form {
     border-radius: 15px;
 }
 
-input
-{
+input {
     margin: 0 0 10px;
 }
 
@@ -55,7 +54,7 @@ button {
     /**background: -moz-linear-gradient(top,  #d2dfed 0%, #c8d7eb 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); /* FF3.6-15 */
     /**background: -webkit-linear-gradient(top,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); /* Chrome10-25,Safari5.1-6 */
     /**background: linear-gradient(to bottom,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2dfed', endColorstr='#799bc8',GradientType=0 ); /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2dfed', endColorstr='#799bc8', GradientType=0); /* IE6-9 */
     border-radius: 0;
     border: none;
     margin: 0 -1.5em;
@@ -74,33 +73,28 @@ button {
     width: auto;
 }
 
-.header_recap
-{
+.header_recap {
     margin-left: auto;
     margin-right: auto;
 }
 
-.coche_vert
-{
+.coche_vert {
     text-align: center;
     width: 4%;
     float: left;
 }
 
-.header_recap h2
-{
+.header_recap h2 {
     padding-top: 6px;
     text-align: center;
 }
 
-#imprimante, #image_envoi_email
-{
+#imprimante, #image_envoi_email {
     width: 60px;
     height: 60px;
 }
 
-#lien_nouveau_formulaire
-{
+#lien_nouveau_formulaire {
     color: black;
     border: 1px solid black;
     padding: 1em;
@@ -108,7 +102,6 @@ button {
     box-shadow: 8px 8px 0px black;
 }
 
-li
-{
+li {
     list-style-type: none;
 }

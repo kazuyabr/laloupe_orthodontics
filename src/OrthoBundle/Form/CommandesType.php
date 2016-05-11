@@ -49,7 +49,7 @@ class CommandesType extends AbstractType
                 'multiple' => 'false'
             ))
 
-            ->add('ajoutApp', 'reset')
+            ->add('ajoutApp', 'button')
 
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
