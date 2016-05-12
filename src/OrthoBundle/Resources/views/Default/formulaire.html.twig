@@ -5,8 +5,10 @@
 {% block body %}
 
     <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
+
     <form action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
+
         <div id="formulairecde">
             <label for="referencePatient">Référence du patient :</label>
             {{ form_errors(form.referencePatient) }}
@@ -79,6 +81,7 @@
             <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
             {#{{ form_widget(form.envoi) }}#}
         </div>
+
         {{ form_end(form) }}
     </form>
 
@@ -98,6 +101,7 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+
 {% endblock %}
 
 {% block javascripts %}

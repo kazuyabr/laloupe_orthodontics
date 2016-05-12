@@ -62,7 +62,7 @@ class CommandesType extends AbstractType
             ->add('fidMotif')
             
             ->add('comment', 'textarea')
-
+            
             ->add('testimage', 'file', array(
                 'mapped' => false
             ))
@@ -85,7 +85,6 @@ class CommandesType extends AbstractType
         ;
 
     }
-
 
     /**
      * @param OptionsResolver $resolver

@@ -32,7 +32,8 @@ form {
     /*width: 70%;*/
     width: 80%;
     /* height: 500px; */
-    height: 700px;
+    /*height: 700px;*/
+    height: 850px;
     /*margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;*/
@@ -122,20 +123,23 @@ li {
 
 #upload {
     width: 50%;
+    /*height: 600px;*/
+    /*height: 480px;*/
+    height: 700px;
+    padding-left: 20px;
+    padding-bottom: 10px;
     float: right;
     /*background-color: #20B2AA;*/
     border-left: 1px solid dimgrey;
-    /*height: 600px;*/
-    height: 480px;
-    padding-left: 20px;
-    padding-bottom: 10px;
 }
 
 #boutoncde {
     /*background-color: #20B2AA;*/
     width: 100px;
-    /*margin-left: 700px;*/
-    margin-left: 750px;
+    /*margin-left: 700px;
+    margin-left: 750px;*/
+    margin-left: 900px;
+
 }
 
 #commandes_fidCouleur:hover {
