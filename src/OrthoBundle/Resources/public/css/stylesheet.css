@@ -36,7 +36,7 @@ form {
     margin-right: auto;
     margin-left: auto;
     /* height: 500px; */
-    width: 70%;
+    width: 80%;
     height: 700px;
     padding: 20px;
     margin-bottom: 20px;
@@ -130,6 +130,6 @@ li {
 #boutoncde {
     background-color: #20B2AA;
     width: 100px;
-    margin-left: 750px;
+    margin-left: 700px;
 
 }
