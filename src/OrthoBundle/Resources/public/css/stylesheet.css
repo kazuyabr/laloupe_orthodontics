@@ -13,7 +13,7 @@ h3 {
 
 }
 
-#commandes_fidApp, #commandes_fidAdj {
+#commandes_appareillages, #commandes_fidAdj {
     /* width: 300px; */
     width: 50%;
     padding: 5px;
@@ -108,11 +108,11 @@ button {
 }
 
 li {
-    /*list-style-type: none;*/
+    list-style-type: none;/**/
 }
 
 #upload {
-    float: right;
+    float: right;/**/
     background-color: #20B2AA;
     border-left: 1px solid dimgrey;
     height: 600px;
