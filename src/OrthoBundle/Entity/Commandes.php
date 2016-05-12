@@ -237,6 +237,9 @@ class Commandes
         return $this->comment;
     }
 
+   
+
+
     /**
      * Set fidCabinet
      *
@@ -455,7 +458,7 @@ class Commandes
     /**
      * @var string
      */
-    
+
 
 
 }
