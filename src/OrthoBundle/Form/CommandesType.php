@@ -42,14 +42,14 @@ class CommandesType extends AbstractType
             ->add('dateretour', DateType::class, array(
                 "label" => "Date de retour souhaitée",
             ))
-            
+
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'multiple' => 'false'
             ))
             
-            ->add('ajoutApp', 'submit')
+            ->add('ajoutApp', 'button')
             
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
@@ -62,14 +62,7 @@ class CommandesType extends AbstractType
             ->add('fidMotif')
             
             ->add('comment', 'textarea')
-            
-            ->add('photos', 'file', array(
-                'attr' => array(
-                    'placeholder' => 'Insérer une image'
-                ),
-                'label' => 'Nom image'
-            ))
-            
+
             ->add('testimage', 'file', array(
                 'mapped' => false
             ))
@@ -87,7 +80,8 @@ class CommandesType extends AbstractType
                 'required' => false
             ))
             
-            ->add('envoi', 'submit')
+            //->add('envoi', 'submit')
+
         ;
 
     }
@@ -103,4 +97,5 @@ class CommandesType extends AbstractType
 
         ));
     }
+
 }

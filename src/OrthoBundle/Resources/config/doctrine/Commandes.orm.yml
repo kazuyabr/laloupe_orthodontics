@@ -8,6 +8,8 @@ OrthoBundle\Entity\Commandes:
             id: true
             generator:
                 strategy: AUTO
+
+
     fields:
 
         referencePatient:
@@ -28,8 +30,6 @@ OrthoBundle\Entity\Commandes:
         ajoutApp:
             type: text
             nullable: true
-        photos:
-            type: string
         comment2:
             type: text
             nullable: true
@@ -64,6 +64,7 @@ OrthoBundle\Entity\Commandes:
                 referencedColumnName: id_motif
                 nullable: false
 
+
     manyToMany:
          appareillages:
              targetEntity: Appareillages
@@ -80,6 +81,7 @@ OrthoBundle\Entity\Commandes:
                  inverseJoinColumns:
                      Adjonctions_id:
                          referencedColumnName: id_adj
+
 
     lifecycleCallbacks:
           prePersist: [setCreatedAtValue]
