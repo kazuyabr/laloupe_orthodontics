@@ -24,7 +24,18 @@ class Commandes
         $this->setDatecommande(new \DateTime());
     }
     
-    
+    private $testimage;
+
+    private $testimage1;
+
+    private $testimage2;
+
+    private $comment2;
+
+   
+
+
+
 
     // GENRATED CODE
 
@@ -226,6 +237,39 @@ class Commandes
         return $this->comment;
     }
 
+   
+
+
+    /**
+     * Set fidCabinet
+     *
+     * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
+     * @return Commandes
+     */
+    
+    /**
+     * Set comment2
+     *
+     * @param string $comment2
+     * @return Commandes
+     */
+    public function setComment2($comment2)
+    {
+        $this->comment2 = $comment2;
+
+        return $this;
+    }
+
+    /**
+     * Get comment2
+     *
+     * @return string
+     */
+    public function getComment2()
+    {
+        return $this->comment2;
+    }
+
     /**
      * Set fidCabinet
      *
@@ -383,4 +427,38 @@ class Commandes
     {
         return $this->fidAdj;
     }
+    /**
+     * @var string
+     */
+    private $photos;
+
+
+    /**
+     * Set photos
+     *
+     * @param string $photos
+     * @return Commandes
+     */
+    public function setPhotos($photos)
+    {
+        $this->photos = $photos;
+
+        return $this;
+    }
+
+    /**
+     * Get photos
+     *
+     * @return string 
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+    /**
+     * @var string
+     */
+
+
+
 }

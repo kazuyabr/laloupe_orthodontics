@@ -25,6 +25,12 @@ OrthoBundle\Entity\Commandes:
         comment:
             type: text
             nullable: true
+        photos:
+            type: string
+        comment2:
+            type: text
+            nullable: true
+
 
     manyToOne:
         fidCabinet:
