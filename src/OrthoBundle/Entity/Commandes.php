@@ -31,9 +31,10 @@ class Commandes
     private $testimage2;
 
     private $comment2;
-        
 
     private $ajoutApp;
+
+    private $ajoutAdj;
 
     /**
      * Get ajoutApp
@@ -54,7 +55,27 @@ class Commandes
 
         return $this;
     }
-    
+
+    /**
+     * Get ajoutAdj
+     *
+     */
+    public function getAjoutAdj()
+    {
+        return $this->ajoutAdj;
+    }
+
+    /**
+     * Set ajoutAdj
+     *
+     */
+    public function setAjoutAdj($ajoutAdj)
+    {
+        $this->ajoutAdj = $ajoutAdj;
+
+        return $this;
+    }
+
 
 //////////////////////////////////////
 // GENRATED CODE

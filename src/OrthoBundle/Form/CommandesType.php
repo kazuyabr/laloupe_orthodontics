@@ -56,7 +56,9 @@ class CommandesType extends AbstractType
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
-            
+
+            ->add('ajoutAdj', 'button')
+
             ->add('fidCouleur')
             
             ->add('fidMotif')

@@ -8,77 +8,82 @@
 
     <form action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
+        <div id="formupload">
 
-        <div id="formulairecde">
-            <label for="referencePatient">Référence du patient :</label>
-            {{ form_errors(form.referencePatient) }}
-            {{ form_widget(form.referencePatient) }}
-            <br/>
+            <div id="formulairecde">
+                <label for="referencePatient">Référence du patient :</label>
+                {{ form_errors(form.referencePatient) }}
+                {{ form_widget(form.referencePatient) }}
 
-            <label for="fnomPatient">Prénom du patient :</label>
-            {{ form_errors(form.prenomPatient) }}
-            {{ form_widget(form.prenomPatient) }}
-            <br/>
+                <label for="fnomPatient">Prénom du patient :</label>
+                {{ form_errors(form.prenomPatient) }}
+                {{ form_widget(form.prenomPatient) }}
 
-            <label for="dateretour">Date de retour souhaitée :</label>
-            {{ form_errors(form.dateretour) }}
-            {{ form_widget(form.dateretour) }}
-            <br/>
+                <label for="dateretour">Date de retour souhaitée :</label>
+                {{ form_errors(form.dateretour) }}
+                {{ form_widget(form.dateretour) }}
 
-            <label for="fidApp">Appareillages :</label>
-            {{ form_errors(form.appareillages) }}
-            {{ form_widget(form.appareillages) }}
-            {{ form_widget(form.ajoutApp) }}
-            <br/>
+                <label for="fidApp">Appareillages :</label>
+                {{ form_errors(form.appareillages) }}
+                {{ form_widget(form.appareillages) }}
+                {{ form_widget(form.ajoutApp) }}
 
-            <label for="fidAdj">Adjonctions :</label>
-            {{ form_errors(form.fidAdj) }}
-            {{ form_widget(form.fidAdj) }}
-            <br/>
+                <label for="fidAdj">Adjonctions :</label>
+                {{ form_errors(form.fidAdj) }}
+                {{ form_widget(form.fidAdj) }}
+                {{ form_widget(form.ajoutAdj) }}
 
-            <label for="nomCouleur">Couleur :</label>
-            {{ form_errors(form.fidCouleur) }}
-            {{ form_widget(form.fidCouleur) }}
+                <div id="coulmot">
 
-            <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
-            <br/>
+                    <label for="nomCouleur">Couleur :</label>
+                    {{ form_errors(form.fidCouleur) }}
+                    {{ form_widget(form.fidCouleur) }}
 
-            <label for="nomMotif">Motif :</label>
-            {{ form_errors(form.fidMotif) }}
-            {{ form_widget(form.fidMotif) }}
+                    <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
-            <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
-            <br/>
+                    <label for="nomMotif">Motif :</label>
+                    {{ form_errors(form.fidMotif) }}
+                    {{ form_widget(form.fidMotif) }}
 
+                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
+
+                </div>
+
+                {#  <label for="comment">Commentaires :</label>
+                {{ form_errors(form.comment) }}
+                {{ form_widget(form.comment) }} #}
+
+            </div>
+
+            <div id="upload">
+                <label for="testimage">Arcade maxilaire:</label>
+                {{ form_errors(form.testimage) }}
+                {{ form_widget(form.testimage) }}
+
+                <label for="testimage1">Arcade mandibulaire:</label>
+                {{ form_errors(form.testimage1) }}
+                {{ form_widget(form.testimage1) }}
+
+                <label for="testimage2">Autre pièce jointe:</label>
+                {{ form_errors(form.testimage2) }}
+                {{ form_widget(form.testimage2) }}
+
+                <label for="comment2">Autres commentaires :</label>
+                <br/>
+                {{ form_errors(form.comment2) }}
+                {{ form_widget(form.comment2) }}
+
+            </div>
+        </div>
+
+        <div id="boutoncde">
             <label for="comment">Commentaires :</label>
             {{ form_errors(form.comment) }}
             {{ form_widget(form.comment) }}
 
-        </div>
-
-        <div id="upload">
-            <label for="testimage">Arcade maxilaire:</label>
-            {{ form_errors(form.testimage) }}
-            {{ form_widget(form.testimage) }}
-
-            <label for="testimage1">Arcade mandibulaire:</label>
-            {{ form_errors(form.testimage1) }}
-            {{ form_widget(form.testimage1) }}
-
-            <label for="testimage2">Autre pièce jointe:</label>
-            {{ form_errors(form.testimage2) }}
-            {{ form_widget(form.testimage2) }}
-
-
-            <label for="comment2">Autres commentaires :</label>
-            <br/>
-            {{ form_errors(form.comment2) }}
-            {{ form_widget(form.comment2) }}
-
-        </div>
-
-        <div id="boutoncde">
-            <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
+            <button class="btn pull-right" type="submit">
+                <span class="glyphicon glyphicon-envelope"></span> ENVOYER
+            </button>
             {#{{ form_widget(form.envoi) }}#}
         </div>
 

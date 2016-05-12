@@ -13,27 +13,55 @@ h3 {
 
 }
 
-#commandes_appareillages, #commandes_fidAdj {
+#commandes_appareillages,
+#commandes_fidAdj {
     /* width: 300px; */
-    width: 50%;
+    width: calc(100% - 20px);
     padding: 5px;
     display: block;
 }
+#commandes_dateretour,
+#commandes_ajoutApp,
+#commandes_ajoutAdj {
+    margin-bottom: 15px;
+}
 
-#commandes_comment {
+#commandes_fidCouleur,
+#commandes_fidMotif {
+    vertical-align: middle;
+}
+
+
+#remplissageCadreCouleur,
+#remplissageCadreMotif {
+    height: 75px;
+    margin-bottom: 15px;
+    vertical-align: text-top;
+}
+
+#commandes_comment,
+#commandes_comment2 {
     padding: 5px;
-    /*width: 140%;*/
-    width: 180%;
+    /*width: 200%;*/
+    width: 100%;
     display: block;
-    min-height: 150px;
+    min-height: 200px;
+}
+
+#coulmot > label {
+    margin-left: 20px;
+}
+
+#coulmot > label:first-of-type {
+    margin-left: 0;
 }
 
 form {
     /*width: 70%;*/
     width: 80%;
-    /* height: 500px; */
-    /*height: 700px;*/
-    height: 850px;
+    /* height: 500px;
+    height: 700px;
+    height: 850px;*/
     /*margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;*/
@@ -45,13 +73,26 @@ form {
     border-radius: 15px;
 }
 
+#formupload {
+    display: flex;
+}
+
 input {
     /*margin: 0 0 10px;*/
     margin: 10px;
+    vertical-align: sub;
+}
+
+input[type="file"] {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    background-color: white;
 }
 
 button {
-    margin-top: 20px !important;
+    display: block;
+    margin-top: 10px !important;
     text-align: center !important;
     /*color: #4f4;*/
     color: #20B2AA;
@@ -117,29 +158,28 @@ li {
 
 #formulairecde {
     width: 50%;
-    float: left;
-    /*background-color: #20B2AA;*/
+    /*float: left;
+    background-color: #20B2AA;*/
 }
 
 #upload {
     width: 50%;
-    /*height: 600px;*/
-    /*height: 480px;*/
-    height: 700px;
+    height: auto;
     padding-left: 20px;
     padding-bottom: 10px;
-    float: right;
-    /*background-color: #20B2AA;*/
+    /*float: right;
+    background-color: #20B2AA;*/
     border-left: 1px solid dimgrey;
+    text-align: justify;
 }
 
 #boutoncde {
     /*background-color: #20B2AA;*/
-    width: 100px;
-    /*margin-left: 700px;
-    margin-left: 750px;*/
-    margin-left: 900px;
-
+    /*width: 100%;
+    margin-left: 700px;
+    margin-left: 750px;
+    margin-left: 900px;*/
+    overflow: hidden;
 }
 
 #commandes_fidCouleur:hover {
