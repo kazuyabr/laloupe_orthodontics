@@ -10,8 +10,8 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}" />
             <!-- Appel de nos feuilles de style CSS -->
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}" />
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <div class="navbar_homepage">
@@ -40,7 +40,8 @@
                 </div>
             </nav>
         </div>
-    {% block body %} {% endblock %}
-    {% block javascript %} {% endblock %}
+    {% block body %}{% endblock %}
+    {% block javascript %}
+    {% endblock %}
     </body>
 </html>

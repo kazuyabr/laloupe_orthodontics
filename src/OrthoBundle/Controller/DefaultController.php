@@ -30,11 +30,15 @@ class DefaultController extends Controller
         $form    = $this->createForm(new CommandesType(), $commande);
         $form->handleRequest($request);
 
+        // Appel de Doctrine
+        $em = $this->getDoctrine()->getManager();
+        
+        $listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
+
+
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
-            // Appel de Doctrine
-            $em = $this->getDoctrine()->getManager();
 
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
@@ -59,7 +63,6 @@ class DefaultController extends Controller
                 else
                 {
                     // [...] Déclaration d'une nouvelle instance de la classe PoidsAppareillages
-                    
                     $poids = new PoidsAppareillages($cabinet, $appareil);
 
                     // On met à jour les données de notre $poids
@@ -79,7 +82,8 @@ class DefaultController extends Controller
 
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'entity' => $commande,
-            'form'   => $form->createView()
+            'form'   => $form->createView(),
+            'listeCouleurs' => $listeCouleurs
         ));
     }
 
@@ -100,5 +104,4 @@ class DefaultController extends Controller
             'affichagerecap' => $affichagerecap
         ));
     }
-
 }
