@@ -49,14 +49,13 @@ class CommandesType extends AbstractType
                 'multiple' => 'false'
             ))
 
-            ->add('ajoutApp', 'button')
+            ->add('ajoutApp', 'submit')
 
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
-
 
             ->add('fidCouleur')
 
@@ -65,7 +64,7 @@ class CommandesType extends AbstractType
             ->add('comment', 'textarea')
 
             ->add('envoi', 'submit')
-        
+
         ;
     }
 

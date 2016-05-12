@@ -24,14 +24,9 @@ class DefaultController extends Controller
 
     public function createAction()
     {
-
         $commande = new Commandes();
         $request = $this->getRequest();
         $form = $this->createForm(new CommandesType(), $commande);
-        /*if ($form->get()->isClicked($a)) {
-            echo 'bonjour';
-            die;
-        }*/
         $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
@@ -42,7 +37,7 @@ class DefaultController extends Controller
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(2); // TODO : Récupérer le vrai cabinet
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1); // TODO : Récupérer le vrai cabinet
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
@@ -69,6 +64,7 @@ class DefaultController extends Controller
             $em->persist($commande);
             $em->flush();
 
+
             return $this->redirect($this->generateUrl('recap_formulaire', array(
                 'id' => $commande->getId(),
             )));
@@ -79,6 +75,7 @@ class DefaultController extends Controller
             'form' => $form->createView()
         ));
     }
+
 
     public function formulaireRecapAction()
     {

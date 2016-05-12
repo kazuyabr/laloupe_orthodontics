@@ -3,13 +3,6 @@
 {# src/OC/PlatformBundle/Resources/views/Advert/form.html.twig #}
 
 {% block body %}
-<?php
-if(isset($_POST['ajouter'])) {
-    if(($_POST['liste1']) && !empty($_POST['liste1'])){
-        $liste1 = $_POST['liste1'];
-    }
-}
-?>
 
 <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
 <form action="{{ path('ortho_formulaire') }}" method="post">
