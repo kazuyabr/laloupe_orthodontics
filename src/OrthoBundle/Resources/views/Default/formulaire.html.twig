@@ -7,7 +7,7 @@
  <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
 <form action="{{ path('ortho_formulaire') }}" method="post">
 {{ form_start(form) }}
-
+<div id="formulairecde">
     <label for="referencePatient">Référence du patient :</label>
     {{ form_errors(form.referencePatient) }}
     {{ form_widget(form.referencePatient) }}
@@ -46,18 +46,21 @@
     {{ form_errors(form.comment) }}
     {{ form_widget(form.comment) }}
 
+</div>
 
-    <label for="testimage">Image :</label>
+    <div id="upload">
+    <label for="testimage">Arcade maxilaire:</label>
     {{ form_errors(form.testimage) }}
     {{ form_widget(form.testimage) }}
 
-    <label for="testimage1">Image :</label>
+    <label for="testimage1">Arcade mandibulaire:</label>
     {{ form_errors(form.testimage1) }}
     {{ form_widget(form.testimage1) }}
 
-    <label for="testimage2">Image :</label>
+    <label for="testimage2">Autre pièce jointe:</label>
     {{ form_errors(form.testimage2) }}
     {{ form_widget(form.testimage2) }}
+
 
     <label for="comment2">Autres commentaires :</label>
     {{ form_errors(form.comment2) }}
@@ -65,11 +68,15 @@
 
     <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
 
-    </table>
+
+
 
     </div>
+<div id="boutoncde">
+    <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
+</div>
 
-
+</form>
 
 {% endblock %}
 

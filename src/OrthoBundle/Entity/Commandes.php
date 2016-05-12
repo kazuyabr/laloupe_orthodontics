@@ -30,6 +30,9 @@ class Commandes
 
     private $testimage2;
 
+    private $comment2;
+
+   
 
 
 
@@ -234,6 +237,16 @@ class Commandes
         return $this->comment;
     }
 
+   
+
+
+    /**
+     * Set fidCabinet
+     *
+     * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
+     * @return Commandes
+     */
+    
     /**
      * Set comment2
      *
@@ -445,7 +458,7 @@ class Commandes
     /**
      * @var string
      */
-    private $comment2;
+
 
 
 }

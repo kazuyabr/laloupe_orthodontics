@@ -79,6 +79,7 @@ class CommandesType extends AbstractType
             ->add('testimage1', 'file', array(
                 'mapped' => false
             ))
+
             ->add('testimage2', 'file', array(
                 'mapped' => false,
                 'required' => false,
