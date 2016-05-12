@@ -4,6 +4,9 @@
 
 {% block body %}
 
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
+
  <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
 <form action="{{ path('ortho_formulaire') }}" method="post">
 {{ form_start(form) }}
@@ -37,9 +40,15 @@
     {{ form_errors(form.fidCouleur) }}
     {{ form_widget(form.fidCouleur) }}
 
+    <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}" />
+
+    <br />
+
     <label for="nomMotif">Motif :</label>
     {{ form_errors(form.fidMotif) }}
     {{ form_widget(form.fidMotif) }}
+
+    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}" />
     <br />
 
     <label for="comment">Commentaires :</label>
@@ -71,17 +80,26 @@
     </div>
     <div id="boutoncde">
         <button class="btn" type="submit"><span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
-
-    </div>
-
+</div>
+    {{ form_end(form) }}
 </form>
 
+    <script>
+        var monSelectCouleur = $('#commandes_fidCouleur');
+        monSelectCouleur.on('change', function() {
+            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
+        });
+    </script>
+
+    <script>
+        var monSelectMotif = $('#commandes_fidMotif');
+        monSelectMotif.on('change', function() {
+            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
+        })
+    </script>
 {% endblock %}
 
-
-
 {% block javascripts %}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script>
         //$("#commandes_fidApp").click(
         document.getElementById('commandes_fidApp').addEventListener('click', function() {
@@ -89,4 +107,5 @@
             console.log(id_app);
         });
     </script>
+    <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
 {% endblock %}

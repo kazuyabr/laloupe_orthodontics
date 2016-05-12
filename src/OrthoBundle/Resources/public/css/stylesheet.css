@@ -26,9 +26,12 @@ h3 {
     min-height: 150px;
 
 }
+#commandes_comment2 {
+    display: block;
+    width: 90%;
+    height: 100px;
 
-
-
+}
 
 form {
     background-color: #20B2AA;
@@ -38,8 +41,8 @@ form {
     margin-right: auto;
     margin-left: auto;
     /* height: 500px; */
-    width: 80%;
-    height: 700px;
+    width: 90%;
+    height: 850px;
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -123,8 +126,8 @@ li
     float: right;
     background-color: #20B2AA;
     border-left: 1px solid dimgrey;
-    height: 600px;
-    padding-left: 20px;
+    height: 745px;
+    padding-left: 40px;
     padding-bottom: 10px;
 
 }
@@ -132,13 +135,19 @@ li
 #formulairecde {
     float: left;
     background-color: #20B2AA;
+    padding: 20px;
 
 }
 
 #boutoncde {
     background-color: #20B2AA;
     width: 100px;
-    margin-left: 700px;
+    margin-left: 900px;
+
+}
+
+#commandes_fidCouleur:hover
+{
 
 }
 
