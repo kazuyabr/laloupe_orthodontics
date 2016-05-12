@@ -22,10 +22,10 @@ h3 {
 
 #commandes_comment {
     padding: 5px;
-    width: 140%;
+    /*width: 140%;*/
+    width: 180%;
     display: block;
     min-height: 150px;
-
 }
 
 form {
@@ -113,24 +113,25 @@ li {
     list-style-type: none;
 }
 
-#upload {
-    float: right;/**/
-    background-color: #20B2AA;
-    border-left: 1px solid dimgrey;
-    height: 600px;
-    padding-left: 20px;
-    padding-bottom: 10px;
-
+#formulairecde {
+    width: 50%;
+    float: left;
+    /*background-color: #20B2AA;*/
 }
 
-#formulairecde {
-    float: left;
-    background-color: #20B2AA;
-
+#upload {
+    width: 50%;
+    float: right;
+    /*background-color: #20B2AA;*/
+    border-left: 1px solid dimgrey;
+    /*height: 600px;*/
+    height: 480px;
+    padding-left: 20px;
+    padding-bottom: 10px;
 }
 
 #boutoncde {
-    background-color: #20B2AA;
+    /*background-color: #20B2AA;*/
     width: 100px;
     margin-left: 750px;
 }
