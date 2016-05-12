@@ -235,6 +235,29 @@ class Commandes
     }
 
     /**
+     * Set comment2
+     *
+     * @param string $comment2
+     * @return Commandes
+     */
+    public function setComment2($comment2)
+    {
+        $this->comment2 = $comment2;
+
+        return $this;
+    }
+
+    /**
+     * Get comment2
+     *
+     * @return string
+     */
+    public function getComment2()
+    {
+        return $this->comment2;
+    }
+
+    /**
      * Set fidCabinet
      *
      * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
@@ -419,4 +442,10 @@ class Commandes
     {
         return $this->photos;
     }
+    /**
+     * @var string
+     */
+    private $comment2;
+
+
 }

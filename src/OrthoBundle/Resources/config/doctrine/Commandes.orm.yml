@@ -26,7 +26,10 @@ OrthoBundle\Entity\Commandes:
             type: text
             nullable: true
         photos:
-            type: file
+            type: string
+        comment2:
+            type: text
+            nullable: true
 
 
     manyToOne:
