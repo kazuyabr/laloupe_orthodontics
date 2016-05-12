@@ -4,6 +4,10 @@ body {
     opacity: 0.9;
 }
 
+h3 {
+    text-align: center;
+}
+
 #ours {
     width: 100%;
 
@@ -18,14 +22,16 @@ body {
 
 #commandes_comment {
     padding: 5px;
-    width: 50%;
+    width: 140%;
     display: block;
     min-height: 150px;
+
 }
 
 form {
     width: 70%;
     /* height: 500px; */
+    height: 700px;
     /*margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;*/
@@ -38,7 +44,8 @@ form {
 }
 
 input {
-    margin: 0 0 10px;
+    /*margin: 0 0 10px;*/
+    margin: 10px;
 }
 
 button {
@@ -104,4 +111,26 @@ button {
 
 li {
     list-style-type: none;
+}
+
+#upload {
+    float: right;/**/
+    background-color: #20B2AA;
+    border-left: 1px solid dimgrey;
+    height: 600px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+
+}
+
+#formulairecde {
+    float: left;
+    background-color: #20B2AA;
+
+}
+
+#boutoncde {
+    background-color: #20B2AA;
+    width: 100px;
+    margin-left: 750px;
 }
