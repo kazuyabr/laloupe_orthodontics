@@ -29,11 +29,11 @@ class DefaultController extends Controller
         $form = $this->createForm(new CommandesType(), $commande);
         $form->handleRequest($request);
 
+        // Appel de Doctrine
+        $em = $this->getDoctrine()->getManager();
+
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted()) {
-            // Appel de Doctrine
-            $em = $this->getDoctrine()->getManager();
-
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
@@ -96,5 +96,4 @@ class DefaultController extends Controller
             'affichagerecap' => $affichagerecap
         ));
     }
-
 }
