@@ -81,7 +81,9 @@ class CommandesType extends AbstractType
             ))
              ->add('testimage2', 'file', array(
                     'mapped' => false
-            ));
+            ))
+            ->add('comment2', 'textarea')
+        ;
 
 
 

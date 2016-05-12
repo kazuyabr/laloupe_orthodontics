@@ -30,6 +30,9 @@ class Commandes
 
     private $testimage2;
 
+    private $comment2;
+
+   
 
 
 
@@ -240,6 +243,36 @@ class Commandes
      * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
      * @return Commandes
      */
+    
+    /**
+     * Set comment2
+     *
+     * @param string $comment2
+     * @return Commandes
+     */
+    public function setComment2($comment2)
+    {
+        $this->comment2 = $comment2;
+
+        return $this;
+    }
+
+    /**
+     * Get comment2
+     *
+     * @return string
+     */
+    public function getComment2()
+    {
+        return $this->comment2;
+    }
+
+    /**
+     * Set fidCabinet
+     *
+     * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
+     * @return Commandes
+     */
     public function setFidCabinet(\OrthoBundle\Entity\Cabinetsdentaires $fidCabinet = null)
     {
         $this->fidCabinet = $fidCabinet;
@@ -419,4 +452,10 @@ class Commandes
     {
         return $this->photos;
     }
+    /**
+     * @var string
+     */
+    
+
+
 }
