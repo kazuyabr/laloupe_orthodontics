@@ -25,6 +25,9 @@ OrthoBundle\Entity\Commandes:
         comment:
             type: text
             nullable: true
+        ajoutApp:
+            type: text
+            nullable: true
         photos:
             type: string
         comment2:

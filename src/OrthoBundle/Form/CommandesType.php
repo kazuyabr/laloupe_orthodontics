@@ -16,7 +16,6 @@ use Symfony\Component\Form\Tests\Extension\Core\Type\DateTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-
 class CommandesType extends AbstractType
 {
     /**
@@ -26,72 +25,70 @@ class CommandesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
             ->add('referencePatient', 'text', array(
                 'attr' => array(
                     'placeholder' => 'Nom ou ID'
                 ),
                 'label' => 'Référence Patient'
             ))
-
+            
             ->add('prenomPatient', 'text', array(
                 'attr' => array(
                     'placeholder' => 'Ex : Jean'
                 ),
                 'label' => 'Prénom Patient'
             ))
-
+            
             ->add('dateretour', DateType::class, array(
                 "label" => "Date de retour souhaitée",
             ))
-
+            
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'multiple' => 'false'
             ))
-
+            
+            ->add('ajoutApp', 'submit')
+            
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
-
-
+            
             ->add('fidCouleur')
-
+            
             ->add('fidMotif')
-
+            
             ->add('comment', 'textarea')
-
+            
             ->add('photos', 'file', array(
                 'attr' => array(
                     'placeholder' => 'Insérer une image'
                 ),
                 'label' => 'Nom image'
             ))
-
-
+            
             ->add('testimage', 'file', array(
                 'mapped' => false
             ))
-
+            
             ->add('testimage1', 'file', array(
                 'mapped' => false
             ))
-
+            
             ->add('testimage2', 'file', array(
                 'mapped' => false,
-                'required' => false,
-
-            ))
-
-
-            ->add('comment2', 'textarea', array (
                 'required' => false
-            ));
-
-
+            ))
+            
+            ->add('comment2', 'textarea', array(
+                'required' => false
+            ))
+            
+            ->add('envoi', 'submit')
+        ;
 
     }
 

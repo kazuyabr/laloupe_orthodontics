@@ -31,82 +31,111 @@ class Commandes
     private $testimage2;
 
     private $comment2;
+        
 
-   
+    private $ajoutApp;
 
+    /**
+     * Get ajoutApp
+     *
+     */
+    public function getAjoutApp()
+    {
+        return $this->ajoutApp;
+    }
 
+    /**
+     * Set ajoutApp
+     *
+     */
+    public function setAjoutApp($ajoutApp)
+    {
+        $this->ajoutApp = $ajoutApp;
 
-
-    // GENRATED CODE
-
+        return $this;
+    }
     
+
+//////////////////////////////////////
+// GENRATED CODE
+
     /**
      * @var integer
      */
-    private $id;
+    private
+        $id;
 
     /**
      * @var string
      */
-    private $referencePatient;
+    private
+        $referencePatient;
 
     /**
      * @var string
      */
-    private $prenomPatient;
+    private
+        $prenomPatient;
 
     /**
      * @var \DateTime
      */
-    private $dateretour;
+    private
+        $dateretour;
 
     /**
      * @var \DateTime
      */
-    private $datecommande;
+    private
+        $datecommande;
 
     /**
      * @var string
      */
-    private $comment;
+    private
+        $comment;
 
     /**
      * @var \OrthoBundle\Entity\Cabinetsdentaires
      */
-    private $fidCabinet;
+    private
+        $fidCabinet;
 
     /**
      * @var \OrthoBundle\Entity\Laboratoire
      */
-    private $fidLaboratoire;
+    private
+        $fidLaboratoire;
 
     /**
      * @var \OrthoBundle\Entity\Couleur
      */
-    private $fidCouleur;
+    private
+        $fidCouleur;
 
     /**
      * @var \OrthoBundle\Entity\Motif
      */
-    private $fidMotif;
+    private
+        $fidMotif;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $appareillages;
-    
-    
-    private $photo;
+    private
+        $appareillages;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $fidAdj;
+    private
+        $fidAdj;
 
     /**
      * Constructor
      */
-    public function __construct()
+    public
+    function __construct()
     {
         $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
         $this->fidAdj = new \Doctrine\Common\Collections\ArrayCollection();
@@ -115,9 +144,10 @@ class Commandes
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId()
+    public
+    function getId()
     {
         return $this->id;
     }
@@ -128,7 +158,8 @@ class Commandes
      * @param string $referencePatient
      * @return Commandes
      */
-    public function setReferencePatient($referencePatient)
+    public
+    function setReferencePatient($referencePatient)
     {
         $this->referencePatient = $referencePatient;
 
@@ -138,9 +169,10 @@ class Commandes
     /**
      * Get referencePatient
      *
-     * @return string 
+     * @return string
      */
-    public function getReferencePatient()
+    public
+    function getReferencePatient()
     {
         return $this->referencePatient;
     }
@@ -151,7 +183,8 @@ class Commandes
      * @param string $prenomPatient
      * @return Commandes
      */
-    public function setPrenomPatient($prenomPatient)
+    public
+    function setPrenomPatient($prenomPatient)
     {
         $this->prenomPatient = $prenomPatient;
 
@@ -161,9 +194,10 @@ class Commandes
     /**
      * Get prenomPatient
      *
-     * @return string 
+     * @return string
      */
-    public function getPrenomPatient()
+    public
+    function getPrenomPatient()
     {
         return $this->prenomPatient;
     }
@@ -174,7 +208,8 @@ class Commandes
      * @param \DateTime $dateretour
      * @return Commandes
      */
-    public function setDateretour($dateretour)
+    public
+    function setDateretour($dateretour)
     {
         $this->dateretour = $dateretour;
 
@@ -184,9 +219,10 @@ class Commandes
     /**
      * Get dateretour
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDateretour()
+    public
+    function getDateretour()
     {
         return $this->dateretour;
     }
@@ -197,7 +233,8 @@ class Commandes
      * @param \DateTime $datecommande
      * @return Commandes
      */
-    public function setDatecommande($datecommande)
+    public
+    function setDatecommande($datecommande)
     {
         $this->datecommande = $datecommande;
 
@@ -207,9 +244,10 @@ class Commandes
     /**
      * Get datecommande
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDatecommande()
+    public
+    function getDatecommande()
     {
         return $this->datecommande;
     }
@@ -220,7 +258,8 @@ class Commandes
      * @param string $comment
      * @return Commandes
      */
-    public function setComment($comment)
+    public
+    function setComment($comment)
     {
         $this->comment = $comment;
 
@@ -230,9 +269,10 @@ class Commandes
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
-    public function getComment()
+    public
+    function getComment()
     {
         return $this->comment;
     }
@@ -276,7 +316,8 @@ class Commandes
      * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
      * @return Commandes
      */
-    public function setFidCabinet(\OrthoBundle\Entity\Cabinetsdentaires $fidCabinet = null)
+    public
+    function setFidCabinet(\OrthoBundle\Entity\Cabinetsdentaires $fidCabinet = null)
     {
         $this->fidCabinet = $fidCabinet;
 
@@ -286,9 +327,10 @@ class Commandes
     /**
      * Get fidCabinet
      *
-     * @return \OrthoBundle\Entity\Cabinetsdentaires 
+     * @return \OrthoBundle\Entity\Cabinetsdentaires
      */
-    public function getFidCabinet()
+    public
+    function getFidCabinet()
     {
         return $this->fidCabinet;
     }
@@ -299,7 +341,8 @@ class Commandes
      * @param \OrthoBundle\Entity\Laboratoire $fidLaboratoire
      * @return Commandes
      */
-    public function setFidLaboratoire(\OrthoBundle\Entity\Laboratoire $fidLaboratoire = null)
+    public
+    function setFidLaboratoire(\OrthoBundle\Entity\Laboratoire $fidLaboratoire = null)
     {
         $this->fidLaboratoire = $fidLaboratoire;
 
@@ -309,9 +352,10 @@ class Commandes
     /**
      * Get fidLaboratoire
      *
-     * @return \OrthoBundle\Entity\Laboratoire 
+     * @return \OrthoBundle\Entity\Laboratoire
      */
-    public function getFidLaboratoire()
+    public
+    function getFidLaboratoire()
     {
         return $this->fidLaboratoire;
     }
@@ -322,7 +366,8 @@ class Commandes
      * @param \OrthoBundle\Entity\Couleur $fidCouleur
      * @return Commandes
      */
-    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur)
+    public
+    function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur)
     {
         $this->fidCouleur = $fidCouleur;
 
@@ -332,9 +377,10 @@ class Commandes
     /**
      * Get fidCouleur
      *
-     * @return \OrthoBundle\Entity\Couleur 
+     * @return \OrthoBundle\Entity\Couleur
      */
-    public function getFidCouleur()
+    public
+    function getFidCouleur()
     {
         return $this->fidCouleur;
     }
@@ -345,7 +391,8 @@ class Commandes
      * @param \OrthoBundle\Entity\Motif $fidMotif
      * @return Commandes
      */
-    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif)
+    public
+    function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif)
     {
         $this->fidMotif = $fidMotif;
 
@@ -355,9 +402,10 @@ class Commandes
     /**
      * Get fidMotif
      *
-     * @return \OrthoBundle\Entity\Motif 
+     * @return \OrthoBundle\Entity\Motif
      */
-    public function getFidMotif()
+    public
+    function getFidMotif()
     {
         return $this->fidMotif;
     }
@@ -368,7 +416,8 @@ class Commandes
      * @param \OrthoBundle\Entity\Appareillages $appareillages
      * @return Commandes
      */
-    public function addAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    public
+    function addAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
     {
         $this->appareillages[] = $appareillages;
 
@@ -380,7 +429,8 @@ class Commandes
      *
      * @param \OrthoBundle\Entity\Appareillages $appareillages
      */
-    public function removeAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    public
+    function removeAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
     {
         $this->appareillages->removeElement($appareillages);
     }
@@ -388,9 +438,10 @@ class Commandes
     /**
      * Get appareillages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAppareillages()
+    public
+    function getAppareillages()
     {
         return $this->appareillages;
     }
@@ -401,7 +452,8 @@ class Commandes
      * @param \OrthoBundle\Entity\Adjonctions $fidAdj
      * @return Commandes
      */
-    public function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    public
+    function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
     {
         $this->fidAdj[] = $fidAdj;
 
@@ -413,7 +465,8 @@ class Commandes
      *
      * @param \OrthoBundle\Entity\Adjonctions $fidAdj
      */
-    public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    public
+    function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
     {
         $this->fidAdj->removeElement($fidAdj);
     }
@@ -421,9 +474,10 @@ class Commandes
     /**
      * Get fidAdj
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFidAdj()
+    public
+    function getFidAdj()
     {
         return $this->fidAdj;
     }

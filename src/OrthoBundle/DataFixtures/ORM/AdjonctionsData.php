@@ -372,4 +372,9 @@ class AdjonctionsData extends AbstractFixture
         $manager->persist($adjonction26);
         $manager->flush();
     }
+    
+    public function getOrder()
+    {
+        return 1;
+    }
 }
