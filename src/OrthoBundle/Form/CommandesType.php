@@ -81,11 +81,7 @@ class CommandesType extends AbstractType
             ->add('comment2', 'textarea', array(
                 'required' => false
             ))
-            
-            //->add('envoi', 'submit')
-
         ;
-
     }
 
     /**
@@ -98,5 +94,4 @@ class CommandesType extends AbstractType
 
         ));
     }
-
 }
