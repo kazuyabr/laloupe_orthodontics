@@ -34,7 +34,6 @@ OrthoBundle\Entity\Commandes:
             type: text
             nullable: true
 
-
     manyToOne:
         fidCabinet:
             targetEntity: Cabinetsdentaires
