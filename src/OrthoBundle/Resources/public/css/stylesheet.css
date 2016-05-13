@@ -65,7 +65,14 @@ width: calc(100% - 20px);
 
 form {
 
-    border-radius: 15px; margin-right: auto; margin-left: auto; width: 90%; height: 950px; padding: 20px; background-color: #20B2AA; border-radius: 15px;
+    border-radius: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    height: 950px;
+    padding: 20px;
+    background-color: #20B2AA;
+    border-radius: 15px;
 }
 
 #formupload {
