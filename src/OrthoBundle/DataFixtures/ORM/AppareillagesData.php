@@ -6,7 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use OrthoBundle\Entity\Appareillages;
 
-class AppareillagesData extends AbstractFixture
+class AppareillagesData extends AbstractFixture 
 {
     public function load(ObjectManager $manager)
     {
@@ -750,6 +750,11 @@ class AppareillagesData extends AbstractFixture
 
 
         $manager->flush();
-        
+
+    }
+
+    public function getOrder()
+    {
+        return 2;
     }
 }
