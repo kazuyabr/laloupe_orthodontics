@@ -8,6 +8,8 @@ OrthoBundle\Entity\Commandes:
             id: true
             generator:
                 strategy: AUTO
+
+
     fields:
 
         referencePatient:
@@ -23,6 +25,9 @@ OrthoBundle\Entity\Commandes:
         datecommande:
             type: datetime
         comment:
+            type: text
+            nullable: true
+        ajoutApp:
             type: text
             nullable: true
         comment2:
@@ -59,6 +64,7 @@ OrthoBundle\Entity\Commandes:
                 referencedColumnName: id_motif
                 nullable: false
 
+
     manyToMany:
          appareillages:
              targetEntity: Appareillages
@@ -75,6 +81,7 @@ OrthoBundle\Entity\Commandes:
                  inverseJoinColumns:
                      Adjonctions_id:
                          referencedColumnName: id_adj
+
 
     lifecycleCallbacks:
           prePersist: [setCreatedAtValue]
