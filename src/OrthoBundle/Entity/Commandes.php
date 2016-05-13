@@ -536,4 +536,27 @@ class Commandes
 
 
 
+
+    /**
+     * Set testimage
+     *
+     * @param string $testimage
+     * @return Commandes
+     */
+    public function setTestimage($testimage)
+    {
+        $this->testimage = $testimage;
+
+        return $this;
+    }
+
+    /**
+     * Get testimage
+     *
+     * @return string 
+     */
+    public function getTestimage()
+    {
+        return $this->testimage;
+    }
 }

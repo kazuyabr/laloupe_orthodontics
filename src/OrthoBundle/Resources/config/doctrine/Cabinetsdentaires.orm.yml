@@ -25,22 +25,11 @@ OrthoBundle\Entity\Cabinetsdentaires:
             type: string
             length: 255
             column: ville_cab
-        email:
-            type: string
-            length: 255
-            column: email
         telephoneCab:
             type: string
             length: 255
             column: telephone_cab
-        username:
-            type: string
-            length: 255
-            column: pseudo_cab
-        password:
-            type: string
-            length: 255
-            column: password_cab
+
 
     manyToOne:
         fidLabo:
@@ -48,7 +37,6 @@ OrthoBundle\Entity\Cabinetsdentaires:
             joinColumn:
                 name: fid_labo
                 referencedColumn: id
-                nullable: false
 
     oneToMany:
         poids:

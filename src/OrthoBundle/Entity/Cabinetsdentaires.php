@@ -3,16 +3,16 @@
 namespace OrthoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Cabinetsdentaires
  */
-class Cabinetsdentaires
+class Cabinetsdentaires extends BaseUser
 {
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var int
@@ -39,19 +39,13 @@ class Cabinetsdentaires
      */
     private $villeCab;
 
-    /**
-     * @var string
-     */
-    private $email;
 
     /**
      * @var string
      */
     private $telephoneCab;
 
-    private $username;
-
-    private $password;
+    
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -207,6 +201,7 @@ class Cabinetsdentaires
      */
     public function __construct()
     {
+        parent::__construct();
         $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
