@@ -28,10 +28,7 @@ class PoidsAppareillages
         $this->poids++;
     }
 
-    /**
-     * @var int
-     */
-    private $id;
+    
     
     // Déclaration du poids avec une valeur initiale de 1.
     // Chaque nouvelle instance de PoidsAppareillages qui sera crée aura sa variable $poids
@@ -41,10 +38,16 @@ class PoidsAppareillages
     /* Déclaration des variables utilisés pour les relations Doctrine */
     
     private $fidLaboratoire;
+    
     /* Fin de délcaration des variables utilisés pour les relations Doctrine */
 
-
-
+    
+    // GENERATED CODE
+    
+    /**
+     * @var int
+     */
+    private $id;
 
     /**
      * Get id

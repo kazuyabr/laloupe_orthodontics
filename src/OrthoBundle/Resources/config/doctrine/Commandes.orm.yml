@@ -11,7 +11,6 @@ OrthoBundle\Entity\Commandes:
 
 
     fields:
-
         referencePatient:
             type: string
             length: 125

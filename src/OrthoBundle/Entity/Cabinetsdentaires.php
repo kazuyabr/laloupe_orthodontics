@@ -39,15 +39,12 @@ class Cabinetsdentaires extends BaseUser
      * @var string
      */
     private $villeCab;
-
-
+    
     /**
      * @var string
      */
     private $telephoneCab;
-
     
-
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -216,32 +213,27 @@ class Cabinetsdentaires extends BaseUser
     {
         $this->poids[] = $poids;
     }
+    
+    /**
+     * Remove poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
+     */
+    public
+    function removePoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
+    {
+        $this->poids->removeElement($poids);
+    }
 
-      
-
-
-        /**
-         * Remove poids
-         *
-         * @param \OrthoBundle\Entity\PoidsAppareillages $poids
-         */
-        public
-        function removePoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
-        {
-            $this->poids->removeElement($poids);
-        }
-
-        /**
-         * Get poids
-         *
-         * @return \Doctrine\Common\Collections\Collection
-         */
-        public
-        function getPoids()
-        {
-            return $this->poids;
-        }
-
+    /**
+     * Get poids
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoids()
+    {
+        return $this->poids;
+    }
     
     /**
      * Add poids

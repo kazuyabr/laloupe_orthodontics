@@ -9,6 +9,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AppAdjLabo
 {
+    
+    
+    // CUSTOM CODE
+    
+    
+    
+    
+    
+    // GENERATED CODE
+    
     /**
      * @var int
      */
