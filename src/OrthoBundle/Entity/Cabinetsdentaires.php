@@ -5,7 +5,6 @@ namespace OrthoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
-
 /**
  * Cabinetsdentaires
  */
@@ -41,13 +40,14 @@ class Cabinetsdentaires extends BaseUser
      */
     private $villeCab;
 
- 
+
     /**
      * @var string
      */
     private $telephoneCab;
 
     
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
