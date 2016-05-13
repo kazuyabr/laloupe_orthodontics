@@ -7,10 +7,16 @@
             <!-- Appel des bibliothèques Bootstrap -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.min.css') }}" />
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}" />
             <!-- Appel de nos feuilles de style CSS -->
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}" />
             <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+            <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
+
+            <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+                    integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
         {% endblock %}
     </head>
     <body>
@@ -19,9 +25,9 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
 
-                        <li {% if app.request.get('_route') == 'fos_user_security_login' %}
+                        <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
                             class="active"{% endif %}>
-                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                         </li>
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
@@ -31,6 +37,10 @@
                             class="active"{% endif %}>
                             <a href="{{ path('recap_formulaire') }}">Récap</a>
                         </li>#}
+                        <li {% if app.request.get('_route') == 'fos_user_profile_show' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                        </li>
                         <li> <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
                         </li>
                         <li> <a href="#">Lien 3</a> </li>
