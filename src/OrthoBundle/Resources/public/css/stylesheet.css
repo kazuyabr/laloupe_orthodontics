@@ -39,8 +39,9 @@ h3 {
     vertical-align: text-top;
 }
 
-#commandes_comment,
-#commandes_comment2 {
+
+#commandes_comment
+{
     padding: 5px;
     /*width: 200%;*/
     width: 100%;
@@ -48,26 +49,32 @@ h3 {
     min-height: 200px;
 }
 
+#commandes_comment2
+{
+    padding: 5px;
+    width: 200%;
+    display: block;
+    min-height: 200px;
+}
+
+
+
 #coulmot > label {
     margin-left: 20px;
 }
 
 #coulmot > label:first-of-type {
     margin-left: 0;
+
 }
 
 form {
-    /*width: 70%;*/
-    width: 80%;
-    /* height: 500px;
-    height: 700px;
-    height: 850px;*/
-    /*margin-right: auto;
+
+    border-radius: 15px;
+    margin-right: auto;
     margin-left: auto;
-    margin-bottom: 20px;*/
-    margin: 20px auto;
-    /* padding-left: 20px; */
-    /* padding-top: 20px; */
+    width: 90%;
+    height: 950px;
     padding: 20px;
     background-color: #20B2AA;
     border-radius: 15px;
@@ -75,6 +82,7 @@ form {
 
 #formupload {
     display: flex;
+
 }
 
 input {
@@ -87,7 +95,6 @@ input[type="file"] {
     display: inline-block;
     width: auto;
     padding: 0;
-    background-color: white;
 }
 
 button {
@@ -121,6 +128,13 @@ button {
 #fosuserlogin {
     height: 100px;
     width: auto;
+
+}
+.connexion {
+    height: 150px;
+    background-color: #20B2AA;
+    margin-top: 100px;
+
 }
 
 .header_recap {
@@ -156,34 +170,41 @@ li {
     list-style-type: none;
 }
 
-#formulairecde {
-    width: 50%;
-    /*float: left;
-    background-color: #20B2AA;*/
-}
 
 #upload {
-    width: 50%;
-    height: auto;
+    float: right;
+    background-color: #20B2AA;
+    border-left: 1px solid dimgrey;
+    height: 745px;
     padding-left: 20px;
     padding-bottom: 10px;
-    /*float: right;
-    background-color: #20B2AA;*/
-    border-left: 1px solid dimgrey;
-    text-align: justify;
+    width: 20%;
+
 }
 
-#boutoncde {
-    /*background-color: #20B2AA;*/
-    /*width: 100%;
-    margin-left: 700px;
-    margin-left: 750px;
-    margin-left: 900px;*/
-    overflow: hidden;
+#formulairecde {
+    float: left;
+    background-color: #20B2AA;
+    padding: 20px;
+    width: 50%;
+    height: 50px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+
+
+
+}
+
+
+#boutoncde{
+    margin-bottom: 20px!important;
+    float: right;
+
 }
 
 #remplissageCadreCouleur, #remplissageCadreMotif
 {
     width: 60px;
     height: 60px;
+
 }
