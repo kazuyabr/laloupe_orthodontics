@@ -4,6 +4,7 @@ namespace OrthoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+
 /**
  * Cabinetsdentaires
  */
@@ -216,44 +217,8 @@ class Cabinetsdentaires extends BaseUser
         $this->poids[] = $poids;
     }
 
-        /**
-         * Set username
-         *
-         * @param string $username
-         * @return Cabinetsdentaires
-         */
-        public
-        function setUsername($username)
-        {
-            $this->username = $username;
+      
 
-            return $this;
-        }
-
-        /**
-         * Get username
-         *
-         * @return string
-         */
-        public
-        function getUsername()
-        {
-            return $this->username;
-        }
-
-        /**
-         * Set password
-         *
-         * @param string $password
-         * @return Cabinetsdentaires
-         */
-        public
-        function setPassword($password)
-        {
-            $this->password = $password;
-
-            return $this;
-        }
 
         /**
          * Remove poids
@@ -277,42 +242,7 @@ class Cabinetsdentaires extends BaseUser
             return $this->poids;
         }
 
-
-        /**Get password
-         *
-         * @return string
-         */
-        public
-        function getPassword()
-        {
-            return $this->password;
-        }
-
-        /**
-         * Set email
-         *
-         * @param string $email
-         * @return Cabinetsdentaires
-         */
-        public
-        function setEmail($email)
-        {
-            $this->email = $email;
-
-            return $this;
-        }
-
-        /**
-         * Get email
-         *
-         * @return string
-         */
-        public
-        function getEmail()
-        {
-            return $this->email;
-        }
-
+    
     /**
      * Add poids
      *

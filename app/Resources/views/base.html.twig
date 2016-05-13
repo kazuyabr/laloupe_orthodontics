@@ -25,9 +25,9 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
 
-                        <li {% if app.request.get('_route') == 'fos_user_security_login' %}
+                        <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
                             class="active"{% endif %}>
-                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                         </li>
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
@@ -37,6 +37,10 @@
                             class="active"{% endif %}>
                             <a href="{{ path('recap_formulaire') }}">Récap</a>
                         </li>#}
+                        <li {% if app.request.get('_route') == 'fos_user_profile_show' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                        </li>
                         <li> <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
                         </li>
                         <li> <a href="#">Lien 3</a> </li>

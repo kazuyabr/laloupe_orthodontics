@@ -14,6 +14,7 @@
                 <label for="referencePatient">Référence du patient :</label>
                 {{ form_errors(form.referencePatient) }}
                 {{ form_widget(form.referencePatient) }}
+                <br/>
 
                 <label for="fnomPatient">Prénom du patient :</label>
                 {{ form_errors(form.prenomPatient) }}
@@ -39,8 +40,12 @@
                     {{ form_errors(form.fidCouleur) }}
                     {{ form_widget(form.fidCouleur) }}
 
+
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
-                    <br />
+
+
+
+
 
                     <label for="nomMotif" >Motif :</label>
                     {{ form_errors(form.fidMotif) }}
@@ -50,13 +55,14 @@
                     <br />
                 </div>
 
-                {#  <label for="comment">Commentaires :</label>
+                <label for="comment">Commentaires :</label>
                 {{ form_errors(form.comment) }}
-                {{ form_widget(form.comment) }} #}
+                {{ form_widget(form.comment) }}
 
             </div>
 
             <div id="upload">
+                <br/>
                 <label for="testimage">Arcade maxilaire:</label>
                 {{ form_errors(form.testimage) }}
                 {{ form_widget(form.testimage) }}
@@ -77,16 +83,20 @@
             </div>
         </div>
 
-        <div id="boutoncde">
-            <label for="comment">Commentaires :</label>
-            {{ form_errors(form.comment) }}
-            {{ form_widget(form.comment) }}
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
-            <button class="btn pull-right" type="submit">
-                <span class="glyphicon glyphicon-envelope"></span> ENVOYER
-            </button>
-            {#{{ form_widget(form.envoi) }}#}
+
+        <div id="boutoncde">
+            <button class="btn" type="submit">
+                <span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
+
         </div>
+        {#{{ form_widget(form.envoi) }}#}
+
 
         {{ form_end(form) }}
     </form>
