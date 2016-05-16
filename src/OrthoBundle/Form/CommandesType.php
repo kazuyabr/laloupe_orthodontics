@@ -42,11 +42,9 @@ class CommandesType extends AbstractType
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'multiple' => 'false',
-                'query_builder' => function(EntityRepository $entityRepository)
+                'query_builder' => function(\Doctrine\ORM\EntityRepository $entityRepository)
                 {
-                    return $entityRepository->createQueryBuilder('u')
-                                            ->leftJoin('u.poids', 'p')
-                                            ->orderBy('p.poids', 'DESC');
+                    return $entityRepository->triParPoids();
                 }
             ))
             
