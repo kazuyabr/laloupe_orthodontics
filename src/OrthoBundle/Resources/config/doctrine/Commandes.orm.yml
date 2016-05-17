@@ -32,11 +32,7 @@ OrthoBundle\Entity\Commandes:
         comment2:
             type: text
             nullable: true
-<<<<<<< HEAD
 
-
-=======
->>>>>>> be792555500a797d03c84df11ca80155f317b00e
 
     manyToOne:
         fidCabinet:

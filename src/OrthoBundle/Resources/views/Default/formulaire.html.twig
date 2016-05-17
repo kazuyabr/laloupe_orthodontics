@@ -22,16 +22,13 @@
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
                 <br />
-<<<<<<< HEAD
-                <br>
-=======
 
                 <label for="dateretour">
                     Date de retour souhaitée :
                 </label>
                 {{ form_errors(form.dateretour) }}
                 {{ form_widget(form.dateretour) }}
->>>>>>> be792555500a797d03c84df11ca80155f317b00e
+
 
                 <label for="fidApp">
                     Appareillages :
@@ -41,14 +38,9 @@
 
                 {{ form_widget(form.ajoutApp) }}
 
-<<<<<<< HEAD
+
 
                 <label for="fidAdj">Adjonctions :</label>
-=======
-                <label for="fidAdj">
-                    Adjonctions :
-                </label>
->>>>>>> be792555500a797d03c84df11ca80155f317b00e
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
@@ -61,18 +53,12 @@
                     {{ form_errors(form.fidCouleur) }}
                     {{ form_widget(form.fidCouleur) }}
 
-                    <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}" />
-
-<<<<<<< HEAD
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
 
-                    <label for="nomMotif" >Motif :</label>
-=======
                     <label for="nomMotif" >
                         Motif :
                     </label>
->>>>>>> be792555500a797d03c84df11ca80155f317b00e
                     {{ form_errors(form.fidMotif) }}
                     {{ form_widget(form.fidMotif) }}
 
@@ -114,12 +100,6 @@
         </div>
         {{ form_end(form) }}
     </form>
-    <script>
-    $("form input.date").datepicker({
-    dateFormat: 'dd/mm/yy',
-    firstDay:1
-    }).attr("readonly","readonly");</script>
-
 
 
     <!-- PARTIE SCRIPT -->
@@ -172,6 +152,11 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+    <script>
+        $("form input.date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            firstDay:1
+        }).attr("readonly","readonly");</script>
     <!-- FIN PARTIE SCRIPT -->
 
 {% endblock %}
