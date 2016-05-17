@@ -2,18 +2,13 @@
 
 namespace OrthoBundle\Form;
 
-use OrthoBundle\Entity\Couleur;
-use OrthoBundle\Form\UploadsType;
-use Doctrine\DBAL\Types\DateTimeType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Finder\Comparator\DateComparator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Tests\Extension\Core\Type\DateTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 
 class CommandesType extends AbstractType
@@ -49,7 +44,11 @@ class CommandesType extends AbstractType
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
-                'multiple' => 'false'
+                'multiple' => 'false',
+                'query_builder' => function(\Doctrine\ORM\EntityRepository $entityRepository)
+                {
+                    return $entityRepository->triParPoids();
+                }
             ))
             
             ->add('ajoutApp', 'button')
@@ -85,11 +84,7 @@ class CommandesType extends AbstractType
             ->add('comment2', 'textarea', array(
                 'required' => false
             ))
-            
-            //->add('envoi', 'submit')
-
         ;
-
     }
 
     /**
@@ -102,5 +97,4 @@ class CommandesType extends AbstractType
 
         ));
     }
-
 }

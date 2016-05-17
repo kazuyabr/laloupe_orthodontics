@@ -20,7 +20,7 @@ class Uploads
      */
     private $photos;
 
-    /** mon code */
+    /* mon code */
     public $file;
 
     protected function getUploadDir()

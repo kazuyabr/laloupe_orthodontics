@@ -16,4 +16,14 @@ class AppareillagesRepository extends EntityRepository
     {
         
     }
+
+    public function triParPoids()
+    {
+        $queryBuilder = $this->createQueryBuilder('u');
+
+        $queryBuilder->leftJoin('u.poids', 'p')
+                        ->orderBy('p.poids', 'DESC');
+
+        return $queryBuilder;
+    }
 }

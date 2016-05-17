@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{# src/OC/PlatformBundle/Resources/views/Advert/form.html.twig #}
-
 {% block body %}
 
     <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
@@ -9,55 +7,83 @@
     <form action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
         <div id="formupload">
-
             <div id="formulairecde">
-                <label for="referencePatient">Référence du patient :</label>
+                <label for="referencePatient">
+                    Référence du patient :
+                </label>
                 {{ form_errors(form.referencePatient) }}
                 {{ form_widget(form.referencePatient) }}
                 <br/>
                 <br>
 
-                <label for="fnomPatient">Prénom du patient :</label>
+                <label for="fnomPatient">
+                    Prénom du patient :
+                </label>
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
                 <br />
+<<<<<<< HEAD
                 <br>
+=======
 
-                <label for="fidApp">Appareillages :</label>
+                <label for="dateretour">
+                    Date de retour souhaitée :
+                </label>
+                {{ form_errors(form.dateretour) }}
+                {{ form_widget(form.dateretour) }}
+>>>>>>> be792555500a797d03c84df11ca80155f317b00e
+
+                <label for="fidApp">
+                    Appareillages :
+                </label>
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
+
                 {{ form_widget(form.ajoutApp) }}
 
+<<<<<<< HEAD
 
                 <label for="fidAdj">Adjonctions :</label>
+=======
+                <label for="fidAdj">
+                    Adjonctions :
+                </label>
+>>>>>>> be792555500a797d03c84df11ca80155f317b00e
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
+
                 {{ form_widget(form.ajoutAdj) }}
 
                 <div id="coulmot">
-
-                    <label for="nomCouleur">Couleur :</label>
+                    <label for="nomCouleur">
+                        Couleur :
+                    </label>
                     {{ form_errors(form.fidCouleur) }}
                     {{ form_widget(form.fidCouleur) }}
 
+                    <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}" />
 
+<<<<<<< HEAD
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
 
                     <label for="nomMotif" >Motif :</label>
+=======
+                    <label for="nomMotif" >
+                        Motif :
+                    </label>
+>>>>>>> be792555500a797d03c84df11ca80155f317b00e
                     {{ form_errors(form.fidMotif) }}
                     {{ form_widget(form.fidMotif) }}
 
-                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
+                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}" />
                     <br />
                 </div>
 
                 <label for="comment">Commentaires :</label>
                 {{ form_errors(form.comment) }}
                 {{ form_widget(form.comment) }}
-
             </div>
-
             <div id="upload">
                 <br/>
                 <label for="testimage">Arcade maxilaire:</label>
@@ -76,25 +102,16 @@
                 <br/>
                 {{ form_errors(form.comment2) }}
                 {{ form_widget(form.comment2) }}
-
             </div>
         </div>
 
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
+        <br/><br/><br/><br/><br/>
 
         <div id="boutoncde">
             <button class="btn" type="submit">
-                <span class="glyphicon glyphicon-envelope"></span> ENVOYER</button>
-
+                <span class="glyphicon glyphicon-envelope"></span>ENVOYER
+            </button>
         </div>
-        {#{{ form_widget(form.envoi) }}#}
-
-
         {{ form_end(form) }}
     </form>
     <script>
@@ -104,10 +121,13 @@
     }).attr("readonly","readonly");</script>
 
 
+
+    <!-- PARTIE SCRIPT -->
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
 
 {#
     <script>
@@ -137,4 +157,21 @@
 {% endblock %}
 
 {% block javascripts %}
+
+
+    <script>
+        var monSelectCouleur = $('#commandes_fidCouleur');
+        monSelectCouleur.on('change', function () {
+            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
+        });
+    </script>
+
+    <script>
+        var monSelectMotif = $('#commandes_fidMotif');
+        monSelectMotif.on('change', function () {
+            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
+        })
+    </script>
+    <!-- FIN PARTIE SCRIPT -->
+
 {% endblock %}

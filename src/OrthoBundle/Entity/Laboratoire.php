@@ -9,15 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Laboratoire
 {
+    // CUSTOM CODE
+    
     
     
     // GENERATED CODE
-    
+
     /**
      * @var integer
      */
-    private $idLabo;
-
+    private $id;
+    
     /**
      * @var string
      */
@@ -62,13 +64,13 @@ class Laboratoire
     }
 
     /**
-     * Get idLabo
+     * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getIdLabo()
+    public function getId()
     {
-        return $this->idLabo;
+        return $this->id;
     }
 
     /**
@@ -240,20 +242,5 @@ class Laboratoire
     public function getAppareillages()
     {
         return $this->appareillages;
-    }
-    /**
-     * @var integer
-     */
-    private $id;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }

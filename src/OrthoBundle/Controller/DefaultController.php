@@ -55,7 +55,6 @@ class DefaultController extends Controller
                     // [...] Déclaration d'une nouvelle instance de la classe PoidsAppareillages
                     $poids = new PoidsAppareillages($cabinet, $appareil);
 
-                    // On met à jour les données de notre $poids
                     $em->persist($poids);
                 }
 

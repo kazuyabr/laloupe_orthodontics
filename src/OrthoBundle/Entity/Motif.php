@@ -27,11 +27,11 @@ class Motif
 
 
     /**
-     * Get id
+     * Get idMotif
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId()
+    public function getIdMotif()
     {
         return $this->idMotif;
     }
@@ -57,15 +57,5 @@ class Motif
     public function getNomMotif()
     {
         return $this->nomMotif;
-    }
-
-    /**
-     * Get idMotif
-     *
-     * @return integer 
-     */
-    public function getIdMotif()
-    {
-        return $this->idMotif;
     }
 }
