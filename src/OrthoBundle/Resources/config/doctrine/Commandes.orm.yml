@@ -33,8 +33,7 @@ OrthoBundle\Entity\Commandes:
         comment2:
             type: text
             nullable: true
-        testimage:
-            type: string
+
 
 
     manyToOne:

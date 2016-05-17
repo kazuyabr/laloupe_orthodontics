@@ -38,9 +38,12 @@ class CommandesType extends AbstractType
                 ),
                 'label' => 'Prénom Patient'
             ))
-            
-            ->add('dateretour', DateType::class, array(
-                "label" => "Date de retour souhaitée",
+
+            ->add('dateretour', 'date', array(
+                'attr' => array(
+                    ),
+                'widget' => 'single_text',
+
             ))
 
             ->add('appareillages', 'entity', array(
@@ -70,7 +73,8 @@ class CommandesType extends AbstractType
             ))
             
             ->add('testimage1', 'file', array(
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
             
             ->add('testimage2', 'file', array(

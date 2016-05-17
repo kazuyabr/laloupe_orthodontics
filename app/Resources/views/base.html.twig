@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Néo 3D | Orthodontics{% endblock %}</title>
         {% block stylesheets %}
+            <!-- Appel des bibliothèques jQuery -->
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+            <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" media="all"/>
             <!-- Appel des bibliothèques Bootstrap -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}" />

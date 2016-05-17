@@ -15,20 +15,19 @@
                 {{ form_errors(form.referencePatient) }}
                 {{ form_widget(form.referencePatient) }}
                 <br/>
+                <br>
 
                 <label for="fnomPatient">Prénom du patient :</label>
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
                 <br />
-
-                <label for="dateretour">Date de retour souhaitée :</label>
-                {{ form_errors(form.dateretour) }}
-                {{ form_widget(form.dateretour) }}
+                <br>
 
                 <label for="fidApp">Appareillages :</label>
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
                 {{ form_widget(form.ajoutApp) }}
+
 
                 <label for="fidAdj">Adjonctions :</label>
                 {{ form_errors(form.fidAdj) }}
@@ -43,9 +42,6 @@
 
 
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
-
-
-
 
 
                     <label for="nomMotif" >Motif :</label>
@@ -101,28 +97,17 @@
 
         {{ form_end(form) }}
     </form>
+    <script>
+    $("form input.date").datepicker({
+    dateFormat: 'dd/mm/yy',
+    firstDay:1
+    }).attr("readonly","readonly");</script>
+
 
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-
-
-    <script>
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-    </script>
-
-    <script>
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        })
-    </script>
-
-
 
 {#
     <script>
