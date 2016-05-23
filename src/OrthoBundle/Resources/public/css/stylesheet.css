@@ -14,9 +14,15 @@ h3 {
 
 #commandes_appareillages,
 #commandes_fidAdj {
-width: calc(100% - 20px);
+    width: calc(100% - 20px);
     padding: 5px;
     display: block;
+}
+#commandes_appareillages {
+    column-count: 2;
+    padding: 0;
+    height: 200px;
+    overflow: hidden;
 }
 
 #commandes_dateretour,
@@ -243,3 +249,11 @@ li {
 .ds_cell:hover {
     background-color: #F3F3F3;
 } /* This hover code won't work for IE */
+
+#commandes_appareillages label {
+    display: block;
+}
+
+input[type=checkbox] {
+    float: left;
+}

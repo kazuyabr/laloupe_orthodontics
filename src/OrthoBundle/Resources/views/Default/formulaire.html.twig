@@ -36,7 +36,8 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                {{ form_widget(form.ajoutApp) }}
+                {{ form_widget(form.ajoutApp, { 'label': 'Ajouter un appareillage' }) }}
+
 
 
 
@@ -95,7 +96,7 @@
 
         <div id="boutoncde">
             <button class="btn" type="submit">
-                <span class="glyphicon glyphicon-envelope"></span>ENVOYER
+                <span class="glyphicon glyphicon-envelope"></span> ENVOYER
             </button>
         </div>
         {{ form_end(form) }}
