@@ -26,7 +26,8 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         //$listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
-        
+        $famApp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
+
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
@@ -78,6 +79,7 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'entity' => $commande,
             'form'   => $form->createView(),
+            'famApp' => $famApp,
         ));
     }
     
@@ -99,4 +101,8 @@ class DefaultController extends Controller
             'affichagerecap' => $affichagerecap
         ));
     }
+
+
+
+
 }

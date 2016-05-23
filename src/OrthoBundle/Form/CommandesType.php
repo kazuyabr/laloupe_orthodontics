@@ -52,6 +52,7 @@ class CommandesType extends AbstractType
             ))
             
             ->add('ajoutApp', 'button')
+
             
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
@@ -84,7 +85,9 @@ class CommandesType extends AbstractType
             ->add('comment2', 'textarea', array(
                 'required' => false
             ))
+
         ;
+
     }
 
     /**

@@ -33,11 +33,63 @@
 
                 <label for="fidApp">Appareillages :
                 </label>
-                {{ form_errors(form.appareillages) }}
-                {{ form_widget(form.appareillages) }}
+                <div>
+                    <button class="btn" type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
+                </div>
 
-                {{ form_widget(form.ajoutApp) }}
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
+                            </div>
+                            <div class="modal-body">
+                                Liste des appareillages par familles : <br />
+                                <ul>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Mobile</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Fixe</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Contention</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Moulage</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Collage Indirect</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Autres</li></a>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-primary">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
+                            </div>
+                            <div class="modal-body">
+                                Liste des appareillages par familles : <br />
+                             fhntyik
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-primary">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
                 <label for="fidAdj">Adjonctions :</label>
@@ -98,7 +150,10 @@
                 <span class="glyphicon glyphicon-envelope"></span>ENVOYER
             </button>
         </div>
-        {{ form_end(form) }}
+
+        <!-- Attribut "render_rest:" false utilisée pour ne pas afficher les champs non utilisés. -->
+        {{ form_end(form, {'render_rest': false}) }}
+
     </form>
 
 
@@ -107,7 +162,6 @@
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-
 
 {#
     <script>
@@ -157,6 +211,7 @@
             dateFormat: 'dd/mm/yy',
             firstDay:1
         }).attr("readonly","readonly");</script>
+
     <!-- FIN PARTIE SCRIPT -->
 
 {% endblock %}
