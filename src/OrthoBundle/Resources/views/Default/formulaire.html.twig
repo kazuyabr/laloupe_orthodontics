@@ -72,15 +72,15 @@
             </div>
             <div id="upload">
                 <br/>
-                <label for="testimage">Arcade maxilaire:</label>
+                <label for="testimage">Arcade maxilaire :</label>
                 {{ form_errors(form.testimage) }}
                 {{ form_widget(form.testimage) }}
 
-                <label for="testimage1">Arcade mandibulaire:</label>
+                <label for="testimage1">Arcade mandibulaire :</label>
                 {{ form_errors(form.testimage1) }}
                 {{ form_widget(form.testimage1) }}
 
-                <label for="testimage2">Autre pièce jointe:</label>
+                <label for="testimage2">Autre pièce jointe :</label>
                 {{ form_errors(form.testimage2) }}
                 {{ form_widget(form.testimage2) }}
 
@@ -162,7 +162,7 @@
         // On déclare un tableau dans lequel on ajoute l'id et le commentaire de chaque appareillage
         var tableau = {
         {% for commentaire in commentaireAppareil %}
-            {{ commentaire['id'] }} : "{{ commentaire['commentairesApp'] }}" ,
+        {{ commentaire['id'] }} : "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
         {% endfor %}
         };
         console.log(tableau);
@@ -176,7 +176,7 @@
             if($(this).prop('checked'))
             {
                 console.log($(this).val());
-                commentAppareil.append('<div class="commentaireuhs" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
             }
             else {
                 $('#commentaireEnfant' + $(this).val()).remove();
@@ -184,7 +184,7 @@
 
             $('#commandes_comment').html('');
 
-            $('.commentaireuhs').each(function(){
+            $('.commentaireClass').each(function(){
                $('#commandes_comment').append($(this).html() + "\n");
             });
 

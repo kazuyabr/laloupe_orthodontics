@@ -33,7 +33,7 @@ class AppareillagesRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('appareillage');
 
         // On sélectionne tout les id, ainsi que tout les commentaires
-        $queryBuilder->select('appareillage.id', 'appareillage.commentairesApp');
+        $queryBuilder->select('appareillage.id', 'appareillage.titreApp', 'appareillage.commentairesApp', 'appareillage.familleApp');
 
         // On retourne le résultat
         return $queryBuilder->getQuery()->getResult();
