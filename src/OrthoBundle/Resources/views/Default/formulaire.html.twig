@@ -38,8 +38,7 @@
 
                 {{ form_widget(form.ajoutApp, { 'label': 'Ajouter un appareillage' }) }}
 
-
-
+                <div id="appCommentInter"></div>
 
                 <label for="fidAdj">Adjonctions :</label>
                 {{ form_errors(form.fidAdj) }}
@@ -137,7 +136,7 @@
 
 {% endblock %}
 
-{% block javascripts %}
+{% block javascript %}
 
 
     <script>
@@ -157,7 +156,44 @@
         $("form input.date").datepicker({
             dateFormat: 'dd/mm/yy',
             firstDay:1
-        }).attr("readonly","readonly");</script>
+        }).attr("readonly","readonly");
+    </script>
+    <script>
+        // On déclare un tableau dans lequel on ajoute l'id et le commentaire de chaque appareillage
+        var tableau = {
+        {% for commentaire in commentaireAppareil %}
+            {{ commentaire['id'] }} : "{{ commentaire['commentairesApp'] }}" ,
+        {% endfor %}
+        };
+        console.log(tableau);
+
+        // TODO : Faire en jQuery un script qui, au clic d'un bouton, récupère l'id du bouton et affiche le commentaire
+        // possèdant le même ID.
+        var commentAppareil = $('#appCommentInter');
+        var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
+
+        checkboxes.on('click', function(){
+            if($(this).prop('checked'))
+            {
+                console.log($(this).val());
+                commentAppareil.append('<div class="commentaireuhs" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html('');
+
+            $('.commentaireuhs').each(function(){
+               $('#commandes_comment').append($(this).html() + "\n");
+            });
+
+        });
+
+
+
+
+    </script>
     <!-- FIN PARTIE SCRIPT -->
 
 {% endblock %}

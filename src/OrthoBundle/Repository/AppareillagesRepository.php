@@ -26,4 +26,16 @@ class AppareillagesRepository extends EntityRepository
 
         return $queryBuilder;
     }
+
+    public function getComments()
+    {
+        // Début du Query Builder
+        $queryBuilder = $this->createQueryBuilder('appareillage');
+
+        // On sélectionne tout les id, ainsi que tout les commentaires
+        $queryBuilder->select('appareillage.id', 'appareillage.commentairesApp');
+
+        // On retourne le résultat
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

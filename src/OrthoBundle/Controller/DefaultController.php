@@ -24,6 +24,9 @@ class DefaultController extends Controller
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
+        
+        $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
+        $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
 
         //$listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
         
@@ -78,6 +81,8 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'entity' => $commande,
             'form'   => $form->createView(),
+            'commentaireAppareil' => $commentairesApp,
+            'commentaireAdjoncton' => $commentairesAdj
         ));
     }
     
