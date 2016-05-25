@@ -37,7 +37,7 @@ OrthoBundle\Entity\Cabinetsdentaires:
 
     manyToOne:
         fidLabo:
-            targetEntity: Laboratoire
+            targetEntity: OrthoBundle\Entity\Laboratoire
             joinColumn:
                 name: fid_labo
                 referencedColumn: id

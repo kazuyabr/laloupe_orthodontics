@@ -11,7 +11,12 @@ use FOS\UserBundle\Model\User as BaseUser;
 class Cabinetsdentaires extends BaseUser
 {
     // CUSTOM CODE
-    
+
+    public function __toString()
+    {
+        return $this->fidLabo;
+    }
+
     private $poidsAdjonction;
     
     
@@ -23,7 +28,7 @@ class Cabinetsdentaires extends BaseUser
     protected $id;
 
     /**
-     * @var int
+     * @var \OrthoBundle\Entity\Laboratoire
      */
     private $fidLabo;
 

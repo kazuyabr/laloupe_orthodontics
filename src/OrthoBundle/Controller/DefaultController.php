@@ -26,6 +26,7 @@ class DefaultController extends Controller
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
+        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser();
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
@@ -78,7 +79,8 @@ class DefaultController extends Controller
                     $em->persist($poidsAdjonction);
                 }
             }
-            
+            var_dump($infoUserConnected);
+            die;
             // On prépare la mise en Base de données
             $em->persist($commande);
             // On met en Base de données
@@ -97,10 +99,11 @@ class DefaultController extends Controller
             'form'   => $form->createView(),
             'nomimageapp' => $nomimageapp,
             'commentaireAppareil' => $commentairesApp,
-            'commentaireAdjonction' => $commentairesAdj
+            'commentaireAdjonction' => $commentairesAdj,
+            'actualUser' => $infoUserConnected
         ));
     }
-    
+
     public function showAction()
     {
         // On récupère l'ID de la commande en question, passé dans l'URL

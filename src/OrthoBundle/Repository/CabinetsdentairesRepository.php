@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class CabinetsdentairesRepository extends EntityRepository
 {
+    public function getActualUser()
+    {
+        $queryBuilder = $this->createQueryBuilder('user');
+        
+        $queryBuilder->leftJoin('user.fidLabo', 'laboratoire')
+                    ->select('user', 'laboratoire')
+                    ->where('user.id = :id')
+                    ->setParameter('id', 1);
+                    // TODO : Passer un paramètre sur la fonction pour trouver le cabinet qui est authentifié
+        
+        return $queryBuilder->getQuery()->getResult();
+    }
 }
