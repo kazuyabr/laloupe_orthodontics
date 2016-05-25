@@ -2,13 +2,9 @@
 
 namespace OrthoBundle\Form;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 
 class CommandesType extends AbstractType
 {
@@ -50,7 +46,7 @@ class CommandesType extends AbstractType
                 }
             ))
             //->add('ajoutApp', 'button')
-            ->add('fidAdj', EntityType::class, array(
+            ->add('fidAdj', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'false'

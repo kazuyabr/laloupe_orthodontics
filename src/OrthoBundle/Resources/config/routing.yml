@@ -11,8 +11,3 @@ recap_formulaire:
 photos_uploads:
     resource: "@OrthoBundle/Resources/config/routing/uploads.yml"
     prefix:   /uploads
-
-photos_homepage:
-    path:     /truc
-    defaults: { _controller: OrthoBundle:Default:index }
-

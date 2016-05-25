@@ -14,29 +14,24 @@ class DefaultController extends Controller
         // On crée une instance de l'entité Commandes
         $commande  = new Commandes();
         $request = $this->getRequest();
-        
+
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
         // "CommandesType.php" ainsi que l'instance de l'entité Commandes
         $form    = $this->createForm(new CommandesType(), $commande);
-        
-        // On hydrate notre formulaire
-        $form->handleRequest($request);
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
         
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
-
-        //$listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
-        $famApp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
 
+        // On hydrate notre formulaire
+        $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
-
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil)
             {
@@ -65,10 +60,8 @@ class DefaultController extends Controller
                 }
 
             }
-            
             // On prépare la mise en Base de données
             $em->persist($commande);
-            
             // On met en Base de données
             $em->flush();
 
@@ -82,15 +75,10 @@ class DefaultController extends Controller
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
-            'entity' => $commande,
             'form'   => $form->createView(),
-
-            'famApp' => $famApp,
             'nomimageapp' => $nomimageapp,
-
             'commentaireAppareil' => $commentairesApp,
             'commentaireAdjoncton' => $commentairesAdj
-
         ));
     }
     
@@ -112,8 +100,4 @@ class DefaultController extends Controller
             'affichagerecap' => $affichagerecap
         ));
     }
-
-
-
-
 }
