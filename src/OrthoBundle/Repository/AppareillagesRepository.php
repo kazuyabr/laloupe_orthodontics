@@ -12,11 +12,6 @@ use Doctrine\ORM\EntityRepository;
  */
 class AppareillagesRepository extends EntityRepository
 {
-    public function getAllOrderedByWeight(\OrthoBundle\Entity\Laboratoire $laboratoire)
-    {
-        
-    }
-
     public function triParPoids()
     {
         $queryBuilder = $this->createQueryBuilder('u');
