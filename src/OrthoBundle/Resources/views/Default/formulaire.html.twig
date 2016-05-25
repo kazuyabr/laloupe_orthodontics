@@ -100,45 +100,11 @@
         </div>
         {{ form_end(form) }}
     </form>
-
-
-    <!-- PARTIE SCRIPT -->
-    <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
-
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
-            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-
-
-{#
-    <script>
-
-
-        $(function () {
-            $("select[name=commandes_fidCouleur]").on("change", onChange);
-            $("select[name=commandes_fidCouleur]").on("focus", function() {
-                $(this).popover('destroy')
-            });
-        });
-
-        function onChange() {
-            var $this = $(this);
-            $('#commandes_fidCouleur').popover('destroy');
-            $("#commandes_fidCouleur").popover({
-                trigger: 'manual',
-                placement: 'right',
-                content: $this.children('option:selected').attr("src", "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png")
-            }).popover('toogle');
-            $this.blur();
-        }
-    </script>
-#}
-
-
 {% endblock %}
 
-{% block javascripts %}
+{% block javascript %}
 
-
+    <!-- PARTIE SCRIPT -->
     <script>
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
@@ -152,11 +118,14 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+
     <script>
-        $("form input.date").datepicker({
-            dateFormat: 'dd/mm/yy',
-            firstDay:1
-        }).attr("readonly","readonly");</script>
+        $(function() {
+            $('#commandes_dateretour').datepicker({
+                dateFormat: 'dd-mm-yyyy'
+            })
+        });
+    </script>
     <!-- FIN PARTIE SCRIPT -->
 
 {% endblock %}
