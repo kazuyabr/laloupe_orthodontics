@@ -4,7 +4,7 @@
 
     <h3 xmlns="http://www.w3.org/1999/html">Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
 
-    <form action="{{ path('ortho_formulaire') }}" method="post">
+    <form id="formulairecommandes" action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
         <div id="formupload">
             <div id="formulairecde">
@@ -37,10 +37,11 @@
                 {{ form_widget(form.appareillages) }}
 
                 <div id="appCommentInter"></div>
+
                 <div>
                     <button type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
                 </div>
-
+                <br>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
@@ -152,23 +153,23 @@
                 {{ form_widget(form.comment) }}
             </div>
             <div id="upload">
-                {#<br/>#}
-                <label for="testimage">Arcade maxilaire :</label>
+
+                <label for="testimage">Arcade maxilaire :</label><br>
                 {{ form_errors(form.testimage) }}
-                {{ form_widget(form.testimage) }}
+                {{ form_widget(form.testimage) }}<br>
 
-                <label for="testimage1">Arcade mandibulaire :</label>
+                <label for="testimage1">Arcade mandibulaire :</label><br>
                 {{ form_errors(form.testimage1) }}
-                {{ form_widget(form.testimage1) }}
+                {{ form_widget(form.testimage1) }}<br>
 
-                <label for="testimage2">Autre pièce jointe :</label>
+                <label for="testimage2">Autre pièce jointe :</label><br>
                 {{ form_errors(form.testimage2) }}
-                {{ form_widget(form.testimage2) }}
+                {{ form_widget(form.testimage2) }}<br>
 
-                <label for="comment2">Autres commentaires :</label>
+                <label for="comment2">Autres commentaires :</label><br>
                 <br/>
                 {{ form_errors(form.comment2) }}
-                {{ form_widget(form.comment2) }}
+                {{ form_widget(form.comment2) }}<br>
             </div>
 
         </div>
@@ -220,7 +221,6 @@
             }
         </script>
     #}
-
 
     <script>
         var monSelectCouleur = $('#commandes_fidCouleur');
@@ -278,7 +278,7 @@
         });
 
 
-        $(function () {
+        $(function() {
             $('#commandes_dateretour').datepicker({
                 dateFormat: 'dd-mm-yyyy'
             })
@@ -291,7 +291,6 @@
 
         //image dans bouton
         //$('div#commandes_appareillages > label').css('background-image', 'url(" {{ asset('https://www.lafoliedessenteurs.com/276-small_default/fleur-d-oranger.jpg') }} ")');
-
 
     </script>
 

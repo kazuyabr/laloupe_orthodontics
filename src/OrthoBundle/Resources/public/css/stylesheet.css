@@ -12,7 +12,7 @@ h3 {
     width: 100%;
 }
 
-#commandes_appareillages,
+
 #commandes_fidAdj {
     width: 100%;
     padding: 5px;
@@ -26,6 +26,7 @@ h3 {
     padding: 0;
 }
 
+#commandes_dateretour,
 #commandes_ajoutApp,
 #commandes_ajoutAdj {
     margin-bottom: 15px;
@@ -125,7 +126,9 @@ button {
 #fosuserlogin {
     height: 100px;
     width: auto;
-
+    padding: 20px;
+    background-color: #20B2AA;
+    border-radius: 15px;
 }
 
 .connexion {
