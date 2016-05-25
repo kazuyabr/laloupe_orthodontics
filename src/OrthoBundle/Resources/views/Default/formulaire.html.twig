@@ -1,38 +1,28 @@
-{# @DefiBundle#}
+{# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
-
 {% block body %}
-
     <h3 xmlns="http://www.w3.org/1999/html">Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
-
     <form id="formulairecommandes" action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
         <div id="formupload">
             <div id="formulairecde">
-                <label for="referencePatient">
-                    Référence du patient :
-                </label>
+                {{ form_label(form.referencePatient, "Référence du patient :") }}
                 {{ form_errors(form.referencePatient) }}
                 {{ form_widget(form.referencePatient) }}
-                <br/>
-                <br>
+                <br />
+                <br />
 
-                <label for="fnomPatient">
-                    Prénom du patient :
-                </label>
+                {{ form_label(form.prenomPatient) }}
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
                 <br/>
                 <br/>
 
-                <label for="dateretour">
-                    Date de retour souhaitée :
-                </label>
+                {{ form_label(form.dateretour, "Date de retour souhaitée :") }}
                 {{ form_errors(form.dateretour) }}
                 {{ form_widget(form.dateretour) }}
                 <br>
 
-                <!--<label for="fidApp">Appareillages : </label>-->
                 {{ form_label(form.appareillages, "Appareillages : ") }}
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
@@ -65,24 +55,21 @@
                                 <h6>Liste non exhaustive, contactez votre laboratoire</h6>
                             </div>
                             <div class="modal-body">
-
                                 <ul>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Mobile</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Fixe</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Contention</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Moulages</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Collage
-                                        Indirect</li></a><br/>
-                                    <a href="#" data-toggle="modal" data-target="#myModal2">Autres</li></a><br/>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage Indirect</a><br /></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br /></li>
                                 </ul>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-
                             </div>
                         </div>
                     </div>
@@ -123,25 +110,20 @@
                     </div>
                 </div>
 
-                <label for="fidAdj">Adjonctions :</label>
+                {{ form_label(form.fidAdj, "Adjonctions :") }}
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
                 {{ form_widget(form.ajoutAdj, { 'label': 'Autres adjonctions' }) }}
 
                 <div id="coulmot">
-                    <label for="nomCouleur">
-                        Couleur :
-                    </label>
+                    {{ form_label(form.fidCouleur, "Couleur :") }}
                     {{ form_errors(form.fidCouleur) }}
                     {{ form_widget(form.fidCouleur) }}
 
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
-
-                    <label for="nomMotif">
-                        Motif :
-                    </label>
+                    {{ form_label(form.fidMotif, "Motif :") }}
                     {{ form_errors(form.fidMotif) }}
                     {{ form_widget(form.fidMotif) }}
 
@@ -149,115 +131,50 @@
                     <br/>
                 </div>
 
-                <label for="comment">Commentaires :</label>
+                {{ form_label(form.comment, "Commentaires :") }}
                 {{ form_errors(form.comment) }}
                 {{ form_widget(form.comment) }}
             </div>
             <div id="upload">
 
-                <label for="testimage">Arcade maxilaire :</label><br>
+                {{ form_label(form.testimage, "Arcade Maxilaire :") }}
                 {{ form_errors(form.testimage) }}
                 {{ form_widget(form.testimage) }}<br>
 
-                <label for="testimage1">Arcade mandibulaire :</label><br>
+                {{ form_label(form.testimage1, "Arcade mandibulaire :") }}
                 {{ form_errors(form.testimage1) }}
                 {{ form_widget(form.testimage1) }}<br>
 
-                <label for="testimage2">Autre pièce jointe :</label><br>
+                {{ form_label(form.testimage2, "Autre pièces jointes :") }}
                 {{ form_errors(form.testimage2) }}
                 {{ form_widget(form.testimage2) }}<br>
 
-                <label for="comment2">Autres commentaires :</label><br>
-                <br/>
+                {{ form_label(form.comment2, "Autres commentaires :") }}
                 {{ form_errors(form.comment2) }}
                 {{ form_widget(form.comment2) }}<br>
             </div>
-
         </div>
-
         <div id="boutoncde">
             <button class="" type="submit">
-                <span class="glyphicon-envelope"></span> ENVOYER
+                <span class="glyphicon-envelope"></span> &nbsp; ENVOYER
             </button>
         </div>
 
         <!-- Attribut "render_rest:" false utilisée pour ne pas afficher les champs non utilisés. -->
         {{ form_end(form, {'render_rest': false}) }}
-
-
-        {{ form_end(form) }}
-
     </form>
 {% endblock %}
 
 {% block javascript %}
-
-    <!-- PARTIE SCRIPT -->
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
-    <script src="js/jquery-ui.js"></script>
+    <script src="{{ asset('bundles/ortho/js/formulaire.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
-            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-
-    {#
-        <script>
-
-
-            $(function () {
-                $("select[name=commandes_fidCouleur]").on("change", onChange);
-                $("select[name=commandes_fidCouleur]").on("focus", function() {
-                    $(this).popover('destroy')
-                });
-            });
-
-            function onChange() {
-                var $this = $(this);
-                $('#commandes_fidCouleur').popover('destroy');
-                $("#commandes_fidCouleur").popover({
-                    trigger: 'manual',
-                    placement: 'right',
-                    content: $this.children('option:selected').attr("src", "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png")
-                }).popover('toogle');
-                $this.blur();
-            }
-        </script>
-    #}
-
-    <script>
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-    </script>
-
-    <script>
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        })
-    </script>
-
-    <script>
-
-        $("form input.date").datepicker({
-            dateFormat: 'dd/mm/yy',
-            firstDay: 1
-        }).attr("readonly", "readonly");
-    </script>
-
-    <script>
-        // On déclare un tableau dans lequel on ajoute l'id et le commentaire de chaque appareillage
+    <script> // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
-        {{ commentaire['id'] }} :
-        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+        {{ commentaire['id'] }} : "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
         {% endfor %}
         }
-        ;
-        console.log(tableau);
-
-        // TODO : Faire en jQuery un script qui, au clic d'un bouton, récupère l'id du bouton et affiche le commentaire
-        // possèdant le même ID.
         var commentAppareil = $('#appCommentInter');
         var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
 
@@ -275,26 +192,6 @@
             $('.commentaireClass').each(function () {
                 $('#commandes_comment').append($(this).html() + "\n");
             });
-
         });
-
-
-        $(function() {
-            $('#commandes_dateretour').datepicker({
-                dateFormat: 'dd-mm-yyyy'
-            })
-        });
-
-        //ajouter class='' à input appareillage
-        //$("div#commandes_appareillages").addClass("btn-group");
-        $("div#commandes_appareillages > label").addClass("btn btn-default");
-        $("div#commandes_appareillages > input").hide();
-
-        //image dans bouton
-        //$('div#commandes_appareillages > label').css('background-image', 'url(" {{ asset('https://www.lafoliedessenteurs.com/276-small_default/fleur-d-oranger.jpg') }} ")');
-
     </script>
-
-    <!-- FIN PARTIE SCRIPT -->
-
 {% endblock %}
