@@ -161,7 +161,8 @@
         </div>
 
         <!-- Attribut "render_rest:" false utilisée pour ne pas afficher les champs non utilisés. -->
-        {{ form_end(form, {'render_rest': false}) }}
+        {{ form_rest(form)}}
+        {{ form_end(form) }}
     </form>
 {% endblock %}
 
@@ -180,7 +181,6 @@
 
         checkboxes.on('click', function () {
             if ($(this).prop('checked')) {
-                console.log($(this).val());
                 commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
             }
             else {
@@ -201,6 +201,23 @@
         {{ commentaire['id'] }} : "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
         {% endfor %}
         }
-        console.log(tableauCommentaireAdjonction);
+
+        var commentAppareil = $('#appCommentInter');
+        var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
+
+        checkboxesAdjonctions.on('click', function(){
+            if ($(this).prop('checked')) {
+                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauCommentaireAdjonction[$(this).val()] + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html('');
+
+            $('.commentaireClass').each(function () {
+                $('#commandes_comment').append($(this).html() + "\n");
+            });
+        })
     </script>
 {% endblock %}

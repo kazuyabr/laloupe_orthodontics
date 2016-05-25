@@ -52,6 +52,10 @@ class CommandesType extends AbstractType
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'true',
+                'expanded' => 'true',
+                'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
+                    return $entityRepository->triParPoids();
+                }
             ))
             
             ->add('ajoutAdj', 'button')

@@ -23,3 +23,6 @@ $(function() {
 //$("div#commandes_appareillages").addClass("btn-group");
 $("div#commandes_appareillages > label").addClass("btn btn-default");
 $("div#commandes_appareillages > input").hide();
+
+$("div#commandes_fidAdj > label").addClass("btn btn-default");
+$("div#commandes_fidAdj > input").hide();
