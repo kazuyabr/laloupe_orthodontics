@@ -3,7 +3,7 @@ OrthoBundle\Entity\Adjonctions:
     table: null
     repositoryClass: OrthoBundle\Repository\AdjonctionsRepository
     id:
-        idAdj:
+        id:
             type: integer
             id: true
             generator:
@@ -40,5 +40,10 @@ OrthoBundle\Entity\Adjonctions:
         fkidCommande:
             targetEntity: Commandes
             mappedBy: Adjonctions
+
+    oneToMany:
+        poids:
+            targetEntity: OrthoBundle\Entity\PoidsAdjonctions
+            mappedBy: fidAdjonction
 
     lifecycleCallbacks: {  }

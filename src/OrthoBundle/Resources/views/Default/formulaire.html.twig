@@ -159,8 +159,7 @@
             </button>
         </div>
 
-        <!-- Attribut ["render_rest:" false] utilisé pour ne pas afficher les champs non utilisés. -->
-        {{ form_rest(form) }}
+        {{ form_rest(form)}}
         {{ form_end(form) }}
     </form>
 {% endblock %}
@@ -168,7 +167,6 @@
 {% block javascript %}
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulaire.js') }}"></script>
-
     <script> // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
@@ -180,7 +178,6 @@
 
         checkboxes.on('click', function () {
             if ($(this).prop('checked')) {
-                console.log($(this).val());
                 commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
             }
             else {
@@ -194,6 +191,46 @@
             });
         });
 
+        var monSelectCouleur = $('#commandes_fidCouleur');
+        monSelectCouleur.on('change', function () {
+            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
+        });
+
+
+
+        var monSelectMotif = $('#commandes_fidMotif');
+        monSelectMotif.on('change', function () {
+            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
+        });
+    </script>
+
+    <script> // Liste des adjonctions + Affichage des commentaires dans le cadre
+        var tableauCommentaireAdjonction = {
+        {% for commentaire in commentaireAdjonction %}
+        {{ commentaire['id'] }} : "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+        {% endfor %}
+        }
+
+        var commentAppareil = $('#appCommentInter');
+        var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
+
+        checkboxesAdjonctions.on('click', function(){
+            if ($(this).prop('checked')) {
+                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauCommentaireAdjonction[$(this).val()] + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html('');
+
+            $('.commentaireClass').each(function () {
+                $('#commandes_comment').append($(this).html() + "\n");
+            });
+        })
+    </script>
+
+    <script>
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
             $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");

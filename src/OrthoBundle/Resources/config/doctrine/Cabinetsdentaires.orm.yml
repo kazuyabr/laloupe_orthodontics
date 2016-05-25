@@ -47,4 +47,8 @@ OrthoBundle\Entity\Cabinetsdentaires:
         poids:
             targetEntity: OrthoBundle\Entity\PoidsAppareillages
             mappedBy: cabinet
+
+        poidsAdjonction:
+            targetEntity: OrthoBundle\Entity\PoidsAdjonctions
+            mappedBy: cabinet
     lifecycleCallbacks: {  }

@@ -45,12 +45,17 @@ class CommandesType extends AbstractType
                     return $entityRepository->triParPoids();
                 }
             ))
-            //->add('ajoutApp', 'button')
+
             ->add('fidAdj', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
-                'multiple' => 'false'
+                'multiple' => 'true',
+                'expanded' => 'true',
+                'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
+                    return $entityRepository->triParPoids();
+                }
             ))
+            
             ->add('ajoutAdj', 'button')
             ->add('fidCouleur')
             ->add('fidMotif')

@@ -22,7 +22,7 @@ class Adjonctions
     /**
      * @var int
      */
-    private $idAdj;
+    private $id;
     
     /**
      * @var string
@@ -66,17 +66,6 @@ class Adjonctions
     public function __construct()
     {
         $this->fkidCommande = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getIdAdj()
-    {
-        return $this->idAdj;
     }
 
     /**
@@ -261,5 +250,53 @@ class Adjonctions
     public function getFkidCommande()
     {
         return $this->fkidCommande;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poids;
+
+
+    /**
+     * Add poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poids
+     * @return Adjonctions
+     */
+    public function addPoid(\OrthoBundle\Entity\PoidsAdjonctions $poids)
+    {
+        $this->poids[] = $poids;
+
+        return $this;
+    }
+
+    /**
+     * Remove poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poids
+     */
+    public function removePoid(\OrthoBundle\Entity\PoidsAdjonctions $poids)
+    {
+        $this->poids->removeElement($poids);
+    }
+
+    /**
+     * Get poids
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoids()
+    {
+        return $this->poids;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

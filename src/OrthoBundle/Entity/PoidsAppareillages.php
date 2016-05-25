@@ -50,6 +50,11 @@ class PoidsAppareillages
     private $id;
 
     /**
+     * @var \OrthoBundle\Entity\Appareillages
+     */
+    private $fidAppareillages;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -157,10 +162,4 @@ class PoidsAppareillages
     {
         return $this->cabinet;
     }
-    /**
-     * @var \OrthoBundle\Entity\Appareillages
-     */
-    private $fidAppareillages;
-
-
 }

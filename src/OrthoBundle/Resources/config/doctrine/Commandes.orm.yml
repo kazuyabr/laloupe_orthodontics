@@ -79,7 +79,7 @@ OrthoBundle\Entity\Commandes:
                          referencedColumn: id
                  inverseJoinColumns:
                      Adjonctions_id:
-                         referencedColumnName: id_adj
+                         referencedColumn: id
 
 
     lifecycleCallbacks:

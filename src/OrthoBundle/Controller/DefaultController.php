@@ -3,6 +3,7 @@
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Commandes;
+use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Form\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -60,6 +61,24 @@ class DefaultController extends Controller
                 }
 
             }
+
+            foreach ($commande->getFidAdj() as $adjonction)
+            {
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
+                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['cabinet' => $cabinet, 'fidAdjonction' => $adjonction]);
+
+                if (isset($poidsAdjonction))
+                {
+                    $poidsAdjonction->incrementation();
+                }
+                else
+                {
+                    $poidsAdjonction = new PoidsAdjonctions($cabinet, $adjonction);
+
+                    $em->persist($poidsAdjonction);
+                }
+            }
+            
             // On prépare la mise en Base de données
             $em->persist($commande);
             // On met en Base de données
@@ -78,7 +97,7 @@ class DefaultController extends Controller
             'form'   => $form->createView(),
             'nomimageapp' => $nomimageapp,
             'commentaireAppareil' => $commentairesApp,
-            'commentaireAdjoncton' => $commentairesAdj
+            'commentaireAdjonction' => $commentairesAdj
         ));
     }
     

@@ -1,0 +1,24 @@
+OrthoBundle\Entity\PoidsAdjonctions:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\PoidsAdjonctionsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        poids:
+            type: integer
+
+
+    manyToOne:
+        fidAdjonction:
+            targetEntity: OrthoBundle\Entity\Adjonctions
+            inversedBy: poids
+
+        cabinet:
+            targetEntity: OrthoBundle\Entity\Cabinetsdentaires
+            inversedBy: poids
+    lifecycleCallbacks: {  }
