@@ -41,8 +41,6 @@ class CommandesType extends AbstractType
                     ])
             )
             ->add('appareillages', 'entity', array(
-                'attr' => array(
-                    'class' => 'btn btn-primary'),
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'expanded' => 'true',
@@ -51,7 +49,7 @@ class CommandesType extends AbstractType
                     return $entityRepository->triParPoids();
                 }
             ))
-            ->add('ajoutApp', 'button')
+            //->add('ajoutApp', 'button')
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',

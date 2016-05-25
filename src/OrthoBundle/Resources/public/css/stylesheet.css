@@ -31,6 +31,7 @@ h3 {
     margin-bottom: 15px;
 
 }
+
 #commandes_dateretour {
     margin-bottom: 15px;
     width: 150px;
@@ -96,8 +97,8 @@ button {
     display: block;
     margin-top: 10px !important;
     text-align: center !important;
-/ color: #4f4;
-/ color: #20B2AA;
+    /*color: #4f4;*/
+    color: #20B2AA;
 }
 
 .navbar-inverse {
@@ -237,7 +238,9 @@ li {
 .ds_cell:hover {
     background-color: #F3F3F3;
 
-} /* This hover code won't work for IE */
+}
+
+/* This hover code won't work for IE */
 
 .modal-content ul {
     border: 1px solid;
@@ -256,13 +259,10 @@ a {
     color: black;
 }
 
-
-#imageSchemaApp
-{
+#imageSchemaApp {
     width: 30%;
     text-align: center;
 }
-
 
 /* This hover code won't work for IE */
 
@@ -276,5 +276,9 @@ input[type=checkbox] {
 
 .commentaireClass {
     display: none;
+}
+
+.btn.btn-default {
+    margin-bottom: 10px;
 }
 

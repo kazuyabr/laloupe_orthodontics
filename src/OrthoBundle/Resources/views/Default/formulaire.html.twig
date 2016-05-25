@@ -31,11 +31,14 @@
                 {{ form_widget(form.dateretour) }}
                 <br>
 
+                <!--<label for="fidApp">Appareillages : </label>-->
+                {{ form_label(form.appareillages, "Appareillages : ") }}
+                {{ form_errors(form.appareillages) }}
+                {{ form_widget(form.appareillages) }}
 
-                <label for="fidApp">Appareillages :
-                </label>
+                <div id="appCommentInter"></div>
                 <div>
-                    <button class="btn" type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
+                    <button type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
                 </div>
 
                 <!-- Modal -->
@@ -118,21 +121,11 @@
                     </div>
                 </div>
 
-                <!--<label for="fidApp">Appareillages : </label>-->
-                {{ form_label(form.appareillages, "Appareillages : ") }}
-                {{ form_errors(form.appareillages) }}
-                {{ form_widget(form.appareillages) }}
-
-                {{ form_widget(form.ajoutApp, { 'label': 'Bibliothèque' }) }}
-
-
-                <div id="appCommentInter"></div>
-
                 <label for="fidAdj">Adjonctions :</label>
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
-                {{ form_widget(form.ajoutAdj) }}
+                {{ form_widget(form.ajoutAdj, { 'label': 'Autres adjonctions' }) }}
 
                 <div id="coulmot">
                     <label for="nomCouleur">
@@ -181,8 +174,8 @@
         </div>
 
         <div id="boutoncde">
-            <button class="btn" type="submit">
-                <span class="glyphicon glyphicon-envelope"></span> ENVOYER
+            <button class="" type="submit">
+                <span class="glyphicon-envelope"></span> ENVOYER
             </button>
         </div>
 
@@ -291,7 +284,17 @@
             })
         });
 
+        //ajouter class='' à input appareillage
+        //$("div#commandes_appareillages").addClass("btn-group");
+        $("div#commandes_appareillages > label").addClass("btn btn-default");
+        $("div#commandes_appareillages > input").hide();
+
+        //image dans bouton
+        //$('div#commandes_appareillages > label').css('background-image', 'url(" {{ asset('https://www.lafoliedessenteurs.com/276-small_default/fleur-d-oranger.jpg') }} ")');
+
+
     </script>
+
     <!-- FIN PARTIE SCRIPT -->
 
 {% endblock %}
