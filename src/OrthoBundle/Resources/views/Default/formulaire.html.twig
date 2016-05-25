@@ -3,9 +3,9 @@
 
 {% block body %}
 
-    <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
+    <h3 xmlns="http://www.w3.org/1999/html">Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
 
-    <form action="{{ path('ortho_formulaire') }}" method="post">
+    <form id="formulairecommandes" action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
         <div id="formupload">
             <div id="formulairecde">
@@ -22,8 +22,8 @@
                 </label>
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
-                <br />
-                <br />
+                <br/>
+                <br/>
 
                 <label for="dateretour">
                     Date de retour souhaitée :
@@ -32,20 +32,102 @@
                 {{ form_widget(form.dateretour) }}
                 <br>
 
-                <label for="fidApp">Appareillages :
-                </label>
+                <!--<label for="fidApp">Appareillages : </label>-->
+                {{ form_label(form.appareillages, "Appareillages : ") }}
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                {{ form_widget(form.ajoutApp) }}
+                <div id="appCommentInter"></div>
 
+                <div>
+                    <button type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
+                </div>
+                <br>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
 
+                                <div class="input-group">
+                                    <input type="text" placeholder="rechercher par mot clé" name="s"
+                                           class="form-control left-rounded">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-inverse">Rechercher</button>
+                                    </div>
+                                </div>
+
+                                <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par famille</h4>
+                                <h6>Liste non exhaustive, contactez votre laboratoire</h6>
+                            </div>
+                            <div class="modal-body">
+
+                                <ul>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Mobile</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Fixe</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Contention</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Moulages</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Collage
+                                        Indirect</li></a><br/>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">Autres</li></a><br/>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
+                            </div>
+                            <div class="modal-body">
+                                Sélectionnez votre appareillage : <br/>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            {% for namepictures in nomimageapp %}
+                                                <div class="col-xs-6">
+                                                    <button><img src="{{ namepictures.imgApp }}" title="Appareillages"
+                                                                 alt="Appareillages" id="imageSchemaApp"
+                                                                 name="commandes[appareillages]"/>
+                                                        {{ namepictures.titreApp }} </button>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <label for="fidAdj">Adjonctions :</label>
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
-                {{ form_widget(form.ajoutAdj) }}
+                {{ form_widget(form.ajoutAdj, { 'label': 'Autres adjonctions' }) }}
 
                 <div id="coulmot">
                     <label for="nomCouleur">
@@ -57,14 +139,14 @@
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
 
-                    <label for="nomMotif" >
+                    <label for="nomMotif">
                         Motif :
                     </label>
                     {{ form_errors(form.fidMotif) }}
                     {{ form_widget(form.fidMotif) }}
 
-                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}" />
-                    <br />
+                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
+                    <br/>
                 </div>
 
                 <label for="comment">Commentaires :</label>
@@ -72,53 +154,74 @@
                 {{ form_widget(form.comment) }}
             </div>
             <div id="upload">
-                <br/>
-                <label for="testimage">Arcade maxilaire:</label>
+
+                <label for="testimage">Arcade maxilaire :</label><br>
                 {{ form_errors(form.testimage) }}
-                {{ form_widget(form.testimage) }}
+                {{ form_widget(form.testimage) }}<br>
 
-                <label for="testimage1">Arcade mandibulaire:</label>
+                <label for="testimage1">Arcade mandibulaire :</label><br>
                 {{ form_errors(form.testimage1) }}
-                {{ form_widget(form.testimage1) }}
+                {{ form_widget(form.testimage1) }}<br>
 
-                <label for="testimage2">Autre pièce jointe:</label>
+                <label for="testimage2">Autre pièce jointe :</label><br>
                 {{ form_errors(form.testimage2) }}
-                {{ form_widget(form.testimage2) }}
+                {{ form_widget(form.testimage2) }}<br>
 
-                <label for="comment2">Autres commentaires :</label>
+                <label for="comment2">Autres commentaires :</label><br>
                 <br/>
                 {{ form_errors(form.comment2) }}
-                {{ form_widget(form.comment2) }}
+                {{ form_widget(form.comment2) }}<br>
             </div>
-        </div>
 
-        <br/><br/><br/><br/><br/>
+        </div>
 
         <div id="boutoncde">
-            <button class="btn" type="submit">
-                <span class="glyphicon glyphicon-envelope"></span>ENVOYER
+            <button class="" type="submit">
+                <span class="glyphicon-envelope"></span> ENVOYER
             </button>
         </div>
+
+        <!-- Attribut "render_rest:" false utilisée pour ne pas afficher les champs non utilisés. -->
+        {{ form_end(form, {'render_rest': false}) }}
+
+
         {{ form_end(form) }}
+
     </form>
-
-    <script>
-        $("form input.date").datepicker({
-            dateFormat: 'dd/mm/yy',
-            firstDay:1
-        }).attr("readonly","readonly");
-    </script>
-
-
-
-
 {% endblock %}
 
 {% block javascript %}
+
     <!-- PARTIE SCRIPT -->
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
+    {#
+        <script>
 
 
+            $(function () {
+                $("select[name=commandes_fidCouleur]").on("change", onChange);
+                $("select[name=commandes_fidCouleur]").on("focus", function() {
+                    $(this).popover('destroy')
+                });
+            });
+
+            function onChange() {
+                var $this = $(this);
+                $('#commandes_fidCouleur').popover('destroy');
+                $("#commandes_fidCouleur").popover({
+                    trigger: 'manual',
+                    placement: 'right',
+                    content: $this.children('option:selected').attr("src", "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png")
+                }).popover('toogle');
+                $this.blur();
+            }
+        </script>
+    #}
 
     <script>
         var monSelectCouleur = $('#commandes_fidCouleur');
@@ -133,5 +236,65 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+
+    <script>
+
+        $("form input.date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1
+        }).attr("readonly", "readonly");
+    </script>
+
+    <script>
+        // On déclare un tableau dans lequel on ajoute l'id et le commentaire de chaque appareillage
+        var tableau = {
+        {% for commentaire in commentaireAppareil %}
+        {{ commentaire['id'] }} :
+        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+        {% endfor %}
+        }
+        ;
+        console.log(tableau);
+
+        // TODO : Faire en jQuery un script qui, au clic d'un bouton, récupère l'id du bouton et affiche le commentaire
+        // possèdant le même ID.
+        var commentAppareil = $('#appCommentInter');
+        var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
+
+        checkboxes.on('click', function () {
+            if ($(this).prop('checked')) {
+                console.log($(this).val());
+                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html('');
+
+            $('.commentaireClass').each(function () {
+                $('#commandes_comment').append($(this).html() + "\n");
+            });
+
+        });
+
+
+        $(function() {
+            $('#commandes_dateretour').datepicker({
+                dateFormat: 'dd-mm-yyyy'
+            })
+        });
+
+        //ajouter class='' à input appareillage
+        //$("div#commandes_appareillages").addClass("btn-group");
+        $("div#commandes_appareillages > label").addClass("btn btn-default");
+        $("div#commandes_appareillages > input").hide();
+
+        //image dans bouton
+        //$('div#commandes_appareillages > label').css('background-image', 'url(" {{ asset('https://www.lafoliedessenteurs.com/276-small_default/fleur-d-oranger.jpg') }} ")');
+
+    </script>
+
     <!-- FIN PARTIE SCRIPT -->
+
 {% endblock %}

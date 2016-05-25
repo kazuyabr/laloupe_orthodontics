@@ -24,9 +24,15 @@ class DefaultController extends Controller
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
+        
+        $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
+        $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
 
         //$listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
-        
+        $famApp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
+        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
+
+
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
@@ -78,6 +84,13 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'entity' => $commande,
             'form'   => $form->createView(),
+
+            'famApp' => $famApp,
+            'nomimageapp' => $nomimageapp,
+
+            'commentaireAppareil' => $commentairesApp,
+            'commentaireAdjoncton' => $commentairesAdj
+
         ));
     }
     
@@ -99,4 +112,8 @@ class DefaultController extends Controller
             'affichagerecap' => $affichagerecap
         ));
     }
+
+
+
+
 }
