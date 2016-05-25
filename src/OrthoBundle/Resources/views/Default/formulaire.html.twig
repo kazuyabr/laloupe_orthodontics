@@ -34,6 +34,7 @@
 
                 <label for="fidApp">Appareillages :
                 </label>
+                <br>
                 <div>
                     <button class="btn" type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
                 </div>
@@ -112,12 +113,9 @@
                     </div>
                 </div>
 
-                <!--<label for="fidApp">Appareillages : </label>-->
-                {{ form_label(form.appareillages, "Appareillages : ") }}
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                {{ form_widget(form.ajoutApp, { 'label': 'Bibliothèque' }) }}
 
 
                 <div id="appCommentInter"></div>
@@ -153,23 +151,23 @@
                 {{ form_widget(form.comment) }}
             </div>
             <div id="upload">
-                {#<br/>#}
-                <label for="testimage">Arcade maxilaire :</label>
+
+                <label for="testimage">Arcade maxilaire :</label><br>
                 {{ form_errors(form.testimage) }}
-                {{ form_widget(form.testimage) }}
+                {{ form_widget(form.testimage) }}<br>
 
-                <label for="testimage1">Arcade mandibulaire :</label>
+                <label for="testimage1">Arcade mandibulaire :</label><br>
                 {{ form_errors(form.testimage1) }}
-                {{ form_widget(form.testimage1) }}
+                {{ form_widget(form.testimage1) }}<br>
 
-                <label for="testimage2">Autre pièce jointe :</label>
+                <label for="testimage2">Autre pièce jointe :</label><br>
                 {{ form_errors(form.testimage2) }}
-                {{ form_widget(form.testimage2) }}
+                {{ form_widget(form.testimage2) }}<br>
 
-                <label for="comment2">Autres commentaires :</label>
+                <label for="comment2">Autres commentaires :</label><br>
                 <br/>
                 {{ form_errors(form.comment2) }}
-                {{ form_widget(form.comment2) }}
+                {{ form_widget(form.comment2) }}<br>
             </div>
 
         </div>
@@ -191,6 +189,7 @@
 
 {% block javascript %}
 
+
     <!-- PARTIE SCRIPT -->
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
     <script src="js/jquery-ui.js"></script>
@@ -200,6 +199,8 @@
 
 
 
+
+    <!-- PARTIE SCRIPT -->
     <script>
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
@@ -213,6 +214,7 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+
 
 
     <script>
@@ -248,6 +250,12 @@
 
         });
 
+
+        $(function() {
+            $('#commandes_dateretour').datepicker({
+                dateFormat: 'dd-mm-yyyy'
+            })
+        });
 
     </script>
     <!-- FIN PARTIE SCRIPT -->

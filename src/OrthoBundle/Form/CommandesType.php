@@ -32,11 +32,16 @@ class CommandesType extends AbstractType
                 'label' => 'Prénom Patient'
             ))
             ->add('dateretour', 'date', array(
-                'attr' => array(),
-                'widget' => 'single_text',
-                'format'=>'yyyy-MM-dd',
 
-            ))
+                    'widget' => 'single_text',
+                    'format' => 'dd-MM-yyyy',
+                    'attr' => [
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy'
+                    ])
+            )
+
 
             ->add('appareillages', 'entity', array(
                 'attr' => array(

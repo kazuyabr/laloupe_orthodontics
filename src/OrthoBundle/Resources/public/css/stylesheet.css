@@ -12,12 +12,13 @@ h3 {
     width: 100%;
 }
 
-#commandes_appareillages,
+
 #commandes_fidAdj {
     width: 100%;
     padding: 5px;
     display: block;
 }
+
 
 #commandes_appareillages {
     -webkit-column-count: 2;
@@ -30,6 +31,11 @@ h3 {
 #commandes_ajoutApp,
 #commandes_ajoutAdj {
     margin-bottom: 15px;
+
+}
+#commandes_dateretour {
+    margin-bottom: 15px;
+    width: 150px;
 }
 
 #commandes_fidCouleur,
