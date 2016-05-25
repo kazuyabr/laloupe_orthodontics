@@ -111,14 +111,10 @@
                         </div>
                     </div>
                 </div>
+                    <br>
 
-                <!--<label for="fidApp">Appareillages : </label>-->
-                {{ form_label(form.appareillages, "Appareillages : ") }}
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
-
-                {{ form_widget(form.ajoutApp, { 'label': 'Bibliothèque' }) }}
-
 
                 <div id="appCommentInter"></div>
 
@@ -153,18 +149,18 @@
                 {{ form_widget(form.comment) }}
             </div>
             <div id="upload">
-                {#<br/>#}
-                <label for="testimage">Arcade maxilaire :</label>
+
+                <label for="testimage">Arcade maxilaire :</label><br />
                 {{ form_errors(form.testimage) }}
-                {{ form_widget(form.testimage) }}
+                {{ form_widget(form.testimage) }}<br />
 
-                <label for="testimage1">Arcade mandibulaire :</label>
+                <label for="testimage1">Arcade mandibulaire :</label><br />
                 {{ form_errors(form.testimage1) }}
-                {{ form_widget(form.testimage1) }}
+                {{ form_widget(form.testimage1) }}<br />
 
-                <label for="testimage2">Autre pièce jointe :</label>
+                <label for="testimage2">Autre pièce jointe :</label><br />
                 {{ form_errors(form.testimage2) }}
-                {{ form_widget(form.testimage2) }}
+                {{ form_widget(form.testimage2) }}<br />
 
                 <label for="comment2">Autres commentaires :</label>
                 <br/>

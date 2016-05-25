@@ -51,15 +51,12 @@ class CommandesType extends AbstractType
             ))
 
 
-
-
-
-        ->add('ajoutApp', 'button')
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
+
             ->add('ajoutAdj', 'button')
             ->add('fidCouleur')
             ->add('fidMotif')
