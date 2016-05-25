@@ -236,7 +236,33 @@ li {
 
 .ds_cell:hover {
     background-color: #F3F3F3;
+
+} /* This hover code won't work for IE */
+
+.modal-content ul {
+    border: 1px solid;
+    border-radius: 15px;
+
 }
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: green;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+#imageSchemaApp
+{
+    width: 30%;
+    text-align: center;
+}
+
 
 /* This hover code won't work for IE */
 
@@ -251,3 +277,4 @@ input[type=checkbox] {
 .commentaireClass {
     display: none;
 }
+

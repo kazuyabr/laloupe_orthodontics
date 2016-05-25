@@ -14,3 +14,4 @@ OrthoBundle\Entity\Commandes:
 
         file:
             - Image: ~
+

@@ -40,7 +40,6 @@ class CommandesType extends AbstractType
                         'data-date-format' => 'dd-mm-yyyy'
                     ])
             )
-
             ->add('appareillages', 'entity', array(
                 'attr' => array(
                     'class' => 'btn btn-primary'),
@@ -52,11 +51,7 @@ class CommandesType extends AbstractType
                     return $entityRepository->triParPoids();
                 }
             ))
-
-
-
-
-        ->add('ajoutApp', 'button')
+            ->add('ajoutApp', 'button')
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
@@ -79,6 +74,7 @@ class CommandesType extends AbstractType
             ))
             ->add('comment2', 'textarea', array(
                 'required' => false
+
             ));
     }
 
