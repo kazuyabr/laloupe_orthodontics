@@ -36,18 +36,23 @@ class CommandesType extends AbstractType
                 'widget' => 'single_text',
 
             ))
-            ->add('appareillages', EntityType::class, array(
+
+            ->add('appareillages', 'entity', array(
+                'attr' => array(
+                    'class' => 'btn btn-primary'),
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'expanded' => 'true',
-                'multiple' => 'false',
+                'multiple' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
                     return $entityRepository->triParPoids();
                 }
             ))
-            
-            ->add('ajoutApp', 'button')
 
+
+
+
+        ->add('ajoutApp', 'button')
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',

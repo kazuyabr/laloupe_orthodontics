@@ -22,7 +22,8 @@ class AppareillagesRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('u');
 
         $queryBuilder->leftJoin('u.poids', 'p')
-                        ->orderBy('p.poids', 'DESC');
+                        ->orderBy('p.poids', 'DESC')
+                        ->setMaxResults(10);
 
         return $queryBuilder;
     }
