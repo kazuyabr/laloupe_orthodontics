@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Appareillages
+ * @ORM\HasLifeCycleCallBacks()
  */
 class Appareillages
 {

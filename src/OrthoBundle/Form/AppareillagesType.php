@@ -16,6 +16,8 @@ class AppareillagesType extends AbstractType
     {
         $builder
             ->add('titreApp')
+
+
         ;
     }
     
