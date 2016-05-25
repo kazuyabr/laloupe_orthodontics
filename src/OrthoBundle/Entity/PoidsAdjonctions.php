@@ -15,6 +15,22 @@ class PoidsAdjonctions
 
     private $cabinet;
 
+    // Constructeur pour le poids et l'appareillage. On ne peut pas créer une nouvelle instance de classe
+    // [...] Sans définir le cabinet en question et l'appareillage qui lui est lié.
+    public function __construct(Cabinetsdentaires $cabinet, Adjonctions $adjonction)
+    {
+        // Déclaration des variables du constructeur.
+        $this->cabinet = $cabinet;
+        $this->fidAdjonction = $adjonction;
+    }
+
+    // Méthode incrementation() : Incrémentation du poids, si ce dernier est renseigné.
+    public function incrementation()
+    {
+        // On incrémente juste de 1 avec le "++;"
+        $this->poids++;
+    }
+
     // GENERATED CODE
     /**
      * @var int
@@ -24,7 +40,7 @@ class PoidsAdjonctions
     /**
      * @var int
      */
-    private $poids;
+    private $poids = 1;
 
 
     /**

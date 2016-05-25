@@ -52,7 +52,6 @@ class CommandesType extends AbstractType
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'true',
-                'expanded' => 'true'
             ))
             
             ->add('ajoutAdj', 'button')

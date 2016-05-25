@@ -3,6 +3,7 @@
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Commandes;
+use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Form\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,8 +28,6 @@ class DefaultController extends Controller
         
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
-
-        //$listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
         $famApp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
 
@@ -36,7 +35,6 @@ class DefaultController extends Controller
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
-
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil)
             {
@@ -65,6 +63,23 @@ class DefaultController extends Controller
                 }
 
             }
+
+            foreach ($commande->getFidAdj() as $adjonction)
+            {
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
+                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['cabinet' => $cabinet, 'fidAdjonction' => $adjonction]);
+
+                if (isset($poidsAdjonction))
+                {
+                    $poidsAdjonction->incrementation();
+                }
+                else
+                {
+                    $poidsAdjonction = new PoidsAdjonctions($cabinet, $adjonction);
+
+                    $em->persist($poidsAdjonction);
+                }
+            }
             
             // On prépare la mise en Base de données
             $em->persist($commande);
@@ -84,10 +99,8 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'entity' => $commande,
             'form'   => $form->createView(),
-
             'famApp' => $famApp,
             'nomimageapp' => $nomimageapp,
-
             'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj
 

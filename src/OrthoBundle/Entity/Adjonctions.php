@@ -68,17 +68,6 @@ class Adjonctions
         $this->fkidCommande = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getIdAdj()
-    {
-        return $this->idAdj;
-    }
-
     /**
      * Set titreAdj
      *
