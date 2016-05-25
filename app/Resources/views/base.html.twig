@@ -41,10 +41,6 @@
                             class="active"{% endif %}>
                             <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
                         </li>
-                        {#<li {% if app.request.get('_route') == 'recap_formulaire' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('recap_formulaire') }}">Récap</a>
-                        </li>#}
                         <li {% if app.request.get('_route') == 'fos_user_profile_show' %}
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_profile_show') }}">Profile</a>
