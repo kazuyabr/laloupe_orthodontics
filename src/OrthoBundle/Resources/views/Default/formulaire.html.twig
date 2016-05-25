@@ -21,8 +21,8 @@
                 </label>
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
-                <br />
-                <br />
+                <br/>
+                <br/>
 
                 <label for="dateretour">
                     Date de retour souhaitée :
@@ -30,6 +30,7 @@
                 {{ form_errors(form.dateretour) }}
                 {{ form_widget(form.dateretour) }}
                 <br>
+
 
                 <label for="fidApp">Appareillages :
                 </label>
@@ -111,6 +112,15 @@
                     </div>
                 </div>
 
+                <!--<label for="fidApp">Appareillages : </label>-->
+                {{ form_label(form.appareillages, "Appareillages : ") }}
+                {{ form_errors(form.appareillages) }}
+                {{ form_widget(form.appareillages) }}
+
+                {{ form_widget(form.ajoutApp, { 'label': 'Bibliothèque' }) }}
+
+
+                <div id="appCommentInter"></div>
 
                 <label for="fidAdj">Adjonctions :</label>
                 {{ form_errors(form.fidAdj) }}
@@ -128,14 +138,14 @@
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
 
-                    <label for="nomMotif" >
+                    <label for="nomMotif">
                         Motif :
                     </label>
                     {{ form_errors(form.fidMotif) }}
                     {{ form_widget(form.fidMotif) }}
 
-                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}" />
-                    <br />
+                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
+                    <br/>
                 </div>
 
                 <label for="comment">Commentaires :</label>
@@ -143,16 +153,16 @@
                 {{ form_widget(form.comment) }}
             </div>
             <div id="upload">
-                <br/>
-                <label for="testimage">Arcade maxilaire:</label>
+                {#<br/>#}
+                <label for="testimage">Arcade maxilaire :</label>
                 {{ form_errors(form.testimage) }}
                 {{ form_widget(form.testimage) }}
 
-                <label for="testimage1">Arcade mandibulaire:</label>
+                <label for="testimage1">Arcade mandibulaire :</label>
                 {{ form_errors(form.testimage1) }}
                 {{ form_widget(form.testimage1) }}
 
-                <label for="testimage2">Autre pièce jointe:</label>
+                <label for="testimage2">Autre pièce jointe :</label>
                 {{ form_errors(form.testimage2) }}
                 {{ form_widget(form.testimage2) }}
 
@@ -161,21 +171,25 @@
                 {{ form_errors(form.comment2) }}
                 {{ form_widget(form.comment2) }}
             </div>
-        </div>
 
-        <br/><br/><br/><br/><br/>
+        </div>
 
         <div id="boutoncde">
             <button class="btn" type="submit">
-                <span class="glyphicon glyphicon-envelope"></span>ENVOYER
+                <span class="glyphicon glyphicon-envelope"></span> ENVOYER
             </button>
         </div>
 
         <!-- Attribut "render_rest:" false utilisée pour ne pas afficher les champs non utilisés. -->
         {{ form_end(form, {'render_rest': false}) }}
 
-    </form>
 
+        {{ form_end(form) }}
+
+    </form>
+{% endblock %}
+
+{% block javascript %}
 
     <!-- PARTIE SCRIPT -->
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
@@ -184,34 +198,6 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
 
-{#
-    <script>
-
-
-        $(function () {
-            $("select[name=commandes_fidCouleur]").on("change", onChange);
-            $("select[name=commandes_fidCouleur]").on("focus", function() {
-                $(this).popover('destroy')
-            });
-        });
-
-        function onChange() {
-            var $this = $(this);
-            $('#commandes_fidCouleur').popover('destroy');
-            $("#commandes_fidCouleur").popover({
-                trigger: 'manual',
-                placement: 'right',
-                content: $this.children('option:selected').attr("src", "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png")
-            }).popover('toogle');
-            $this.blur();
-        }
-    </script>
-#}
-
-
-{% endblock %}
-
-{% block javascripts %}
 
 
     <script>
@@ -227,14 +213,43 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+
+
     <script>
-        $('#datepicker').datepicker({
-            dateFormat: 'dd/mm/yy',
-            firstDay:1
-        }).attr("readonly","readonly");</script>
+        // On déclare un tableau dans lequel on ajoute l'id et le commentaire de chaque appareillage
+        var tableau = {
+        {% for commentaire in commentaireAppareil %}
+        {{ commentaire['id'] }} :
+        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+        {% endfor %}
+        }
+        ;
+        console.log(tableau);
+
+        // TODO : Faire en jQuery un script qui, au clic d'un bouton, récupère l'id du bouton et affiche le commentaire
+        // possèdant le même ID.
+        var commentAppareil = $('#appCommentInter');
+        var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
+
+        checkboxes.on('click', function () {
+            if ($(this).prop('checked')) {
+                console.log($(this).val());
+                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html('');
+
+            $('.commentaireClass').each(function () {
+                $('#commandes_comment').append($(this).html() + "\n");
+            });
+
+        });
 
 
-
+    </script>
     <!-- FIN PARTIE SCRIPT -->
 
 {% endblock %}

@@ -22,10 +22,12 @@ class AppareillagesRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('u');
 
         $queryBuilder->leftJoin('u.poids', 'p')
-                        ->orderBy('p.poids', 'DESC');
+                        ->orderBy('p.poids', 'DESC')
+                        ->setMaxResults(10);
 
         return $queryBuilder;
     }
+
 
     public function getnameandimage(){
 
@@ -38,5 +40,15 @@ class AppareillagesRepository extends EntityRepository
 
     }
 
+    public function getComments()
+    {
+        // Début du Query Builder
+        $queryBuilder = $this->createQueryBuilder('appareillage');
 
+        // On sélectionne tout les id, ainsi que tout les commentaires
+        $queryBuilder->select('appareillage.id', 'appareillage.titreApp', 'appareillage.commentairesApp', 'appareillage.familleApp');
+
+        // On retourne le résultat
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

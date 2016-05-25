@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class AdjonctionsRepository extends EntityRepository
 {
+
+    public function getComments()
+    {
+        $queryBuilder = $this->createQueryBuilder('adjonction');
+
+        $queryBuilder->select('adjonction.commentairesAdj');
+
+        return $queryBuilder->getQuery()->getResult();
+        }
 }
