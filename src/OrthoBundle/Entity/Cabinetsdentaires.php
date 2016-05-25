@@ -10,6 +10,13 @@ use FOS\UserBundle\Model\User as BaseUser;
  */
 class Cabinetsdentaires extends BaseUser
 {
+    // CUSTOM CODE
+    
+    private $poidsAdjonction;
+    
+    
+    // GENERATED CODE
+    
     /**
      * @var integer
      */
@@ -49,8 +56,7 @@ class Cabinetsdentaires extends BaseUser
      * @var \Doctrine\Common\Collections\Collection
      */
     private $poids;
-
-
+    
     /**
      * Get idCab
      *
@@ -246,5 +252,38 @@ class Cabinetsdentaires extends BaseUser
         $this->poids[] = $poids;
 
         return $this;
+    }
+
+    /**
+     * Add poidsAdjonction
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poidsAdjonction
+     * @return Cabinetsdentaires
+     */
+    public function addPoidsAdjonction(\OrthoBundle\Entity\PoidsAdjonctions $poidsAdjonction)
+    {
+        $this->poidsAdjonction[] = $poidsAdjonction;
+
+        return $this;
+    }
+
+    /**
+     * Remove poidsAdjonction
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poidsAdjonction
+     */
+    public function removePoidsAdjonction(\OrthoBundle\Entity\PoidsAdjonctions $poidsAdjonction)
+    {
+        $this->poidsAdjonction->removeElement($poidsAdjonction);
+    }
+
+    /**
+     * Get poidsAdjonction
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoidsAdjonction()
+    {
+        return $this->poidsAdjonction;
     }
 }

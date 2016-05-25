@@ -89,7 +89,7 @@ class DefaultController extends Controller
             'nomimageapp' => $nomimageapp,
 
             'commentaireAppareil' => $commentairesApp,
-            'commentaireAdjoncton' => $commentairesAdj
+            'commentaireAdjonction' => $commentairesAdj
 
         ));
     }

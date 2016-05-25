@@ -194,4 +194,13 @@
             });
         });
     </script>
+
+    <script> // Liste des adjonctions + Affichage des commentaires dans le cadre
+        var tableauCommentaireAdjonction = {
+        {% for commentaire in commentaireAdjonction %}
+        {{ commentaire['idAdj'] }} : "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+        {% endfor %}
+        }
+        console.log(tableauCommentaireAdjonction);
+    </script>
 {% endblock %}
