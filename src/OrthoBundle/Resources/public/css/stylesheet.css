@@ -10,16 +10,22 @@ h3 {
 
 #ours {
     width: 100%;
-
 }
 
 #commandes_appareillages,
 #commandes_fidAdj {
-    /* width: 300px; */
     width: calc(100% - 20px);
     padding: 5px;
     display: block;
 }
+
+#commandes_appareillages {
+    column-count: 2;
+    padding: 0;
+    height: 200px;
+    overflow: hidden;
+}
+
 #commandes_dateretour,
 #commandes_ajoutApp,
 #commandes_ajoutAdj {
@@ -29,8 +35,8 @@ h3 {
 #commandes_fidCouleur,
 #commandes_fidMotif {
     vertical-align: middle;
+    width: 20%;
 }
-
 
 #remplissageCadreCouleur,
 #remplissageCadreMotif {
@@ -42,7 +48,6 @@ h3 {
 #commandes_comment,
 #commandes_comment2 {
     padding: 5px;
-    /*width: 200%;*/
     width: 100%;
     display: block;
     min-height: 200px;
@@ -57,17 +62,10 @@ h3 {
 }
 
 form {
-    /*width: 70%;*/
-    width: 80%;
-    /* height: 500px;
-    height: 700px;
-    height: 850px;*/
-    /*margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 20px;*/
-    margin: 20px auto;
-    /* padding-left: 20px; */
-    /* padding-top: 20px; */
+    border-radius: 15px;
+    margin: 0 auto 40px;
+    width: 90%;
+    height: 950px;
     padding: 20px;
     background-color: #20B2AA;
     border-radius: 15px;
@@ -75,11 +73,12 @@ form {
 
 #formupload {
     display: flex;
+
 }
 
 input {
-    /*margin: 0 0 10px;*/
-    margin: 10px;
+    margin: 0 0 10px;
+    /* margin: 10 px; */
     vertical-align: sub;
 }
 
@@ -87,31 +86,31 @@ input[type="file"] {
     display: inline-block;
     width: auto;
     padding: 0;
-    background-color: white;
 }
 
 button {
     display: block;
     margin-top: 10px !important;
     text-align: center !important;
-    /*color: #4f4;*/
-    color: #20B2AA;
+/ color: #4f4;
+/ color: #20B2AA;
 }
 
 .navbar-inverse {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,c8d7eb+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100;Grey+Blue+Gloss+%231 */
     background: #20B2AA; /* Old browsers */
-    /**background: -moz-linear-gradient(top,  #d2dfed 0%, #c8d7eb 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); /* FF3.6-15 */
-    /**background: -webkit-linear-gradient(top,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); /* Chrome10-25,Safari5.1-6 */
-    /**background: linear-gradient(to bottom,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2dfed', endColorstr='#799bc8', GradientType=0); /* IE6-9 */
+    /*background: -moz-linear-gradient(top,  #d2dfed 0%, #c8d7eb 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); / FF3.6-15 /
+    /*background: -webkit-linear-gradient(top,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / Chrome10-25,Safari5.1-6 /
+    /*background: linear-gradient(to bottom,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2dfed', endColorstr='#799bc8', GradientType=0); /* IE6-9 */
     border-radius: 0;
     border: none;
     margin: 0 -1.5em;
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-    /*text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);*/
+/ text-shadow: 0 - 1 px 0 rgba(0, 0, 0, .25);
+/
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -121,6 +120,14 @@ button {
 #fosuserlogin {
     height: 100px;
     width: auto;
+
+}
+
+.connexion {
+    height: 150px;
+    background-color: #20B2AA;
+    margin-top: 100px;
+
 }
 
 .header_recap {
@@ -156,32 +163,93 @@ li {
     list-style-type: none;
 }
 
-#formulairecde {
-    width: 50%;
-    /*float: left;
-    background-color: #20B2AA;*/
-}
-
 #upload {
-    width: 50%;
-    height: auto;
+    float: right;
+    background-color: #20B2AA;
+    border-left: 1px solid dimgrey;
+    height: 745px;
     padding-left: 20px;
     padding-bottom: 10px;
-    /*float: right;
-    background-color: #20B2AA;*/
-    border-left: 1px solid dimgrey;
-    text-align: justify;
+    width: 50%;
+}
+
+#formulairecde {
+    float: left;
+    background-color: #20B2AA;
+    padding: 20px;
+    width: 50%;
+    height: 50px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+
 }
 
 #boutoncde {
-    /*background-color: #20B2AA;*/
-    /*width: 100%;
-    margin-left: 700px;
-    margin-left: 750px;
-    margin-left: 900px;*/
-    overflow: hidden;
+    margin-bottom: 20px !important;
+    float: right;
 }
 
-#commandes_fidCouleur:hover {
+#remplissageCadreCouleur,
+#remplissageCadreMotif {
+    width: 60px;
+    height: 60px;
+}
 
+.ds_box {
+    background-color: #FFF;
+    border: 1px solid #000;
+    position: absolute;
+    z-index: 32767;
+}
+
+.ds_tbl {
+    background-color: #FFF;
+}
+
+.ds_head {
+    background-color: #333;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.ds_subhead {
+    background-color: #CCC;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 32px;
+}
+
+.ds_cell {
+    background-color: #EEE;
+    color: #000;
+    font-size: 13px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.ds_cell:hover {
+    background-color: #F3F3F3;
+}
+
+/* This hover code won't work for IE */
+
+#commandes_appareillages label {
+    display: block;
+}
+
+input[type=checkbox] {
+    float: left;
+}
+
+.commentaireClass {
+    display: none;
 }

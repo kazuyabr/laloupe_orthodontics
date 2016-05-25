@@ -2,17 +2,11 @@
 
 namespace OrthoBundle\Form;
 
-use OrthoBundle\Entity\Couleur;
-use OrthoBundle\Form\UploadsType;
-use Doctrine\DBAL\Types\DateTimeType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Finder\Comparator\DateComparator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Tests\Extension\Core\Type\DateTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
@@ -31,61 +25,52 @@ class CommandesType extends AbstractType
                 ),
                 'label' => 'Référence Patient'
             ))
-            
             ->add('prenomPatient', 'text', array(
                 'attr' => array(
                     'placeholder' => 'Ex : Jean'
                 ),
                 'label' => 'Prénom Patient'
             ))
-            
-            ->add('dateretour', DateType::class, array(
-                "label" => "Date de retour souhaitée",
-            ))
+            ->add('dateretour', 'date', array(
+                'attr' => array(),
+                'widget' => 'single_text',
 
-            ->add('appareillages', 'entity', array(
+            ))
+            ->add('appareillages', EntityType::class, array(
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
-                'multiple' => 'false'
+                'expanded' => 'true',
+                'multiple' => 'false',
+                'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
+                    return $entityRepository->triParPoids();
+                }
             ))
             
             ->add('ajoutApp', 'button')
-            
+
             ->add('fidAdj', EntityType::class, array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'titre_adj',
                 'multiple' => 'false'
             ))
-
             ->add('ajoutAdj', 'button')
-
             ->add('fidCouleur')
-            
             ->add('fidMotif')
-            
             ->add('comment', 'textarea')
-            
             ->add('testimage', 'file', array(
                 'mapped' => false
             ))
-            
             ->add('testimage1', 'file', array(
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
-            
             ->add('testimage2', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))
-            
             ->add('comment2', 'textarea', array(
                 'required' => false
-            ))
-            
-            //->add('envoi', 'submit')
-
-        ;
-
+            ));
     }
 
     /**
@@ -98,5 +83,4 @@ class CommandesType extends AbstractType
 
         ));
     }
-
 }

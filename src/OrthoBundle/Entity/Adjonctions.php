@@ -9,13 +9,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Adjonctions
 {
+    
+    // CUSTOM CODE
+    
+    /* Déclaration des variables utilisées pour les relations Doctrine */
+    private $fkidCommande;
+
+
+    
+    // GENERATED CODE
+    
     /**
      * @var int
      */
     private $idAdj;
-
-    private $fkidCommande;
-
+    
     /**
      * @var string
      */
@@ -50,6 +58,15 @@ class Adjonctions
      * @var string
      */
     private $infoComCabAdj;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fkidCommande = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -142,13 +159,7 @@ class Adjonctions
     {
         return $this->compteurAdj;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->fkidCommande = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    
 
     /**
      * Set familleAdj

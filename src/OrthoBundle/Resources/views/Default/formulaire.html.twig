@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{# src/OC/PlatformBundle/Resources/views/Advert/form.html.twig #}
-
 {% block body %}
 
     <h3>Cabinet du Dr. Simon . 28510 . Chichoville . ID . 5984</h3>
@@ -9,53 +7,71 @@
     <form action="{{ path('ortho_formulaire') }}" method="post">
         {{ form_start(form) }}
         <div id="formupload">
-
             <div id="formulairecde">
-                <label for="referencePatient">Référence du patient :</label>
+                <label for="referencePatient">
+                    Référence du patient :
+                </label>
                 {{ form_errors(form.referencePatient) }}
                 {{ form_widget(form.referencePatient) }}
+                <br/>
+                <br>
 
-                <label for="fnomPatient">Prénom du patient :</label>
+                <label for="fnomPatient">
+                    Prénom du patient :
+                </label>
                 {{ form_errors(form.prenomPatient) }}
                 {{ form_widget(form.prenomPatient) }}
+                <br />
+                <br />
 
-                <label for="dateretour">Date de retour souhaitée :</label>
+                <label for="dateretour">
+                    Date de retour souhaitée :
+                </label>
                 {{ form_errors(form.dateretour) }}
                 {{ form_widget(form.dateretour) }}
+                <br>
 
-                <label for="fidApp">Appareillages :</label>
+                <label for="fidApp">Appareillages :
+                </label>
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
-                {{ form_widget(form.ajoutApp) }}
+
+                {{ form_widget(form.ajoutApp, { 'label': 'Ajouter un appareillage' }) }}
+
+                <div id="appCommentInter"></div>
 
                 <label for="fidAdj">Adjonctions :</label>
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
+
                 {{ form_widget(form.ajoutAdj) }}
 
                 <div id="coulmot">
-
-                    <label for="nomCouleur">Couleur :</label>
+                    <label for="nomCouleur">
+                        Couleur :
+                    </label>
                     {{ form_errors(form.fidCouleur) }}
                     {{ form_widget(form.fidCouleur) }}
 
                     <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
-                    <label for="nomMotif">Motif :</label>
+
+                    <label for="nomMotif" >
+                        Motif :
+                    </label>
                     {{ form_errors(form.fidMotif) }}
                     {{ form_widget(form.fidMotif) }}
 
-                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
-
+                    <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}" />
+                    <br />
                 </div>
 
-                {#  <label for="comment">Commentaires :</label>
+                <label for="comment">Commentaires :</label>
                 {{ form_errors(form.comment) }}
-                {{ form_widget(form.comment) }} #}
-
+                {{ form_widget(form.comment) }}
             </div>
-
             <div id="upload">
+                {#<br/>#}
                 <label for="testimage">Arcade maxilaire :</label>
                 {{ form_errors(form.testimage) }}
                 {{ form_widget(form.testimage) }}
@@ -72,26 +88,56 @@
                 <br/>
                 {{ form_errors(form.comment2) }}
                 {{ form_widget(form.comment2) }}
-
             </div>
         </div>
 
-        <div id="boutoncde">
-            <label for="comment">Commentaires :</label>
-            {{ form_errors(form.comment) }}
-            {{ form_widget(form.comment) }}
+        <br/><br/><br/><br/><br/>
 
-            <button class="btn pull-right" type="submit">
+        <div id="boutoncde">
+            <button class="btn" type="submit">
                 <span class="glyphicon glyphicon-envelope"></span> ENVOYER
             </button>
-            {#{{ form_widget(form.envoi) }}#}
         </div>
-
         {{ form_end(form) }}
     </form>
 
+
+    <!-- PARTIE SCRIPT -->
+    <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
+
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
+
+{#
+    <script>
+
+
+        $(function () {
+            $("select[name=commandes_fidCouleur]").on("change", onChange);
+            $("select[name=commandes_fidCouleur]").on("focus", function() {
+                $(this).popover('destroy')
+            });
+        });
+
+        function onChange() {
+            var $this = $(this);
+            $('#commandes_fidCouleur').popover('destroy');
+            $("#commandes_fidCouleur").popover({
+                trigger: 'manual',
+                placement: 'right',
+                content: $this.children('option:selected').attr("src", "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png")
+            }).popover('toogle');
+            $this.blur();
+        }
+    </script>
+#}
+
+
+{% endblock %}
+
+{% block javascript %}
+
 
     <script>
         var monSelectCouleur = $('#commandes_fidCouleur');
@@ -106,9 +152,48 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         })
     </script>
+    <script>
+        $("form input.date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            firstDay:1
+        }).attr("readonly","readonly");
+    </script>
+    <script>
+        // On déclare un tableau dans lequel on ajoute l'id et le commentaire de chaque appareillage
+        var tableau = {
+        {% for commentaire in commentaireAppareil %}
+        {{ commentaire['id'] }} : "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+        {% endfor %}
+        };
+        console.log(tableau);
 
-{% endblock %}
+        // TODO : Faire en jQuery un script qui, au clic d'un bouton, récupère l'id du bouton et affiche le commentaire
+        // possèdant le même ID.
+        var commentAppareil = $('#appCommentInter');
+        var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
 
-{% block javascripts %}
-    <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
+        checkboxes.on('click', function(){
+            if($(this).prop('checked'))
+            {
+                console.log($(this).val());
+                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html('');
+
+            $('.commentaireClass').each(function(){
+               $('#commandes_comment').append($(this).html() + "\n");
+            });
+
+        });
+
+
+
+
+    </script>
+    <!-- FIN PARTIE SCRIPT -->
+
 {% endblock %}

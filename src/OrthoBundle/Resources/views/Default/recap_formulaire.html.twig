@@ -1,6 +1,4 @@
 {% extends 'base.html.twig' %}
-
-
 {% block body %}
     <br />
     <div class="header_recap">
@@ -9,7 +7,6 @@
             <h2>Votre formulaire a bien été envoyé ! Merci !</h2>
         </div>
     </div>
-
     <div class="col-lg-9 col-lg-offset-2">
         <div class="affichage_recapitulatif_formulaire">
             <!-- A AJOUTER : Nom du cabinet, etc... En lien avec la BDD -->
@@ -28,20 +25,14 @@
             <strong>Info commerciale Cabinet :</strong> <!-- A AJOUTER : Les infos commerciales -->
         </div>
     </div>
-
-
-
-
     <div class="impression_recapitulatif">
         <div class="col-lg-9 col-lg-offset-2">
             <!-- Impression récapitulatif du formulaire -->
-        <span onclick="print()">
-            <img id="imprimante" src="{{ asset('bundles/ortho/img/imprimante.png') }}" /> Imprimer
-        </span>
+            <span onclick="print()">
+                <img id="imprimante" src="{{ asset('bundles/ortho/img/imprimante.png') }}" /> Imprimer
+            </span>
         </div>
-
     </div>
-
     <div class="envoi_email_recapitulatif">
         <div class="col-lg-6 col-lg-offset-2">
             <!-- A AJOUTER : Le service SwiftMailer -->

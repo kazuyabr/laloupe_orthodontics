@@ -12,10 +12,8 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-
         fos_userbundle:
                 id: fos_user.user_provider.username
-
         in_memory:
             memory: ~
 
@@ -29,22 +27,17 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
-
             logout:       true
             anonymous:    true
 
-            security: false
-
         dev:
-             pattern: ^/
+             pattern: ^/(_(profiler|wdt)|css|images|js)/
              anonymous: ~
+             security: false
+
 
     access_control:
-
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-
-
-
