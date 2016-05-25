@@ -19,10 +19,15 @@ width: calc(100% - 20px);
     display: block;
 }
 
-#commandes_dateretour,
+
 #commandes_ajoutApp,
 #commandes_ajoutAdj {
     margin-bottom: 15px;
+
+}
+#commandes_dateretour {
+    margin-bottom: 15px;
+    width: 150px;
 }
 
 #commandes_fidCouleur,
