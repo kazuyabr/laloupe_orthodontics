@@ -26,4 +26,17 @@ class AppareillagesRepository extends EntityRepository
 
         return $queryBuilder;
     }
+
+    public function getnameandimage(){
+
+        $queryBuilder = $this->createQueryBuilder('appareillages')
+                            ->select('appareillages.titreApp', 'appareillages.imgApp')
+                            ->where('appareillages.familleApp = :famille')
+                            ->setParameter('famille', 'mob');
+
+        return $queryBuilder->getQuery()->getResult();
+
+    }
+
+
 }

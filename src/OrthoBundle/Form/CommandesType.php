@@ -38,6 +38,7 @@ class CommandesType extends AbstractType
                 'attr' => array(
                     ),
                 'widget' => 'single_text',
+                'format'=>'yyyy-MM-dd',
 
             ))
 

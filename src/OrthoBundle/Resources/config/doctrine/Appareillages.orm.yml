@@ -50,4 +50,4 @@ OrthoBundle\Entity\Appareillages:
             targetEntity: OrthoBundle\Entity\PoidsAppareillages
             mappedBy: fidAppareillages
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: { }
