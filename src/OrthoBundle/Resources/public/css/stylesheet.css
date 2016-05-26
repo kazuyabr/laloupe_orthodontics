@@ -74,7 +74,7 @@ h3 {
     height: auto;
     padding: 20px;
     padding-bottom: 70px;
-    background-color: #20B2AA;
+   /* background-color: #20B2AA; */
 }
 
 #formupload {
@@ -286,6 +286,9 @@ input[type=checkbox] {
     margin-bottom: 10px;
 }
 
+
+/* nouveau design */
+
 /*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
@@ -411,6 +414,11 @@ body {
     background: #27AE60;
     color: white;
 }
+
+
+
+
+
 
 
 
