@@ -74,7 +74,7 @@ form {
     height: auto;
     padding: 20px;
     padding-bottom: 70px;
-    background-color: #20B2AA;
+   /* background-color: #20B2AA; */
 }
 
 #formupload {
@@ -284,4 +284,28 @@ input[type=checkbox] {
 .btn.btn-default {
     margin-bottom: 10px;
 }
+
+/* nouveau design */
+
+#msform {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+
+    box-sizing: border-box;
+    width: 100%;
+    /*stacking fieldsets above each other*/
+    position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;}
 
