@@ -60,12 +60,15 @@ h3 {
     min-height: 200px;
 }
 
+#coulmot {
+    display: inline-block;
+}
 #coulmot > label {
     margin-left: 20px;
 }
 
 #coulmot > label:first-of-type {
-    margin-left: 0;
+    /*margin-left: 0;*/
 }
 
 /*form {
@@ -98,17 +101,18 @@ input[type="file"] {
     padding: 0;
 }
 
-button {
+/*button {
     display: block;
     margin-top: 10px !important;
     text-align: center !important;
-    /*color: #4f4;*/
+    color: #4f4;
     color: #20B2AA;
-}
+}*/
 
 .navbar-inverse {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,c8d7eb+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100;Grey+Blue+Gloss+%231 */
-    background: #20B2AA; /* Old browsers */
+    /*background: #20B2AA; /* Old browsers */
+    background: #27AE60; /*vert nouveau design*/
     /*background: -moz-linear-gradient(top,  #d2dfed 0%, #c8d7eb 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); / FF3.6-15 /
     /*background: -webkit-linear-gradient(top,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / Chrome10-25,Safari5.1-6 /
     /*background: linear-gradient(to bottom,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -294,7 +298,8 @@ body {
 }
 /*form styles*/
 #msform {
-    width: 400px;
+    /*width: 400px;*/
+    width: 800px;/**/
     margin: 50px auto;
     text-align: center;
     position: relative;
@@ -311,12 +316,22 @@ body {
     /*stacking fieldsets above each other*/
     position: absolute;
 }
+#msform fieldset#bloc1,
+#msform fieldset#bloc3 {
+    width: 50%;
+    margin: 0 25%;
+}
+#msform fieldset#bloc2 {
+    width: 100%;
+}
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
     display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
+#msform input,
+#msform button,
+#msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -409,6 +424,15 @@ fieldset > label {
     display: block;
 }
 
+.blocAppAdj {
+    width: 47%;
+}
+#blocApp {
+    float: left;
+}
+#blocAdj {
+    float: right;
+}
 
 
 

@@ -12,9 +12,8 @@
         </ul>
 
         {{ form_start(form) }}
-
         <!-- Bloc n°1 : Les informations générales du patient -->
-        <fieldset>
+        <fieldset id="bloc1">
             {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
             <h2 class="fs-title">Informations du patient</h2>
 
@@ -34,102 +33,113 @@
         </fieldset>
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
-        <fieldset>
+        <fieldset id="bloc2">
+
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
-            {{ form_label(form.appareillages, "Appareillages : ") }}
-            {{ form_errors(form.appareillages) }}
-            {{ form_widget(form.appareillages) }}
+            <div id='blocApp' class='blocAppAdj'>
+                {{ form_label(form.appareillages, "Appareillages : ") }}
+                {{ form_errors(form.appareillages) }}
+                {{ form_widget(form.appareillages) }}
 
-            <div id="appCommentInter"></div>
+                <div id="appCommentInter"></div>
 
-            {{ form_widget(form.ajoutApp, { 'label': 'Autres appareillages' }) }}
+                {{ form_widget(form.ajoutApp, { 'label': 'Bibilothèque Appareillages' }) }}
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
 
-                            <div class="input-group">
-                                <input type="text" placeholder="rechercher par mot clé" name="s"
-                                       class="form-control left-rounded">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-inverse">Rechercher</button>
+                                <div class="input-group">
+                                    <input type="text" placeholder="rechercher par mot clé" name="s"
+                                           class="form-control left-rounded">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-inverse">Rechercher</button>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par famille</h4>
-                            <h6>Liste non exhaustive, contactez votre laboratoire</h6>
-                        </div>
-                        <div class="modal-body">
-                            <ul>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/>
-                                </li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</a><br/>
-                                </li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
-                                        Indirect</a><br/></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
+                                    famille</h4>
+                                <h6>Liste non exhaustive, contactez votre laboratoire</h6>
+                            </div>
+                            <div class="modal-body">
+                                <ul>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
+                                    <li><a href="#" data-toggle="modal"
+                                           data-target="#myModal2">Fonctionnels</a><br/>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal"
+                                           data-target="#myModal2">Elastodontie</a><br/>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
+                                            Indirect</a><br/></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
-                        </div>
-                        <div class="modal-body">
-                            Sélectionnez votre appareillage : <br/>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        {% for namepictures in nomimageapp %}
-                                            <div class="col-xs-6">
-                                                <button><img src="{{ namepictures.imgApp }}" title="Appareillages"
-                                                             alt="Appareillages" id="imageSchemaApp"
-                                                             name="commandes[appareillages]"/>
-                                                    {{ namepictures.titreApp }} </button>
-                                            </div>
-                                        {% endfor %}
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
+                            </div>
+                            <div class="modal-body">
+                                Sélectionnez votre appareillage : <br/>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            {% for namepictures in nomimageapp %}
+                                                <div class="col-xs-6">
+                                                    <button><img src="{{ namepictures.imgApp }}"
+                                                                 title="Appareillages"
+                                                                 alt="Appareillages" id="imageSchemaApp"
+                                                                 name="commandes[appareillages]"/>
+                                                        {{ namepictures.titreApp }} </button>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Valider</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div id='blocAdj' class='blocAppAdj'>
+                {{ form_label(form.fidAdj, "Adjonctions : ") }}
+                {{ form_errors(form.fidAdj) }}
+                {{ form_widget(form.fidAdj) }}
 
-            {{ form_label(form.fidAdj, "Adjonctions : ") }}
-            {{ form_errors(form.fidAdj) }}
-            {{ form_widget(form.fidAdj) }}
-
-            {{ form_widget(form.ajoutAdj, { 'label': 'Autres adjonctions' }) }}
-
+                {{ form_widget(form.ajoutAdj, { 'label': 'Bibliothèque Adjonctions' }) }}
+            </div>
             <div id="coulmot">
                 {{ form_label(form.fidCouleur, "Couleur : ") }}
                 {{ form_errors(form.fidCouleur) }}
@@ -149,9 +159,8 @@
             <input type="button" name="next" class="next action-button" value="Suivant"/>
 
         </fieldset>
-
         <!-- Bloc n°3 : Les pièces jointes -->
-        <fieldset>
+        <fieldset id="bloc3">
             <h2 class="fs-title">Pièces jointes complémentaires :</h2>
             <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
 
