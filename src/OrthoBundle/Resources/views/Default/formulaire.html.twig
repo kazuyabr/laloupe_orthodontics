@@ -15,6 +15,7 @@
 
         <!-- Bloc n°1 : Les informations générales du patient -->
         <fieldset>
+            {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
             <h2 class="fs-title">Informations du patient</h2>
 
             {{ form_label(form.referencePatient, "Référence du patient : ") }}
@@ -30,14 +31,12 @@
             {{ form_widget(form.dateretour) }}
 
             <input type="button" name="next" class="next action-button" value="Suivant"/>
-
         </fieldset>
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
         <fieldset>
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
-
             {{ form_label(form.appareillages, "Appareillages : ") }}
             {{ form_errors(form.appareillages) }}
             {{ form_widget(form.appareillages) }}
@@ -90,7 +89,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -136,15 +134,12 @@
                 {{ form_label(form.fidCouleur, "Couleur : ") }}
                 {{ form_errors(form.fidCouleur) }}
                 {{ form_widget(form.fidCouleur) }}
-
                 <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
                 {{ form_label(form.fidMotif, "Motif :") }}
                 {{ form_errors(form.fidMotif) }}
                 {{ form_widget(form.fidMotif) }}
-
                 <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
-                <br/>
             </div>
 
             {{ form_label(form.comment, "Commentaires : ") }}
@@ -265,38 +260,6 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
         //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
