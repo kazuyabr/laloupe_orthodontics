@@ -16,6 +16,9 @@
         <!-- Bloc n°1 : Les informations générales du patient -->
         <fieldset>
             {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
+            <h2 class="fs-title">Informations du patient</h2>
+
+            {{ form_label(form.referencePatient, "Référence du patient :") }}
             {{ form_errors(form.referencePatient) }}
             {{ form_widget(form.referencePatient) }}
 
@@ -32,6 +35,8 @@
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
         <fieldset>
+            <h2 class="fs-title">Appareillages & Adjonctions</h2>
+            <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
             {{ form_label(form.appareillages, "Appareillages : ") }}
             {{ form_errors(form.appareillages) }}
             {{ form_widget(form.appareillages) }}
@@ -149,6 +154,8 @@
 
         <!-- Bloc n°3 : Les pièces jointes -->
         <fieldset>
+            <h2 class="fs-title">Pièces jointes complémentaires :</h2>
+            <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
 
             {{ form_label(form.testimage, "Arcade Maxilaire :") }}
             {{ form_errors(form.testimage) }}
@@ -164,8 +171,10 @@
 
             {{ form_label(form.comment2, "Autres commentaires :") }}
             {{ form_errors(form.comment2) }}
-            {{ form_widget(form.comment2) }}
+            {{ form_widget(form.comment2) }}<br>
+
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
+
 
             <div id="boutoncde">
                 <button type="submit">
@@ -182,11 +191,6 @@
             <div id="upload"></div>
         </div>
     </form>
-
-
-
-
-
 
 {% endblock %}
 
