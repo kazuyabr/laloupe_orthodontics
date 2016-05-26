@@ -4,7 +4,7 @@ ortho_formulaire:
     methods: [POST, GET]
 
 recap_formulaire:
-    path:     /recap_formulaire
+    path:     /recap_formulaire/{id}
     defaults: { _controller: OrthoBundle:Default:show }
     methods: [POST, GET]
 

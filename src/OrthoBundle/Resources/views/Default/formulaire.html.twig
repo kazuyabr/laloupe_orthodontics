@@ -37,6 +37,7 @@
 
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
+
             <div id='blocApp' class='blocAppAdj'>
                 {{ form_label(form.appareillages, "Appareillages : ") }}
                 {{ form_errors(form.appareillages) }}
@@ -56,78 +57,95 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
 
+
                                 <div class="input-group">
                                     <input type="text" placeholder="rechercher par mot clé" name="s"
                                            class="form-control left-rounded">
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-inverse">Rechercher</button>
                                     </div>
+
                                 </div>
 
-                                <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
-                                    famille</h4>
-                                <h6>Liste non exhaustive, contactez votre laboratoire</h6>
-                            </div>
-                            <div class="modal-body">
-                                <ul>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
-                                    <li><a href="#" data-toggle="modal"
-                                           data-target="#myModal2">Fonctionnels</a><br/>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal"
-                                           data-target="#myModal2">Elastodontie</a><br/>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
-                                            Indirect</a><br/></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
-                                </ul>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <div id="imaginary_container">
+                                    <div class="rectangle">
+                                    </div>
+                                    <div class="input-group stylish-input-group">
+                                        <input type="text" class="form-control quicksearch"
+                                               placeholder="Entrez votre recherche" id="cache"/>
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+
+                                    </div>
+
+                                    <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
+                                        famille</h4>
+                                    <h6>Liste non exhaustive, contactez votre laboratoire</h6>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
+                                        <li><a href="#" data-toggle="modal"
+                                               data-target="#myModal2">Fonctionnels</a><br/>
+                                        </li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
+                                        </li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/>
+                                        </li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/>
+                                        </li>
+                                        <li><a href="#" data-toggle="modal"
+                                               data-target="#myModal2">Elastodontie</a><br/>
+                                        </li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/>
+                                        </li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
+                                                Indirect</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
-                            </div>
-                            <div class="modal-body">
-                                Sélectionnez votre appareillage : <br/>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            {% for namepictures in nomimageapp %}
-                                                <div class="col-xs-6">
-                                                    <button><img src="{{ namepictures.imgApp }}"
-                                                                 title="Appareillages"
-                                                                 alt="Appareillages" id="imageSchemaApp"
-                                                                 name="commandes[appareillages]"/>
-                                                        {{ namepictures.titreApp }} </button>
-                                                </div>
-                                            {% endfor %}
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
+                                </div>
+                                <div class="modal-body">
+                                    Sélectionnez votre appareillage : <br/>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                {% for namepictures in nomimageapp %}
+                                                    <div class="col-xs-6">
+                                                        <button><img src="{{ namepictures.imgApp }}"
+                                                                     title="Appareillages"
+                                                                     alt="Appareillages" id="imageSchemaApp"
+                                                                     name="commandes[appareillages]"/>
+                                                            {{ namepictures.titreApp }} </button>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn btn-primary">Valider</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                </div>
                             </div>
                         </div>
                     </div>
