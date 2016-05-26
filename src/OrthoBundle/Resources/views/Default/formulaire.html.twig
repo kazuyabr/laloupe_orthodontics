@@ -13,7 +13,7 @@
 
         {{ form_start(form) }}
         <!-- Bloc n°1 : Les informations générales du patient -->
-        <fieldset id="bloc1">
+        <fieldset class="smallbloc">
             {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
             <h2 class="fs-title">Informations du patient</h2>
 
@@ -33,7 +33,7 @@
         </fieldset>
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
-        <fieldset id="bloc2">
+        <fieldset class="largebloc">
 
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
@@ -160,7 +160,7 @@
 
         </fieldset>
         <!-- Bloc n°3 : Les pièces jointes -->
-        <fieldset id="bloc3">
+        <fieldset class="smallbloc">
             <h2 class="fs-title">Pièces jointes complémentaires :</h2>
             <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
 
