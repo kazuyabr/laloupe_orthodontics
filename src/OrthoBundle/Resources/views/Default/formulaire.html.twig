@@ -17,22 +17,17 @@
         <fieldset>
             <h2 class="fs-title">Informations du patient</h2>
 
-            {{ form_label(form.referencePatient, "Référence du patient :") }}
+            {{ form_label(form.referencePatient, "Référence du patient : ") }}
             {{ form_errors(form.referencePatient) }}
             {{ form_widget(form.referencePatient) }}
-            <br/>
-            <br/>
 
             {{ form_label(form.prenomPatient) }}
             {{ form_errors(form.prenomPatient) }}
             {{ form_widget(form.prenomPatient) }}
-            <br/>
-            <br/>
 
-            {{ form_label(form.dateretour, "Date de retour souhaitée :") }}
+            {{ form_label(form.dateretour, "Date de retour souhaitée : ") }}
             {{ form_errors(form.dateretour) }}
             {{ form_widget(form.dateretour) }}
-            <br>
 
             <input type="button" name="next" class="next action-button" value="Suivant"/>
 
@@ -49,10 +44,8 @@
 
             <div id="appCommentInter"></div>
 
-            <div>
-                <button type="button" data-toggle="modal" data-target="#myModal">Bibliothèque</button>
-            </div>
-            <br>
+            {{ form_widget(form.ajoutApp, { 'label': 'Autres appareillages' }) }}
+
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
@@ -133,14 +126,14 @@
                 </div>
             </div>
 
-            {{ form_label(form.fidAdj, "Adjonctions :") }}
+            {{ form_label(form.fidAdj, "Adjonctions : ") }}
             {{ form_errors(form.fidAdj) }}
             {{ form_widget(form.fidAdj) }}
 
             {{ form_widget(form.ajoutAdj, { 'label': 'Autres adjonctions' }) }}
 
             <div id="coulmot">
-                {{ form_label(form.fidCouleur, "Couleur :") }}
+                {{ form_label(form.fidCouleur, "Couleur : ") }}
                 {{ form_errors(form.fidCouleur) }}
                 {{ form_widget(form.fidCouleur) }}
 
@@ -154,7 +147,7 @@
                 <br/>
             </div>
 
-            {{ form_label(form.comment, "Commentaires :") }}
+            {{ form_label(form.comment, "Commentaires : ") }}
             {{ form_errors(form.comment) }}
             {{ form_widget(form.comment) }}
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
@@ -169,44 +162,32 @@
 
             {{ form_label(form.testimage, "Arcade Maxilaire :") }}
             {{ form_errors(form.testimage) }}
-            {{ form_widget(form.testimage) }}<br>
+            {{ form_widget(form.testimage) }}
 
             {{ form_label(form.testimage1, "Arcade mandibulaire :") }}
             {{ form_errors(form.testimage1) }}
-            {{ form_widget(form.testimage1) }}<br>
+            {{ form_widget(form.testimage1) }}
 
             {{ form_label(form.testimage2, "Autre pièces jointes :") }}
             {{ form_errors(form.testimage2) }}
-            {{ form_widget(form.testimage2) }}<br>
+            {{ form_widget(form.testimage2) }}
 
             {{ form_label(form.comment2, "Autres commentaires :") }}
             {{ form_errors(form.comment2) }}
-            {{ form_widget(form.comment2) }}<br>
-
-            <input type="button" name="previous" class="previous action-button" value="Précédent"/>
-
-
-            <div id="boutoncde">
-                <button type="submit">
-                    <span class="glyphicon-envelope"></span> &nbsp; ENVOYER
-                </button>
-            </div>
+            {{ form_widget(form.comment2) }}
 
             {{ form_rest(form) }}
             {{ form_end(form) }}
 
+            <input type="button" name="previous" class="previous action-button" value="Précédent"/>
+            <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
+
         </fieldset>
-        <div id="formupload">
-            <div id="formulairecde"></div>
-            <div id="upload"></div>
-        </div>
     </form>
 
 {% endblock %}
 
 {% block javascript %}
-    <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/formulaire.js') }}"></script>
 
     <script> // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
