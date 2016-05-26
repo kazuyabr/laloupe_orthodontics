@@ -12,7 +12,7 @@
         </ul>
 
         {{ form_start(form) }}
-
+<div style="flex: auto">
         <!-- Bloc n°1 : Les informations générales du patient -->
         <fieldset>
             {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
@@ -149,7 +149,7 @@
             <input type="button" name="next" class="next action-button" value="Suivant"/>
 
         </fieldset>
-
+</div>
         <!-- Bloc n°3 : Les pièces jointes -->
         <fieldset>
             <h2 class="fs-title">Pièces jointes complémentaires :</h2>
