@@ -51,14 +51,11 @@
         </nav>
     </div>
 {% block body %}
-    {{ dump(user) }}
     <div class="fos_user_user_show">
         <div class="id_mdp_User">
             <span>ID : {{ user.id }}</span>
         </div>
-        <div class="infoLabo">
-            <h3>Laboratoire créateur fabricant d'appareillages :</h3>
-        </div>
+        
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>}
 
