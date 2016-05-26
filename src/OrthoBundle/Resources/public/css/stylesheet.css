@@ -13,12 +13,13 @@ h3 {
 }
 
 
-#commandes_fidAdj {
+/*#commandes_fidAdj {
     width: 100%;
     padding: 5px;
     display: block;
-}
+}*/
 
+#commandes_fidAdj,
 #commandes_appareillages {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -68,6 +69,8 @@ h3 {
 }
 
 /*form {
+#formulairecommandes {
+
     border-radius: 15px;
     margin: 0 auto 40px;
     width: 90%;
@@ -256,6 +259,7 @@ a {
 
 /* This hover code won't work for IE */
 
+#commandes_fidAdj label,
 #commandes_appareillages label {
     display: block;
 }
@@ -272,8 +276,8 @@ input[type=checkbox] {
     margin-bottom: 10px;
 }
 
-
 /*nouveau design*/
+/* Intégration nouveau formulaire */
 
 /*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
@@ -401,10 +405,9 @@ body {
     color: white;
 }
 
-
-
-
-
+fieldset > label {
+    display: block;
+}
 
 
 
