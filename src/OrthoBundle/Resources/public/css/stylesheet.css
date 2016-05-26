@@ -74,7 +74,7 @@ h3 {
     height: auto;
     padding: 20px;
     padding-bottom: 70px;
-   /* background-color: #20B2AA; */
+   /* background-color: #20B2AA;
 }
 
 #formupload {
@@ -124,20 +124,6 @@ button {
     color: whitesmoke;
 }
 
-/*#fosuserlogin {
-    height: 100px;
-    width: auto;
-    padding: 20px;
-    background-color: #20B2AA;
-    border-radius: 15px;
-}
-
-.connexion {
-    height: 150px;
-    background-color: #20B2AA;
-    margin-top: 100px;
-
-}*/
 
 .header_recap {
     margin-left: auto;
@@ -287,7 +273,7 @@ input[type=checkbox] {
 }
 
 
-/* nouveau design */
+/*nouveau design*/
 
 /*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
