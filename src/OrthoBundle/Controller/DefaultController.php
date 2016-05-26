@@ -79,8 +79,7 @@ class DefaultController extends Controller
                     $em->persist($poidsAdjonction);
                 }
             }
-            var_dump($infoUserConnected);
-            die;
+            
             // On prépare la mise en Base de données
             $em->persist($commande);
             // On met en Base de données
