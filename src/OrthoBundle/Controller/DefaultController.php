@@ -8,7 +8,6 @@ use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Form\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use JMS\Serializer\SerializerBuilder;
 
 
 class DefaultController extends Controller
@@ -108,11 +107,11 @@ class DefaultController extends Controller
         ));
     }
 
-    public function showAction()
+    public function showAction($id)
     {
         // On récupère l'ID de la commande en question, passé dans l'URL
         // Lors de la redirection de la commande.
-        $idCommande = intval($_GET['id']);
+        $idCommande = $id;
         
         // On appelle Doctrine
         $em = $this->getDoctrine()->getManager();
