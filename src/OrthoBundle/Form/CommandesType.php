@@ -19,7 +19,7 @@ class CommandesType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Nom ou ID'
                 ),
-                'label' => 'Référence Patient'
+                'label' => 'Référence Patient',
             ))
             ->add('prenomPatient', 'text', array(
                 'attr' => array(
