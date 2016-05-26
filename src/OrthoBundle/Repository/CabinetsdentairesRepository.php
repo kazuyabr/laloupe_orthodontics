@@ -19,7 +19,7 @@ class CabinetsdentairesRepository extends EntityRepository
         $queryBuilder->leftJoin('user.fidLabo', 'laboratoire')
                     ->select('user', 'laboratoire')
                     ->where('user.id = :id')
-                    ->setParameter('id', 1);
+                    ->setParameter('id', 2);
                     // TODO : Passer un paramètre sur la fonction pour trouver le cabinet qui est authentifié
         
         return $queryBuilder->getQuery()->getResult();
