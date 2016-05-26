@@ -55,11 +55,26 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
 
-                            <div class="input-group">
-                                <input type="text" placeholder="rechercher par mot clé" name="s"
-                                       class="form-control left-rounded">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-inverse">Rechercher</button>
+
+                            {#
+                                <div class="input-group">
+                                    <input type="text" placeholder="rechercher par mot clé" name="s"
+                                           class="form-control left-rounded">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-inverse">Rechercher</button>
+                                    </div>
+                                </div>
+                            #}
+                            <div id="imaginary_container">
+                                <div class="rectangle">
+                                </div>
+                                <div class="input-group stylish-input-group">
+                                    <input type="text" class="form-control quicksearch" placeholder="Entrez votre recherche" id="cache" />
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
 

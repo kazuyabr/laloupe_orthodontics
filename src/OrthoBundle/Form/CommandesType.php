@@ -70,7 +70,8 @@ class CommandesType extends AbstractType
             ->add('fidMotif')
             ->add('comment', 'textarea')
             ->add('testimage', 'file', array(
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
             ->add('testimage1', 'file', array(
                 'mapped' => false,
