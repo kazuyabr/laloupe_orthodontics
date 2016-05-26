@@ -47,7 +47,7 @@ class CommandesType extends AbstractType
             ))
             ->add('ajoutApp', 'button', array(
                 'attr' => array(
-                    'class' => 'btn btn-info',
+                    'class' => 'action-button',
                     'data-toggle' => 'modal',
                     'data-target' => '#myModal'
                     )
@@ -64,7 +64,7 @@ class CommandesType extends AbstractType
             ))
             
             ->add('ajoutAdj', 'button', array(
-                'attr' => array('class' => 'btn btn-info')
+                'attr' => array('class' => 'action-button')
             ))
             ->add('fidCouleur')
             ->add('fidMotif')
