@@ -211,8 +211,8 @@
 {% endblock %}
 
 {% block javascript %}
-
-    <script> // Liste des appareillages | Affichage des commentaires dans le cadre
+    <script>
+     // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
         {{ commentaire['id'] }} :
@@ -247,9 +247,9 @@
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    </script>
+    
 
-    <script> // Liste des adjonctions + Affichage des commentaires dans le cadre
+     // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
@@ -274,21 +274,19 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         })
-    </script>
-
-    <script>
+    
+    
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
             $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
         });
-
-
+        
         var monSelectMotif = $('#commandes_fidMotif');
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    </script>
-    <script>
+    
+    
         //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate
@@ -367,6 +365,5 @@
         $(".submit").click(function () {
             return false;
         })
-
     </script>
 {% endblock %}
