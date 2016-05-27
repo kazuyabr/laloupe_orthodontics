@@ -127,7 +127,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function RechercheAction(Request $request, $id)
+    public function rechercheAction(Request $request, $id)
     {
 
         $em = $this->getDoctrine()->getManager();
