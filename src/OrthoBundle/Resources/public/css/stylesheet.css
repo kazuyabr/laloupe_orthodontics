@@ -153,13 +153,13 @@ input[type="file"] {
     height: 60px;
 }
 
-#lien_nouveau_formulaire {
+/*#lien_nouveau_formulaire {
     color: black;
     border: 1px solid black;
     padding: 1em;
     font-size: 18px;
     box-shadow: 8px 8px 0px black;
-}
+}*/
 
 li {
     list-style-type: none;
@@ -310,18 +310,18 @@ body {
     border-radius: 3px;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
-
+    margin-bottom: 30px;
     box-sizing: border-box;
     width: 100%;
     /*stacking fieldsets above each other*/
     position: absolute;
 }
-#msform fieldset#bloc1,
-#msform fieldset#bloc3 {
+#msform fieldset.smallbloc {
     width: 50%;
-    margin: 0 25%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
-#msform fieldset#bloc2 {
+#msform fieldset.largebloc {
     width: 100%;
 }
 /*Hide all except first fieldset*/
@@ -353,6 +353,9 @@ body {
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
+}
+#msform a.action-button {
+    float: right;
 }
 #msform .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
@@ -432,6 +435,11 @@ fieldset > label {
 }
 #blocAdj {
     float: right;
+}
+
+#commandes_dateretour
+{
+    height: 50px;
 }
 
 

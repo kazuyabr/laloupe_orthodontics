@@ -3,15 +3,16 @@
     <!-- Appel des bibliothèques jQuery -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css"
+          type="text/css" media="all"/>
     <!-- Appel des bibliothèques Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}"/>
     <!-- Appel de nos feuilles de style CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
 
@@ -24,59 +25,59 @@
 {% endblock %}
 </head>
 <body>
-    <div class="navbar_homepage">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
+<div class="navbar_homepage">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
 
-                    <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
-                        class="active"{% endif %}>
-                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                    </li>
-                    <li {% if app.request.get('_route') == 'ortho_formulaire' %}
-                        class="active"{% endif %}>
-                        <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
-                    </li>
-                    <li {% if app.request.get('_route') == 'fos_user_profile_show' %}
-                        class="active"{% endif %}>
-                        <a href="{{ path('fos_user_profile_show') }}">Profile</a>
-                    </li>
-                    <li> <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
-                    </li>
-                    <li> <a href="#">Lien 3</a> </li>
-                    <li> <a href="#">Lien 4</a> </li>
-                    <li> <a href="#">Lien 5</a> </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+                <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
+                    class="active"{% endif %}>
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                </li>
+                <li {% if app.request.get('_route') == 'ortho_formulaire' %}
+                    class="active"{% endif %}>
+                    <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
+                </li>
+                <li {% if app.request.get('_route') == 'fos_user_profile_show' %}
+                    class="active"{% endif %}>
+                    <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                </li>
+                <li><a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
+                </li>
+                <li><a href="#">Lien 3</a></li>
+                <li><a href="#">Lien 4</a></li>
+                <li><a href="#">Lien 5</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 {% block body %}
     <div class="fos_user_user_show">
         <form id="msform">
-        <fieldset>
-            <div class="id_mdp_User">
-                <span>ID : {{ user.id }}</span>
-            </div>
-            <h2 class="fs-title">Profil</h2>
-            <p>Identifiant</p><input type="text" name="Laboratoire" placeholder=" {{ user.username }}" /><br>
-            <p>Email</p><input type="text" name="referenceLabo" placeholder=" {{ user.email }}" />
-            <p>Nom</p>
-            <p>Téléphone</p>
-            
-        </fieldset>
+
+            <fieldset class="smallbloc">
+                <div class="id_mdp_User">
+                    <span>ID : {{ user.id }}</span>
+                </div>
+                <h2 class="fs-title">Profil</h2>
+                <p>Identifiant</p><input type="text" name="Laboratoire" placeholder=" {{ user.username }}"/><br>
+                <p>Email</p><input type="text" name="referenceLabo" placeholder=" {{ user.email }}"/>
+                <a href="{{ path('fos_user_profile_edit') }}"><input type="button"
+                                                                     value="Modifier mes informations"/></a>
+            </fieldset>
 
 
-    <a href="{{ path('fos_user_profile_edit') }}"><input type="button" value="Modifier mes informations" /></a>
+
+        </form>
     </div>
-    </form>
 
 {% endblock %}
-    <!-- Appel de jQuery -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <!-- Appel du plugin CodePlayer -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-    <!-- Appel de notre fichier JavaScript -->
-    <script src="js/formulairejQuery.js"></script>
+<!-- Appel de jQuery -->
+<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!-- Appel du plugin CodePlayer -->
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<!-- Appel de notre fichier JavaScript -->
+<script src="js/formulairejQuery.js"></script>
 
 </body>
 </html>

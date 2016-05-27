@@ -13,7 +13,7 @@
 
         {{ form_start(form) }}
         <!-- Bloc n°1 : Les informations générales du patient -->
-        <fieldset id="bloc1">
+        <fieldset class="smallbloc">
             {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
             <h2 class="fs-title">Informations du patient</h2>
 
@@ -33,7 +33,7 @@
         </fieldset>
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
-        <fieldset id="bloc2">
+        <fieldset class="largebloc">
 
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
@@ -58,7 +58,7 @@
                                 </button>
 
 
-                                <div class="input-group">
+                                {# <div class="input-group">
                                     <input type="text" placeholder="rechercher par mot clé" name="s"
                                            class="form-control left-rounded">
                                     <div class="input-group-btn">
@@ -67,7 +67,7 @@
 
                                 </div>
 
-                                <div id="imaginary_container">
+                                 <div id="imaginary_container">
                                     <div class="rectangle">
                                     </div>
                                     <div class="input-group stylish-input-group">
@@ -80,11 +80,12 @@
                                     </span>
 
                                     </div>
+                                </div> #}
 
                                     <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
                                         famille</h4>
                                     <h6>Liste non exhaustive, contactez votre laboratoire</h6>
-                                </div>
+
                                 <div class="modal-body">
                                     <ul>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
@@ -178,7 +179,7 @@
 
         </fieldset>
         <!-- Bloc n°3 : Les pièces jointes -->
-        <fieldset id="bloc3">
+        <fieldset class="smallbloc">
             <h2 class="fs-title">Pièces jointes complémentaires :</h2>
             <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
 

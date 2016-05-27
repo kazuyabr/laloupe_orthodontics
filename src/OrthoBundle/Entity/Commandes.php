@@ -3,7 +3,6 @@
 namespace OrthoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Commandes
@@ -83,7 +82,6 @@ class Commandes
 
     /**
      * @var string
-     * @Assert\NotBlank()
      */
     private $referencePatient;
 
