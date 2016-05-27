@@ -41,7 +41,7 @@ class DefaultController extends Controller
             foreach ($commande->getAppareillages() as $appareil)
             {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1); // TODO : Récupérer le vrai cabinet
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
