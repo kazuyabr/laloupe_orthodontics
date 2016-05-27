@@ -9,6 +9,7 @@ use OrthoBundle\Form\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use JMS\Serializer\SerializerBuilder;
 
 
 class DefaultController extends Controller
@@ -132,7 +133,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $serializer = SerializerBuilder::create()->build();
+        $serializer = SerializerBuilder::create();
 
         $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($id);
         $jsonContent = $serializer->serialize($listeAppareillages, 'json');
