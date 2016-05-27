@@ -5,12 +5,11 @@ namespace OrthoBundle\Controller;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Entity\PoidsAppareillages;
-use OrthoBundle\Form\CommandesType;
+use OrthoBundle\Form\Type\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use JMS\Serializer\SerializerBuilder;
-
 
 class DefaultController extends Controller
 {
