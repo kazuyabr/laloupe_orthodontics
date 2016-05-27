@@ -2,7 +2,6 @@
 
 namespace OrthoBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commandes
@@ -502,5 +501,74 @@ class Commandes
     public function getPiecejointeAM()
     {
         return $this->piecejointeAM;
+    }
+
+    /**
+     * Set testimage
+     *
+     * @param string $testimage
+     * @return Commandes
+     */
+    public function setTestimage($testimage)
+    {
+        $this->testimage = $testimage;
+
+        return $this;
+    }
+
+    /**
+     * Get testimage
+     *
+     * @return string 
+     */
+    public function getTestimage()
+    {
+        return $this->testimage;
+    }
+
+    /**
+     * Set testimage1
+     *
+     * @param string $testimage1
+     * @return Commandes
+     */
+    public function setTestimage1($testimage1)
+    {
+        $this->testimage1 = $testimage1;
+
+        return $this;
+    }
+
+    /**
+     * Get testimage1
+     *
+     * @return string 
+     */
+    public function getTestimage1()
+    {
+        return $this->testimage1;
+    }
+
+    /**
+     * Set testimage2
+     *
+     * @param string $testimage2
+     * @return Commandes
+     */
+    public function setTestimage2($testimage2)
+    {
+        $this->testimage2 = $testimage2;
+
+        return $this;
+    }
+
+    /**
+     * Get testimage2
+     *
+     * @return string 
+     */
+    public function getTestimage2()
+    {
+        return $this->testimage2;
     }
 }
