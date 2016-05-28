@@ -57,30 +57,6 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
 
-
-                                <div class="input-group">
-                                    <input type="text" placeholder="rechercher par mot clé" name="s"
-                                           class="form-control left-rounded">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-inverse">Rechercher</button>
-                                    </div>
-
-                                </div>
-
-                                <div id="imaginary_container">
-                                    <div class="rectangle">
-                                    </div>
-                                    <div class="input-group stylish-input-group">
-                                        <input type="text" class="form-control quicksearch"
-                                               placeholder="Entrez votre recherche" id="cache"/>
-                                    <span class="input-group-addon">
-                                        <button type="submit">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </span>
-
-                                    </div>
-
                                     <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
                                         famille</h4>
                                     <h6>Liste non exhaustive, contactez votre laboratoire</h6>
@@ -122,6 +98,14 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
+                                    <div class="input-group stylish-input-group">
+                                        <input type="text" class="form-control quicksearch"
+                                               placeholder="Rechercher par mot clé" id="search"/>
+                                        {{ form_widget(form.appareillages) }}
+                                        <button class="icone" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
+
+                                    </div>
                                     <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
                                 </div>
                                 <div class="modal-body">

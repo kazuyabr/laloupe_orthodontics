@@ -127,19 +127,18 @@ class DefaultController extends Controller
         ));
     }
 
-    public function RechercheAction(Request $request, $id)
+    public function RechercheAction($chaine)
     {
 
         $em = $this->getDoctrine()->getManager();
 
-        $serializer = SerializerBuilder::create()->build();
 
-        $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($id);
+        $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($chaine);
         $jsonContent = $serializer->serialize($listeAppareillages, 'json');
 
         $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
 
-        return $response;
+        return $this->render("OrthoBundle:Default:formulaire.html.twig");
     }
 }

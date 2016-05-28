@@ -434,6 +434,9 @@ fieldset > label {
     float: right;
 }
 
+.close {
+    float: right;
+}
 
 
 
