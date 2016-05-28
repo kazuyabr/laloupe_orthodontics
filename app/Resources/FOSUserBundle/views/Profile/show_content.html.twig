@@ -51,21 +51,35 @@
         </nav>
     </div>
 {% block body %}
-    <div class="fos_user_user_show">
-        <form id="msform">
+    <div class="fos_user_user_show" id="msform">
         <fieldset>
             <div class="id_mdp_User">
                 <span>ID : {{ user.id }}</span>
             </div>
             <h2 class="fs-title">Profil</h2>
-            <p>Identifiant</p><input type="text" name="Laboratoire" placeholder=" {{ user.username }}" /><br>
-            <p>Email</p><input type="text" name="referenceLabo" placeholder=" {{ user.email }}" />
+            <p>Identifiant <span class="affichageCadreProfil"> {{ user.username }}</span> </p>
+            <p>Email 1 <span class="affichageCadreProfil">{{ user.email }}</span> </p>
+            <p>Email 2 <span class="affichageCadreProfil">{{ user.email }}</span> </p>
+            <p><strong>Adresse de livraison</strong></p>
+            <p>Adresse <span class="affichageCadreProfil"> {{ user.adresseCab }}</span></p>
+            <p>Code Postal <span class="affichageCadreProfil"> {{ user.codepostalCab }}</span></p>
+            <p>ville <span class="affichageCadreProfil">{{ user.villeCab }}</span></p>
+            <p>Téléphone <span class="affichageCadreProfil">{{ user.telephoneCab }}</span></p>
+            <br/>
+            <p><strong>Adresse de facturation</strong></p>
+            <br/>
+            <h4>Envoi du récapitulatif</h4>
+            <br/>
+            <p>Mail 1 <span class="affichageCadreProfil">{{ user.email }}</span></p>
+            <p>Mail 2</p>
+            <p>Mail 3</p>
+
+            <a href="{{ path('fos_user_profile_edit') }}"><input type="button" value="Modifier mes informations" /></a>
+
         </fieldset>
 
 
-    <a href="{{ path('fos_user_profile_edit') }}"><input type="button" value="Modifier mes informations" /></a>
     </div>
-    </form>
 
 {% endblock %}
     <!-- Appel de jQuery -->

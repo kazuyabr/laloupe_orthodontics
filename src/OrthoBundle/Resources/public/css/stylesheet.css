@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
 body {
     margin: 0 1.5em;
     background-color: #f8f8f8;
@@ -309,3 +311,15 @@ input[type=checkbox] {
 #msform fieldset:not(:first-of-type) {
     display: none;}
 
+.affichageCadreProfil {
+
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
