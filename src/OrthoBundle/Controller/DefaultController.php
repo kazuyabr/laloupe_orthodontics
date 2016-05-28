@@ -127,11 +127,10 @@ class DefaultController extends Controller
         ));
     }
 
-    public function rechercheAction()
+    public function rechercheAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $serializer = SerializerBuilder::create();
 
         $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($id);
         $jsonContent = $serializer->serialize($listeAppareillages, 'json');
@@ -139,12 +138,6 @@ class DefaultController extends Controller
         $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
 
-        return $response; 
+        return $response;
     }
-    
-    
-    /*
-     * 
-     */
-    
 }
