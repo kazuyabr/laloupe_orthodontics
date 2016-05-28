@@ -52,23 +52,17 @@
     </nav>
 </div>
 {% block body %}
-    <div class="fos_user_user_show">
-        <form id="msform">
-
+    <div class="fos_user_user_show" id="msform">
             <fieldset class="smallbloc">
                 <div class="id_mdp_User">
                     <span>ID : {{ user.id }}</span>
                 </div>
                 <h2 class="fs-title">Profil</h2>
-                <p>Identifiant</p><input type="text" name="Laboratoire" placeholder=" {{ user.username }}"/><br>
+                <p>Identifiant : <span class="rectangeProfil">{{ user.username }}</span></p><br>
                 <p>Email</p><input type="text" name="referenceLabo" placeholder=" {{ user.email }}"/>
                 <a href="{{ path('fos_user_profile_edit') }}"><input type="button"
                                                                      value="Modifier mes informations"/></a>
             </fieldset>
-
-
-
-        </form>
     </div>
 
 {% endblock %}

@@ -127,9 +127,8 @@ class DefaultController extends Controller
         ));
     }
 
-    public function rechercheAction(Request $request, $id)
+    public function rechercheAction()
     {
-
         $em = $this->getDoctrine()->getManager();
 
         $serializer = SerializerBuilder::create();
@@ -140,6 +139,12 @@ class DefaultController extends Controller
         $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
 
-        return $response;
+        return $response; 
     }
+    
+    
+    /*
+     * 
+     */
+    
 }

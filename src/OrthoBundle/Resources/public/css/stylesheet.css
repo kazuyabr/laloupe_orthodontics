@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+
 body {
     margin: 0 1.5em;
     background-color: #f8f8f8;
@@ -284,7 +287,6 @@ input[type=checkbox] {
 /* Intégration nouveau formulaire */
 
 /*custom font*/
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 /*basic reset*/
 * {margin: 0; padding: 0;}
@@ -442,6 +444,23 @@ fieldset > label {
     height: 50px;
 }
 
+.rectangeProfil
+{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100  %;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#msform h2
+{
+    padding-bottom: 10px;
+}
 
 
 
