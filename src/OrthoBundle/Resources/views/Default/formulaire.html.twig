@@ -13,7 +13,7 @@
 
         {{ form_start(form) }}
         <!-- Bloc n°1 : Les informations générales du patient -->
-        <fieldset id="bloc1">
+        <fieldset class="smallbloc">
             {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
             <h2 class="fs-title">Informations du patient</h2>
 
@@ -33,7 +33,7 @@
         </fieldset>
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
-        <fieldset id="bloc2">
+        <fieldset class="largebloc">
 
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
@@ -60,7 +60,7 @@
                                     <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
                                         famille</h4>
                                     <h6>Liste non exhaustive, contactez votre laboratoire</h6>
-                                </div>
+
                                 <div class="modal-body">
                                     <ul>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
@@ -162,7 +162,7 @@
 
         </fieldset>
         <!-- Bloc n°3 : Les pièces jointes -->
-        <fieldset id="bloc3">
+        <fieldset class="smallbloc">
             <h2 class="fs-title">Pièces jointes complémentaires :</h2>
             <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
 
@@ -194,8 +194,8 @@
 {% endblock %}
 
 {% block javascript %}
-
-    <script> // Liste des appareillages | Affichage des commentaires dans le cadre
+    <script>
+     // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
         {{ commentaire['id'] }} :
@@ -230,9 +230,9 @@
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    </script>
+    
 
-    <script> // Liste des adjonctions + Affichage des commentaires dans le cadre
+     // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
@@ -257,21 +257,19 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         })
-    </script>
-
-    <script>
+    
+    
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
             $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
         });
-
-
+        
         var monSelectMotif = $('#commandes_fidMotif');
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    </script>
-    <script>
+    
+    
         //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate
@@ -350,6 +348,5 @@
         $(".submit").click(function () {
             return false;
         })
-
     </script>
 {% endblock %}
