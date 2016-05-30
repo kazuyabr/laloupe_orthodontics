@@ -1,6 +1,6 @@
 <?php
 
-namespace OrthoBundle\Form;
+namespace OrthoBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +19,7 @@ class CommandesType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Nom ou ID'
                 ),
-                'label' => 'Référence Patient'
+                'label' => 'Référence Patient',
             ))
             ->add('prenomPatient', 'text', array(
                 'attr' => array(
@@ -45,6 +45,13 @@ class CommandesType extends AbstractType
                     return $entityRepository->triParPoids();
                 }
             ))
+            ->add('ajoutApp', 'button', array(
+                'attr' => array(
+                    'class' => 'action-button',
+                    'data-toggle' => 'modal',
+                    'data-target' => '#myModal'
+                    )
+            ))
 
             ->add('fidAdj', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
@@ -56,12 +63,15 @@ class CommandesType extends AbstractType
                 }
             ))
             
-            ->add('ajoutAdj', 'button')
+            ->add('ajoutAdj', 'button', array(
+                'attr' => array('class' => 'action-button')
+            ))
             ->add('fidCouleur')
             ->add('fidMotif')
             ->add('comment', 'textarea')
             ->add('testimage', 'file', array(
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
             ->add('testimage1', 'file', array(
                 'mapped' => false,

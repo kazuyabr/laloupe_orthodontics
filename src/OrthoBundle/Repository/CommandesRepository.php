@@ -12,8 +12,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommandesRepository extends EntityRepository
 {
-    public function AjoutAppareillage()
-    {
-        return $this->_class;
-    }
+    
 }

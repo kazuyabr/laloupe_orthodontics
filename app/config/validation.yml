@@ -1,7 +1,7 @@
 OrthoBundle\Entity\Commandes:
     properties:
-        fidPatient:
-            - NotBlank: ~
+        referencePatient:
+            - NotBlank: BONJOUR
 
         dateretour:
             - NotBlank: ~
@@ -12,6 +12,5 @@ OrthoBundle\Entity\Commandes:
         fidAdj:
             - NotBlank: ~
 
-        file:
+        testimage:
             - Image: ~
-
