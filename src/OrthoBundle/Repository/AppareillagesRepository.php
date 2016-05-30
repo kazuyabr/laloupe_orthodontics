@@ -24,12 +24,12 @@ class AppareillagesRepository extends EntityRepository
     }
 
 
-    public function getnameandimage(){
+    public function getnameandimage($famille = 'mob'){
 
         $queryBuilder = $this->createQueryBuilder('appareillages')
-                            ->select('appareillages.titreApp', 'appareillages.imgApp')
+                            ->select('appareillages.titreApp', 'appareillages.imgApp', 'appareillages.id')
                             ->where('appareillages.familleApp = :famille')
-                            ->setParameter('famille', 'mob');
+                            ->setParameter('famille', $famille);
 
         return $queryBuilder->getQuery()->getResult();
 
@@ -48,26 +48,5 @@ class AppareillagesRepository extends EntityRepository
     }
 
 
-    /*public function RechercheAppareillages($tags)
-    {
-        $queryBuilder = $this->_em->createQueryBuilder()
-            ->select('p')
-            ->from($this->_entityName, 'p')
-            ->Where('p.titreapp LIKE :Arc')
-            ->setParameter('arc', '%'.$tags.'%');
-        $query = $queryBuilder->getQuery();
-        return $query->getResult();
-    }*/
-
-
-
-    public function getListofApparel($searchWord)
-    {
-        $queryBuilder = $this->createQueryBuilder('appareillages')
-                            ->where('appareillages.titreApp LIKE :string')
-                            ->setParameter('str', '%'.$searchWord.'%');
-
-        return $queryBuilder->getQuery()->getResult();
-    }
 
 }

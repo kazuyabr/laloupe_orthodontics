@@ -57,13 +57,13 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
 
-                                    <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
-                                        famille</h4>
-                                    <h6>Liste non exhaustive, contactez votre laboratoire</h6>
+                                <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
+                                    famille</h4>
+                                <h6>Liste non exhaustive, contactez votre laboratoire</h6>
 
                                 <div class="modal-body">
                                     <ul>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
+                                        <li><a data-family="mob" class="family-button">Mobile</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
                                         <li><a href="#" data-toggle="modal"
                                                data-target="#myModal2">Fonctionnels</a><br/>
@@ -113,15 +113,9 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                {% for namepictures in nomimageapp %}
-                                                    <div class="col-xs-6">
-                                                        <button><img src="{{ namepictures.imgApp }}"
-                                                                     title="Appareillages"
-                                                                     alt="Appareillages" id="imageSchemaApp"
-                                                                     name="commandes[appareillages]"/><br />
-                                                            {{ namepictures.titreApp }} </button>
-                                                    </div>
-                                                {% endfor %}
+                                                <div class="row" id="images-app">
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +153,6 @@
             {{ form_widget(form.comment) }}
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="button" name="next" class="next action-button" value="Suivant"/>
-
         </fieldset>
         <!-- Bloc n°3 : Les pièces jointes -->
         <fieldset class="smallbloc">
@@ -187,15 +180,13 @@
 
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
-
         </fieldset>
     </form>
-
 {% endblock %}
 
 {% block javascript %}
     <script>
-     // Liste des appareillages | Affichage des commentaires dans le cadre
+        // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
         {{ commentaire['id'] }} :
@@ -230,9 +221,9 @@
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    
 
-     // Liste des adjonctions + Affichage des commentaires dans le cadre
+
+        // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
@@ -257,19 +248,19 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         })
-    
-    
+
+
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
             $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
         });
-        
+
         var monSelectMotif = $('#commandes_fidMotif');
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    
-    
+
+
         //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate
@@ -347,6 +338,52 @@
 
         $(".submit").click(function () {
             return false;
-        })
+        });
+
+
+        $("#search").keyup(function()
+        {
+            var myRegExp = new RegExp($(this).val(), 'i');
+
+            $('.nomAppareillageEnfant').each(function(){
+                if (($(this).html().match(myRegExp) || []).length != 0)
+                    $(this).parent().parent().show('slide');
+                else
+                    $(this).parent().parent().hide('slideOut');
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $.onload(function(){
+
+            var appareillages = {
+                {% for namepictures in nomimageapp %}
+                "{{ namepictures.id }}": {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}   ",
+                {% endfor %}
+            }};
+
+            $('.family-button').onclick(function(){
+                var family = $(this).data('familiy');
+
+                var app;
+                for (var i=0; i<appareillages.length; i++){
+                    if (appareillages[i].family===family) app.push(appareillages[i]);
+                }
+
+                for (var i=0; i<app.length; i++) {
+                    $('#images-app').appendChild('' +
+                            '<div class="col-xs-6">' +
+                            '<button>' +
+                            '<img src="' + app.img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
+                            '<span class="nomAppareillageEnfant">' + app.title + '</span>' +
+                            '</button>' +
+                            '</div>'
+                );
+                }
+                $('#myModal2').focus();
+            });
+        });
     </script>
 {% endblock %}
