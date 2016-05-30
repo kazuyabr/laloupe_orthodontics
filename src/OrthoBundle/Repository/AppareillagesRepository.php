@@ -46,4 +46,13 @@ class AppareillagesRepository extends EntityRepository
         // On retourne le résultat
         return $queryBuilder->getQuery()->getResult();
     }
+
+    public function getListofApparel($searchWord)
+    {
+        $queryBuilder = $this->createQueryBuilder('appareillages')
+                            ->where('appareillages.titreApp LIKE :string')
+                            ->setParameter('str', '%'.$searchWord.'%');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

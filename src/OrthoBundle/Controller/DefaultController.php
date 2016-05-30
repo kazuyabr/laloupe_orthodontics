@@ -2,6 +2,9 @@
 
 namespace OrthoBundle\Controller;
 
+use JMS\Serializer\SerializerBuilder;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Entity\PoidsAppareillages;
@@ -120,5 +123,20 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:recap_formulaire.html.twig', array(
             'affichagerecap' => $affichagerecap
         ));
+    }
+
+    public function RechercheAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $serializer = SerializerBuilder::create()->build();
+
+        $listOfApparels = $em->getRepository('WikiWikiMaireBundle:Projet')->find($id);
+        $jsonContent = $serializer->serialize($listOfApparels, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }
