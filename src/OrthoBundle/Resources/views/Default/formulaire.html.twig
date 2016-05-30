@@ -63,8 +63,8 @@
 
                                 <div class="modal-body">
                                     <ul>
-                                        <li><a data-family="mob" class="family-button" data-toggle="modal" >Mobile</a><br/></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
+                                        <li><a data-family="mob" class="family-button" data-toggle="modal">Mobile</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-family="fix" class="family-button">Fixe</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/>
                                         </li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
@@ -101,7 +101,7 @@
                                         <input type="text" class="form-control quicksearch" placeholder="Entrez votre recherche" id="cache">
                                         <span class="input-group-addon">
                                             <button type="submit">
-                                                <span class="glyphicon glyphicon-search"></span>
+                                                <!-- <span class="glyphicon glyphicon-search"></span> -->
                                             </button>
                                         </span>
                                     </div>
@@ -356,28 +356,44 @@
 
     <script type="text/javascript">
 
-            var appareillages = {
-                {% for namepictures in nomimageapp %}
-                "{{ namepictures.id }}": {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
-                {% endfor %}
+        // On crée un Objet JS qui va contenir la liste de tout les appareils
+        var appareillages = {
+            {% for namepictures in nomimageapp %}
+            "{{ namepictures.id }}" : {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
+            {% endfor %}
+        };
+
+        // Console.log de tests, à supprimer.
+        console.log("Le gros Objet : Le tableau pas trié");
+        console.log(appareillages); /* Renvoie l'intégralité de l'objet */
+        console.log(Object.keys(appareillages).length); /* Renvoie sa longueur totale */
+
+        $('.family-button').click(function(){ // Si l'élément avec la class="family-button" est cliqué, faire :
+
+            var familyClicked = $(this).data('family'); // On récupère la donnée inscrite dans "data-family" (Voir ligne ...)
+
+            // Console-log de test, à supprimer.
+            console.log("Deux trois tests par-ci par-là");
+            console.log("J'suis clicked."); // Juste pour vérifier que c'est bien clicked.
+            console.log("La famille de ce que tu as cliqué est : " +familyClicked); // Renvoie "mob"
+            console.log("La famille du premier appareillage est : " + appareillages[1].family); // Navigation dans le JSON -> Renvoie 'fix'
+
+            var app = []; // On déclare notre tableau trié (vide pour le moment)
+
+            // Tant que i inférieur à la longueur de l'objet, faire :
+            for (i = 1; i < Object.keys(appareillages).length; i++)
+            {
+                // Si la famille de l'objet, à l'index [i] vaut la valeur de familyClicked, faire :
+                if (appareillages[i].family === familyClicked)
+                {
+                    // On ajoute les données de cet appareillage dans le tableau trié.
+                    app.push(appareillages[i]);
+                }
             }
 
-            console.log(appareillages);
+            // Console log de test, à supprimer par la suite
+            console.log(app); // Renvoie l'intégralité du tableau trié
 
-            $('.family-button').on('click', function(){
-                console.log("Je suis clicked.");
-                var family = $(this).data('family');
-
-                var app = [];
-                var i = 0;
-                for (i; i < appareillages.length; i++){
-                    if (appareillages[i].family === family)
-                    {
-                        app.push(appareillages[i]);
-                    }
-                }
-
-            console.log(app);
 
                 for (var i=0; i<app.length; i++) {
                     $('#images-app').appendChild('' +
