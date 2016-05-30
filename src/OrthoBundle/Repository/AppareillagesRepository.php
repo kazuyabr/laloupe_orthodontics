@@ -47,7 +47,8 @@ class AppareillagesRepository extends EntityRepository
         return $queryBuilder->getQuery()->getResult();
     }
 
-    public function RechercheAppareillages($tags)
+
+    /*public function RechercheAppareillages($tags)
     {
         $queryBuilder = $this->_em->createQueryBuilder()
             ->select('p')
@@ -56,7 +57,17 @@ class AppareillagesRepository extends EntityRepository
             ->setParameter('arc', '%'.$tags.'%');
         $query = $queryBuilder->getQuery();
         return $query->getResult();
-    }
+    }*/
 
+
+
+    public function getListofApparel($searchWord)
+    {
+        $queryBuilder = $this->createQueryBuilder('appareillages')
+                            ->where('appareillages.titreApp LIKE :string')
+                            ->setParameter('str', '%'.$searchWord.'%');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 
 }
