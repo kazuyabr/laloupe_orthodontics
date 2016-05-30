@@ -46,4 +46,17 @@ class AppareillagesRepository extends EntityRepository
         // On retourne le résultat
         return $queryBuilder->getQuery()->getResult();
     }
+
+    public function RechercheAppareillages($tags)
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('p')
+            ->from($this->_entityName, 'p')
+            ->Where('p.titreapp LIKE :Arc')
+            ->setParameter('arc', '%'.$tags.'%');
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
+
+
 }

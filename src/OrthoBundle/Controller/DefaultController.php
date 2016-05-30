@@ -121,4 +121,22 @@ class DefaultController extends Controller
             'affichagerecap' => $affichagerecap
         ));
     }
+
+    public function rechercheAction(Request $request, $id)
+
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $serializer = SerializerBuilder::create()->build();
+        $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($id);
+        $jsonContent = $serializer->serialize($listeAppareillages, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+        //return $this->render("OrthoBundle:Default:formulaire.html.twig");
+    }
+
+
 }
