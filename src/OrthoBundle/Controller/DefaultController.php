@@ -96,6 +96,8 @@ class DefaultController extends Controller
             )));
         }
 
+
+
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
@@ -133,7 +135,7 @@ class DefaultController extends Controller
 
         $serializer = SerializerBuilder::create()->build();
 
-        $listOfApparels = $em->getRepository('WikiWikiMaireBundle:Projet')->find($id);
+        $listOfApparels = $em->getRepository('OrthoBundle:Appareillages')->getListOfApparel($id);
         $jsonContent = $serializer->serialize($listOfApparels, 'json');
 
         $response = new Response($jsonContent);

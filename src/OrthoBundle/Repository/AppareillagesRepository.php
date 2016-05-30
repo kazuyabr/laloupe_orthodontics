@@ -19,7 +19,6 @@ class AppareillagesRepository extends EntityRepository
         $queryBuilder->leftJoin('u.poids', 'p')
                         ->orderBy('p.poids', 'DESC')
                         ->setMaxResults(10);
-
         return $queryBuilder;
     }
 
@@ -47,7 +46,7 @@ class AppareillagesRepository extends EntityRepository
         return $queryBuilder->getQuery()->getResult();
     }
 
-    public function getListofApparel($searchWord)
+    public function getListOfApparel($searchWord)
     {
         $queryBuilder = $this->createQueryBuilder('appareillages')
                             ->where('appareillages.titreApp LIKE :string')
