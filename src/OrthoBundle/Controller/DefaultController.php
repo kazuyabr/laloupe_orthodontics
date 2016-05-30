@@ -2,14 +2,18 @@
 
 namespace OrthoBundle\Controller;
 
-use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use OrthoBundle\Entity\Commandes;
+use OrthoBundle\Entity\Appareillages;
 use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Form\Type\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 
 class DefaultController extends Controller
 {
@@ -28,7 +32,7 @@ class DefaultController extends Controller
         
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
-        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
+        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
         $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser();
 
         // On hydrate notre formulaire
@@ -129,8 +133,11 @@ class DefaultController extends Controller
         ));
     }
 
-    public function RechercheAction(Request $request, $id)
+
+    public function rechercheAction(Request $request, $id)
+
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $serializer = SerializerBuilder::create()->build();
@@ -138,11 +145,33 @@ class DefaultController extends Controller
         $listOfApparels = $em->getRepository('OrthoBundle:Appareillages')->getListOfApparel($id);
         $jsonContent = $serializer->serialize($listOfApparels, 'json');
 
+
         $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
+        return $response;
+        //return $this->render("OrthoBundle:Default:formulaire.html.twig");
+    }
 
+    public function SearchAction(Request $request)
+    {
+
+        $string = $this->getRequest()->request->get('searchText');
+        $app = $this->getDoctrine()
+            ->getRepository('OrthoBundle:Appareillages')
+            ->findByLetters($string);
+
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $jsonContent = $serializer->serialize($app, 'json');
+
+        $response = new Response($jsonContent);
         return $response;
     }
 
 }
+
+
 
