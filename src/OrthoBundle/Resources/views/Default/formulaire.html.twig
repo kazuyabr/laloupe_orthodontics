@@ -63,10 +63,9 @@
 
                                 <div class="modal-body">
                                     <ul>
-                                        <li><a data-family="mob" class="family-button">Mobile</a><br/></li>
+                                        <li><a data-family="mob" class="family-button" data-toggle="modal" >Mobile</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
-                                        <li><a href="#" data-toggle="modal"
-                                               data-target="#myModal2">Fonctionnels</a><br/>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/>
                                         </li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
                                         </li>
@@ -356,21 +355,29 @@
     </script>
 
     <script type="text/javascript">
-        $.onload(function(){
 
             var appareillages = {
                 {% for namepictures in nomimageapp %}
-                "{{ namepictures.id }}": {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}   ",
+                "{{ namepictures.id }}": {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
                 {% endfor %}
-            }};
+            }
 
-            $('.family-button').onclick(function(){
-                var family = $(this).data('familiy');
+            console.log(appareillages);
 
-                var app;
-                for (var i=0; i<appareillages.length; i++){
-                    if (appareillages[i].family===family) app.push(appareillages[i]);
+            $('.family-button').on('click', function(){
+                console.log("Je suis clicked.");
+                var family = $(this).data('family');
+
+                var app = [];
+                var i = 0;
+                for (i; i < appareillages.length; i++){
+                    if (appareillages[i].family === family)
+                    {
+                        app.push(appareillages[i]);
+                    }
                 }
+
+            console.log(app);
 
                 for (var i=0; i<app.length; i++) {
                     $('#images-app').appendChild('' +
@@ -382,9 +389,10 @@
                             '</div>'
                 );
                 }
+
                 $('#myModal2').focus();
             });
-        });
+
     </script>
 
     <script>
