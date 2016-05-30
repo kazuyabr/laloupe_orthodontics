@@ -63,8 +63,8 @@
 
                                 <div class="modal-body">
                                     <ul>
-                                        <li><a data-family="mob" class="family-button" data-toggle="modal">Mobile</a><br/></li>
-                                        <li><a href="#" data-toggle="modal" data-family="fix" class="family-button">Fixe</a><br/></li>
+                                        <li><a data-family="mob" class="family-button" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-family="fix" class="family-button" data-target="#myModal2">Fixe</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/>
                                         </li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
@@ -98,10 +98,10 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     <div class="input-group stylish-input-group">
-                                        <input type="text" class="form-control quicksearch" placeholder="Entrez votre recherche" id="cache">
+                                        <input type="text" class="form-control quicksearch" placeholder="Entrez votre recherche" id="search">
                                         <span class="input-group-addon">
                                             <button type="submit">
-                                                <!-- <span class="glyphicon glyphicon-search"></span> -->
+                                                <span class="glyphicon glyphicon-search"></span>
                                             </button>
                                         </span>
                                     </div>
@@ -113,7 +113,7 @@
                                         <div class="row">
                                             <div class="col-xs-6">
                                                 <div class="row" id="images-app">
-
+                                                    <!-- Ici, on insère dans la div les appareillages (voir jQuery) -->
                                                 </div>
                                             </div>
                                         </div>
@@ -246,7 +246,7 @@
             $('.commentaireClass').each(function () {
                 $('#commandes_comment').append($(this).html() + "\n");
             });
-        })
+        });
 
 
         var monSelectCouleur = $('#commandes_fidCouleur');
@@ -339,17 +339,24 @@
             return false;
         });
 
-
-        $("#search").keyup(function()
+        $("#search").keyup(function() // A chaque levée d'une touche du clavier sur l'id search, on fera :
         {
+            // Nouvelle regex qui comprend la valeur de l'input
             var myRegExp = new RegExp($(this).val(), 'i');
 
-            $('.nomAppareillageEnfant').each(function(){
-                if (($(this).html().match(myRegExp) || []).length != 0)
-                    $(this).parent().parent().show('slide');
-                else
-                    $(this).parent().parent().hide('slideOut');
+            $('.nomAppareillageEnfant').each(function(){ // Pour chaque élément qui a la classe citée, faire :
 
+                // Si la vérification de la regex renvoie au minimum quelque chose, faire :
+                if (($(this).html().match(myRegExp) || []).length != 0)
+                {
+                    // On affiche le bloc correspondant avec un effet slide
+                    $(this).parent().parent().show('slide');
+                }
+                else // Sinon
+                {
+                    // On masque le bloc correspondant avec un effet slideOut
+                    $(this).parent().parent().hide('slideOut');
+                }
             });
         });
     </script>
@@ -393,22 +400,23 @@
 
             // Console log de test, à supprimer par la suite
             console.log(app); // Renvoie l'intégralité du tableau trié
+            console.log(app[0].title); // Renvoie le titre de l'app à l'index 0.
 
-
-                for (var i=0; i<app.length; i++) {
-                    $('#images-app').appendChild('' +
-                            '<div class="col-xs-6">' +
-                            '<button>' +
-                            '<img src="' + app.img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
-                            '<span class="nomAppareillageEnfant">' + app.title + '</span>' +
-                            '</button>' +
-                            '</div>'
+            // Pour chaque itération de boucle du tableau trié, faire :
+            for (var compteur = 0; compteur < app.length; compteur++)
+            {
+                // On ajoute dans l'élément qui a pour id="images-app" :
+                $('#images-app').append('' +
+                    '<div class="col-xs-6">' +
+                        '<button>' +
+                            '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
+                            '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
+                        '</button>' +
+                    '</div>'
                 );
-                }
+            }
 
-                $('#myModal2').focus();
-            });
-
+        });
     </script>
 
     <script>
