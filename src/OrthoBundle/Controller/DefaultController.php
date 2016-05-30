@@ -5,8 +5,11 @@ namespace OrthoBundle\Controller;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Entity\PoidsAppareillages;
-use OrthoBundle\Form\CommandesType;
+use OrthoBundle\Form\Type\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use JMS\Serializer\SerializerBuilder;
 
 class DefaultController extends Controller
 {
@@ -34,11 +37,12 @@ class DefaultController extends Controller
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
+
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil)
             {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1); // TODO : Récupérer le vrai cabinet
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
@@ -99,15 +103,16 @@ class DefaultController extends Controller
             'nomimageapp' => $nomimageapp,
             'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj,
-            'actualUser' => $infoUserConnected
+            'actualUser' => $infoUserConnected,
+
         ));
     }
 
-    public function showAction()
+    public function showAction($id)
     {
         // On récupère l'ID de la commande en question, passé dans l'URL
         // Lors de la redirection de la commande.
-        $idCommande = intval($_GET['id']);
+        $idCommande = $id;
         
         // On appelle Doctrine
         $em = $this->getDoctrine()->getManager();
@@ -120,5 +125,19 @@ class DefaultController extends Controller
         return $this->render('OrthoBundle:Default:recap_formulaire.html.twig', array(
             'affichagerecap' => $affichagerecap
         ));
+    }
+
+    public function rechercheAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+
+        $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($id);
+        $jsonContent = $serializer->serialize($listeAppareillages, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }
