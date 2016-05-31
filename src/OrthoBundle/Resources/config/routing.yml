@@ -7,3 +7,13 @@ recap_formulaire:
     path:     /recap_formulaire/{id}
     defaults: { _controller: OrthoBundle:Default:show }
     methods: [POST, GET]
+
+crea_cabinet:
+    path:     /cabinet/
+    defaults: { _controller: OrthoBundle:Cabinet:create }
+    methods: [POST, GET]
+
+fiche_cabinet:
+    path:     /fichecabinet/{id}
+    defaults: { _controller: OrthoBundle:Cabinet:show }
+    methods: [POST, GET]
