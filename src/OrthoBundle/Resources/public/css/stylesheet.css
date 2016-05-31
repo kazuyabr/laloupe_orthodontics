@@ -364,9 +364,11 @@ body {
 /*buttons*/
 #msform .action-button {
     width: 100px;
-    background: #27AE60;
+    /*background:#76ff03;*/
+    background:#ccff90;
     font-weight: bold;
-    color: white;
+    /*color: white;*/
+    color: #2e7d32;
     border: 0 none;
     border-radius: 1px;
     cursor: pointer;
@@ -407,7 +409,7 @@ body {
 
 #progressbar li {
     list-style-type: none;
-    color: white;
+    color:white ;
     text-transform: uppercase;
     font-size: 9px;
     width: 33.33%;
@@ -447,6 +449,11 @@ body {
 
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
+
+#progressbar li.active:before,  #progressbar li.active:after {
+    background: #76ff03;
+}
+
 #progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
     color: white;
@@ -522,4 +529,12 @@ fieldset > label {
     padding-bottom: 10px;
 
 }
+
+
+#buttonprofile {
+    background-color: #76ff03;
+
+}
+
+
 
