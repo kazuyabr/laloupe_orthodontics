@@ -121,12 +121,23 @@ input[type="file"] {
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-/ text-shadow: 0 - 1 px 0 rgba(0, 0, 0, .25);
-/
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
 .navbar-inverse .navbar-nav > li > a {
     color: #2e7d32;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > li:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+    background-image: -webkit-linear-gradient(top, #353535 0%, #27AE60 100%);
+    background-image: -o-linear-gradient(top, #353535 0%, #27AE60 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#27AE60));
+    background-image: linear-gradient(to bottom, #353535 0%, #27AE60 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#27AE60', GradientType=0);
 }
 
 .header_recap {
@@ -509,3 +520,4 @@ fieldset > label {
     padding-bottom: 10px;
 
 }
+

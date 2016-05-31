@@ -34,37 +34,47 @@
 </head>
 
 <body>
-<div class="navbar_homepage">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <li {% if app.request.get('_route') == 'fos_user_security_login' %}
-                    class="active"{% endif %}>
-                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                </li>
-                <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
-                    class="active"{% endif %}>
-                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                </li>
-                <li {% if app.request.get('_route') == 'ortho_formulaire' %}
-                    class="active"{% endif %}>
-                    <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
-                </li>
-                <li {% if app.request.get('_route') == 'fos_user_profile_show' %}
-                    class="active"{% endif %}>
-                    <a href="{{ path('fos_user_profile_show') }}">Profile</a>
-                </li>
-                <li {% if app.request.get('_route') == 'crea_cabinet' %}
-                    class="active"{% endif %}>
-                    <a href="{{ path('crea_cabinet') }}">Ajouter un cabinet</a>
-                </li>
-                <li>
-                    <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
+{% block nav %}
+    <div class="navbar_homepage">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+
+                    {% if app.user %}
+                        <!-- user is logged in -->
+                        <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'ortho_formulaire' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'fos_user_profile_show' or app.request.get('_route') == 'fos_user_profile_edit' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'crea_cabinet' or app.request.get('_route') == 'fiche_cabinet' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('crea_cabinet') }}">Ajouter un cabinet</a>
+                        </li>
+                    {% else %}
+                        <!-- user is not logged in -->
+                        <li {% if app.request.get('_route') == 'fos_user_security_login' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                        </li>
+                    {% endif %}
+
+                    <li>
+                        <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
 
 {% block body %}{% endblock %}
 <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
