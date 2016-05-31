@@ -8,9 +8,8 @@ namespace OrthoBundle\Entity;
 class Laboratoire
 {
     // CUSTOM CODE
-    
-    
-    
+
+
     // GENERATED CODE
 
     /**

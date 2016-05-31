@@ -3,6 +3,7 @@
 {% block body %}
     <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
         , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
+    {{ dump(actualUser) }}
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post">
         <!-- Barre de progression -->
         <ul id="progressbar">

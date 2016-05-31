@@ -24,10 +24,12 @@ class FormulaireController extends Controller
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
 
+        $user = $this->getUser();
+
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
-        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser();
+        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser($user->getId());
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
@@ -40,7 +42,7 @@ class FormulaireController extends Controller
             foreach ($commande->getAppareillages() as $appareil)
             {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find($user->getId());
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
@@ -102,7 +104,6 @@ class FormulaireController extends Controller
             'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj,
             'actualUser' => $infoUserConnected,
-
         ));
     }
 }
