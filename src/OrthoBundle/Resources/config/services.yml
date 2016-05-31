@@ -1,8 +1,7 @@
 services:
-#    ortho.example:
-#        class: OrthoBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
-
-#    photos.example:
-#        class: OrthoBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    app.form.user.edit:
+        class: OrthoBundle\Form\Type\EditProfileType
+        tags:
+            - { name: form.type, alias: app_user_edit }
+        arguments:
+            - %fos_user.model.user.class%
