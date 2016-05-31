@@ -2,7 +2,6 @@
 
 namespace OrthoBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commandes
@@ -12,12 +11,7 @@ class Commandes
 
     // CUSTOM CODE
 
-    /* Fonction en attente, à compléter plus tard
-    public function __toString()
-    {
-        return ;
-    }
-    */
+    private $pieceJointeAM;
 
     public function setCreatedAtValue()
     {
@@ -485,4 +479,27 @@ class Commandes
     /**
      * @var string
      */
+
+    /**
+     * Set piecejointeAM
+     *
+     * @param string $piecejointeAM
+     * @return Commandes
+     */
+    public function setPiecejointeAM($piecejointeAM)
+    {
+        $this->piecejointeAM = $piecejointeAM;
+
+        return $this;
+    }
+
+    /**
+     * Get piecejointeAM
+     *
+     * @return string 
+     */
+    public function getPiecejointeAM()
+    {
+        return $this->piecejointeAM;
+    }
 }

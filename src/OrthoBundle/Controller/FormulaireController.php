@@ -2,36 +2,37 @@
 
 namespace OrthoBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAppareillages;
-use OrthoBundle\Form\CommandesType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use OrthoBundle\Entity\PoidsAdjonctions;
+use OrthoBundle\Form\Type\CommandesType;
 
-class DefaultController extends Controller
+
+class FormulaireController extends Controller
 {
-    public function createAction()
+    public function createFormulaireAction()
     {
         // On crée une instance de l'entité Commandes
         $commande  = new Commandes();
         $request = $this->getRequest();
-        
+
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
         // "CommandesType.php" ainsi que l'instance de l'entité Commandes
         $form    = $this->createForm(new CommandesType(), $commande);
-        
-        // On hydrate notre formulaire
-        $form->handleRequest($request);
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
-        
+
+        $user = $this->getUser();
+
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
+        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
+        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser($user->getId());
 
-        //$listeCouleurs = $em->getRepository('OrthoBundle:Couleur')->findAll();
-        $famApp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
-        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
-
+        // On hydrate notre formulaire
+        $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
@@ -41,7 +42,7 @@ class DefaultController extends Controller
             foreach ($commande->getAppareillages() as $appareil)
             {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1); // TODO : Récupérer le vrai cabinet
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find($user->getId());
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
@@ -65,10 +66,26 @@ class DefaultController extends Controller
                 }
 
             }
-            
+
+            foreach ($commande->getFidAdj() as $adjonction)
+            {
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
+                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['cabinet' => $cabinet, 'fidAdjonction' => $adjonction]);
+
+                if (isset($poidsAdjonction))
+                {
+                    $poidsAdjonction->incrementation();
+                }
+                else
+                {
+                    $poidsAdjonction = new PoidsAdjonctions($cabinet, $adjonction);
+
+                    $em->persist($poidsAdjonction);
+                }
+            }
+
             // On prépare la mise en Base de données
             $em->persist($commande);
-            
             // On met en Base de données
             $em->flush();
 
@@ -82,38 +99,11 @@ class DefaultController extends Controller
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
-            'entity' => $commande,
             'form'   => $form->createView(),
-
-            'famApp' => $famApp,
             'nomimageapp' => $nomimageapp,
-
             'commentaireAppareil' => $commentairesApp,
-            'commentaireAdjoncton' => $commentairesAdj
-
+            'commentaireAdjonction' => $commentairesAdj,
+            'actualUser' => $infoUserConnected,
         ));
     }
-    
-    public function showAction()
-    {
-        // On récupère l'ID de la commande en question, passé dans l'URL
-        // Lors de la redirection de la commande.
-        $idCommande = intval($_GET['id']);
-        
-        // On appelle Doctrine
-        $em = $this->getDoctrine()->getManager();
-        
-        // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagerecap = $em->getRepository('OrthoBundle:Commandes')->find($idCommande);
-        
-        // On affiche la vue de recap_formulaire, en prenant en paramètre
-        // La liste des informations du formulaire
-        return $this->render('OrthoBundle:Default:recap_formulaire.html.twig', array(
-            'affichagerecap' => $affichagerecap
-        ));
-    }
-
-
-
-
 }

@@ -2,8 +2,6 @@
 
 namespace OrthoBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * PoidsAppareillages
  */
@@ -48,6 +46,11 @@ class PoidsAppareillages
      * @var int
      */
     private $id;
+
+    /**
+     * @var \OrthoBundle\Entity\Appareillages
+     */
+    private $fidAppareillages;
 
     /**
      * Get id
@@ -157,10 +160,4 @@ class PoidsAppareillages
     {
         return $this->cabinet;
     }
-    /**
-     * @var \OrthoBundle\Entity\Appareillages
-     */
-    private $fidAppareillages;
-
-
 }

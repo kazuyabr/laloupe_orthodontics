@@ -2,17 +2,14 @@
 
 namespace OrthoBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Laboratoire
  */
 class Laboratoire
 {
     // CUSTOM CODE
-    
-    
-    
+
+
     // GENERATED CODE
 
     /**

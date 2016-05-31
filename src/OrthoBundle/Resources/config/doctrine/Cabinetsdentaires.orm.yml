@@ -37,7 +37,7 @@ OrthoBundle\Entity\Cabinetsdentaires:
 
     manyToOne:
         fidLabo:
-            targetEntity: Laboratoire
+            targetEntity: OrthoBundle\Entity\Laboratoire
             joinColumn:
                 name: fid_labo
                 referencedColumn: id
@@ -46,5 +46,9 @@ OrthoBundle\Entity\Cabinetsdentaires:
     oneToMany:
         poids:
             targetEntity: OrthoBundle\Entity\PoidsAppareillages
+            mappedBy: cabinet
+
+        poidsAdjonction:
+            targetEntity: OrthoBundle\Entity\PoidsAdjonctions
             mappedBy: cabinet
     lifecycleCallbacks: {  }

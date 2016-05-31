@@ -23,7 +23,7 @@ OrthoBundle\Entity\AppAdjLabo:
             targetEntity: Adjonctions
             joinColumn:
                 name: fid_adj
-                referencedColumnName: id_adj
+                referencedColumn: id
                 nullable: false
                 unique: false
 

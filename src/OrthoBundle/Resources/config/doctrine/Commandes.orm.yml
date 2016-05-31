@@ -32,6 +32,15 @@ OrthoBundle\Entity\Commandes:
         comment2:
             type: text
             nullable: true
+        testimage:
+            type: string
+            nullable: true
+        testimage1:
+            type: string
+            nullable: true
+        testimage2:
+            type: string
+            nullable: true
 
 
     manyToOne:
@@ -79,7 +88,7 @@ OrthoBundle\Entity\Commandes:
                          referencedColumn: id
                  inverseJoinColumns:
                      Adjonctions_id:
-                         referencedColumnName: id_adj
+                         referencedColumn: id
 
 
     lifecycleCallbacks:

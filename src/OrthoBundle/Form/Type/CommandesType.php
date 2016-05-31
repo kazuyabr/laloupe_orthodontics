@@ -1,14 +1,10 @@
 <?php
 
-namespace OrthoBundle\Form;
+namespace OrthoBundle\Form\Type;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 
 class CommandesType extends AbstractType
 {
@@ -23,7 +19,7 @@ class CommandesType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Nom ou ID'
                 ),
-                'label' => 'Référence Patient'
+                'label' => 'Référence Patient',
             ))
             ->add('prenomPatient', 'text', array(
                 'attr' => array(
@@ -32,15 +28,15 @@ class CommandesType extends AbstractType
                 'label' => 'Prénom Patient'
             ))
             ->add('dateretour', 'date', array(
-                'attr' => array(),
-                'widget' => 'single_text',
-                'format'=>'yyyy-MM-dd',
-
-            ))
-
+                    'widget' => 'single_text',
+                    'format' => 'dd-MM-yyyy',
+                    'attr' => [
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy'
+                    ])
+            )
             ->add('appareillages', 'entity', array(
-                'attr' => array(
-                    'class' => 'btn btn-primary'),
                 'class' => 'OrthoBundle:Appareillages',
                 'property' => 'titre_app',
                 'expanded' => 'true',
@@ -49,20 +45,33 @@ class CommandesType extends AbstractType
                     return $entityRepository->triParPoids();
                 }
             ))
-
-
-            ->add('fidAdj', EntityType::class, array(
-                'class' => 'OrthoBundle:Adjonctions',
-                'property' => 'titre_adj',
-                'multiple' => 'false'
+            ->add('ajoutApp', 'button', array(
+                'attr' => array(
+                    'class' => 'action-button',
+                    'data-toggle' => 'modal',
+                    'data-target' => '#myModal'
+                )
             ))
 
-            ->add('ajoutAdj', 'button')
+            ->add('fidAdj', 'entity', array(
+                'class' => 'OrthoBundle:Adjonctions',
+                'property' => 'titre_adj',
+                'multiple' => 'true',
+                'expanded' => 'true',
+                'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
+                    return $entityRepository->triParPoids();
+                }
+            ))
+
+            ->add('ajoutAdj', 'button', array(
+                'attr' => array('class' => 'action-button')
+            ))
             ->add('fidCouleur')
             ->add('fidMotif')
             ->add('comment', 'textarea')
             ->add('testimage', 'file', array(
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
             ->add('testimage1', 'file', array(
                 'mapped' => false,

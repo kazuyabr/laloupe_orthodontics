@@ -1,18 +1,9 @@
 ortho_formulaire:
     path:     /formulaire
-    defaults: { _controller: OrthoBundle:Default:create }
+    defaults: { _controller: OrthoBundle:Formulaire:createFormulaire }
     methods: [POST, GET]
 
 recap_formulaire:
-    path:     /recap_formulaire
-    defaults: { _controller: OrthoBundle:Default:show }
+    path:     /recap_formulaire/{id}
+    defaults: { _controller: OrthoBundle:RecapFormulaire:showRecapFormulaire }
     methods: [POST, GET]
-
-photos_uploads:
-    resource: "@OrthoBundle/Resources/config/routing/uploads.yml"
-    prefix:   /uploads
-
-photos_homepage:
-    path:     /truc
-    defaults: { _controller: OrthoBundle:Default:index }
-
