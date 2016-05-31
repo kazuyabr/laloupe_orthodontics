@@ -1,6 +1,7 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
+
     <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
         , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post">
@@ -57,9 +58,9 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
 
-                                    <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
-                                        famille</h4>
-                                    <h6>Liste non exhaustive, contactez votre laboratoire</h6>
+                                <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
+                                    famille</h4>
+                                <h6>Liste non exhaustive, contactez votre laboratoire</h6>
 
                                 <div class="modal-body">
                                     <ul>
@@ -102,7 +103,8 @@
                                         <input type="text" class="form-control quicksearch"
                                                placeholder="Rechercher par mot clé" id="search"/>
                                         {{ form_widget(form.appareillages) }}
-                                        <button class="icone" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+                                        <button class="icone" type="submit"><i class="fa fa-search"
+                                                                               aria-hidden="true"></i>
                                         </button>
 
                                     </div>
@@ -118,7 +120,7 @@
                                                         <button><img src="{{ namepictures.imgApp }}"
                                                                      title="Appareillages"
                                                                      alt="Appareillages" id="imageSchemaApp"
-                                                                     name="commandes[appareillages]"/><br />
+                                                                     name="commandes[appareillages]"/><br/>
                                                             {{ namepictures.titreApp }} </button>
                                                     </div>
                                                 {% endfor %}
@@ -195,11 +197,11 @@
 
 {% block javascript %}
     <script>
-     // Liste des appareillages | Affichage des commentaires dans le cadre
+        // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
         {{ commentaire['id'] }} :
-        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}\.",
         {% endfor %}
         }
         var commentAppareil = $('#appCommentInter');
@@ -230,13 +232,13 @@
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    
 
-     // Liste des adjonctions + Affichage des commentaires dans le cadre
+
+        // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
-        "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+        "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}\.",
         {% endfor %}
         }
 
@@ -257,19 +259,19 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         })
-    
-    
+
+
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
             $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
         });
-        
+
         var monSelectMotif = $('#commandes_fidMotif');
         monSelectMotif.on('change', function () {
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
-    
-    
+
+
         //jQuery time
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate

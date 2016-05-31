@@ -1,0 +1,26 @@
+{# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <form id="msform" action="{{ path('crea_cabinet') }}" method="post">
+        <!-- Barre de progression
+        <ul id="progressbar">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        -->
+        <fieldset class="smallbloc">
+            <h2 class="fs-title">Ajouter un Cabinet</h2>
+            <h3 class="fs-subtitle">Coordonnées du Cabinet</h3>
+
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+
+            <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
+
+        </fieldset>
+    </form>
+
+{% endblock %}
