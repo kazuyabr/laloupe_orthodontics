@@ -184,6 +184,10 @@
 {% endblock %}
 
 {% block javascript %}
+    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
+
     <script>
         // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
@@ -209,18 +213,6 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         });
-
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-
-
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        });
-
 
         // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
@@ -260,105 +252,6 @@
         });
 
 
-        //jQuery time
-        var current_fs, next_fs, previous_fs; //fieldsets
-        var left, opacity, scale; //fieldset properties which we will animate
-        var animating; //flag to prevent quick multi-click glitches
-
-        $(".next").click(function () {
-            if (animating) return false;
-            animating = true;
-
-            current_fs = $(this).parent();
-            next_fs = $(this).parent().next();
-
-            //activate next step on progressbar using the index of next_fs
-            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-            //show the next fieldset
-            next_fs.show();
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function (now, mx) {
-                    //as the opacity of current_fs reduces to 0 - stored in "now"
-                    //1. scale current_fs down to 80%
-                    scale = 1 - (1 - now) * 0.2;
-                    //2. bring next_fs from the right(50%)
-                    left = (now * 50) + "%";
-                    //3. increase opacity of next_fs to 1 as it moves in
-                    opacity = 1 - now;
-                    current_fs.css({'transform': 'scale(' + scale + ')'});
-                    next_fs.css({'left': left, 'opacity': opacity});
-                },
-                duration: 800,
-                complete: function () {
-                    current_fs.hide();
-                    animating = false;
-                },
-                //this comes from the custom easing plugin
-                easing: 'easeInOutBack'
-            });
-        });
-
-        $(".previous").click(function () {
-            if (animating) return false;
-            animating = true;
-
-            current_fs = $(this).parent();
-            previous_fs = $(this).parent().prev();
-
-            //de-activate current step on progressbar
-            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-            //show the previous fieldset
-            previous_fs.show();
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function (now, mx) {
-                    //as the opacity of current_fs reduces to 0 - stored in "now"
-                    //1. scale previous_fs from 80% to 100%
-                    scale = 0.8 + (1 - now) * 0.2;
-                    //2. take current_fs to the right(50%) - from 0%
-                    left = ((1 - now) * 50) + "%";
-                    //3. increase opacity of previous_fs to 1 as it moves in
-                    opacity = 1 - now;
-                    current_fs.css({'left': left});
-                    previous_fs.css({'transform': 'scale(' + scale + ')', 'opacity': opacity});
-                },
-                duration: 800,
-                complete: function () {
-                    current_fs.hide();
-                    animating = false;
-                },
-                //this comes from the custom easing plugin
-                easing: 'easeInOutBack'
-            });
-        });
-
-        $(".submit").click(function () {
-            return false;
-        });
-
-        $("#search").keyup(function() // A chaque levée d'une touche du clavier sur l'id search, on fera :
-        {
-            // Nouvelle regex qui comprend la valeur de l'input
-            var myRegExp = new RegExp($(this).val(), 'i');
-
-            $('.nomAppareillageEnfant').each(function(){ // Pour chaque élément qui a la classe citée, faire :
-
-                // Si la vérification de la regex renvoie au minimum quelque chose, faire :
-                if (($(this).html().match(myRegExp) || []).length != 0)
-                {
-                    // On affiche le bloc correspondant avec un effet slide
-                    $(this).parent().parent().show('slide');
-                }
-                else // Sinon
-                {
-                    // On masque le bloc correspondant avec un effet slideOut
-                    $(this).parent().parent().hide('slideOut');
-                }
-            });
-        });
     </script>
 
     <script type="text/javascript">
@@ -407,12 +300,12 @@
             {
                 // On ajoute dans l'élément qui a pour id="images-app" :
                 $('#images-app').append('' +
-                    '<div class="col-xs-6">' +
+                        '<div class="col-xs-6">' +
                         '<button>' +
-                            '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
-                            '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
+                        '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
+                        '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
                         '</button>' +
-                    '</div>'
+                        '</div>'
                 );
             }
 
