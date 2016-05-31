@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
 <!-- Appel des bibliothèques jQuery -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" xmlns="http://www.w3.org/1999/html"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css"
       type="text/css" media="all"/>
@@ -53,21 +53,97 @@
 </div>
 
 {% block body %}
-    <div class="fos_user_user_show" id="msform">
-    <fieldset class="smallbloc">
+<div id="msform">
+    {{ form_start(form) }}
+    <fieldset class="largebloc">
+        <div id="container">
+            <div class="profileplace">
+                {{ form_label(form.username) }} <!-- Affiche le label -->
+                {{ form_errors(form.username) }}
+                {{ form_widget(form.username) }}
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+
+                {{ form_label(form.current_password) }}
+                {{ form_errors(form.current_password) }}
+                {{ form_widget(form.current_password) }}
+            </div>
+
+            <div class="profileplace">
+                <p><strong>Adresse de livraison</strong></p>
+                {{ form_label(form.adresseCab) }} <!-- Affiche le label -->
+                {{ form_errors(form.adresseCab) }} <!-- Affiche erreur si champ vide -->
+                {{ form_widget(form.adresseCab) }}
+
+                {{ form_label(form.codepostalCab) }}
+                {{ form_errors(form.codepostalCab) }}
+                {{ form_widget(form.codepostalCab) }}
+
+                {{ form_label(form.villeCab) }}
+                {{ form_errors(form.villeCab) }}
+                {{ form_widget(form.villeCab) }}
+
+                {{ form_label(form.telephoneCab) }}
+                {{ form_errors(form.telephoneCab) }}
+                {{ form_widget(form.telephoneCab) }}
+
+            </div>
+
+            <div class="profileplace">
+                <p><strong>Adresse de facturation</strong></p>
+                {{ form_label(form.adresseCab) }} <!-- Affiche le label -->
+                {{ form_errors(form.adresseCab) }} <!-- Affiche erreur si champ vide -->
+                {{ form_widget(form.adresseCab) }}
+                </br>
+                {{ form_label(form.codepostalCab) }}
+                {{ form_errors(form.codepostalCab) }}
+                {{ form_widget(form.codepostalCab) }}
+                </br>
+                {{ form_label(form.villeCab) }}
+                {{ form_errors(form.villeCab) }}
+                {{ form_widget(form.villeCab) }}
+                </br>
+                {{ form_label(form.telephoneCab) }}
+                {{ form_errors(form.telephoneCab) }}
+                {{ form_widget(form.telephoneCab) }}
+
+            </div>
+
+            <div class="profileplace">
+                <p><strong>Envoi du récapitulatif</strong></p>
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+                <p>Mail 2</p>
+                <p>Mail 3</p>
+            </div>
+            <br/>
+        </div>
 
 
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
-{{ form_end(form) }}
+
+
+
+
+            <div>
+                <input type="submit" id="buttonprofile" value="{{ 'profile.edit.submit'|trans }}" />
+            </div>
+
     </fieldset>
+</div>
 
 
-    </div>
+
+{{ form_end(form) }}
+
+
+
+
+
+
+
 
 {% endblock %}
 <!-- Appel de jQuery -->

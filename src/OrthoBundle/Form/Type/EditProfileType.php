@@ -54,6 +54,8 @@ class EditProfileType extends AbstractType
 
         ->add('telephoneCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
             'label' => 'Téléphone'))
+            
+            
         ;
 
     }
