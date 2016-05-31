@@ -2,22 +2,16 @@
 
 namespace OrthoBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use OrthoBundle\Entity\Commandes;
-use OrthoBundle\Entity\Appareillages;
-use OrthoBundle\Entity\PoidsAdjonctions;
-use OrthoBundle\Entity\PoidsAppareillages;
-use OrthoBundle\Form\Type\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use OrthoBundle\Entity\Commandes;
+use OrthoBundle\Entity\PoidsAppareillages;
+use OrthoBundle\Entity\PoidsAdjonctions;
+use OrthoBundle\Form\Type\CommandesType;
 
-class DefaultController extends Controller
+
+class FormulaireController extends Controller
 {
-    public function createAction()
+    public function createFormulaireAction()
     {
         // On crée une instance de l'entité Commandes
         $commande  = new Commandes();
@@ -29,7 +23,7 @@ class DefaultController extends Controller
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
-        
+
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
@@ -87,7 +81,7 @@ class DefaultController extends Controller
                     $em->persist($poidsAdjonction);
                 }
             }
-            
+
             // On prépare la mise en Base de données
             $em->persist($commande);
             // On met en Base de données
@@ -100,8 +94,6 @@ class DefaultController extends Controller
             )));
         }
 
-
-
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
@@ -113,65 +105,4 @@ class DefaultController extends Controller
 
         ));
     }
-
-    public function showAction($id)
-    {
-        // On récupère l'ID de la commande en question, passé dans l'URL
-        // Lors de la redirection de la commande.
-        $idCommande = $id;
-        
-        // On appelle Doctrine
-        $em = $this->getDoctrine()->getManager();
-        
-        // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagerecap = $em->getRepository('OrthoBundle:Commandes')->find($idCommande);
-        
-        // On affiche la vue de recap_formulaire, en prenant en paramètre
-        // La liste des informations du formulaire
-        return $this->render('OrthoBundle:Default:recap_formulaire.html.twig', array(
-            'affichagerecap' => $affichagerecap
-        ));
-    }
-
-
-    public function rechercheAction(Request $request, $id)
-
-    {
-
-        $em = $this->getDoctrine()->getManager();
-
-        $serializer = SerializerBuilder::create()->build();
-
-        $listOfApparels = $em->getRepository('OrthoBundle:Appareillages')->getListOfApparel($id);
-        $jsonContent = $serializer->serialize($listOfApparels, 'json');
-
-
-        $response = new Response($jsonContent);
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-        //return $this->render("OrthoBundle:Default:formulaire.html.twig");
-    }
-
-    public function SearchAction(Request $request)
-    {
-
-        $string = $this->getRequest()->request->get('searchText');
-        $app = $this->getDoctrine()
-            ->getRepository('OrthoBundle:Appareillages')
-            ->findByLetters($string);
-
-
-        $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers = array(new GetSetMethodNormalizer());
-        $serializer = new Serializer($normalizers, $encoders);
-
-        $jsonContent = $serializer->serialize($app, 'json');
-
-        $response = new Response($jsonContent);
-        return $response;
-    }
-
 }
-
-
-
