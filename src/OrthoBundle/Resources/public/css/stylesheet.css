@@ -114,10 +114,7 @@ input[type="file"] {
 .navbar-inverse {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,c8d7eb+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100;Grey+Blue+Gloss+%231 */
     /*background: #20B2AA; /* Old browsers */
-    background: #27AE60; /*vert nouveau design*/
-    /*background: -moz-linear-gradient(top,  #d2dfed 0%, #c8d7eb 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); / FF3.6-15 /
-    /*background: -webkit-linear-gradient(top,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / Chrome10-25,Safari5.1-6 /
-    /*background: linear-gradient(to bottom,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ccff90; /*vert nouveau design*/
     /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2dfed', endColorstr='#799bc8', GradientType=0); /* IE6-9 */
     border-radius: 0;
     border: none;
@@ -130,7 +127,7 @@ input[type="file"] {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: whitesmoke;
+    color: #2e7d32;
 }
 
 
@@ -255,7 +252,7 @@ a:hover, a:focus, a:active {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #ccff90;
 }
 
 #imageSchemaApp {
@@ -482,7 +479,7 @@ fieldset > label {
     background: white;
     border: 0 none;
     border-radius: 8px;
-    box-shadow: 0 0 15px 1px #27AE60;
+    box-shadow: 0 0 15px 1px #76ff03;
     padding: 20px;
     box-sizing: border-box;
     width: 40%;

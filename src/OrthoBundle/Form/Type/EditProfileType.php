@@ -42,10 +42,19 @@ class EditProfileType extends AbstractType
             'constraints' => new UserPassword(),
         ))
 
-        ->add('adresseCab')
-        ->add('codepostalCab')
-        ->add('villeCab')
-        ->add('telephoneCab');
+        ->add('adresseCab', 'text', array(
+        'attr' => array('placeholder' => 'Adresse'),
+        'label' => 'Adresse',))
+
+        ->add('codepostalCab', 'text', array( 'attr' => array( 'placeholder' => 'Code Postal'),
+            'label' => 'Code Postal',))
+
+        ->add('villeCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+            'label' => 'Ville'))
+
+        ->add('telephoneCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
+            'label' => 'Téléphone'))
+        ;
 
     }
 
