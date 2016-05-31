@@ -140,20 +140,22 @@ input[type="file"] {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#27AE60', GradientType=0);
 }
 
-.header_recap {
+/*.header_recap {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.header_recap h2 {
+    padding-top: 6px;
+    text-align: center;
+}*/
 
 .coche_vert {
     text-align: center;
     width: 4%;
     float: left;
-}
-
-.header_recap h2 {
-    padding-top: 6px;
-    text-align: center;
+    display: flex;
 }
 
 #imprimante, #image_envoi_email {

@@ -2,10 +2,13 @@
 
 namespace OrthoBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
+
+
 /**
  * Laboratoire
  */
-class Laboratoire
+class Laboratoire extends BaseUser
 {
     // CUSTOM CODE
     
@@ -16,7 +19,7 @@ class Laboratoire
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
     
     /**
      * @var string

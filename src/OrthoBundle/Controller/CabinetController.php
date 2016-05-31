@@ -32,6 +32,14 @@ class CabinetController extends Controller
         // On hydrate notre formulaire
         $form->handleRequest($request);
 
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cabinet);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('fiche_cabinet', array('id' => $cabinet->getId())));
+        }
+
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:crea_cabinet.html.twig', array(
