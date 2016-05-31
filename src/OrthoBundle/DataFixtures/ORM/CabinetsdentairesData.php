@@ -4,10 +4,12 @@ namespace OrthoBundle\DataFixtures\ORM;
 
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OrthoBundle\Entity\Cabinetsdentaires;
 
-class CabinetsdentairesData extends AbstractFixture
+
+class CabinetsdentairesData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -16,8 +18,8 @@ class CabinetsdentairesData extends AbstractFixture
         $cabinet1->setPlainPassword("SuperAdmin");
         $cabinet1->setEnabled(true);
         $cabinet1->setEmail("SuperAdmin@gmail.com");
-        $cabinet1->setRoles(array('ROLE_ADMIN'));
-        $cabinet1->setFidLabo(1);
+        $cabinet1->setRoles(array('ROLE_CABINET'));
+        $cabinet1->setFidLabo($this->getReference('laboratoire1'));
         $cabinet1->setNomCab("Néo 3D");
         $cabinet1->setAdresseCab("5 Allée des Atlantes");
         $cabinet1->setCodepostalCab("28000");
@@ -31,7 +33,7 @@ class CabinetsdentairesData extends AbstractFixture
         $cabinet2->setEnabled(true);
         $cabinet2->setEmail("teamneo3D@gmail.com");
         $cabinet2->setRoles(array('ROLE_USER'));
-        $cabinet2->setFidLabo(1);
+        $cabinet2->setFidLabo($this->getReference('laboratoire1'));
         $cabinet2->setNomCab("Néo 3D");
         $cabinet2->setAdresseCab("5 Allée des Atlantes");
         $cabinet2->setCodepostalCab("28000");

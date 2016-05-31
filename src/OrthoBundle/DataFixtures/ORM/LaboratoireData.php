@@ -4,10 +4,11 @@ namespace OrthoBundle\DataFixtures\ORM;
 
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OrthoBundle\Entity\Laboratoire;
 
-class LaboratoireData extends AbstractFixture
+class LaboratoireData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -22,6 +23,7 @@ class LaboratoireData extends AbstractFixture
 
         $manager->flush();
 
+        $this->addReference('laboratoire1', $laboratoire1);
     }
 
     public function getOrder()
