@@ -11,7 +11,7 @@
                 <p><strong>Utilisateur</strong></p>
             <p>Identifiant <span class="affichageCadreProfil"> {{ user.username }}</span> </p>
             <p>Email 1 <span class="affichageCadreProfil">{{ user.email }}</span> </p>
-            <p>Email 2 <span class="affichageCadreProfil">{{ user.email }}</span> </p>
+            <p>Email 2 <span class="affichageCadreProfil">{{ user.emailbisCab }}</span> </p>
             </div>
             <br/>
             <div class="profileplace">
@@ -24,17 +24,18 @@
             <br/>
             <div class="profileplace">
             <p><strong>Adresse de facturation</strong></p>
-                <p>Adresse <span class="affichageCadreProfil"> {{ user.adresseCab }}</span></p>
-                <p>Code Postal <span class="affichageCadreProfil"> {{ user.codepostalCab }}</span></p>
-                <p>ville <span class="affichageCadreProfil">{{ user.villeCab }}</span></p>
+                <p>Adresse <span class="affichageCadreProfil"> {{ user.adressebisCab }}</span></p>
+                <p>Code Postal <span class="affichageCadreProfil"> {{ user.codepostalbisCab }}</span></p>
+                <p>ville <span class="affichageCadreProfil">{{ user.villebisCab }}</span></p>
+                <p>Téléphone <span class="affichageCadreProfil">{{ user.telephonebisCab }}</span></p>
             </div>
             <br/>
             <div class="profileplace">
             <h4>Envoi du récapitulatif</h4>
             <br/>
             <p>Mail 1 <span class="affichageCadreProfil">{{ user.email }}</span></p>
-            <p>Mail 2</p>
-            <p>Mail 3</p>
+            <p>Mail 2<span class="affichageCadreProfil">{{ user.emailbisCab }}</span></p>
+            <p>Mail 3<span class="affichageCadreProfil">{{ user.emailterCab }}</span></p>
                 </div>
             <br/>
             </div>

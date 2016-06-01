@@ -55,6 +55,36 @@ class Cabinetsdentaires extends BaseUser
      * @var string
      */
     private $telephoneCab;
+
+    /**
+     * @var string
+     */
+    private $adressebisCab;
+    /**
+     * @var string
+     */
+    private $codepostalbisCab;
+    /**
+     * @var string
+     */
+    private $villebisCab;
+    /**
+     * @var string
+     */
+    private $telephonebisCab;
+    /**
+     * @var string
+     */
+    private $mailCab;
+    /**
+     * @var string
+     */
+    private $emailbisCab;
+    /**
+     * @var string
+     */
+    private $emailterCab;
+
     
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -289,5 +319,166 @@ class Cabinetsdentaires extends BaseUser
     public function getPoidsAdjonction()
     {
         return $this->poidsAdjonction;
+    }
+
+    /**
+     * Set adressebisCab
+     *
+     * @param string $adressebisCab
+     * @return Cabinetsdentaires
+     */
+    public function setAdressebisCab($adressebisCab)
+    {
+        $this->adressebisCab = $adressebisCab;
+
+        return $this;
+    }
+
+    /**
+     * Get adressebisCab
+     *
+     * @return string 
+     */
+    public function getAdressebisCab()
+    {
+        return $this->adressebisCab;
+    }
+
+    /**
+     * Set codepostalbisCab
+     *
+     * @param string $codepostalbisCab
+     * @return Cabinetsdentaires
+     */
+    public function setCodepostalbisCab($codepostalbisCab)
+    {
+        $this->codepostalbisCab = $codepostalbisCab;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostalbisCab
+     *
+     * @return string 
+     */
+    public function getCodepostalbisCab()
+    {
+        return $this->codepostalbisCab;
+    }
+
+    /**
+     * Set villebisCab
+     *
+     * @param string $villebisCab
+     * @return Cabinetsdentaires
+     */
+    public function setVillebisCab($villebisCab)
+    {
+        $this->villebisCab = $villebisCab;
+
+        return $this;
+    }
+
+    /**
+     * Get villebisCab
+     *
+     * @return string 
+     */
+    public function getVillebisCab()
+    {
+        return $this->villebisCab;
+    }
+
+    /**
+     * Set telephonebisCab
+     *
+     * @param string $telephonebisCab
+     * @return Cabinetsdentaires
+     */
+    public function setTelephonebisCab($telephonebisCab)
+    {
+        $this->telephonebisCab = $telephonebisCab;
+
+        return $this;
+    }
+
+    /**
+     * Get telephonebisCab
+     *
+     * @return string 
+     */
+    public function getTelephonebisCab()
+    {
+        return $this->telephonebisCab;
+    }
+
+    /**
+     * Set emailbisCab
+     *
+     * @param string $emailbisCab
+     * @return Cabinetsdentaires
+     */
+    public function setEmailbisCab($emailbisCab)
+    {
+        $this->emailbisCab = $emailbisCab;
+
+        return $this;
+    }
+
+    /**
+     * Get emailbisCab
+     *
+     * @return string 
+     */
+    public function getEmailbisCab()
+    {
+        return $this->emailbisCab;
+    }
+
+    /**
+     * Set emailterCab
+     *
+     * @param string $emailterCab
+     * @return Cabinetsdentaires
+     */
+    public function setEmailterCab($emailterCab)
+    {
+        $this->emailterCab = $emailterCab;
+
+        return $this;
+    }
+
+    /**
+     * Get emailterCab
+     *
+     * @return string 
+     */
+    public function getEmailterCab()
+    {
+        return $this->emailterCab;
+    }
+
+    /**
+     * Set mailCab
+     *
+     * @param string $mailCab
+     * @return Cabinetsdentaires
+     */
+    public function setMailCab($mailCab)
+    {
+        $this->mailCab = $mailCab;
+
+        return $this;
+    }
+
+    /**
+     * Get mailCab
+     *
+     * @return string 
+     */
+    public function getMailCab()
+    {
+        return $this->mailCab;
     }
 }

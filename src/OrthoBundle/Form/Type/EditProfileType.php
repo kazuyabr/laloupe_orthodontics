@@ -54,8 +54,28 @@ class EditProfileType extends AbstractType
 
         ->add('telephoneCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
             'label' => 'Téléphone'))
-            
-            
+
+        ->add('adressebisCab', 'text', array(
+            'attr' => array('placeholder' => 'Adresse'),
+            'label' => 'Adresse',))
+
+        ->add('codepostalbisCab', 'text', array( 'attr' => array( 'placeholder' => 'Code Postal'),
+            'label' => 'Code Postal',))
+
+        ->add('villebisCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+            'label' => 'Ville'))
+
+        ->add('telephonebisCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
+            'label' => 'Téléphone'))
+
+        ->add('mailCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+            'label' => 'Email 1'))
+
+        ->add('emailbisCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+            'label' => 'Email 2'))
+
+        ->add('emailterCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
+            'label' => 'Email 3'))    
         ;
 
     }
