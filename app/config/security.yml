@@ -7,7 +7,7 @@ security:
 
     role_hierarchy:
         ROLE_CABINET:     ROLE_USER
-        ROLE_LABORATOIRE: ROLE
+        ROLE_LABORATOIRE: [ROLE_USER, ROLE_LABO]
         ROLE_TEAMNEO:     ROLE_TEAMNEO
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
@@ -33,9 +33,9 @@ security:
                # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
             form_login:
-                provider: fos_userbundle
+                provider:       fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                login_path: / # La route utilisée pour le formulaire de login
+                login_path:     / # La route utilisée pour le formulaire de login
                 check_path:     /login_check # La route utilisée pour vérifier les identifiants
                 failure_path:   / # La redirection en cas d'échec d'authentification
                 default_target_path: /formulaire # La redirection par défaut en cas d'authentification avec succès
@@ -47,4 +47,3 @@ security:
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin/, role: ROLE_ADMIN }
             - { path: ^/formulaire/, role: ROLE_CABINET }
-            - { path: ^/profile/, role: ROLE_TEAMNEO}
