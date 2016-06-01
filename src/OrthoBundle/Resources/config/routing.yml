@@ -17,3 +17,8 @@ fiche_cabinet:
     path:     /fichecabinet/{id}
     defaults: { _controller: OrthoBundle:Cabinet:show }
     methods: [POST, GET]
+
+crea_appadj:
+    path:     /ajoutapp/{id}
+    defaults: { _controller: OrthoBundle:Defaut:show }
+    methods: [POST, GET]
