@@ -29,7 +29,7 @@ class FormulaireController extends Controller
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
-        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser($user->getId());
+        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser($this->getUser());
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
@@ -64,7 +64,6 @@ class FormulaireController extends Controller
 
                     $em->persist($poids);
                 }
-
             }
 
             foreach ($commande->getFidAdj() as $adjonction)

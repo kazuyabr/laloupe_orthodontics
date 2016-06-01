@@ -18,6 +18,11 @@ class Cabinetsdentaires extends BaseUser
 
     private $poidsAdjonction;
     
+    public function getActualUser()
+    {
+        return $this->id;
+    }
+    
     
     // GENERATED CODE
     
