@@ -2,6 +2,7 @@
 
 namespace OrthoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commandes
@@ -11,8 +12,69 @@ class Commandes
 
     // CUSTOM CODE
 
-    private $pieceJointeAM;
+    protected function getUploadDir()
+    {
+        return 'uploads';
+    }
 
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->logo ? null : $this->getUploadDir().'/'.$this->logo;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->logo ? null : $this->getUploadRootDir().'/'.$this->logo;
+    }
+
+
+    /**
+     * @ORM\prePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->testimage) {
+            // do whatever you want to generate a unique name
+            $this->logo = uniqid().'.'.$this->testimage->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\postRemove
+     */
+    public function removeUpload()
+    {
+        if ($testimage = $this->getAbsolutePath()) {
+            unlink($testimage);
+        }
+    }
+
+    /**
+     * @ORM\postPersist
+     */
+    public function upload()
+    {
+        // Si jamais il n'y a pas de fichier (champ facultatif), on ne fait rien
+        if (null === $this->testimage) {
+            return;
+        }
+
+        // On récupère le nom original du fichier de l'internaute
+        $name = $this->testimage->getClientOriginalName();
+
+        // On déplace le fichier envoyé dans le répertoire de notre choix
+        $this->testimage->move($this->getUploadRootDir(), $name);
+
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
     public function setCreatedAtValue()
     {
         $this->setDatecommande(new \DateTime());
@@ -29,6 +91,7 @@ class Commandes
     private $ajoutApp;
 
     private $ajoutAdj;
+
 
     /**
      * Get ajoutApp
@@ -137,7 +200,7 @@ class Commandes
     /**
      * @var string
      */
-    private $photos;
+    //private $photos;
 
     /**
      * Constructor
@@ -453,32 +516,6 @@ class Commandes
     {
         return $this->fidAdj;
     }
-    
-    /**
-     * Set photos
-     *
-     * @param string $photos
-     * @return Commandes
-     */
-    public function setPhotos($photos)
-    {
-        $this->photos = $photos;
-
-        return $this;
-    }
-
-    /**
-     * Get photos
-     *
-     * @return string 
-     */
-    public function getPhotos()
-    {
-        return $this->photos;
-    }
-    /**
-     * @var string
-     */
 
     /**
      * Set piecejointeAM
@@ -502,4 +539,28 @@ class Commandes
     {
         return $this->piecejointeAM;
     }
+
+    /**
+     * Set testimage
+     *
+     * @param string $testimage
+     * @return Commandes
+     */
+    public function setTestimage($testimage)
+    {
+        $this->testimage = $testimage;
+
+        return $this;
+    }
+
+    /**
+     * Get testimage
+     *
+     * @return string 
+     */
+    public function getTestimage()
+    {
+        return $this->testimage;
+    }
+
 }

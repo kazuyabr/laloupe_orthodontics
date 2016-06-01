@@ -64,21 +64,13 @@
                                     <ul>
                                         <li><a data-family="mob" class="family-button" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-family="fix" class="family-button" data-target="#myModal2">Fixe</a><br/></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal"
-                                               data-target="#myModal2">Elastodontie</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
-                                                Indirect</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage Indirect</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
                                     </ul>
                                 </div>
@@ -100,7 +92,7 @@
                                         <input type="text" class="form-control quicksearch" placeholder="Entrez votre recherche" id="search">
                                         <span class="input-group-addon">
                                             <button type="submit">
-                                                <span class="glyphicon glyphicon-search"></span>
+                                                <i class="fa fa-search"></i>
                                             </button>
                                         </span>
                                     </div>
@@ -119,8 +111,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                    <input type="button" name="previous" class="previous action-button" value="Fermer"/>
+                                    <input type="submit" name="previous" class="action-button" value="VALIDER"/>
                                 </div>
                             </div>
                         </div>
@@ -160,18 +152,19 @@
             {{ form_label(form.testimage, "Arcade Maxilaire :") }}
             {{ form_errors(form.testimage) }}
             {{ form_widget(form.testimage) }}
-
-            {{ form_label(form.testimage1, "Arcade mandibulaire :") }}
+{#
+            {{{ form_label(form.testimage1, "Arcade mandibulaire :") }}
             {{ form_errors(form.testimage1) }}
             {{ form_widget(form.testimage1) }}
 
             {{ form_label(form.testimage2, "Autre pièces jointes :") }}
             {{ form_errors(form.testimage2) }}
             {{ form_widget(form.testimage2) }}
-
+#}
             {{ form_label(form.comment2, "Autres commentaires :") }}
             {{ form_errors(form.comment2) }}
             {{ form_widget(form.comment2) }}
+
 
             {{ form_rest(form) }}
             {{ form_end(form) }}
@@ -186,7 +179,7 @@
     <script>
         var appareillages = {
             {% for namepictures in nomimageapp %}
-            "{{ namepictures.id }}" : {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
+            "{{ namepictures.id }}" : {"id": "{{ namepictures.id }}","title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
             {% endfor %}
         };
     </script>
@@ -220,6 +213,9 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         });
+
+
+
 
         // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
@@ -261,43 +257,4 @@
 
     </script>
 
-    <script type="text/javascript">
-
-
-    </script>
-
-    <script>
-        $(function () {
-            // quick search regex
-            var qsRegex;
-            // init Isotope
-            var $grid = $('.grid').isotope({
-                itemSelector: '.element-item',
-                layoutMode: 'fitRows',
-                filter: function () {
-                    return qsRegex ? $(this).text().match(qsRegex) : true;
-                }
-            });
-            // use value of search field to filter
-            var $quicksearch = $('.quicksearch').keyup(debounce(function () {
-                qsRegex = new RegExp($quicksearch.val(), 'gi');
-                $grid.isotope();
-            }, 200));
-        });
-        // debounce so filtering doesn't happen every millisecond
-        function debounce(fn, threshold) {
-            var timeout;
-            return function debounced() {
-                if (timeout) {
-                    clearTimeout(timeout);
-                }
-                function delayed() {
-                    fn();
-                    timeout = null;
-                }
-
-                timeout = setTimeout(delayed, threshold || 100);
-            }
-        }
-    </script>
 {% endblock %}

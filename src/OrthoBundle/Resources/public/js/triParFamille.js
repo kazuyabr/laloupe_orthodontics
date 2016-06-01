@@ -39,12 +39,22 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
         // On ajoute dans l'élément qui a pour id="images-app" :
         $('#images-app').append('' +
             '<div class="col-xs-6">' +
-            '<button>' +
-            '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
-            '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
-            '</button>' +
+                '<div class="blocAppareillage" data-id="' + app[compteur].id + '">' +
+                    '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
+                    '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
+                '</div>' +
             '</div>'
         );
     }
+
+
+    $('.blocAppareillage').on('click', function () {
+        if ($('#modalbuttoncheck-'+$(this).attr('data-id')).length) {
+            $('#modalbuttoncheck-'+$(this).attr('data-id')).remove();
+        }
+        else {
+        $('#msform').prepend('<input type="checkbox" checked="checked" style="display:none;" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />')
+        }
+    });
 
 });

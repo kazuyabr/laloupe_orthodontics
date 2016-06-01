@@ -35,13 +35,6 @@ OrthoBundle\Entity\Commandes:
         testimage:
             type: string
             nullable: true
-        testimage1:
-            type: string
-            nullable: true
-        testimage2:
-            type: string
-            nullable: true
-
 
     manyToOne:
         fidCabinet:
@@ -92,4 +85,8 @@ OrthoBundle\Entity\Commandes:
 
 
     lifecycleCallbacks:
-          prePersist: [setCreatedAtValue]
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ preUpload ]
+        postPersist: [ upload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]

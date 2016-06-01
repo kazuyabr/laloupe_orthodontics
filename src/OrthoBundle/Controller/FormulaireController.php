@@ -19,7 +19,7 @@ class FormulaireController extends Controller
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
         // "CommandesType.php" ainsi que l'instance de l'entité Commandes
-        $form    = $this->createForm(new CommandesType(), $commande);
+        $form = $this->createForm(new CommandesType(), $commande);
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
@@ -37,6 +37,9 @@ class FormulaireController extends Controller
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
+            // Gestion des fichiers uploadé : PJ numéro 1
+
+
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil)
