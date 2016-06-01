@@ -1,6 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
-
 body {
     margin: 0 1.5em;
     background-color: #f8f8f8;
@@ -14,7 +13,6 @@ h3 {
 #ours {
     width: 100%;
 }
-
 
 /*#commandes_fidAdj {
     width: 100%;
@@ -66,6 +64,7 @@ h3 {
 #coulmot {
     display: inline-block;
 }
+
 #coulmot > label {
     margin-left: 20px;
 }
@@ -91,7 +90,6 @@ h3 {
 
 }*/
 
-
 input {
     margin: 0 0 10px;
     /* margin: 10 px; */
@@ -115,10 +113,7 @@ input[type="file"] {
 .navbar-inverse {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,c8d7eb+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100;Grey+Blue+Gloss+%231 */
     /*background: #20B2AA; /* Old browsers */
-    background: #27AE60; /*vert nouveau design*/
-    /*background: -moz-linear-gradient(top,  #d2dfed 0%, #c8d7eb 26%, #bed0ea 51%, #a6c0e3 51%, #afc7e8 62%, #bad0ef 75%, #99b5db 88%, #799bc8 100%); / FF3.6-15 /
-    /*background: -webkit-linear-gradient(top,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / Chrome10-25,Safari5.1-6 /
-    /*background: linear-gradient(to bottom,  #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%); / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ccff90; /*vert nouveau design*/
     /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2dfed', endColorstr='#799bc8', GradientType=0); /* IE6-9 */
     border-radius: 0;
     border: none;
@@ -126,29 +121,41 @@ input[type="file"] {
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-/ text-shadow: 0 - 1 px 0 rgba(0, 0, 0, .25);
-/
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: whitesmoke;
+    color: #2e7d32;
 }
 
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > li:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+    background-image: -webkit-linear-gradient(top, #353535 0%, #27AE60 100%);
+    background-image: -o-linear-gradient(top, #353535 0%, #27AE60 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#27AE60));
+    background-image: linear-gradient(to bottom, #353535 0%, #27AE60 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#27AE60', GradientType=0);
+}
 
-.header_recap {
+/*.header_recap {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.header_recap h2 {
+    padding-top: 6px;
+    text-align: center;
+}*/
 
 .coche_vert {
     text-align: center;
     width: 4%;
     float: left;
-}
-
-.header_recap h2 {
-    padding-top: 6px;
-    text-align: center;
+    display: flex;
 }
 
 #imprimante, #image_envoi_email {
@@ -256,7 +263,7 @@ a:hover, a:focus, a:active {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #ccff90;
 }
 
 #imageSchemaApp {
@@ -289,7 +296,10 @@ input[type=checkbox] {
 /*custom font*/
 
 /*basic reset*/
-* {margin: 0; padding: 0;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
 html {
     height: 100%;
@@ -298,14 +308,16 @@ html {
 body {
     font-family: montserrat, arial, verdana;
 }
+
 /*form styles*/
 #msform {
     /*width: 400px;*/
-    width: 800px;/**/
+    width: 800px; /**/
     margin: 50px auto;
     text-align: center;
     position: relative;
 }
+
 #msform fieldset {
     background: white;
     border: 0 none;
@@ -318,18 +330,22 @@ body {
     /*stacking fieldsets above each other*/
     position: absolute;
 }
+
 #msform fieldset.smallbloc {
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
 }
+
 #msform fieldset.largebloc {
     width: 100%;
 }
+
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
     display: none;
 }
+
 /*inputs*/
 #msform input,
 #msform button,
@@ -344,24 +360,30 @@ body {
     color: #2C3E50;
     font-size: 13px;
 }
+
 /*buttons*/
 #msform .action-button {
     width: 100px;
-    background: #27AE60;
+    /*background:#76ff03;*/
+    background:#ccff90;
     font-weight: bold;
-    color: white;
+    /*color: white;*/
+    color: #2e7d32;
     border: 0 none;
     border-radius: 1px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
 }
+
 #msform a.action-button {
     float: right;
 }
+
 #msform .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
+
 /*headings*/
 .fs-title {
     font-size: 15px;
@@ -369,12 +391,14 @@ body {
     color: #2C3E50;
     margin-bottom: 10px;
 }
+
 .fs-subtitle {
     font-weight: normal;
     font-size: 13px;
     color: #666;
     margin-bottom: 20px;
 }
+
 /*progressbar*/
 #progressbar {
     margin-bottom: 30px;
@@ -382,15 +406,17 @@ body {
     /*CSS counters to number the steps*/
     counter-reset: step;
 }
+
 #progressbar li {
     list-style-type: none;
-    color: white;
+    color:white ;
     text-transform: uppercase;
     font-size: 9px;
     width: 33.33%;
     float: left;
     position: relative;
 }
+
 #progressbar li:before {
     content: counter(step);
     counter-increment: step;
@@ -403,6 +429,7 @@ body {
     border-radius: 3px;
     margin: 0 auto 5px auto;
 }
+
 /*progressbar connectors*/
 #progressbar li:after {
     content: '';
@@ -414,13 +441,20 @@ body {
     top: 9px;
     z-index: -1; /*put it behind the numbers*/
 }
+
 #progressbar li:first-child:after {
     /*connector not needed before the first step*/
     content: none;
 }
+
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
+
+#progressbar li.active:before,  #progressbar li.active:after {
+    background: #76ff03;
+}
+
+#progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
     color: white;
 }
@@ -432,36 +466,75 @@ fieldset > label {
 .blocAppAdj {
     width: 47%;
 }
+
 #blocApp {
     float: left;
 }
+
 #blocAdj {
     float: right;
 }
 
-#commandes_dateretour
-{
+#commandes_dateretour {
     height: 50px;
 }
 
-.rectangeProfil
-{
+.rectangeProfil {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 10px;
-    width: 100  %;
+    width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
     font-size: 13px;
 }
 
-#msform h2
-{
+#msform h2 {
     padding-bottom: 10px;
 }
 
+.affichageCadreProfil {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+
+}
+
+.profileplace {
+    background: white;
+    border: 0 none;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px #76ff03;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 40%;
+    margin: 35px;
+
+    /*stacking fieldsets above each other*/
+
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+
+}
+
+
+#buttonprofile {
+    background-color: #76ff03;
+
+}
 
 
 

@@ -43,7 +43,7 @@ class CabinetsdentairesData extends AbstractFixture implements OrderedFixtureInt
         $manager->persist($cabinet2);
         
         
-        $cabinet3 =  new Cabinetsdentaires();
+        $cabinet3 = new Cabinetsdentaires();
         $cabinet3->setUsername("Laboratoire1");
         $cabinet3->setPlainPassword("Laboratoire1");
         $cabinet3->setEnabled(true);

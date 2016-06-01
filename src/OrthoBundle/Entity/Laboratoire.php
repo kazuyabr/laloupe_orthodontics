@@ -2,10 +2,13 @@
 
 namespace OrthoBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
+
+
 /**
  * Laboratoire
  */
-class Laboratoire
+class Laboratoire extends BaseUser
 {
     // CUSTOM CODE
 
@@ -15,7 +18,7 @@ class Laboratoire
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
     
     /**
      * @var string
@@ -57,6 +60,7 @@ class Laboratoire
      */
     public function __construct()
     {
+        parent::__construct();
         $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

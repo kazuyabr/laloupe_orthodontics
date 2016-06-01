@@ -11,8 +11,6 @@ security:
         ROLE_TEAMNEO:     ROLE_TEAMNEO
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
-
-
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         fos_userbundle:

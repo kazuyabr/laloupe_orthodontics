@@ -2,7 +2,6 @@
 
 namespace OrthoBundle\DataFixtures\ORM;
 
-
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -13,6 +12,11 @@ class LaboratoireData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $laboratoire1 = new Laboratoire();
+        $laboratoire1->setUsername("laboratoire1");
+        $laboratoire1->setPlainPassword("laboratoire1");
+        $laboratoire1->setEnabled(true);
+        $laboratoire1->setEmail("laboratoire@gmail.com");
+        $laboratoire1->setRoles(array('ROLE_LABORATOIRE'));
         $laboratoire1->setNomLabo("Arseus Lab Site Colmar");
         $laboratoire1->setAdresseLabo("4 rue Emile Schwoerer");
         $laboratoire1->setCodepostalLabo("68000");

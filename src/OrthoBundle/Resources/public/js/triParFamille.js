@@ -39,10 +39,10 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
         // On ajoute dans l'élément qui a pour id="images-app" :
         $('#images-app').append('' +
             '<div class="col-xs-6">' +
-            '<button>' +
-            '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
-            '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
-            '</button>' +
+                '<button>' +
+                    '<img src="' + app[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
+                    '<span class="nomAppareillageEnfant">' + app[compteur].title + '</span>' +
+                '</button>' +
             '</div>'
         );
     }
