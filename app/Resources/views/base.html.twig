@@ -39,31 +39,42 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-
                     {% if app.user %}
                         <!-- user is logged in -->
                         <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'ortho_formulaire' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
-                        </li>
                         <li {% if app.request.get('_route') == 'fos_user_profile_show' or app.request.get('_route') == 'fos_user_profile_edit' %}
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                        </li>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <!-- user is logged in ROLE_SUPER_ADMIN -->
+                        <li {% if app.request.get('_route') == 'crea_labo' or app.request.get('_route') == 'fiche_labo' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('crea_labo') }}">Ajouter un laboratoire</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'recup_commandes' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('recup_commandes') }}">Commandes</a>
+                        </li>
+
+                    {% elseif is_granted('ROLE_USER') %}
+                        <!-- user is logged in ROLE_USER -->
+                        <li {% if app.request.get('_route') == 'ortho_formulaire' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
                         </li>
                         <li {% if app.request.get('_route') == 'crea_cabinet' or app.request.get('_route') == 'fiche_cabinet' %}
                             class="active"{% endif %}>
                             <a href="{{ path('crea_cabinet') }}">Ajouter un cabinet</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'crea_labo' or app.request.get('_route') == 'fiche_labo' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('crea_labo') }}">Ajouter un laboratoire</a>
-                        </li>
+
                     {% else %}
-                        <!-- user is not logged in -->
+                        <!-- user is NOT logged in -->
                         <li {% if app.request.get('_route') == 'fos_user_security_login' %}
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_security_login') }}">Connexion</a>
@@ -75,6 +86,7 @@
                     </li>
 
                 </ul>
+
             </div>
         </nav>
     </div>

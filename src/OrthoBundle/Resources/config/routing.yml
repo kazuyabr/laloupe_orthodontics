@@ -27,3 +27,8 @@ fiche_labo:
     path:     /fichelaboratoire/{id}
     defaults: { _controller: OrthoBundle:Laboratoire:show }
     methods: [POST, GET]
+
+recup_commandes:
+    path:     /commandes
+    defaults: { _controller: OrthoBundle:Commandes:show }
+    methods: [POST, GET]

@@ -522,6 +522,9 @@ fieldset > label {
     /*stacking fieldsets above each other*/
 
 }
+.smallbloc .profileplace {
+    width: 100%;
+}
 
 #container {
     display: flex;

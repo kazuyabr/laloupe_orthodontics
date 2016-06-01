@@ -12,5 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommandesRepository extends EntityRepository
 {
-    
+ 
+    public function getTotalCommandes()
+    {
+        $queryBuilder = $this->createQueryBuilder('commandes')
+                            ->select('COUNT(commandes.id)');
+        
+        return $queryBuilder->getQuery()->getResult();
+    }
 }
