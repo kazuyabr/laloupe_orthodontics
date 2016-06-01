@@ -380,7 +380,8 @@ body {
     float: right;
 }
 
-#msform .action-button:hover, #msform .action-button:focus {
+#msform .action-button:hover,
+#msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 

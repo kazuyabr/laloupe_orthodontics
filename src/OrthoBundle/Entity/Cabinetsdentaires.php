@@ -17,6 +17,17 @@ class Cabinetsdentaires extends BaseUser
     }
 
     private $poidsAdjonction;
+
+
+    public function activationDuCompte()
+    {
+        $this->setEnabled(true);
+    }
+
+    public function attributionDuRole()
+    {
+        $this->setRoles(array('ROLE_ADMIN'));
+    }
     
     
     // GENERATED CODE

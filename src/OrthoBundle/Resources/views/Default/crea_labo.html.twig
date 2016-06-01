@@ -1,0 +1,79 @@
+{# @OrthoBundle/Resources/views/Default/crea_labo.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <form id="msform" action="{{ path('crea_labo') }}" method="post">
+
+        {% if app.user %}
+            <!-- user is logged in -->
+
+            <!-- Barre de progression
+            <ul id="progressbar">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+            -->
+            {{ form_start(form) }}
+
+            <fieldset class="largebloc">
+                <h2 class="fs-title">Ajouter un Laboratoire</h2>
+                <h3 class="fs-subtitle">Tous les champs sont obligatoires.</h3>
+
+                <div id="container">
+                    <div class="profileplace">
+                        {{ form_label(form.username) }}
+                        {{ form_errors(form.username) }}
+                        {{ form_widget(form.username) }}
+
+                        {{ form_label(form.plain_password) }}
+                        {{ form_errors(form.plain_password) }}
+                        {{ form_widget(form.plain_password) }}
+
+                        {{ form_label(form.nomLabo) }}
+                        {{ form_errors(form.nomLabo) }}
+                        {{ form_widget(form.nomLabo) }}
+
+                        {{ form_label(form.email) }}
+                        {{ form_errors(form.email) }}
+                        {{ form_widget(form.email) }}
+
+                        {{ form_label(form.mailLabo) }}
+                        {{ form_errors(form.mailLabo) }}
+                        {{ form_widget(form.mailLabo) }}
+                    </div>
+                    <div class="profileplace">
+                        {{ form_label(form.adresseLabo) }}
+                        {{ form_errors(form.adresseLabo) }}
+                        {{ form_widget(form.adresseLabo) }}
+
+                        {{ form_label(form.codepostalLabo) }}
+                        {{ form_errors(form.codepostalLabo) }}
+                        {{ form_widget(form.codepostalLabo) }}
+
+                        {{ form_label(form.villeLabo) }}
+                        {{ form_errors(form.villeLabo) }}
+                        {{ form_widget(form.villeLabo) }}
+
+                        {{ form_label(form.telephoneLabo) }}
+                        {{ form_errors(form.telephoneLabo) }}
+                        {{ form_widget(form.telephoneLabo) }}
+                    </div>
+                </div>
+
+
+                <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
+
+            </fieldset>
+            {{ form_end(form) }}
+        {% else %}
+            <!-- user is not logged in -->
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
+
+        {% endif %}
+
+    </form>
+
+{% endblock %}

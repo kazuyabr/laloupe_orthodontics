@@ -11,16 +11,25 @@ use FOS\UserBundle\Model\User as BaseUser;
 class Laboratoire extends BaseUser
 {
     // CUSTOM CODE
+
+    public function activationDuCompte()
+    {
+        $this->setEnabled(true);
+    }
+
+    public function attributionDuRole()
+    {
+        $this->setRoles(array('ROLE_ADMIN'));
+    }
     
-    
-    
+
     // GENERATED CODE
 
     /**
      * @var integer
      */
     protected $id;
-    
+
     /**
      * @var string
      */
@@ -61,6 +70,7 @@ class Laboratoire extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -90,7 +100,7 @@ class Laboratoire extends BaseUser
     /**
      * Get nomLabo
      *
-     * @return string 
+     * @return string
      */
     public function getNomLabo()
     {
@@ -113,7 +123,7 @@ class Laboratoire extends BaseUser
     /**
      * Get adresseLabo
      *
-     * @return string 
+     * @return string
      */
     public function getAdresseLabo()
     {
@@ -136,7 +146,7 @@ class Laboratoire extends BaseUser
     /**
      * Get codepostalLabo
      *
-     * @return string 
+     * @return string
      */
     public function getCodepostalLabo()
     {
@@ -159,7 +169,7 @@ class Laboratoire extends BaseUser
     /**
      * Get villeLabo
      *
-     * @return string 
+     * @return string
      */
     public function getVilleLabo()
     {
@@ -182,7 +192,7 @@ class Laboratoire extends BaseUser
     /**
      * Get mailLabo
      *
-     * @return string 
+     * @return string
      */
     public function getMailLabo()
     {
@@ -205,7 +215,7 @@ class Laboratoire extends BaseUser
     /**
      * Get telephoneLabo
      *
-     * @return string 
+     * @return string
      */
     public function getTelephoneLabo()
     {
@@ -238,7 +248,7 @@ class Laboratoire extends BaseUser
     /**
      * Get appareillages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAppareillages()
     {

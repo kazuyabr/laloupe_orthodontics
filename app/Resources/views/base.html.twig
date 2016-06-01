@@ -58,6 +58,10 @@
                             class="active"{% endif %}>
                             <a href="{{ path('crea_cabinet') }}">Ajouter un cabinet</a>
                         </li>
+                        <li {% if app.request.get('_route') == 'crea_labo' or app.request.get('_route') == 'fiche_labo' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('crea_labo') }}">Ajouter un laboratoire</a>
+                        </li>
                     {% else %}
                         <!-- user is not logged in -->
                         <li {% if app.request.get('_route') == 'fos_user_security_login' %}
