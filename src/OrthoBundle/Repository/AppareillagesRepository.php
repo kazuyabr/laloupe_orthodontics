@@ -19,17 +19,16 @@ class AppareillagesRepository extends EntityRepository
         $queryBuilder->leftJoin('u.poids', 'p')
                         ->orderBy('p.poids', 'DESC')
                         ->setMaxResults(10);
-
         return $queryBuilder;
     }
 
 
-    public function getnameandimage(){
+    public function getnameandimage($famille = 'mob'){
 
         $queryBuilder = $this->createQueryBuilder('appareillages')
-                            ->select('appareillages.titreApp', 'appareillages.imgApp')
+                            ->select('appareillages.titreApp', 'appareillages.imgApp', 'appareillages.id')
                             ->where('appareillages.familleApp = :famille')
-                            ->setParameter('famille', 'mob');
+                            ->setParameter('famille', $famille);
 
         return $queryBuilder->getQuery()->getResult();
 

@@ -132,12 +132,19 @@ input[type="file"] {
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .open > li:hover,
 .navbar-inverse .navbar-nav > li > a:focus,
-.navbar-inverse .navbar-nav > li > a:hover {
+.navbar-inverse .navbar-nav > li > a:hover,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
     background-image: -webkit-linear-gradient(top, #353535 0%, #27AE60 100%);
     background-image: -o-linear-gradient(top, #353535 0%, #27AE60 100%);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#27AE60));
     background-image: linear-gradient(to bottom, #353535 0%, #27AE60 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#27AE60', GradientType=0);
+}
+
+.dropdown-menu {
+    background-color: #ccff90;
 }
 
 /*.header_recap {
@@ -538,6 +545,17 @@ fieldset > label {
 #buttonprofile {
     background-color: #76ff03;
 
+}
+
+.creaplace {
+    background: white;
+    border: 0 none;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px #76ff03;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 35px;
 }
 
 
