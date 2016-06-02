@@ -18,9 +18,9 @@ class CommandesController extends Controller
     public function showAction()
     {
         $em = $this->getDoctrine()->getManager();
-        
+
         $totalCommande = $em->getRepository('OrthoBundle:Commandes')->getTotalCommandes();
-        
+
         return $this->render('OrthoBundle:Default:recup_commandes.html.twig', array(
             'totalCommande' => $totalCommande
         ));

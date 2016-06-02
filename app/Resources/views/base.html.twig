@@ -61,6 +61,10 @@
                             class="active"{% endif %}>
                             <a href="{{ path('recup_commandes') }}">Commandes</a>
                         </li>
+                        <li {% if app.request.get('_route') == 'recup_user' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('recup_user') }}">Utilisateurs</a>
+                        </li>
 
                         {#{% elseif is_granted('ROLE_USER') %}#}
                         <!-- user is logged in ROLE_USER -->

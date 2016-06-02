@@ -1,0 +1,26 @@
+{# @OrthoBundle/Resources/views/Default/recup_user.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="msform">
+        {% if app.user %}
+            <!-- user is logged in -->
+
+            <fieldset class="smallbloc">
+                <h2 class="fs-title">Utilisateurs</h2>
+                <div>
+                    <p>Nombre de cabinets d'orthodontie : {{ totalCabinet[0][1] }}</p>
+                    <p>Nombre de laboratoires : {{ totalLabo[0][1] }}</p>
+                </div>
+            </fieldset>
+        {% else %}
+            <!-- user is not logged in -->
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
+
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}
