@@ -25,6 +25,20 @@ class LaboratoireData extends AbstractFixture implements OrderedFixtureInterface
         $laboratoire1->setTelephoneLabo("03.89.20.25.10");
         $manager->persist($laboratoire1);
 
+        $laboratoire2 = new Laboratoire();
+        $laboratoire2->setUsername("Superadmin");
+        $laboratoire2->setPlainPassword("Superadmin");
+        $laboratoire2->setEnabled(true);
+        $laboratoire2->setEmail("superadmin@gmail.com");
+        $laboratoire2->setRoles(array('ROLE_SUPER_ADMIN'));
+        $laboratoire2->setNomLabo("Arseus Lab Site Colmar");
+        $laboratoire2->setAdresseLabo("4 rue Emile Schwoerer");
+        $laboratoire2->setCodepostalLabo("68000");
+        $laboratoire2->setVilleLabo("Colmar");
+        $laboratoire2->setMailLabo("contact.colmar@arseus-lab.fr");
+        $laboratoire2->setTelephoneLabo("03.89.20.25.10");
+        $manager->persist($laboratoire2);
+
         $manager->flush();
 
         $this->addReference('laboratoire1', $laboratoire1);
