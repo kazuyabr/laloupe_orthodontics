@@ -29,6 +29,11 @@ class Cabinetsdentaires extends BaseUser
         $this->setRoles(array('ROLE_ADMIN'));
     }
     
+    public function getActualUser()
+    {
+        return $this->id;
+    }
+    
     
     // GENERATED CODE
     

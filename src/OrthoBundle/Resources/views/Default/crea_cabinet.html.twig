@@ -63,11 +63,10 @@
             </fieldset>
             {{ form_end(form) }}
         {% else %}
-            <!-- user is not logged in -->
+            <!-- User is not logged in -->
             <fieldset class="smallbloc">
-                Connectez-vous pour accéder à cette page.
+                <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour accéder à cette page.
             </fieldset>
-
         {% endif %}
 
     </form>

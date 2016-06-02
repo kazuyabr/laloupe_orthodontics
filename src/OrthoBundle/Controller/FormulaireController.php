@@ -2,18 +2,16 @@
 
 namespace OrthoBundle\Controller;
 
-use OrthoBundle\Entity\Commandes;
-use OrthoBundle\Entity\PoidsAdjonctions;
-use OrthoBundle\Entity\PoidsAppareillages;
-use OrthoBundle\Form\Type\CommandesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use JMS\Serializer\SerializerBuilder;
+use OrthoBundle\Entity\Commandes;
+use OrthoBundle\Entity\PoidsAppareillages;
+use OrthoBundle\Entity\PoidsAdjonctions;
+use OrthoBundle\Form\Type\CommandesType;
 
-class DefaultController extends Controller
+
+class FormulaireController extends Controller
 {
-    public function createAction()
+    public function createFormulaireAction()
     {
         // On crée une instance de l'entité Commandes
         $commande  = new Commandes();
@@ -25,11 +23,13 @@ class DefaultController extends Controller
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
-        
+
+        $user = $this->getUser();
+
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
-        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->getnameandimage();
-        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser();
+        $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
+        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser($this->getUser());
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
@@ -42,7 +42,7 @@ class DefaultController extends Controller
             foreach ($commande->getAppareillages() as $appareil)
             {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
+                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find($user->getId());
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
@@ -64,7 +64,6 @@ class DefaultController extends Controller
 
                     $em->persist($poids);
                 }
-
             }
 
             foreach ($commande->getFidAdj() as $adjonction)
@@ -83,7 +82,7 @@ class DefaultController extends Controller
                     $em->persist($poidsAdjonction);
                 }
             }
-            
+
             // On prépare la mise en Base de données
             $em->persist($commande);
             // On met en Base de données
@@ -104,40 +103,6 @@ class DefaultController extends Controller
             'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj,
             'actualUser' => $infoUserConnected,
-
         ));
-    }
-
-    public function showAction($id)
-    {
-        // On récupère l'ID de la commande en question, passé dans l'URL
-        // Lors de la redirection de la commande.
-        $idCommande = $id;
-        
-        // On appelle Doctrine
-        $em = $this->getDoctrine()->getManager();
-        
-        // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagerecap = $em->getRepository('OrthoBundle:Commandes')->find($idCommande);
-        
-        // On affiche la vue de recap_formulaire, en prenant en paramètre
-        // La liste des informations du formulaire
-        return $this->render('OrthoBundle:Default:recap_formulaire.html.twig', array(
-            'affichagerecap' => $affichagerecap
-        ));
-    }
-
-    public function rechercheAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-
-        $listeAppareillages = $em->getRepository('OrthoBundle:Appareillages')->find($id);
-        $jsonContent = $serializer->serialize($listeAppareillages, 'json');
-
-        $response = new Response($jsonContent);
-        $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
     }
 }

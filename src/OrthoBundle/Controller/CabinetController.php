@@ -17,12 +17,14 @@ class CabinetController extends Controller
 {
     public function createAction()
     {
+
         // On crée une instance de l'entité cabinet
         $cabinet  = new Cabinetsdentaires();
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
         // "cabinetType.php" ainsi que l'instance de l'entité cabinet
+
         $form    = $this->createForm(new CabinetType(), $cabinet);
 
         // Appel de Doctrine

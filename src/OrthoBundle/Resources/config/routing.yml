@@ -1,11 +1,11 @@
 ortho_formulaire:
     path:     /formulaire
-    defaults: { _controller: OrthoBundle:Default:create }
+    defaults: { _controller: OrthoBundle:Formulaire:createFormulaire }
     methods: [POST, GET]
 
 recap_formulaire:
     path:     /recap_formulaire/{id}
-    defaults: { _controller: OrthoBundle:Default:show }
+    defaults: { _controller: OrthoBundle:RecapFormulaire:showRecapFormulaire }
     methods: [POST, GET]
 
 crea_cabinet:

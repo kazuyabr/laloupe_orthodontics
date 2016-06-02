@@ -1,5 +1,6 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/book/security.html
+#To get started with security, check out the documentation:
+#http://symfony.com/doc/current/book/security.html
+
 security:
     encoders:
             FOS\UserBundle\Model\UserInterface: bcrypt
@@ -22,27 +23,25 @@ security:
         # disables authentication for assets and the profiler, adapt it according to your needs
         main:
             pattern: ^/
+            logout:       true
+            anonymous:    ~
                # activate different ways to authenticate
 
                # http_basic: ~
                # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
             form_login:
-                provider: fos_userbundle
+                provider:       fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                check_path:     /login_check
-                failure_path:   /
-                default_target_path: /formulaire
-                always_use_default_target_path: true
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-                # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
-            logout:       true
-            anonymous:    true
-
+                login_path:     / # La route utilisée pour le formulaire de login
+                check_path:     /login_check # La route utilisée pour vérifier les identifiants
+                failure_path:   / # La redirection en cas d'échec d'authentification
+                default_target_path: /formulaire # La redirection par défaut en cas d'authentification avec succès
+                always_use_default_target_path: true # On redirigera toujours sur la route "default_target_path" si l'authentification est correcte.
 
     access_control:
             - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin/, role: ROLE_ADMIN }
+            - { path: ^/formulaire/, role: ROLE_CABINET }
