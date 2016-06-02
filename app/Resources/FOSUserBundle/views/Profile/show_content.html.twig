@@ -36,11 +36,13 @@
             <p>Mail 1 <span class="affichageCadreProfil">{{ user.email }}</span></p>
             <p>Mail 2<span class="affichageCadreProfil">{{ user.emailbisCab }}</span></p>
             <p>Mail 3<span class="affichageCadreProfil">{{ user.emailterCab }}</span></p>
+
                 </div>
-            <br/>
+                <br/>
             </div>
 
-            <a href="{{ path('fos_user_profile_edit') }}"><input type="button" id="buttonprofile" value="Modifier mes informations" /></a>
+            <a href="{{ path('fos_user_profile_edit') }}"><input style="width: initial" class="action-button"
+                                                                 type="button" value="Modifier mes informations"/></a>
 
         </fieldset>
 

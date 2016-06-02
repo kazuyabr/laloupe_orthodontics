@@ -12,14 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class CabinetsdentairesRepository extends EntityRepository
 {
-    public function getActualUser()
+    public function getActualUser($id)
     {
         $queryBuilder = $this->createQueryBuilder('user');
         
         $queryBuilder->leftJoin('user.fidLabo', 'laboratoire')
                     ->select('user', 'laboratoire')
                     ->where('user.id = :id')
-                    ->setParameter('id', 1);
+                    ->setParameter('id', $id);
 
         return $queryBuilder->getQuery()->getResult();
     }

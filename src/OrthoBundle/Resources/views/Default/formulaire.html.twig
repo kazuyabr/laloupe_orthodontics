@@ -1,8 +1,7 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-
-    <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
+        <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
         , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post">
         <!-- Barre de progression -->
@@ -29,8 +28,7 @@
             {{ form_label(form.dateretour, "Date de retour souhaitée : ") }}
             {{ form_errors(form.dateretour) }}
             {{ form_widget(form.dateretour) }}
-
-            <input type="button" name="next" class="next action-button"  value="Suivant"/>
+            <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
 
         <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
@@ -64,24 +62,15 @@
 
                                 <div class="modal-body">
                                     <ul>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
-                                        <li><a href="#" data-toggle="modal"
-                                               data-target="#myModal2">Fonctionnels</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal"
-                                               data-target="#myModal2">Elastodontie</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
-                                                Indirect</a><br/></li>
+                                        <li><a data-family="mob" class="family-button" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-family="fix" class="family-button" data-target="#myModal2">Fixe</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fonctionnels</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Elastodontie</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage Indirect</a><br/></li>
                                         <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
                                     </ul>
                                 </div>
@@ -100,13 +89,12 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     <div class="input-group stylish-input-group">
-                                        <input type="text" class="form-control quicksearch"
-                                               placeholder="Rechercher par mot clé" id="search"/>
-                                        {{ form_widget(form.appareillages) }}
-                                        <button class="icone" type="submit"><i class="fa fa-search"
-                                                                               aria-hidden="true"></i>
-                                        </button>
-
+                                        <input type="text" class="form-control quicksearch" placeholder="Entrez votre recherche" id="search">
+                                        <span class="input-group-addon">
+                                            <button type="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
                                     </div>
                                     <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
                                 </div>
@@ -115,22 +103,16 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                {% for namepictures in nomimageapp %}
-                                                    <div class="col-xs-6">
-                                                        <button><img src="{{ namepictures.imgApp }}"
-                                                                     title="Appareillages"
-                                                                     alt="Appareillages" id="imageSchemaApp"
-                                                                     name="commandes[appareillages]"/><br/>
-                                                            {{ namepictures.titreApp }} </button>
-                                                    </div>
-                                                {% endfor %}
+                                                <div class="row" id="images-app">
+                                                    <!-- Ici, on insère dans la div les appareillages (voir jQuery) -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                    <input type="button" name="previous" class="previous action-button" value="Fermer"/>
+                                    <input type="submit" name="previous" class="action-button" value="VALIDER"/>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +143,6 @@
             {{ form_widget(form.comment) }}
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="button" name="next" class="next action-button" value="Suivant"/>
-
         </fieldset>
         <!-- Bloc n°3 : Les pièces jointes -->
         <fieldset class="smallbloc">
@@ -171,39 +152,50 @@
             {{ form_label(form.testimage, "Arcade Maxilaire :") }}
             {{ form_errors(form.testimage) }}
             {{ form_widget(form.testimage) }}
+            {#
+                        {{{ form_label(form.testimage1, "Arcade mandibulaire :") }}
+                        {{ form_errors(form.testimage1) }}
+                        {{ form_widget(form.testimage1) }}
 
-            {{ form_label(form.testimage1, "Arcade mandibulaire :") }}
-            {{ form_errors(form.testimage1) }}
-            {{ form_widget(form.testimage1) }}
-
-            {{ form_label(form.testimage2, "Autre pièces jointes :") }}
-            {{ form_errors(form.testimage2) }}
-            {{ form_widget(form.testimage2) }}
-
+                        {{ form_label(form.testimage2, "Autre pièces jointes :") }}
+                        {{ form_errors(form.testimage2) }}
+                        {{ form_widget(form.testimage2) }}
+            #}
             {{ form_label(form.comment2, "Autres commentaires :") }}
             {{ form_errors(form.comment2) }}
             {{ form_widget(form.comment2) }}
+
 
             {{ form_rest(form) }}
             {{ form_end(form) }}
 
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
-
         </fieldset>
     </form>
-
 {% endblock %}
 
 {% block javascript %}
+    <script>
+    var appareillages = {
+    {% for namepictures in nomimageapp %}
+        "{{ namepictures.id }}" : {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
+    {% endfor %}
+    };
+        </script>
+        <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
+
     <script>
         // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
         {{ commentaire['id'] }} :
-        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}\.",
+        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
         {% endfor %}
-        }
+        };
         var commentAppareil = $('#appCommentInter');
         var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
 
@@ -222,23 +214,11 @@
             });
         });
 
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-
-
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        });
-
-
         // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
-        "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}\.",
+        "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
         {% endfor %}
         }
 
@@ -258,7 +238,7 @@
             $('.commentaireClass').each(function () {
                 $('#commandes_comment').append($(this).html() + "\n");
             });
-        })
+        });
 
 
         var monSelectCouleur = $('#commandes_fidCouleur');
@@ -272,83 +252,5 @@
         });
 
 
-        //jQuery time
-        var current_fs, next_fs, previous_fs; //fieldsets
-        var left, opacity, scale; //fieldset properties which we will animate
-        var animating; //flag to prevent quick multi-click glitches
-
-        $(".next").click(function () {
-            if (animating) return false;
-            animating = true;
-
-            current_fs = $(this).parent();
-            next_fs = $(this).parent().next();
-
-            //activate next step on progressbar using the index of next_fs
-            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-            //show the next fieldset
-            next_fs.show();
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function (now, mx) {
-                    //as the opacity of current_fs reduces to 0 - stored in "now"
-                    //1. scale current_fs down to 80%
-                    scale = 1 - (1 - now) * 0.2;
-                    //2. bring next_fs from the right(50%)
-                    left = (now * 50) + "%";
-                    //3. increase opacity of next_fs to 1 as it moves in
-                    opacity = 1 - now;
-                    current_fs.css({'transform': 'scale(' + scale + ')'});
-                    next_fs.css({'left': left, 'opacity': opacity});
-                },
-                duration: 800,
-                complete: function () {
-                    current_fs.hide();
-                    animating = false;
-                },
-                //this comes from the custom easing plugin
-                easing: 'easeInOutBack'
-            });
-        });
-
-        $(".previous").click(function () {
-            if (animating) return false;
-            animating = true;
-
-            current_fs = $(this).parent();
-            previous_fs = $(this).parent().prev();
-
-            //de-activate current step on progressbar
-            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-            //show the previous fieldset
-            previous_fs.show();
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function (now, mx) {
-                    //as the opacity of current_fs reduces to 0 - stored in "now"
-                    //1. scale previous_fs from 80% to 100%
-                    scale = 0.8 + (1 - now) * 0.2;
-                    //2. take current_fs to the right(50%) - from 0%
-                    left = ((1 - now) * 50) + "%";
-                    //3. increase opacity of previous_fs to 1 as it moves in
-                    opacity = 1 - now;
-                    current_fs.css({'left': left});
-                    previous_fs.css({'transform': 'scale(' + scale + ')', 'opacity': opacity});
-                },
-                duration: 800,
-                complete: function () {
-                    current_fs.hide();
-                    animating = false;
-                },
-                //this comes from the custom easing plugin
-                easing: 'easeInOutBack'
-            });
-        });
-
-        $(".submit").click(function () {
-            return false;
-        })
     </script>
 {% endblock %}

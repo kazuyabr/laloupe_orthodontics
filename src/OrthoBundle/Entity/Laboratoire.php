@@ -2,22 +2,34 @@
 
 namespace OrthoBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
+
+
 /**
  * Laboratoire
  */
-class Laboratoire
+class Laboratoire extends BaseUser
 {
     // CUSTOM CODE
+
+    public function activationDuCompte()
+    {
+        $this->setEnabled(true);
+    }
+
+    public function attributionDuRole()
+    {
+        $this->setRoles(array('ROLE_ADMIN'));
+    }
     
-    
-    
+
     // GENERATED CODE
 
     /**
      * @var integer
      */
-    private $id;
-    
+    protected $id;
+
     /**
      * @var string
      */
@@ -58,6 +70,7 @@ class Laboratoire
      */
     public function __construct()
     {
+        parent::__construct();
         $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -87,7 +100,7 @@ class Laboratoire
     /**
      * Get nomLabo
      *
-     * @return string 
+     * @return string
      */
     public function getNomLabo()
     {
@@ -110,7 +123,7 @@ class Laboratoire
     /**
      * Get adresseLabo
      *
-     * @return string 
+     * @return string
      */
     public function getAdresseLabo()
     {
@@ -133,7 +146,7 @@ class Laboratoire
     /**
      * Get codepostalLabo
      *
-     * @return string 
+     * @return string
      */
     public function getCodepostalLabo()
     {
@@ -156,7 +169,7 @@ class Laboratoire
     /**
      * Get villeLabo
      *
-     * @return string 
+     * @return string
      */
     public function getVilleLabo()
     {
@@ -179,7 +192,7 @@ class Laboratoire
     /**
      * Get mailLabo
      *
-     * @return string 
+     * @return string
      */
     public function getMailLabo()
     {
@@ -202,7 +215,7 @@ class Laboratoire
     /**
      * Get telephoneLabo
      *
-     * @return string 
+     * @return string
      */
     public function getTelephoneLabo()
     {
@@ -235,7 +248,7 @@ class Laboratoire
     /**
      * Get appareillages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAppareillages()
     {

@@ -1,8 +1,8 @@
-{# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
+{# @OrthoBundle/Resources/views/Default/crea_labo.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
 
-    <form id="msform" action="{{ path('crea_cabinet') }}" method="post">
+    <form id="msform" action="{{ path('crea_labo') }}" method="post">
 
         {% if app.user %}
             <!-- user is logged in -->
@@ -17,7 +17,7 @@
             {{ form_start(form) }}
 
             <fieldset class="largebloc">
-                <h2 class="fs-title">Ajouter un Cabinet</h2>
+                <h2 class="fs-title">Ajouter un Laboratoire</h2>
                 <h3 class="fs-subtitle">Tous les champs sont obligatoires.</h3>
 
                 <div id="container">
@@ -30,30 +30,34 @@
                         {{ form_errors(form.plain_password) }}
                         {{ form_widget(form.plain_password) }}
 
-                        {{ form_label(form.nomCab) }}
-                        {{ form_errors(form.nomCab) }}
-                        {{ form_widget(form.nomCab) }}
+                        {{ form_label(form.nomLabo) }}
+                        {{ form_errors(form.nomLabo) }}
+                        {{ form_widget(form.nomLabo) }}
 
                         {{ form_label(form.email) }}
                         {{ form_errors(form.email) }}
                         {{ form_widget(form.email) }}
+
+                        {{ form_label(form.mailLabo) }}
+                        {{ form_errors(form.mailLabo) }}
+                        {{ form_widget(form.mailLabo) }}
                     </div>
                     <div class="profileplace">
-                        {{ form_label(form.adresseCab) }}
-                        {{ form_errors(form.adresseCab) }}
-                        {{ form_widget(form.adresseCab) }}
+                        {{ form_label(form.adresseLabo) }}
+                        {{ form_errors(form.adresseLabo) }}
+                        {{ form_widget(form.adresseLabo) }}
 
-                        {{ form_label(form.codepostalCab) }}
-                        {{ form_errors(form.codepostalCab) }}
-                        {{ form_widget(form.codepostalCab) }}
+                        {{ form_label(form.codepostalLabo) }}
+                        {{ form_errors(form.codepostalLabo) }}
+                        {{ form_widget(form.codepostalLabo) }}
 
-                        {{ form_label(form.villeCab) }}
-                        {{ form_errors(form.villeCab) }}
-                        {{ form_widget(form.villeCab) }}
+                        {{ form_label(form.villeLabo) }}
+                        {{ form_errors(form.villeLabo) }}
+                        {{ form_widget(form.villeLabo) }}
 
-                        {{ form_label(form.telephoneCab) }}
-                        {{ form_errors(form.telephoneCab) }}
-                        {{ form_widget(form.telephoneCab) }}
+                        {{ form_label(form.telephoneLabo) }}
+                        {{ form_errors(form.telephoneLabo) }}
+                        {{ form_widget(form.telephoneLabo) }}
                     </div>
                 </div>
 
@@ -63,10 +67,11 @@
             </fieldset>
             {{ form_end(form) }}
         {% else %}
-            <!-- User is not logged in -->
+            <!-- user is not logged in -->
             <fieldset class="smallbloc">
-                <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour accéder à cette page.
+                Connectez-vous pour accéder à cette page.
             </fieldset>
+
         {% endif %}
 
     </form>

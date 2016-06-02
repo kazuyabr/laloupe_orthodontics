@@ -2,32 +2,34 @@
 
 {% block stylesheets %}
 
-<!-- Appel des bibliothèques jQuery -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" xmlns="http://www.w3.org/1999/html"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css"
-      type="text/css" media="all"/>
-<!-- Appel des bibliothèques Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.min.css') }}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}"/>
-<!-- Appel de nos feuilles de style CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}"/>
-<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <!-- Appel des bibliothèques jQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"
+            xmlns="http://www.w3.org/1999/html"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css"
+          type="text/css" media="all"/>
+    <!-- Appel des bibliothèques Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/bootstrap-theme.css') }}"/>
+    <!-- Appel de nos feuilles de style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ortho/css/stylesheet.css') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-<script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
 
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"
-        integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-<script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 
 
 {% endblock %}
 
 {% block body %}
+
 
 <div id="msform">
     {{ form_start(form) }}
@@ -106,23 +108,18 @@
             <br/>
         </div>
 
-
-
-
-
-
             <div>
-                <input type="submit" id="buttonprofile" value="{{ 'profile.edit.submit'|trans }}" />
+                <input class="action-button" type="submit" value="{{ 'profile.edit.submit'|trans }}"/>
             </div>
 
-    </fieldset>
-</div>
+        </fieldset>
+    </div>
 
 
 
-{{ form_end(form) }}
+    {{ form_end(form) }}
 
-
+    
 {% endblock %}
 
 <!-- Appel de jQuery -->

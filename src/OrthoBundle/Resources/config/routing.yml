@@ -1,15 +1,15 @@
 ortho_formulaire:
     path:     /formulaire
-    defaults: { _controller: OrthoBundle:Default:create }
+    defaults: { _controller: OrthoBundle:Formulaire:createFormulaire }
     methods: [POST, GET]
 
 recap_formulaire:
     path:     /recap_formulaire/{id}
-    defaults: { _controller: OrthoBundle:Default:show }
+    defaults: { _controller: OrthoBundle:RecapFormulaire:showRecapFormulaire }
     methods: [POST, GET]
 
 crea_cabinet:
-    path:     /cabinet/
+    path:     /cabinet
     defaults: { _controller: OrthoBundle:Cabinet:create }
     methods: [POST, GET]
 
@@ -37,3 +37,14 @@ recap_crea_adj:
    path:    /recapadj/
    defaults:   { _controller: OrthoBundle:SuperAdmin:recapAdjonction}
    methods: [POST,GET]
+
+crea_labo:
+    path:     /laboratoire
+    defaults: { _controller: OrthoBundle:Laboratoire:create }
+    methods: [POST, GET]
+
+fiche_labo:
+    path:     /fichelaboratoire/{id}
+    defaults: { _controller: OrthoBundle:Laboratoire:show }
+    methods: [POST, GET]
+
