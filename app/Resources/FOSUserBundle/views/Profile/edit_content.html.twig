@@ -76,7 +76,8 @@
                 </div>
             </div>
 
-            <div><input class="action-button" type="submit" value="{{ 'profile.edit.submit'|trans }}"/></div>
+            <a href="{{ path('fos_user_profile_show') }}"><input style="width: inherit" type="button" name="previous" class="previous action-button" value="Retour au profile"/></a>
+            <input class="action-button" type="submit" value="{{ 'profile.edit.submit'|trans }}"/>
 
         </fieldset>
     </form>

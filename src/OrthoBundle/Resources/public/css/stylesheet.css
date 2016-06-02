@@ -124,7 +124,8 @@ input[type="file"] {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li > a,
+.dropdown-menu > li > a {
     color: #2e7d32;
 }
 
@@ -372,7 +373,7 @@ body {
 #msform .action-button {
     width: 100px;
     /*background:#76ff03;*/
-    background:#ccff90;
+    background: #ccff90;
     font-weight: bold;
     /*color: white;*/
     color: #2e7d32;
@@ -417,7 +418,7 @@ body {
 
 #progressbar li {
     list-style-type: none;
-    color:white ;
+    color: white;
     text-transform: uppercase;
     font-size: 9px;
     width: 33.33%;
@@ -458,7 +459,7 @@ body {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 
-#progressbar li.active:before,  #progressbar li.active:after {
+#progressbar li.active:before, #progressbar li.active:after {
     background: #76ff03;
 }
 
@@ -529,6 +530,7 @@ fieldset > label {
     /*stacking fieldsets above each other*/
 
 }
+
 .smallbloc .profileplace {
     width: 100%;
 }
@@ -540,7 +542,6 @@ fieldset > label {
     padding-bottom: 10px;
 
 }
-
 
 #buttonprofile {
     background-color: #76ff03;
