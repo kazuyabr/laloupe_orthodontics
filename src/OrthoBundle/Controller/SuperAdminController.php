@@ -4,9 +4,12 @@ namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Adjonctions;
 use OrthoBundle\Entity\Appareillages;
+use OrthoBundle\Entity\Cabinetsdentaires;
+use OrthoBundle\Entity\Laboratoire;
 use OrthoBundle\Form\Type\AjoutAdjType;
 use OrthoBundle\Form\Type\AjoutappType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class SuperAdminController extends Controller
 {
@@ -85,5 +88,61 @@ class SuperAdminController extends Controller
 
         ));
 
+    }
+
+    public function appdeleteAction(Request $request, Appareillages $appareillages)
+    {
+        $form = $this->createDeleteForm($appareillages);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($appareillages);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('sup_app');
+    }
+
+    public function adjdeleteAction(Request $request, Adjonctions $adjonctions)
+    {
+        $form = $this->createDeleteForm($adjonctions);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($adjonctions);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('sup_adj');
+    }
+
+    public function labodeleteAction(Request $request, Laboratoire $laboratoire)
+    {
+        $form = $this->createDeleteForm($laboratoire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($laboratoire);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('sup_labo');
+    }
+
+    public function cabdeleteAction(Request $request, Cabinetsdentaires $cabinetsdentaires)
+    {
+        $form = $this->createDeleteForm($cabinetsdentaires);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($cabinetsdentaires);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('sup_cabinet');
     }
 }

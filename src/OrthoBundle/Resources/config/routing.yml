@@ -48,3 +48,23 @@ fiche_labo:
     defaults: { _controller: OrthoBundle:Laboratoire:show }
     methods: [POST, GET]
 
+sup_adj:
+    path:    /supadj/
+    defaults:    { _controller: OrthoBundle:SuperAdmin:adjdelete }
+    methods: [POST, GET]
+
+sup_app:
+    path:   /supapp/
+    defaults:   { _controller: OrthoBundle:SuperAdmin:appdelete }
+    methods: [POST, GET]
+
+sup_cabinet:
+    path:   /supcabinet/
+    defaults:    { _controller: OrthoBundle:SuperAdmin:cabdelete }
+    methods: [POST, GET]
+
+sup_labo:
+    path:    /suplabo/
+    defaults:    { _controller: OrthoBundle:SuperAdmin:labodelete }
+    methods: [POST, GET]
+

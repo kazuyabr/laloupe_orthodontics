@@ -56,7 +56,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
                                 <span class="caret"></span></a>
-                            <ul class="dropdown-menu tameremichel" >
+                            <ul class="dropdown-menu" >
                                 <li{% if app.request.get('_route') == 'crea_labo' or app.request.get('_route') == 'fiche_labo' %}
                                     class="active"{% endif %}>
                                     <a href="{{ path('crea_labo') }}">Ajouter un laboratoire</a></li>
@@ -66,6 +66,17 @@
                                 <li><a href="{{ path('crea_app') }}">Ajouter un appareillage</a></li>
                                 <li><a href="{{ path('crea_adj') }}">Ajouter une adjonction</a></li>
                             </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Supprimer
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu" >
+                                <li><a href="#">Supprimer un laboratoire</a></li>
+                                <li><a href="#">Supprimer un cabinet</a></li>
+                                <li><a href="#">Supprimer un appareillage</a></li>
+                                <li><a href="#">Supprimer une adjonction</a></li>
+                            </ul>
+
                         </li>
                     {% else %}
 
