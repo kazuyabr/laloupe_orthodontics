@@ -5,7 +5,9 @@ security:
             FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_CABINET:     ROLE_USER
+        ROLE_LABORATOIRE: [ROLE_USER, ROLE_LABO]
+        ROLE_TEAMNEO:     ROLE_TEAMNEO
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
