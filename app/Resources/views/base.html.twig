@@ -54,12 +54,23 @@
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_profile_show') }}">Profile</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'crea_cabinet' or app.request.get('_route') == 'fiche_cabinet' %}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu tameremichel" >
+                                <li><a href="#">Ajouter un laboratoire</a></li>
+                                <li {% if app.request.get('_route') == 'crea_cabinet' or app.request.get('_route') == 'fiche_cabinet' %}
+                                    class="active" {% endif %}>
+                                    <a href="{{ path('crea_cabinet') }}">Ajouter un cabinet</a></li>
+                                <li><a href="{{ path('crea_app') }}">Ajouter un appareillage</a></li>
+                                <li><a href="{{ path('crea_adj') }}">Ajouter une adjonction</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <!-- user is not logged in --><li {% if app.request.get('_route') == 'crea_cabinet' or app.request.get('_route') == 'fiche_cabinet' %}
                             class="active"{% endif %}>
                             <a href="{{ path('crea_cabinet') }}">Ajouter un cabinet</a>
                         </li>
-                    {% else %}
-                        <!-- user is not logged in -->
                         <li {% if app.request.get('_route') == 'fos_user_security_login' %}
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_security_login') }}">Connexion</a>

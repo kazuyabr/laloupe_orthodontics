@@ -18,7 +18,22 @@ fiche_cabinet:
     defaults: { _controller: OrthoBundle:Cabinet:show }
     methods: [POST, GET]
 
-crea_appadj:
-    path:     /ajoutapp/{id}
-    defaults: { _controller: OrthoBundle:Defaut:show }
+crea_app:
+    path:     /ajoutapp/
+    defaults: { _controller: OrthoBundle:SuperAdmin:creationAppareillage }
     methods: [POST, GET]
+
+recap_crea_app:
+    path:    /recapapp/
+    defaults: { _controller: OrthoBundle:SuperAdmin:recapAppareillage }
+    methods: [POST, GET]
+
+crea_adj:
+    path:   /ajoutadj/
+    defaults:    { _controller: OrthoBundle:SuperAdmin:creationAdjonction}
+    methods: [POST,GET]
+
+recap_crea_adj:
+   path:    /recapadj/
+   defaults:   { _controller: OrthoBundle:SuperAdmin:recapAdjonction}
+   methods: [POST,GET]

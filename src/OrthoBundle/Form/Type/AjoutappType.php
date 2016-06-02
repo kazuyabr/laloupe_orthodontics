@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AjoutappadjType extends AbstractType
+class AjoutappType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -21,14 +21,12 @@ class AjoutappadjType extends AbstractType
             ->add('familleApp', 'text', array(
                 'label' => 'Famille de l appareillage : '
             ))
-            ->add('imgApp', 'integer', array(
+            ->add('imgApp', 'text', array(
                 'label' => 'Image : '
             ))
-            ->add('commentaireApp', 'text', array(
-                'label' => 'Ville : '
-            ))
-            
-        ;
+            ->add('commentairesApp', 'textarea', array(
+                'label' => 'Commentaires : '
+            ));
     }
 
     /**
@@ -40,3 +38,5 @@ class AjoutappadjType extends AbstractType
             'data_class' => 'OrthoBundle\Entity\Appareillages'
         ));
     }
+}
+    
