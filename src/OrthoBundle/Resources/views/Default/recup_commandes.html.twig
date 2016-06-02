@@ -6,20 +6,10 @@
             <!-- user is logged in -->
 
             <fieldset class="smallbloc">
-                <h2 class="fs-title">Nombre de commandes :</h2>
-
-                <div id="container">
-                    <div class="profileplace">
-                        <div>
-                            <p>Il y a au total {{ totalCommande[0][1] }} commandes</p>
-
-
-                        </div>
-
-                    </div>
+                <h2 class="fs-title">Commandes</h2>
+                <div>
+                    <p>Nombre de commandes passées : {{ totalCommande[0][1] }}</p>
                 </div>
-
-
             </fieldset>
         {% else %}
             <!-- user is not logged in -->

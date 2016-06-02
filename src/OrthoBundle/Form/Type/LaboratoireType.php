@@ -28,6 +28,13 @@ class LaboratoireType extends AbstractType
             ->add('nomLabo', 'text', array(
                 'label' => 'Nom complet du Cabinet : '
             ))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
+                'label' => 'E-mail :',
+                'translation_domain' => 'FOSUserBundle'
+            ))
+            ->add('mailLabo', 'email', array(
+                'label' => 'E-mail Labo :'
+            ))
             ->add('adresseLabo', 'text', array(
                 'label' => 'Adresse : ',
                 'attr' => array(
@@ -41,13 +48,6 @@ class LaboratoireType extends AbstractType
             ))
             ->add('telephoneLabo', 'number', array(
                 'label' => 'Téléphone : '
-            ))
-            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
-                'label' => 'E-mail :',
-                'translation_domain' => 'FOSUserBundle'
-            ))
-            ->add('mailLabo', 'email', array(
-                'label' => 'E-mail Labo :'
             ))
 
         ;

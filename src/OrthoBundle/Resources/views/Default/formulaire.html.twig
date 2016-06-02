@@ -44,106 +44,23 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                <div id="appCommentInter"></div>
-
                 {{ form_widget(form.ajoutApp, { 'label': 'Bibilothèque Appareillages' }) }}
 
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-
-                                <h4 class="modal-title" id="myModalLabel">Vos appareillages disponibles par
-                                    famille</h4>
-                                <h6>Liste non exhaustive, contactez votre laboratoire</h6>
-
-                                <div class="modal-body">
-                                    <ul>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Mobile</a><br/></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Fixe</a><br/></li>
-                                        <li><a href="#" data-toggle="modal"
-                                               data-target="#myModal2">Fonctionnels</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Contention</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Service 3D</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Moulages</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal"
-                                               data-target="#myModal2">Elastodontie</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Pédodontie</a><br/>
-                                        </li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Collage
-                                                Indirect</a><br/></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">Autres</a><br/></li>
-                                    </ul>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <div class="input-group stylish-input-group">
-                                        <input type="text" class="form-control quicksearch"
-                                               placeholder="Rechercher par mot clé" id="search"/>
-                                        {{ form_widget(form.appareillages) }}
-                                        <button class="icone" type="submit"><i class="fa fa-search"
-                                                                               aria-hidden="true"></i>
-                                        </button>
-
-                                    </div>
-                                    <h4 class="modal-title" id="myModalLabel">Selectionnez le modèle d'appareil</h4>
-                                </div>
-                                <div class="modal-body">
-                                    Sélectionnez votre appareillage : <br/>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                {% for namepictures in nomimageapp %}
-                                                    <div class="col-xs-6">
-                                                        <button><img src="{{ namepictures.imgApp }}"
-                                                                     title="Appareillages"
-                                                                     alt="Appareillages" id="imageSchemaApp"
-                                                                     name="commandes[appareillages]"/><br/>
-                                                            {{ namepictures.titreApp }} </button>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                    <button type="submit" class="btn btn-primary">Valider</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Modal Appareillage -->
+                {% include '@Ortho/Default/modalApp.html.twig' %}
             </div>
+
             <div id='blocAdj' class='blocAppAdj'>
                 {{ form_label(form.fidAdj, "Adjonctions : ") }}
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
                 {{ form_widget(form.ajoutAdj, { 'label': 'Bibliothèque Adjonctions' }) }}
+
+                <!-- Modal Adjonction -->
+                {#{% include '@Ortho/Default/...' %}#}
             </div>
+
             <div id="coulmot">
                 {{ form_label(form.fidCouleur, "Couleur : ") }}
                 {{ form_errors(form.fidCouleur) }}
@@ -159,6 +76,8 @@
             {{ form_label(form.comment, "Commentaires : ") }}
             {{ form_errors(form.comment) }}
             {{ form_widget(form.comment) }}
+            <div id="appCommentInter"></div>
+
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="button" name="next" class="next action-button" value="Suivant"/>
 
@@ -352,4 +271,3 @@
         })
     </script>
 {% endblock %}
-{% block javascript %}{% endblock %}

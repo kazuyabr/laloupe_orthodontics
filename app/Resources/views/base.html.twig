@@ -49,9 +49,9 @@
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_profile_show') }}">Profile</a>
                         </li>
-                    {% endif %}
+                        {#{% endif %}#}
 
-                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    {#{% if is_granted('ROLE_SUPER_ADMIN') %}#}
                         <!-- user is logged in ROLE_SUPER_ADMIN -->
                         <li {% if app.request.get('_route') == 'crea_labo' or app.request.get('_route') == 'fiche_labo' %}
                             class="active"{% endif %}>
@@ -62,7 +62,7 @@
                             <a href="{{ path('recup_commandes') }}">Commandes</a>
                         </li>
 
-                    {% elseif is_granted('ROLE_USER') %}
+                        {#{% elseif is_granted('ROLE_USER') %}#}
                         <!-- user is logged in ROLE_USER -->
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
