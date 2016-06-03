@@ -194,9 +194,11 @@
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
-        "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+        "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
         {% endfor %}
         }
+
+        var textareaCommentaire = $('#commandes_comment');
 
     </script>
     <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
@@ -208,9 +210,6 @@
 
     <script>
 
-        // Affichage des commentaires des appareillages dans le textarea
-        var checkboxesAppareillages = $('div#commandes_appareillages input[type=checkbox]');
-        var textareaCommentaire = $('#commandes_comment');
 
 
 
@@ -219,22 +218,7 @@
 
         // Liste des adjonctions + Affichage des commentaires dans le cadre
 
-        var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
 
-        checkboxesAdjonctions.on('click', function () {
-            if ($(this).prop('checked')) {
-                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauCommentaireAdjonction[$(this).val()] + '</div>');
-            }
-            else {
-                $('#commentaireEnfant' + $(this).val()).remove();
-            }
-
-            textareaCommentaire.html('');
-
-            $('.commentaireClass').each(function () {
-                textareaCommentaire.append($(this).html() + "\n");
-            });
-        });
 
 
         var monSelectCouleur = $('#commandes_fidCouleur');

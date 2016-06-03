@@ -1,3 +1,6 @@
+// Affichage des commentaires des appareillages dans le textarea
+var checkboxesAppareillages = $('div#commandes_appareillages input[type=checkbox]');
+
 checkboxesAppareillages.on('click', function () {
 
     ($(this).prop('checked')) ? addCommentAppareillage($(this).val()) : removeCommentAppareillage($(this).val());
@@ -11,7 +14,7 @@ checkboxesAppareillages.on('click', function () {
 
 
 function addCommentAppareillage(commentId) {
-    $('#commandes_comment').val($('#commandes_comment').val() + "\n" + tableauCommentaireAppareillages[commentId]);
+    textareaCommentaire.val(textareaCommentaire + "\n" + tableauCommentaireAppareillages[commentId]);
 }
 
 function removeCommentAppareillage(commentId) {
