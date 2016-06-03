@@ -185,6 +185,30 @@
             });
         });
 
+        // Affichage commentaire PJ dans commentaire principale
+        /*
+         $('#commandes_comment2').change(function () {
+         $('#commandes_comment').val($(this).val());
+         });
+         */
+        $('#commandes_comment2').change(function () {
+            if (this) {
+                comment.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + '</div>');
+            }
+            else {
+                $('#commentaireEnfant' + $(this).val()).remove();
+            }
+
+            $('#commandes_comment').html($(this).val());
+            // $('#commandes_comment').val($(this).val());
+
+            $('.commentaireClass').each(function () {
+                ////$('#commandes_comment').val($(this).val());
+                $('#commandes_comment').append($(this).html() + "\n");
+            });
+
+        });
+
         // Affichage des images pour Couleurs et Motifs
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
@@ -196,15 +220,5 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
 
-        //////////////////////////////////
-        //
-        // Affichage commentaire PJ dans commentaire principale
-        /*
-        $('#commandes_comment2').change(function () {
-            $('.commentaireClass').val($(this).val());
-        });
-        */
-
     </script>
-
 {% endblock %}

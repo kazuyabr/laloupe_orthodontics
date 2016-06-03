@@ -53,6 +53,11 @@
                         {#{% elseif is_granted('ROLE_USER') %}#}
                         <!-- user is logged in ROLE_USER -->
 
+                        <li {% if app.request.get('_route') == 'ortho_formulaire' %}
+                            class="active"{% endif %}>
+                            <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
+                        </li>
+
                         <li {% if app.request.get('_route') == 'fos_user_profile_show' or
                         app.request.get('_route') == 'fos_user_profile_edit' or
                         app.request.get('_route') == 'recup_commandes' or
@@ -101,11 +106,6 @@
                                     class="active" {% endif %}><a href="{{ path('crea_adj') }}">Ajouter une
                                         adjonction</a></li>
                             </ul>
-                        </li>
-
-                        <li {% if app.request.get('_route') == 'ortho_formulaire' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
                         </li>
 
                     {% else %}

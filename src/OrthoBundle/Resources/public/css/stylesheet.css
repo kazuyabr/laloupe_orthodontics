@@ -1,13 +1,43 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+/*basic reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     margin: 0 1.5em;
     background-color: #f8f8f8;
     opacity: 0.9;
+    font-family: "Montserrat", "arial, verdana";
 }
 
 h3 {
     text-align: center;
+}
+
+a {
+    color: #ccff90;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: green;
+    text-decoration: none;
+}
+
+input[type=checkbox] {
+    float: left;
+}
+
+fieldset > label {
+    display: block;
 }
 
 #ours {
@@ -264,17 +294,6 @@ li {
 
 }
 
-a {
-    color: #ccff90;
-}
-
-a:hover,
-a:focus,
-a:active {
-    color: green;
-    text-decoration: none;
-}
-
 #imageSchemaApp {
     width: 30%;
     text-align: center;
@@ -288,9 +307,6 @@ a:active {
     font-size: 85%;
 }
 
-input[type=checkbox] {
-    float: left;
-}
 
 .commentaireClass {
     display: none;
@@ -304,20 +320,6 @@ input[type=checkbox] {
 /* Intégration nouveau formulaire */
 
 /*custom font*/
-
-/*basic reset*/
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    font-family: "Montserrat", "arial, verdana";
-}
 
 /*form styles*/
 #msform {
@@ -470,10 +472,6 @@ body {
     color: white;
 }
 
-fieldset > label {
-    display: block;
-}
-
 .blocAppAdj {
     width: 47%;
 }
@@ -560,6 +558,3 @@ fieldset > label {
     width: 80%;
     margin: 35px;
 }
-
-
-
