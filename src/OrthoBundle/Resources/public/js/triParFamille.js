@@ -1,21 +1,8 @@
 // On crée un Objet JS qui va contenir la liste de tout les appareils
 
-
-// Console.log de tests, à supprimer.
-console.log("Le gros Objet : Le tableau pas trié");
-console.log(appareillages); /* Renvoie l'intégralité de l'objet */
-console.log(Object.keys(appareillages).length); /* Renvoie sa longueur totale */
-
 $('.family-button').click(function(){ // Si l'élément avec la class="family-button" est cliqué, faire :
 
     var familyClicked = $(this).data('family'); // On récupère la donnée inscrite dans "data-family" (Voir ligne ...)
-
-    // Console-log de test, à supprimer.
-    console.log("Deux trois tests par-ci par-là");
-    console.log("J'suis clicked."); // Juste pour vérifier que c'est bien clicked.
-    console.log("La famille de ce que tu as cliqué est : " +familyClicked); // Renvoie "mob"
-    console.log("La famille du premier appareillage est : " + appareillages[1].family); // Navigation dans le JSON -> Renvoie 'fix'
-
     var app = []; // On déclare notre tableau trié (vide pour le moment)
 
     // Tant que i inférieur à la longueur de l'objet, faire :
@@ -28,10 +15,6 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
             app.push(appareillages[i]);
         }
     }
-
-    // Console log de test, à supprimer par la suite
-    console.log(app); // Renvoie l'intégralité du tableau trié
-    console.log(app[0].title); // Renvoie le titre de l'app à l'index 0.
 
     // Pour chaque itération de boucle du tableau trié, faire :
     for (var compteur = 0; compteur < app.length; compteur++)
@@ -58,5 +41,4 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
         $('#msform').prepend('<input type="checkbox" checked="checked" style="display:none;" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />')
         }
     });
-
 });
