@@ -7,7 +7,7 @@
  */
 namespace OrthoBundle\Controller;
 
-use OrthoBundle\Entity\Cabinetsdentaires;
+use OrthoBundle\Entity\Utilisateurs;
 use OrthoBundle\Form\Type\CabinetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ class CabinetController extends Controller
     {
 
         // On crée une instance de l'entité cabinet
-        $cabinet  = new Cabinetsdentaires();
+        $cabinet  = new Utilisateurs();
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire

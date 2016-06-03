@@ -1,0 +1,21 @@
+OrthoBundle\Entity\CategorieUtilisateurs:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\CategorieUtilisateursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        categorieUtilisateur:
+            type: string
+            length: 255
+            unique: true
+
+    manyToOne:
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: categorie
+    lifecycleCallbacks: {  }

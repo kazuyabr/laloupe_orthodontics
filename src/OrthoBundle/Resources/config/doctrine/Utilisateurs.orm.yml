@@ -1,0 +1,32 @@
+OrthoBundle\Entity\Utilisateurs:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\UtilisateursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        adresse:
+            type: string
+            length: 255
+        codePostal:
+            type: string
+            length: '5'
+        ville:
+            type: string
+            length: 255
+        telephone:
+            type: string
+            length: 255
+
+    oneToMany:
+        categorie:
+            targetEntity: OrthoBundle\Entity\CategorieUtilisateurs
+            mappedBy: utilisateur
+    lifecycleCallbacks: {  }
