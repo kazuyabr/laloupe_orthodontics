@@ -69,22 +69,21 @@ class CommandesType extends AbstractType
             ->add('fidCouleur')
             ->add('fidMotif')
             ->add('comment', 'textarea')
-            ->add('testimage', 'file', array(
-                'mapped' => false,
+
+            ->add('file1', 'file', array(
                 'required' => false
             ))
-            ->add('testimage1', 'file', array(
-                'mapped' => false,
+            ->add('file2', 'file', array(
                 'required' => false
             ))
-            ->add('testimage2', 'file', array(
-                'mapped' => false,
+            ->add('file3', 'file', array(
                 'required' => false
             ))
             ->add('comment2', 'textarea', array(
                 'required' => false
 
             ));
+
     }
 
     /**

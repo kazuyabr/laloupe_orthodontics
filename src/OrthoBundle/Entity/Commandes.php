@@ -3,6 +3,7 @@
 namespace OrthoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Commandes
@@ -12,79 +13,173 @@ class Commandes
 
     // CUSTOM CODE
 
-    protected function getUploadDir()
+
+
+    public $path1;
+
+    /**
+     * @Assert\File(maxSize="600000000")
+     */
+    public $file1;
+
+    public $path3;
+
+    public $file3;
+
+    public function getAbsolutePath1()
     {
+        return null === $this->path1 ? null : $this->getUploadRootDir1().'/'.$this->path1;
+    }
+
+    public function getWebPath1()
+    {
+        return null === $this->path1 ? null : $this->getUploadDir1().'/'.$this->path1;
+    }
+
+    protected function getUploadRootDir1()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../web/'.$this->getUploadDir1();
+    }
+
+    protected function getUploadDir1()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
         return 'uploads';
     }
 
-    protected function getUploadRootDir()
+    public function upload1()
     {
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->logo ? null : $this->getUploadDir().'/'.$this->logo;
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->logo ? null : $this->getUploadRootDir().'/'.$this->logo;
-    }
-
-
-    /**
-     * @ORM\prePersist
-     */
-    public function preUpload()
-    {
-        if (null !== $this->testimage) {
-            // do whatever you want to generate a unique name
-            $this->logo = uniqid().'.'.$this->testimage->guessExtension();
-        }
-    }
-
-    /**
-     * @ORM\postRemove
-     */
-    public function removeUpload()
-    {
-        if ($testimage = $this->getAbsolutePath()) {
-            unlink($testimage);
-        }
-    }
-
-    /**
-     * @ORM\postPersist
-     */
-    public function upload()
-    {
-        // Si jamais il n'y a pas de fichier (champ facultatif), on ne fait rien
-        if (null === $this->testimage) {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file1) {
             return;
         }
 
-        // On récupère le nom original du fichier de l'internaute
-        $name = $this->testimage->getClientOriginalName();
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
 
-        // On déplace le fichier envoyé dans le répertoire de notre choix
-        $this->testimage->move($this->getUploadRootDir(), $name);
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file1->move($this->getUploadRootDir1(), $this->file1->getClientOriginalName());
 
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path1 = $this->file1->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file1 = null;
     }
 
-    /**
-     * @ORM\PrePersist
-     */
+    public $path2;
+
+    public $file2;
+
+    public function getAbsolutePath2()
+    {
+        return null === $this->path2 ? null : $this->getUploadRootDir2().'/'.$this->path2;
+    }
+
+    public function getWebPath2()
+    {
+        return null === $this->path2 ? null : $this->getUploadDir2().'/'.$this->path2;
+    }
+
+    protected function getUploadRootDir2()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../web/'.$this->getUploadDir2();
+    }
+
+    protected function getUploadDir2()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return 'uploads';
+    }
+
+    public function upload2()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file2) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file2->move($this->getUploadRootDir2(), $this->file2->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path2 = $this->file2->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file2 = null;
+    }
+
+
+
+    public function getAbsolutePath3()
+    {
+        return null === $this->path3 ? null : $this->getUploadRootDir3().'/'.$this->path3;
+    }
+
+    public function getWebPath3()
+    {
+        return null === $this->path3 ? null : $this->getUploadDir3().'/'.$this->path3;
+    }
+
+    protected function getUploadRootDir3()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../web/'.$this->getUploadDir3();
+    }
+
+    protected function getUploadDir3()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return 'uploads';
+    }
+
+    public function upload3()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file3) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file3->move($this->getUploadRootDir3(), $this->file3->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path3 = $this->file3->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file3 = null;
+    }
+
+
+
+
+
+
     public function setCreatedAtValue()
     {
         $this->setDatecommande(new \DateTime());
     }
-    
-    private $testimage;
 
-    private $testimage1;
-
-    private $testimage2;
 
     private $comment2;
 
@@ -140,7 +235,7 @@ class Commandes
     /**
      * @var integer
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
@@ -197,10 +292,7 @@ class Commandes
      */
     private $fidAdj;
 
-    /**
-     * @var string
-     */
-    //private $photos;
+
 
     /**
      * Constructor
@@ -540,27 +632,7 @@ class Commandes
         return $this->piecejointeAM;
     }
 
-    /**
-     * Set testimage
-     *
-     * @param string $testimage
-     * @return Commandes
-     */
-    public function setTestimage($testimage)
-    {
-        $this->testimage = $testimage;
 
-        return $this;
-    }
 
-    /**
-     * Get testimage
-     *
-     * @return string 
-     */
-    public function getTestimage()
-    {
-        return $this->testimage;
-    }
 
 }

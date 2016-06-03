@@ -22,7 +22,9 @@ class RecapFormulaireController extends Controller
         // On affiche la vue de recap_formulaire, en prenant en paramètre
         // La liste des informations du formulaire
         return $this->render('OrthoBundle:Default:recap_formulaire.html.twig', array(
-            'affichagerecap' => $affichagerecap
+            'affichagerecap' => $affichagerecap,
+
         ));
     }
+
 }
