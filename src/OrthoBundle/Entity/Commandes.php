@@ -72,6 +72,8 @@ class Commandes
         $this->file1 = null;
     }
 
+
+
     public $path2;
 
     public $file2;

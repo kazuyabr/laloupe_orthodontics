@@ -50,9 +50,11 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
 
     $('.blocAppareillage').on('click', function () {
         if ($('#modalbuttoncheck-'+$(this).attr('data-id')).length) {
+            $(this).removeClass('selected');
             $('#modalbuttoncheck-'+$(this).attr('data-id')).remove();
         }
         else {
+            $(this).addClass('selected');
         $('#msform').prepend('<input type="checkbox" checked="checked" style="display:none;" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />')
         }
     });

@@ -1,6 +1,6 @@
 $(function() {
     $('#commandes_dateretour').datepicker({
-        dateFormat: 'dd-mm-yyyy'
+        format: 'dd-mm-yyyy'
     })
 });
 

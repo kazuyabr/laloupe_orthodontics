@@ -42,7 +42,6 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                <div id="appCommentInter"></div>
 
                 {{ form_widget(form.ajoutApp, { 'label': 'Bibilothèque Appareillages' }) }}
 
@@ -177,6 +176,7 @@
 {% endblock %}
 
 {% block javascript %}
+    {{ parent() }}
     <script>
         var appareillages = {
             {% for namepictures in nomimageapp %}
@@ -188,24 +188,20 @@
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
 
     <script>
         // Liste des appareillages | Affichage des commentaires dans le cadre
-        var tableau = {
-        {% for commentaire in commentaireAppareil %}
-        {{ commentaire['id'] }} :
-        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
-        {% endfor %}
-        }
-        var commentAppareil = $('#appCommentInter');
+
+
         var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
 
         checkboxes.on('click', function () {
             if ($(this).prop('checked')) {
-                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+                addComment($(this).val());
             }
             else {
-                $('#commentaireEnfant' + $(this).val()).remove();
+                removeComment($(this).val());
             }
 
             $('#commandes_comment').html('');
@@ -214,6 +210,22 @@
                 $('#commandes_comment').append($(this).html() + "\n");
             });
         });
+
+
+        function addComment(commentId) {
+            var commentAppareil = $('#appCommentInter');
+            var tableau = {
+                {% for commentaire in commentaireAppareil %}
+                {{ commentaire['id'] }} :
+                "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+                {% endfor %}
+            }
+            $('#commandes_comment').val($('#commandes_comment').val() + "\n" + tableau[commentId]);
+        }
+
+        function removeComment(commentId) {
+            $('#commentaireEnfant' + commentId).remove();
+        }
 
 
 

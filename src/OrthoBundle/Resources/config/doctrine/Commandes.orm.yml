@@ -34,6 +34,7 @@ OrthoBundle\Entity\Commandes:
             nullable: true
         path1:
             type: string
+            length: 245
             nullable: true
         path2:
             type: string

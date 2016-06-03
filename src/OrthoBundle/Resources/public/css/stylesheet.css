@@ -450,7 +450,7 @@ fieldset > label {
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 10px;
-    width: 100  %;
+    width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
@@ -460,6 +460,17 @@ fieldset > label {
 #msform h2
 {
     padding-bottom: 10px;
+}
+
+.blocAppareillage.selected
+{
+    background-color: #2b669a;
+}
+
+.blocAppareillage:hover
+{
+    cursor: pointer;
+    background-color: #d4d4d4;
 }
 
 
