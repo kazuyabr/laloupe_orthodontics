@@ -129,12 +129,10 @@
                 {{ form_label(form.fidCouleur, "Couleur : ") }}
                 {{ form_errors(form.fidCouleur) }}
                 {{ form_widget(form.fidCouleur) }}
-                <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
                 {{ form_label(form.fidMotif, "Motif :") }}
                 {{ form_errors(form.fidMotif) }}
                 {{ form_widget(form.fidMotif) }}
-                <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
             </div>
 
             {{ form_label(form.comment, "Commentaires : ") }}
@@ -185,17 +183,17 @@
         };
 
         var tableauCommentaireAppareillages = {
-        {% for commentaire in commentaireAppareil %}
-        "{{ commentaire['id'] }}" :
-        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
-        {% endfor %}
+            {% for commentaire in commentaireAppareil %}
+            "{{ commentaire['id'] }}" :
+            "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+            {% endfor %}
         };
 
         var tableauCommentaireAdjonction = {
-        {% for commentaire in commentaireAdjonction %}
-        "{{ commentaire['id'] }}" :
-        "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
-        {% endfor %}
+            {% for commentaire in commentaireAdjonction %}
+            "{{ commentaire['id'] }}" :
+            "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+            {% endfor %}
         };
     </script>
     <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
