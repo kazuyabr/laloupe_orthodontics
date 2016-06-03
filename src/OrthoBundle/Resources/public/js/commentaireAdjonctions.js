@@ -1,4 +1,6 @@
+//
 var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
+var textareaCommentaire = $('#commandes_comment');
 
 checkboxesAdjonctions.on('click', function () {
 
@@ -13,7 +15,7 @@ checkboxesAdjonctions.on('click', function () {
 
 
 function addCommentAdjonction(commentId) {
-    textareaCommentaire.val(textareaCommentaire + "\n" + tableauCommentaireAdjonction[commentId]);
+    textareaCommentaire.val(textareaCommentaire.val() + "\n" + tableauCommentaireAdjonction[commentId]);
 }
 
 function removeCommentAdjonction(commentId) {
