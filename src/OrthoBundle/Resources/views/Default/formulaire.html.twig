@@ -183,54 +183,14 @@
             "{{ namepictures.id }}" : {"id": "{{ namepictures.id }}","title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
             {% endfor %}
         };
-    </script>
-    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
 
-    <script>
-        // Liste des appareillages | Affichage des commentaires dans le cadre
-
-
-        var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
-
-        checkboxes.on('click', function () {
-            if ($(this).prop('checked')) {
-                addComment($(this).val());
-            }
-            else {
-                removeComment($(this).val());
-            }
-
-            $('#commandes_comment').html('');
-
-            $('.commentaireClass').each(function () {
-                $('#commandes_comment').append($(this).html() + "\n");
-            });
-        });
-
-
-        function addComment(commentId) {
-            var commentAppareil = $('#appCommentInter');
-            var tableau = {
-                {% for commentaire in commentaireAppareil %}
-                {{ commentaire['id'] }} :
-                "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
-                {% endfor %}
-            }
-            $('#commandes_comment').val($('#commandes_comment').val() + "\n" + tableau[commentId]);
+        var tableauCommentaireAppareillages = {
+        {% for commentaire in commentaireAppareil %}
+        {{ commentaire['id'] }} :
+        "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+        {% endfor %}
         }
 
-        function removeComment(commentId) {
-            $('#commentaireEnfant' + commentId).remove();
-        }
-
-
-
-
-        // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
@@ -238,7 +198,27 @@
         {% endfor %}
         }
 
-        var commentAppareil = $('#appCommentInter');
+    </script>
+    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
+
+    <script>
+
+        // Affichage des commentaires des appareillages dans le textarea
+        var checkboxesAppareillages = $('div#commandes_appareillages input[type=checkbox]');
+        var textareaCommentaire = $('#commandes_comment');
+
+
+
+
+
+
+        // Liste des adjonctions + Affichage des commentaires dans le cadre
+
         var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
 
         checkboxesAdjonctions.on('click', function () {
@@ -249,10 +229,10 @@
                 $('#commentaireEnfant' + $(this).val()).remove();
             }
 
-            $('#commandes_comment').html('');
+            textareaCommentaire.html('');
 
             $('.commentaireClass').each(function () {
-                $('#commandes_comment').append($(this).html() + "\n");
+                textareaCommentaire.append($(this).html() + "\n");
             });
         });
 
