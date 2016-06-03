@@ -110,11 +110,6 @@ class Commandes
     private $fidCabinet;
 
     /**
-     * @var \OrthoBundle\Entity\Laboratoire
-     */
-    private $fidLaboratoire;
-
-    /**
      * @var \OrthoBundle\Entity\Couleur
      */
     private $fidCouleur;

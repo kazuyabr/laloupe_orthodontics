@@ -22,21 +22,6 @@ class AppAdjLabo
      */
     private $idAppAdjLabo;
 
-    /**
-     * @var int
-     */
-    private $fidApp;
-
-    /**
-     * @var int
-     */
-    private $fidAdj;
-
-    /**
-     * @var int
-     */
-    private $fidLabo;
-
 
     /**
      * Get id

@@ -43,53 +43,5 @@ OrthoBundle\Entity\Commandes:
             nullable: true
 
 
-    manyToOne:
-        fidCabinet:
-            targetEntity: Cabinetsdentaires
-            joinColumn:
-                name: fid_cabinet
-                referencedColumn: id
-                nullable: true
-
-        fidLaboratoire:
-            targetEntity: Laboratoire
-            joinColumn:
-                name: fid_laboratoire
-                referencedColumn: id
-                nullable: true
-
-        fidCouleur:
-            targetEntity: OrthoBundle\Entity\Couleur
-            joinColumn:
-                name: fid_couleur
-                referencedColumnName: id_couleur
-                nullable: false
-
-        fidMotif:
-            targetEntity: OrthoBundle\Entity\Motif
-            joinColumn:
-                name: fid_motif
-                referencedColumnName: id_motif
-                nullable: false
-
-
-    manyToMany:
-         appareillages:
-             targetEntity: Appareillages
-             inversedBy: commandes
-
-         fidAdj:
-             targetEntity: Adjonctions
-             inversedBy: Commandes
-             joinTable:
-                 name: Commandes_Adjonctions
-                 joinColumns:
-                     Commandes_id:
-                         referencedColumn: id
-                 inverseJoinColumns:
-                     Adjonctions_id:
-                         referencedColumn: id
-
-
     lifecycleCallbacks:
           prePersist: [setCreatedAtValue]

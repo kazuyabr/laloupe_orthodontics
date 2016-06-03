@@ -15,13 +15,4 @@ OrthoBundle\Entity\PoidsAppareillages:
             nullable: false
             unique: false
 
-    manyToOne:
-        fidAppareillages:
-            targetEntity: OrthoBundle\Entity\Appareillages
-            inversedBy: poids
-
-        cabinet:
-            targetEntity: OrthoBundle\Entity\Cabinetsdentaires
-            inversedBy: poids
-
     lifecycleCallbacks: {  }

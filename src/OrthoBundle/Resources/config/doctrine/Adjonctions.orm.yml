@@ -36,14 +36,4 @@ OrthoBundle\Entity\Adjonctions:
             column: info_com_cab_adj
             nullable: true
 
-    manyToMany:
-        fkidCommande:
-            targetEntity: Commandes
-            mappedBy: Adjonctions
-
-    oneToMany:
-        poids:
-            targetEntity: OrthoBundle\Entity\PoidsAdjonctions
-            mappedBy: fidAdjonction
-
     lifecycleCallbacks: {  }

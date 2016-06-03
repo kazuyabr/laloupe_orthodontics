@@ -41,12 +41,7 @@ class Cabinetsdentaires extends BaseUser
      * @var integer
      */
     protected $id;
-
-    /**
-     * @var \OrthoBundle\Entity\Laboratoire
-     */
-    private $fidLabo;
-
+    
     /**
      * @var string
      */

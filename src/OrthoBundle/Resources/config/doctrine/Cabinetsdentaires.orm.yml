@@ -35,21 +35,5 @@ OrthoBundle\Entity\Cabinetsdentaires:
             column: telephone_cab
             nullable: true
 
-    manyToOne:
-        fidLabo:
-            targetEntity: OrthoBundle\Entity\Laboratoire
-            joinColumn:
-                name: fid_labo
-                referencedColumn: id
-                nullable: true
-
-    oneToMany:
-        poids:
-            targetEntity: OrthoBundle\Entity\PoidsAppareillages
-            mappedBy: cabinet
-
-        poidsAdjonction:
-            targetEntity: OrthoBundle\Entity\PoidsAdjonctions
-            mappedBy: cabinet
 
     lifecycleCallbacks: {  }

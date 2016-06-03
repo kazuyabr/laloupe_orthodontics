@@ -36,18 +36,5 @@ OrthoBundle\Entity\Appareillages:
             column: info_com_cab_app
             nullable: true
 
-    manyToMany:
-        commandes:
-            targetEntity: OrthoBundle\Entity\Commandes
-            mappedBy: appareillages
-
-        labos:
-            targetEntity: OrthoBundle\Entity\Laboratoire
-            mappedBy: appareillages
-
-    oneToMany:
-        poids:
-            targetEntity: OrthoBundle\Entity\PoidsAppareillages
-            mappedBy: fidAppareillages
 
     lifecycleCallbacks: { }

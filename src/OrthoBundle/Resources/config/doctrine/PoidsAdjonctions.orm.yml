@@ -12,13 +12,4 @@ OrthoBundle\Entity\PoidsAdjonctions:
         poids:
             type: integer
 
-
-    manyToOne:
-        fidAdjonction:
-            targetEntity: OrthoBundle\Entity\Adjonctions
-            inversedBy: poids
-
-        cabinet:
-            targetEntity: OrthoBundle\Entity\Cabinetsdentaires
-            inversedBy: poids
     lifecycleCallbacks: {  }

@@ -8,31 +8,5 @@ OrthoBundle\Entity\AppAdjLabo:
             id: true
             generator:
                 strategy: AUTO
-    fields:
-
-    manyToOne:
-        fidApp:
-            targetEntity: Appareillages
-            joinColumn:
-                name: fid_app
-                referencedColumn: id
-                nullable: false
-                unique: false
-
-        fidAdj:
-            targetEntity: Adjonctions
-            joinColumn:
-                name: fid_adj
-                referencedColumn: id
-                nullable: false
-                unique: false
-
-        fidLabo:
-            targetEntity: Laboratoire
-            joinColumn:
-                name: fid_labo
-                referencedColumn: id
-                nullable: false
-                unique: false
 
     lifecycleCallbacks: {  }

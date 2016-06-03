@@ -61,18 +61,12 @@ class Appareillages
     private $commandes;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $labos;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->labos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
