@@ -44,6 +44,7 @@ h3 {
 #commandes_fidMotif {
     vertical-align: middle;
     width: 20%;
+    font-size: 85%;/**/
 }
 
 #remplissageCadreCouleur,
@@ -120,7 +121,8 @@ input[type="file"] {
     margin: 0 -1.5em;
 }
 
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
@@ -146,13 +148,13 @@ input[type="file"] {
 
 .dropdown-menu {
     background-color: #ccff90;
+    padding: 0;
 }
 
 /*.header_recap {
     margin-left: auto;
     margin-right: auto;
 }
-
 
 .header_recap h2 {
     padding-top: 6px;
@@ -196,7 +198,6 @@ li {
     height: auto;
     border-right: 1px solid dimgrey;
     padding-right: 20px;
-
 }
 
 #boutoncde {
@@ -263,15 +264,15 @@ li {
 
 }
 
-a:hover, a:focus, a:active {
-    text-decoration: none;
-    color: green;
-
+a {
+    color: #ccff90;
 }
 
-a {
+a:hover,
+a:focus,
+a:active {
+    color: green;
     text-decoration: none;
-    color: #ccff90;
 }
 
 #imageSchemaApp {
@@ -284,6 +285,7 @@ a {
 #commandes_fidAdj label,
 #commandes_appareillages label {
     display: block;
+    font-size: 85%;
 }
 
 input[type=checkbox] {
@@ -314,7 +316,7 @@ html {
 }
 
 body {
-    font-family: montserrat, arial, verdana;
+    font-family: "Montserrat", "arial, verdana";
 }
 
 /*form styles*/
@@ -364,7 +366,7 @@ body {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 }
@@ -495,7 +497,7 @@ fieldset > label {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 }
@@ -511,7 +513,7 @@ fieldset > label {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 

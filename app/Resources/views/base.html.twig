@@ -47,10 +47,34 @@
                             <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                         </li>
 
-                        {#{% endif %}#}
-
                         {#{% if is_granted('ROLE_SUPER_ADMIN') %}#}
                         <!-- user is logged in ROLE_SUPER_ADMIN -->
+
+                        {#{% elseif is_granted('ROLE_USER') %}#}
+                        <!-- user is logged in ROLE_USER -->
+
+                        <li {% if app.request.get('_route') == 'fos_user_profile_show' or
+                        app.request.get('_route') == 'fos_user_profile_edit' or
+                        app.request.get('_route') == 'recup_commandes' or
+                        app.request.get('_route') == 'recup_user' %}
+                            class="active" {% endif %}>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulter
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu tameremichel">
+                                <li {% if app.request.get('_route') == 'fos_user_profile_show' or app.request.get('_route') == 'fos_user_profile_edit' %}
+                                    class="active"{% endif %}>
+                                    <a href="{{ path('fos_user_profile_show') }}">Mon profile</a>
+                                </li>
+                                <li {% if app.request.get('_route') == 'recup_commandes' %}
+                                    class="active"{% endif %}>
+                                    <a href="{{ path('recup_commandes') }}">Commandes</a>
+                                </li>
+                                <li {% if app.request.get('_route') == 'recup_user' %}
+                                    class="active"{% endif %}>
+                                    <a href="{{ path('recup_user') }}">Utilisateurs</a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li {% if app.request.get('_route') == 'crea_cabinet' or
                         app.request.get('_route') == 'fiche_cabinet' or
@@ -79,33 +103,6 @@
                             </ul>
                         </li>
 
-                        <li {% if app.request.get('_route') == 'fos_user_profile_show' or
-                        app.request.get('_route') == 'fos_user_profile_edit' or
-                        app.request.get('_route') == 'recup_commandes' or
-                        app.request.get('_route') == 'recup_user' %}
-                            class="active" {% endif %}>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulter
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu tameremichel">
-                                <li {% if app.request.get('_route') == 'fos_user_profile_show' or app.request.get('_route') == 'fos_user_profile_edit' %}
-                                    class="active"{% endif %}>
-                                    <a href="{{ path('fos_user_profile_show') }}">Mon profile</a>
-                                </li>
-                                <li {% if app.request.get('_route') == 'recup_commandes' %}
-                                    class="active"{% endif %}>
-                                    <a href="{{ path('recup_commandes') }}">Commandes</a>
-                                </li>
-                                <li {% if app.request.get('_route') == 'recup_user' %}
-                                    class="active"{% endif %}>
-                                    <a href="{{ path('recup_user') }}">Utilisateurs</a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-
-                        {#{% elseif is_granted('ROLE_USER') %}#}
-                        <!-- user is logged in ROLE_USER -->
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
                             class="active"{% endif %}>
                             <a href="{{ path('ortho_formulaire') }}">Formulaire</a>
@@ -117,6 +114,7 @@
                             class="active"{% endif %}>
                             <a href="{{ path('fos_user_security_login') }}">Connexion</a>
                         </li>
+
                     {% endif %}
 
                     <li>

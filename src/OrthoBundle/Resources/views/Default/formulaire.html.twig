@@ -1,7 +1,7 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-        <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
+    <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
         , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post">
         <!-- Barre de progression -->
@@ -14,21 +14,22 @@
         {{ form_start(form) }}
         <!-- Bloc n°1 : Les informations générales du patient -->
         <fieldset class="smallbloc">
-            {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
+            {{ form_label(form.referencePatient, "Référence du patient") }}
             <h2 class="fs-title">Informations du patient</h2>
 
-            {{ form_label(form.referencePatient, "Référence du patient : ") }}
+            {{ form_label(form.referencePatient, "Référence du patient* : ") }}
             {{ form_errors(form.referencePatient) }}
             {{ form_widget(form.referencePatient) }}
 
-            {{ form_label(form.prenomPatient) }}
+            {{ form_label(form.prenomPatient, "Prénom* :") }}
             {{ form_errors(form.prenomPatient) }}
             {{ form_widget(form.prenomPatient) }}
 
-            {{ form_label(form.dateretour, "Date de retour souhaitée : ") }}
+            {{ form_label(form.dateretour, "Date de retour souhaitée* : ") }}
             {{ form_errors(form.dateretour) }}
             {{ form_widget(form.dateretour) }}
 
+            <div id="securite_refPatient">* Ce champ est obligatoire</div>
             <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
 
@@ -82,8 +83,8 @@
         </fieldset>
         <!-- Bloc n°3 : Les pièces jointes -->
         <fieldset class="smallbloc">
-            <h2 class="fs-title">Pièces jointes complémentaires :</h2>
-            <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
+            <h2 class="fs-title">Pièces jointes complémentaires</h2>
+            <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande.</h3>
 
             {{ form_label(form.testimage, "Arcade Maxilaire :") }}
             {{ form_errors(form.testimage) }}
@@ -113,31 +114,39 @@
 
 {% block javascript %}
     <script>
-    var appareillages = {
-    {% for namepictures in nomimageapp %}
-        "{{ namepictures.id }}" : {"title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
-    {% endfor %}
-    };
-        </script>
-        <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
+        var appareillages = {
+            {% for namepictures in nomimageapp %}
+            "{{ namepictures.id }}": {
+                "title": "{{ namepictures.titreApp }}",
+                "img": "{{ namepictures.imgApp }}",
+                "family": "{{ namepictures.familleApp }}"
+            },
+            {% endfor %}
+        };
+    </script>
+    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
 
     <script>
+        // div display-none valable pour tous les ajouts de commentaire
+        var comment = $('#appCommentInter');
+
         // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
         {{ commentaire['id'] }} :
         "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
         {% endfor %}
-        };
-        var commentAppareil = $('#appCommentInter');
+        }
+        ;
+
         var checkboxes = $('div#commandes_appareillages input[type=checkbox]');
 
         checkboxes.on('click', function () {
             if ($(this).prop('checked')) {
-                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
+                comment.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableau[$(this).val()] + '</div>');
             }
             else {
                 $('#commentaireEnfant' + $(this).val()).remove();
@@ -154,16 +163,16 @@
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
         {{ commentaire['id'] }} :
-        "{{ commentaire['titreAdj'] }}({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+        "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
         {% endfor %}
         }
+        ;
 
-        var commentAppareil = $('#appCommentInter');
         var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
 
         checkboxesAdjonctions.on('click', function () {
             if ($(this).prop('checked')) {
-                commentAppareil.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauCommentaireAdjonction[$(this).val()] + '</div>');
+                comment.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauCommentaireAdjonction[$(this).val()] + '</div>');
             }
             else {
                 $('#commentaireEnfant' + $(this).val()).remove();
@@ -176,7 +185,7 @@
             });
         });
 
-
+        // Affichage des images pour Couleurs et Motifs
         var monSelectCouleur = $('#commandes_fidCouleur');
         monSelectCouleur.on('change', function () {
             $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
@@ -187,6 +196,15 @@
             $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
         });
 
+        //////////////////////////////////
+        //
+        // Affichage commentaire PJ dans commentaire principale
+        /*
+        $('#commandes_comment2').change(function () {
+            $('.commentaireClass').val($(this).val());
+        });
+        */
 
     </script>
+
 {% endblock %}
