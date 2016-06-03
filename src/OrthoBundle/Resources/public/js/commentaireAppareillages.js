@@ -8,9 +8,6 @@ checkboxesAppareillages.on('click', function () {
 
     textareaCommentaire.html('');
 
-    $('.commentaireClass').each(function () {
-        textareaCommentaire.append($(this).html() + "\n");
-    });
 });
 
 

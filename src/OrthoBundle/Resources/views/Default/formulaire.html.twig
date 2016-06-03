@@ -186,19 +186,17 @@
 
         var tableauCommentaireAppareillages = {
         {% for commentaire in commentaireAppareil %}
-        {{ commentaire['id'] }} :
+        "{{ commentaire['id'] }}" :
         "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
         {% endfor %}
-        }
+        };
 
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
-        {{ commentaire['id'] }} :
+        "{{ commentaire['id'] }}" :
         "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
         {% endfor %}
-        }
-
-
+        };
     </script>
     <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
@@ -207,25 +205,4 @@
     <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAdjonctions.js') }}"></script>
-
-    <script>
-
-        // Liste des adjonctions + Affichage des commentaires dans le cadre
-
-
-
-
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        });
-
-
-    </script>
-
 {% endblock %}

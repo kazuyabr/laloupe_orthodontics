@@ -1,4 +1,4 @@
-//
+// Affichage des commentaires des adjonctions dans le textarea
 var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
 var textareaCommentaire = $('#commandes_comment');
 
@@ -7,10 +7,6 @@ checkboxesAdjonctions.on('click', function () {
     ($(this).prop('checked')) ? addCommentAdjonction($(this).val()) : removeCommentAdjonction($(this).val());
 
     textareaCommentaire.html('');
-
-    $('.commentaireClass').each(function () {
-        textareaCommentaire.append($(this).html() + "\n");
-    });
 });
 
 
