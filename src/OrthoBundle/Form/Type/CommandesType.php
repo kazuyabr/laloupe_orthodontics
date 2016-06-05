@@ -53,7 +53,7 @@ class CommandesType extends AbstractType
                     )
             ))
 
-            ->add('fidAdj', 'entity', array(
+            ->add('adjonctions', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'nom',
                 'multiple' => 'true',

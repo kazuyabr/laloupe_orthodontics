@@ -12,4 +12,24 @@ use Doctrine\ORM\EntityRepository;
  */
 class AdjonctionsRepository extends EntityRepository
 {
+    public function orderAdjonctionsByWeight()
+    {
+        $queryBuilder = $this->createQueryBuilder('adjonctions');
+
+        $queryBuilder->leftJoin('adjonctions.poids', 'p')
+            ->orderBy('p.poids', 'DESC')
+            ->setMaxResults(10);
+
+        return $queryBuilder;
+
+    }
+    public function getComments()
+    {
+        $queryBuilder = $this->createQueryBuilder('adjonction');
+
+        // On sélectionne tout les id, ainsi que tout les commentaires
+        $queryBuilder->select('adjonction.id', 'adjonction.titreAdj', 'adjonction.commentairesAdj', 'adjonction.familleAdj');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }
