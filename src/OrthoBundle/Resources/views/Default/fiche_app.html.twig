@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<form xmlns="http://www.w3.org/1999/html">
+    <div id="msform">
+    {{ dump(affichagefiche) }}
+    <fieldset class="largebloc">
+        <h3>Fiche de {{ affichagefiche.titreApp }}</h3>
+        <div id="container"></div>
+        <div>
+            <img src="{{ affichagefiche.imgApp }}" />
+        </div>
+    <div class="creaplace">
+
+        <strong>Id de l'appareillage : </strong> {{ affichagefiche.id }} </br>
+        <strong>Nom de l'appareillage : </strong>{{ affichagefiche.titreApp }} </br>
+        <strong>Famille de l'appareillage : </strong>{{ affichagefiche.familleApp }} </br>
+        <strong>Image :</strong>{{ affichagefiche.imgApp }} </br>
+        <strong>Commentaires : </strong>{{ affichagefiche.commentairesApp }} </br>
+        <strong>Info Labo : </strong>{{ affichagefiche.infoComLaboApp }} </br>
+        <strong>Info Cab : </strong>{{ affichagefiche.infoComCabApp }}
+
+    </div>
+
+                <a href="{{ path('crea_app', { 'id': affichagefiche.id }) }}">Edit</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </fieldset>
+        </div>
+</form>
+
+
+{% endblock %}
