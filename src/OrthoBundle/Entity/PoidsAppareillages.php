@@ -32,7 +32,7 @@ class PoidsAppareillages
     /**
      * @var int
      */
-    private $poids;
+    private $poids = 1;
 
 
     /**

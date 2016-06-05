@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Entity\PoidsAdjonctions;
+use OrthoBundle\Entity\Utilisateurs;
 use OrthoBundle\Form\Type\CommandesType;
 
 
@@ -29,7 +30,7 @@ class FormulaireController extends Controller
         $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
-        $infoUserConnected = $em->getRepository('OrthoBundle:Utilisateurs')->getActualUser($this->getUser());
+        $infoUserConnected = $em->getRepository('OrthoBundle:Utilisateurs')->getActualUser($user);
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
@@ -37,7 +38,6 @@ class FormulaireController extends Controller
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
-
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil)
             {

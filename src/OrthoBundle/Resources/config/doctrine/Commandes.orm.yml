@@ -73,4 +73,5 @@ OrthoBundle\Entity\Commandes:
             targetEntity: OrthoBundle\Entity\Commandes
             inversedBy: commandes
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist: [setCreatedAtValue]

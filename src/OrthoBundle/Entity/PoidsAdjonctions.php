@@ -31,7 +31,7 @@ class PoidsAdjonctions
     /**
      * @var int
      */
-    private $poids;
+    private $poids = 1;
 
 
     /**

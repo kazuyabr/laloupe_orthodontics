@@ -70,6 +70,7 @@ class CommandesType extends AbstractType
             ))
             ->add('couleur')
             ->add('motif')
+            
             ->add('commentaireLabo', 'textarea')
             ->add('pathPJ1', 'file', array(
                 'mapped' => false,

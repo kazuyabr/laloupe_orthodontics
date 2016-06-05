@@ -10,6 +10,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commandes
 {
+
+    public function __toString()
+    {
+        return $this->commentaireLabo;
+    }
+
+    public function setCreatedAtValue()
+    {
+        $this->setDatecommande(new \DateTime());
+    }
     private $adjonctions;
     
     private $appareillages;

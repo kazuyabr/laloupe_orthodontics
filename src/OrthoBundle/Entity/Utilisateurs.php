@@ -28,6 +28,7 @@ class Utilisateurs extends BaseUser
 
     /* Fin variable relation Doctrine */
     
+    
     // GENERATED CODE
 
     /**
