@@ -95,6 +95,7 @@ class FormulaireController extends Controller
             )));
         }
 
+        
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(

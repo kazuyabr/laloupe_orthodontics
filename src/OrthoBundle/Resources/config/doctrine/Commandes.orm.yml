@@ -34,6 +34,8 @@ OrthoBundle\Entity\Commandes:
             type: string
             length: 255
             nullable: true
+        commentairePrestataire3D:
+            type: text
 
     manyToMany:
         appareillages:
@@ -61,6 +63,14 @@ OrthoBundle\Entity\Commandes:
     manyToOne:
         utilisateur:
             targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: commandes
+
+        couleur:
+            targetEntity: OrthoBundle\Entity\Couleurs
+            inversedBy: commande
+
+        motif:
+            targetEntity: OrthoBundle\Entity\Commandes
             inversedBy: commandes
 
     lifecycleCallbacks: {  }

@@ -66,22 +66,22 @@ class CommandesType extends AbstractType
             ->add('ajoutAdj', 'button', array(
                 'attr' => array('class' => 'action-button')
             ))
-            ->add('fidCouleur')
-            ->add('fidMotif')
-            ->add('comment', 'textarea')
-            ->add('testimage', 'file', array(
+            ->add('couleur')
+            ->add('motif')
+            ->add('commentaireLabo', 'textarea')
+            ->add('pathPJ1', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))
-            ->add('testimage1', 'file', array(
+            ->add('pathPJ2', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))
-            ->add('testimage2', 'file', array(
+            ->add('pathPJ3', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))
-            ->add('comment2', 'textarea', array(
+            ->add('commentairePrestataire3D', 'textarea', array(
                 'required' => false
 
             ));

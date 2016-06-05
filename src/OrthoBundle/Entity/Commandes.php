@@ -15,6 +15,10 @@ class Commandes
     private $appareillages;
     
     private $utilisateur;
+    
+    private $couleur;
+
+    private $motif;
     /**
      * @var int
      */
@@ -59,6 +63,11 @@ class Commandes
      * @var string
      */
     private $pathPJ3;
+
+    /**
+     * @var string
+     */
+    private $commentairePrestataire3D;
 
 
     /**
@@ -350,5 +359,74 @@ class Commandes
     public function getAdjonctions()
     {
         return $this->adjonctions;
+    }
+
+    /**
+     * Set couleur
+     *
+     * @param \OrthoBundle\Entity\Couleurs $couleur
+     * @return Commandes
+     */
+    public function setCouleur(\OrthoBundle\Entity\Couleurs $couleur = null)
+    {
+        $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    /**
+     * Get couleur
+     *
+     * @return \OrthoBundle\Entity\Couleurs 
+     */
+    public function getCouleur()
+    {
+        return $this->couleur;
+    }
+
+    /**
+     * Set motif
+     *
+     * @param \OrthoBundle\Entity\Commandes $motif
+     * @return Commandes
+     */
+    public function setMotif(\OrthoBundle\Entity\Commandes $motif = null)
+    {
+        $this->motif = $motif;
+
+        return $this;
+    }
+
+    /**
+     * Get motif
+     *
+     * @return \OrthoBundle\Entity\Commandes 
+     */
+    public function getMotif()
+    {
+        return $this->motif;
+    }
+
+    /**
+     * Set commentairePrestataire3D
+     *
+     * @param string $commentairePrestataire3D
+     * @return Commandes
+     */
+    public function setCommentairePrestataire3D($commentairePrestataire3D)
+    {
+        $this->commentairePrestataire3D = $commentairePrestataire3D;
+
+        return $this;
+    }
+
+    /**
+     * Get commentairePrestataire3D
+     *
+     * @return string 
+     */
+    public function getCommentairePrestataire3D()
+    {
+        return $this->commentairePrestataire3D;
     }
 }

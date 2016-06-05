@@ -12,4 +12,9 @@ OrthoBundle\Entity\Couleurs:
         nomCouleur:
             type: string
             length: 255
+
+    oneToMany:
+        commande:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: couleur
     lifecycleCallbacks: {  }

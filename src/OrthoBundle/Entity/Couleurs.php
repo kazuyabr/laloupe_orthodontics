@@ -9,6 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Couleurs
 {
+
+    public function __toString()
+    {
+        return $this->nomCouleur;
+    }
+
+    private $commande;
     /**
      * @var int
      */
@@ -51,5 +58,45 @@ class Couleurs
     public function getNomCouleur()
     {
         return $this->nomCouleur;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commande = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commande
+     *
+     * @param \OrthoBundle\Entity\Commandes $commande
+     * @return Couleurs
+     */
+    public function addCommande(\OrthoBundle\Entity\Commandes $commande)
+    {
+        $this->commande[] = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Remove commande
+     *
+     * @param \OrthoBundle\Entity\Commandes $commande
+     */
+    public function removeCommande(\OrthoBundle\Entity\Commandes $commande)
+    {
+        $this->commande->removeElement($commande);
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommande()
+    {
+        return $this->commande;
     }
 }

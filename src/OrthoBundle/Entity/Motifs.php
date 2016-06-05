@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Motifs
 {
+    private $commandes;
     /**
      * @var int
      */
@@ -51,5 +52,45 @@ class Motifs
     public function getNomMotif()
     {
         return $this->nomMotif;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commandes
+     *
+     * @param \OrthoBundle\Entity\Commandes $commandes
+     * @return Motifs
+     */
+    public function addCommande(\OrthoBundle\Entity\Commandes $commandes)
+    {
+        $this->commandes[] = $commandes;
+
+        return $this;
+    }
+
+    /**
+     * Remove commandes
+     *
+     * @param \OrthoBundle\Entity\Commandes $commandes
+     */
+    public function removeCommande(\OrthoBundle\Entity\Commandes $commandes)
+    {
+        $this->commandes->removeElement($commandes);
+    }
+
+    /**
+     * Get commandes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
     }
 }

@@ -12,4 +12,10 @@ OrthoBundle\Entity\Motifs:
         nomMotif:
             type: string
             length: 255
+
+    oneToMany:
+        commandes:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: motif
+
     lifecycleCallbacks: {  }
