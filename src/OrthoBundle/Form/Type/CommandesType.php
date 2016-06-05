@@ -38,7 +38,7 @@ class CommandesType extends AbstractType
             )
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
-                'property' => 'titre_app',
+                'property' => 'nom',
                 'expanded' => 'true',
                 'multiple' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
