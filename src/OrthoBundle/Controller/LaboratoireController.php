@@ -68,4 +68,41 @@ class LaboratoireController extends Controller
         ));
     }
 
+    public function editLaboAction(Request $request, Laboratoire $laboratoire)
+    {
+        $deleteForm = $this->createDeleteForm($laboratoire);
+        $editForm = $this->createForm('Crud\Bundle\Form\TestType', $laboratoire);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($laboratoire);
+            $em->flush();
+
+            return $this->redirectToRoute('fiche_labo', array('id' => $laboratoire->getId()));
+        }
+
+        return $this->render('@Ortho/Default/fiche_labo.html.twig', array(
+            'Labo' => $laboratoire,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+    
+    public function deleteLaboAction(Request $request, Laboratoire $laboratoire)
+    {
+        $form = $this->createDeleteForm($laboratoire);
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($laboratoire);
+            $em->flush();
+        }
+    
+        return $this->redirectToRoute('sup_labo');
+        }
+    
+
 }
