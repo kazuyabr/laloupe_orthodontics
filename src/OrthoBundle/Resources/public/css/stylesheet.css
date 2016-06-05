@@ -20,7 +20,7 @@ h3 {
     display: block;
 }*/
 
-#commandes_fidAdj,
+#commandes_adjonctions,
 #commandes_appareillages {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -40,8 +40,7 @@ h3 {
     width: 150px;
 }
 
-#commandes_fidCouleur,
-#commandes_fidMotif {
+#commandes_couleur, #commandes_motif {
     vertical-align: middle;
     width: 20%;
 }
@@ -53,8 +52,8 @@ h3 {
     vertical-align: text-top;
 }
 
-#commandes_comment,
-#commandes_comment2 {
+#commandes_commentaireLabo,
+#commandes_commentairePrestataire3D {
     padding: 5px;
     width: 100%;
     display: block;
@@ -534,7 +533,6 @@ fieldset > label {
 
 #buttonprofile {
     background-color: #76ff03;
-
 }
 
 

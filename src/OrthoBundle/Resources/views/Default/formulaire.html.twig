@@ -130,12 +130,10 @@
                 {{ form_label(form.couleur, "Couleur : ") }}
                 {{ form_errors(form.couleur) }}
                 {{ form_widget(form.couleur) }}
-                <img id="remplissageCadreCouleur" src="{{ asset('bundles/ortho/img/couleurs/1.png') }}"/>
 
                 {{ form_label(form.motif, "Motif :") }}
                 {{ form_errors(form.motif) }}
                 {{ form_widget(form.motif) }}
-                <img id="remplissageCadreMotif" src="{{ asset('bundles/ortho/img/motifs/1.png') }}"/>
             </div>
 
             {{ form_label(form.commentaireLabo, "Commentaires : ") }}
@@ -152,18 +150,14 @@
             {{ form_label(form.pathPJ1, "Arcade Maxilaire :") }}
             {{ form_errors(form.pathPJ1) }}
             {{ form_widget(form.pathPJ1) }}
-            {#
-                        {{{ form_label(form.testimage1, "Arcade mandibulaire :") }}
-                        {{ form_errors(form.testimage1) }}
-                        {{ form_widget(form.testimage1) }}
 
-                        {{ form_label(form.testimage2, "Autre pièces jointes :") }}
-                        {{ form_errors(form.testimage2) }}
-                        {{ form_widget(form.testimage2) }}
-            #}
-            {{ form_label(form.pathPJ2, "Autres commentaires :") }}
+            {{ form_label(form.pathPJ2, "Arcade Mandibulaire :") }}
             {{ form_errors(form.pathPJ2) }}
             {{ form_widget(form.pathPJ2) }}
+
+            {{ form_label(form.pathPJ3, "Autre pièces jointe :") }}
+            {{ form_errors(form.pathPJ3) }}
+            {{ form_widget(form.pathPJ3) }}
 
 
             {{ form_rest(form) }}
@@ -192,7 +186,7 @@
         // Liste des appareillages | Affichage des commentaires dans le cadre
         var tableau = {
         {% for commentaire in commentaireAppareil %}
-        {{ commentaire['id'] }} :
+        "{{ commentaire['id'] }}" :
         "{{ commentaire['nom'] }} ({{ commentaire['famille'] }}) : \n{{ commentaire['commentaire'] }}" ,
         {% endfor %}
         };
@@ -207,23 +201,22 @@
                 $('#commentaireEnfant' + $(this).val()).remove();
             }
 
-            $('#commandes_comment').html('');
+            $('#commandes_commentaireLabo').html('');
 
             $('.commentaireClass').each(function () {
-                $('#commandes_comment').append($(this).html() + "\n");
+                $('#commandes_commentaireLabo').append($(this).html() + "\n");
             });
         });
 
         // Liste des adjonctions + Affichage des commentaires dans le cadre
         var tableauCommentaireAdjonction = {
         {% for commentaire in commentaireAdjonction %}
-        {{ commentaire['id'] }} :
+        "{{ commentaire['id'] }}" :
         "{{ commentaire['nom'] }}({{ commentaire['famille'] }}) : \n{{ commentaire['commentaire'] }}" ,
         {% endfor %}
-        }
+        };
 
-        var commentAppareil = $('#appCommentInter');
-        var checkboxesAdjonctions = $('div#commandes_fidAdj input[type=checkbox]');
+        var checkboxesAdjonctions = $('div#commandes_adjonctions input[type=checkbox]');
 
         checkboxesAdjonctions.on('click', function () {
             if ($(this).prop('checked')) {
@@ -233,24 +226,11 @@
                 $('#commentaireEnfant' + $(this).val()).remove();
             }
 
-            $('#commandes_comment').html('');
+            $('#commandes_commentaireLabo').html('');
 
             $('.commentaireClass').each(function () {
-                $('#commandes_comment').append($(this).html() + "\n");
+                $('#commandes_commentaireLabo').append($(this).html() + "\n");
             });
         });
-
-
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        });
-
-
     </script>
 {% endblock %}
