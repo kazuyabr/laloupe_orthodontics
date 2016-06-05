@@ -1,0 +1,44 @@
+OrthoBundle\Entity\Appareillages:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\AppareillagesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            unique: true
+        famille:
+            type: string
+            length: 255
+        image:
+            type: string
+            length: 255
+        commentaire:
+            type: string
+            length: 255
+        infoLabo:
+            type: string
+            length: 255
+            column: info_labo
+        infoCabinet:
+            type: string
+            length: 255
+            column: info_cabinet
+
+
+    oneToMany:
+        poidsApp:
+            targetEntity: OrthoBundle\Entity\PoidsAppareillages
+            mappedBy: appareillage
+
+        boutonSpecifique:
+            targetEntity: OrthoBundle\Entity\AppAdjLabo
+            mappedBy: appareillage
+
+    lifecycleCallbacks: {  }

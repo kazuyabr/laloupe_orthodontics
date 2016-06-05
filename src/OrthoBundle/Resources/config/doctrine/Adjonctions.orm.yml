@@ -1,0 +1,50 @@
+OrthoBundle\Entity\Adjonctions:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\AdjonctionsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            unique: true
+        famille:
+            type: string
+            length: '3'
+        image:
+            type: string
+            length: 255
+        commentaire:
+            type: text
+        infoLabo:
+            type: string
+            length: 255
+            column: info_labo
+        infoCabinet:
+            type: string
+            length: 255
+            column: info_cabinet
+
+    oneToMany:
+        poids:
+            targetEntity: OrthoBundle\Entity\PoidsAdjonctions
+            mappedBy: adjonction
+
+        boutonSpecifique:
+            targetEntity: OrthoBundle\Entity\AppAdjLabo
+            mappedBy: adjonction
+
+
+
+
+
+
+
+
+
+    lifecycleCallbacks: {  }

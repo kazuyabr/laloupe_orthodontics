@@ -16,6 +16,14 @@ class Utilisateurs extends BaseUser
 
     private $categorie;
 
+    private $labo;
+
+    private $poidsAdj;
+    
+    private $poidsApp;
+
+    private $boutonSpecifique;
+
 
 
 

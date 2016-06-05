@@ -14,8 +14,9 @@ OrthoBundle\Entity\CategorieUtilisateurs:
             length: 255
             unique: true
 
-    manyToOne:
+    oneToMany:
         utilisateur:
             targetEntity: OrthoBundle\Entity\Utilisateurs
-            inversedBy: categorie
+            mappedBy: categorie
+
     lifecycleCallbacks: {  }

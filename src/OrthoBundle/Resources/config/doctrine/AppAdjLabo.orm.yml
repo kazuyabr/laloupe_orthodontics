@@ -1,0 +1,26 @@
+OrthoBundle\Entity\AppAdjLabo:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\AppAdjLaboRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+
+    manyToOne:
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: boutonSpecifique
+
+        appareillage:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            inversedBy: boutonSpecifique
+
+        adjonction:
+            targetEntity: OrthoBundle\Entity\Adjonctions
+            inversedBy: boutonSpecifique
+
+    lifecycleCallbacks: {  }

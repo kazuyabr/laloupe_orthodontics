@@ -1,0 +1,27 @@
+OrthoBundle\Entity\PoidsAppareillages:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\PoidsAppareillagesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        poids:
+            type: integer
+
+    manyToOne:
+        appareillage:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            inversedBy: poidsApp
+
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: poidsApp
+
+
+
+    lifecycleCallbacks: {  }
+

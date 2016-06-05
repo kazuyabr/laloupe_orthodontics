@@ -1,0 +1,37 @@
+OrthoBundle\Entity\Commandes:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\CommandesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        referencePatient:
+            type: string
+            length: 255
+        prenomPatient:
+            type: string
+            length: 255
+            nullable: true
+        dateRetour:
+            type: date
+        dateCommande:
+            type: datetime
+        commentaireLabo:
+            type: text
+        pathPJ1:
+            type: string
+            length: 255
+            nullable: true
+        pathPJ2:
+            type: string
+            length: 255
+            nullable: true
+        pathPJ3:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

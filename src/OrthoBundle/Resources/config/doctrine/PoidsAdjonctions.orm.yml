@@ -1,0 +1,27 @@
+OrthoBundle\Entity\PoidsAdjonctions:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\PoidsAdjonctionsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        poids:
+            type: integer
+
+    manyToOne:
+        adjonction:
+            targetEntity: OrthoBundle\Entity\Adjonctions
+            inversedBy: poids
+
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: poidsAdj
+
+
+
+
+    lifecycleCallbacks: {  }
