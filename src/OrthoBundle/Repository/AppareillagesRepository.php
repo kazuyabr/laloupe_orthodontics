@@ -14,9 +14,9 @@ class AppareillagesRepository extends EntityRepository
 {
     public function triParPoids()
     {
-        $queryBuilder = $this->createQueryBuilder('u');
+        $queryBuilder = $this->createQueryBuilder('appareillages');
 
-        $queryBuilder->leftJoin('u.poids', 'p')
+        $queryBuilder->leftJoin('appareillages.poidsApp', 'p')
             ->orderBy('p.poids', 'DESC')
             ->setMaxResults(10);
         return $queryBuilder;
@@ -26,8 +26,8 @@ class AppareillagesRepository extends EntityRepository
     public function getnameandimage($famille = 'mob'){
 
         $queryBuilder = $this->createQueryBuilder('appareillages')
-            ->select('appareillages.titreApp', 'appareillages.imgApp', 'appareillages.id')
-            ->where('appareillages.familleApp = :famille')
+            ->select('appareillages.nom', 'appareillages.image', 'appareillages.id')
+            ->where('appareillages.famille = :famille')
             ->setParameter('famille', $famille);
 
         return $queryBuilder->getQuery()->getResult();
@@ -40,7 +40,7 @@ class AppareillagesRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('appareillage');
 
         // On sélectionne tout les id, ainsi que tout les commentaires
-        $queryBuilder->select('appareillage.id', 'appareillage.titreApp', 'appareillage.commentairesApp', 'appareillage.familleApp');
+        $queryBuilder->select('appareillage.id', 'appareillage.nom', 'appareillage.commentaire', 'appareillage.famille');
 
         // On retourne le résultat
         return $queryBuilder->getQuery()->getResult();

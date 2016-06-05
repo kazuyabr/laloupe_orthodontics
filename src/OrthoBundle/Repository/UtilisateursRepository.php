@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class UtilisateursRepository extends EntityRepository
 {
+    public function getActualUser($id)
+    {
+        $queryBuilder = $this->createQueryBuilder('user');
+
+        $queryBuilder->leftJoin('user.labo', 'laboratoire')
+            ->select('user', 'laboratoire')
+            ->where('user.id = :id')
+            ->setParameter('id', $id);
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }
