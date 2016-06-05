@@ -12,6 +12,18 @@ class PoidsAppareillages
     private $appareillage;
 
     private $utilisateur;
+    
+    public function __construct(Utilisateurs $utilisateurs, Appareillages $appareillages)
+    {
+        $this->appareillage = $appareillages;
+        $this->utilisateur = $utilisateurs;
+    }
+
+    public function incrementation()
+    {
+        $this->poids++;
+    }
+
     /**
      * @var int
      */

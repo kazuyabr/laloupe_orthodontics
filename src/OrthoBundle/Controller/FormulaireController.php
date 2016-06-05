@@ -48,13 +48,13 @@ class FormulaireController extends Controller
                 // ET de l'appareil choisi, pour récupérer le poids précis
                 // ATTENTION : le $poids récupéré ici est un objet, contrairement au
                 // $poids dans l'entité "PoidsAppareillages.php" qui est un entier.
-                $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['cabinet' => $cabinet, 'fidAppareillages' => $appareil ]);
+                $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['utilisateur' => $cabinet, 'appareillage' => $appareil ]);
 
                 // SI, le poids est déjà renseigné (Si il n'est pas "NULL" en BDD, Faire :
                 if (isset($poids))
                 {
                     // [...] Appliquer la méthode incr() à notre poids (Voir PoidsAppareillages.php).
-                    $poids->incr();
+                    $poids->incrementation();
                 }
                 // SINON, (Si le poids est "NULL"), faire :
                 else
@@ -66,10 +66,10 @@ class FormulaireController extends Controller
                 }
             }
 
-            foreach ($commande->getFidAdj() as $adjonction)
+            foreach ($commande->getAdjonctions() as $adjonction)
             {
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
-                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['cabinet' => $cabinet, 'fidAdjonction' => $adjonction]);
+                $cabinet = $em->getRepository('OrthoBundle:Utilisateurs')->find($user->getId());
+                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['utilisateur' => $cabinet, 'adjonction' => $adjonction]);
 
                 if (isset($poidsAdjonction))
                 {
@@ -95,7 +95,7 @@ class FormulaireController extends Controller
             )));
         }
 
-        
+
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(

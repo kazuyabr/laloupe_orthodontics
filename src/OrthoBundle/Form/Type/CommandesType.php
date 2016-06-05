@@ -50,7 +50,7 @@ class CommandesType extends AbstractType
                     'class' => 'action-button',
                     'data-toggle' => 'modal',
                     'data-target' => '#myModal'
-                    )
+                )
             ))
 
             ->add('adjonctions', 'entity', array(
@@ -64,7 +64,9 @@ class CommandesType extends AbstractType
             ))
 
             ->add('ajoutAdj', 'button', array(
-                'attr' => array('class' => 'action-button')
+                'attr' => array(
+                    'class' => 'action-button'
+                )
             ))
             ->add('couleur')
             ->add('motif')

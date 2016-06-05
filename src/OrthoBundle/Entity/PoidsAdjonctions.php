@@ -16,6 +16,11 @@ class PoidsAdjonctions
         $this->adjonction = $adjonctions;
     }
 
+    public function incrementation()
+    {
+        $this->poids++;
+    }
+
     private $utilisateur;
     private $adjonction;
     /**
