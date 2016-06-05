@@ -48,9 +48,15 @@
                         </li>
 
                         {#{% if is_granted('ROLE_SUPER_ADMIN') %}#}
-                        <!-- user is logged in ROLE_SUPER_ADMIN -->
+                        <!-- user is logged in ROLE_ADMIN -->
 
-                        {#{% elseif is_granted('ROLE_USER') %}#}
+                        {#{% elseif is_granted('ROLE_TEAMNEO') %}#}
+                        <!-- user is logged in ROLE_TEAMNEO -->
+
+                        {#{% elseif is_granted('ROLE_LABORATOIRE') %}#}
+                        <!-- user is logged in ROLE_USER, ROLE_LABO -->
+
+                        {#{% elseif is_granted('ROLE_CABINET') %}#}
                         <!-- user is logged in ROLE_USER -->
 
                         <li {% if app.request.get('_route') == 'ortho_formulaire' %}
@@ -111,7 +117,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Supprimer
                                 <span class="caret"></span></a>
-                            <ul class="dropdown-menu" >
+                            <ul class="dropdown-menu">
                                 <li><a href="#">Supprimer un laboratoire</a></li>
                                 <li><a href="#">Supprimer un cabinet</a></li>
                                 <li><a href="#">Supprimer un appareillage</a></li>
