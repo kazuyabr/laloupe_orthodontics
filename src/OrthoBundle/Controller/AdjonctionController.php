@@ -31,7 +31,7 @@ class AdjonctionController extends Controller
             )));
         }
 
-        return $this->render('OrthoBundle:Default:crea_adj.html.twig', array(
+        return $this->render('OrthoBundle:Adjonction:crea_adj.html.twig', array(
             "form" => $form->createView()
         ));
     }
@@ -48,7 +48,7 @@ class AdjonctionController extends Controller
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
         $recapAdjonction = $em->getRepository('OrthoBundle:Adjonctions')->find($idAdjonction);
-        return $this->render('OrthoBundle:Default:recap_crea_adj.html.twig', array(
+        return $this->render('OrthoBundle:Adjonction:crea_adj.html.twig', array(
             "recapAdjonction" => $recapAdjonction,
 
         ));
@@ -66,10 +66,10 @@ class AdjonctionController extends Controller
             $em->persist($adjonctions);
             $em->flush();
 
-            return $this->redirectToRoute('test_edit', array('id' => $adjonctions->getId()));
+            return $this->redirectToRoute('fiche_adj', array('id' => $adjonctions->getId()));
         }
 
-        return $this->render('test/edit.html.twig', array(
+        return $this->render('@Ortho/Adjonction/fiche_adj.html.twig', array(
             'adjonctions' => $adjonctions,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
