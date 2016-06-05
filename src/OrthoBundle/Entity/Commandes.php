@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commandes
+ * @ORM\Entity(repositoryClass="OrthoBundle\Repository\CommandesRepository")
  */
 class Commandes
 {

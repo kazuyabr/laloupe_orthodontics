@@ -34,7 +34,7 @@ OrthoBundle\Entity\Utilisateurs:
 
         labo:
             targetEntity: OrthoBundle\Entity\Utilisateurs
-            inversedBy: id
+            mappedBy: id
             joinColumn:
                 nullable: true
 

@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class AppareillagesRepository extends EntityRepository
 {
-    public function triParPoids()
+    public function orderApparelsByWeight()
     {
         $queryBuilder = $this->createQueryBuilder('appareillages');
 

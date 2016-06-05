@@ -42,7 +42,7 @@ class CommandesType extends AbstractType
                 'expanded' => 'true',
                 'multiple' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
-                    return $entityRepository->triParPoids();
+                    return $entityRepository->orderApparelsByWeight();
                 }
             ))
             ->add('ajoutApp', 'button', array(
@@ -52,15 +52,17 @@ class CommandesType extends AbstractType
                     'data-target' => '#myModal'
                     )
             ))
+
             ->add('fidAdj', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
-                'property' => 'titre_adj',
+                'property' => 'nom',
                 'multiple' => 'true',
                 'expanded' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
-                    return $entityRepository->triParPoids();
+                    return $entityRepository->orderAdjonctionsByWeight();
                 }
             ))
+
             ->add('ajoutAdj', 'button', array(
                 'attr' => array('class' => 'action-button')
             ))
