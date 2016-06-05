@@ -36,7 +36,7 @@ OrthoBundle\Entity\Utilisateurs:
             targetEntity: OrthoBundle\Entity\Utilisateurs
             inversedBy: id
             joinColumn:
-                nullable: false
+                nullable: true
 
     oneToMany:
         poidsAdj:

@@ -185,4 +185,182 @@ class Utilisateurs extends BaseUser
     {
         return $this->telephone;
     }
+
+    /**
+     * Add poidsAdj
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poidsAdj
+     * @return Utilisateurs
+     */
+    public function addPoidsAdj(\OrthoBundle\Entity\PoidsAdjonctions $poidsAdj)
+    {
+        $this->poidsAdj[] = $poidsAdj;
+
+        return $this;
+    }
+
+    /**
+     * Remove poidsAdj
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poidsAdj
+     */
+    public function removePoidsAdj(\OrthoBundle\Entity\PoidsAdjonctions $poidsAdj)
+    {
+        $this->poidsAdj->removeElement($poidsAdj);
+    }
+
+    /**
+     * Get poidsAdj
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoidsAdj()
+    {
+        return $this->poidsAdj;
+    }
+
+    /**
+     * Add poidsApp
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poidsApp
+     * @return Utilisateurs
+     */
+    public function addPoidsApp(\OrthoBundle\Entity\PoidsAppareillages $poidsApp)
+    {
+        $this->poidsApp[] = $poidsApp;
+
+        return $this;
+    }
+
+    /**
+     * Remove poidsApp
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poidsApp
+     */
+    public function removePoidsApp(\OrthoBundle\Entity\PoidsAppareillages $poidsApp)
+    {
+        $this->poidsApp->removeElement($poidsApp);
+    }
+
+    /**
+     * Get poidsApp
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoidsApp()
+    {
+        return $this->poidsApp;
+    }
+
+    /**
+     * Add boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     * @return Utilisateurs
+     */
+    public function addBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique[] = $boutonSpecifique;
+
+        return $this;
+    }
+
+    /**
+     * Remove boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     */
+    public function removeBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique->removeElement($boutonSpecifique);
+    }
+
+    /**
+     * Get boutonSpecifique
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoutonSpecifique()
+    {
+        return $this->boutonSpecifique;
+    }
+
+    /**
+     * Add commandes
+     *
+     * @param \OrthoBundle\Entity\Commandes $commandes
+     * @return Utilisateurs
+     */
+    public function addCommande(\OrthoBundle\Entity\Commandes $commandes)
+    {
+        $this->commandes[] = $commandes;
+
+        return $this;
+    }
+
+    /**
+     * Remove commandes
+     *
+     * @param \OrthoBundle\Entity\Commandes $commandes
+     */
+    public function removeCommande(\OrthoBundle\Entity\Commandes $commandes)
+    {
+        $this->commandes->removeElement($commandes);
+    }
+
+    /**
+     * Get commandes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \OrthoBundle\Entity\CategorieUtilisateurs $categorie
+     * @return Utilisateurs
+     */
+    public function setCategorie(\OrthoBundle\Entity\CategorieUtilisateurs $categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \OrthoBundle\Entity\CategorieUtilisateurs 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set labo
+     *
+     * @param \OrthoBundle\Entity\Utilisateurs $labo
+     * @return Utilisateurs
+     */
+    public function setLabo(\OrthoBundle\Entity\Utilisateurs $labo)
+    {
+        $this->labo = $labo;
+
+        return $this;
+    }
+
+    /**
+     * Get labo
+     *
+     * @return \OrthoBundle\Entity\Utilisateurs 
+     */
+    public function getLabo()
+    {
+        return $this->labo;
+    }
 }

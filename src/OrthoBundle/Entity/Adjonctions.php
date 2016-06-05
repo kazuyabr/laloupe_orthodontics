@@ -195,4 +195,78 @@ class Adjonctions
     {
         return $this->infoCabinet;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poids
+     * @return Adjonctions
+     */
+    public function addPoid(\OrthoBundle\Entity\PoidsAdjonctions $poids)
+    {
+        $this->poids[] = $poids;
+
+        return $this;
+    }
+
+    /**
+     * Remove poids
+     *
+     * @param \OrthoBundle\Entity\PoidsAdjonctions $poids
+     */
+    public function removePoid(\OrthoBundle\Entity\PoidsAdjonctions $poids)
+    {
+        $this->poids->removeElement($poids);
+    }
+
+    /**
+     * Get poids
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoids()
+    {
+        return $this->poids;
+    }
+
+    /**
+     * Add boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     * @return Adjonctions
+     */
+    public function addBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique[] = $boutonSpecifique;
+
+        return $this;
+    }
+
+    /**
+     * Remove boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     */
+    public function removeBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique->removeElement($boutonSpecifique);
+    }
+
+    /**
+     * Get boutonSpecifique
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoutonSpecifique()
+    {
+        return $this->boutonSpecifique;
+    }
 }

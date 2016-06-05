@@ -69,4 +69,44 @@ class CategorieUtilisateurs
     {
         return $this->categorieUtilisateur;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add utilisateur
+     *
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
+     * @return CategorieUtilisateurs
+     */
+    public function addUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur)
+    {
+        $this->utilisateur[] = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateur
+     *
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
+     */
+    public function removeUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur)
+    {
+        $this->utilisateur->removeElement($utilisateur);
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

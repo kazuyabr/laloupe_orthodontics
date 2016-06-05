@@ -54,4 +54,50 @@ class PoidsAdjonctions
     {
         return $this->poids;
     }
+
+    /**
+     * Set adjonction
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $adjonction
+     * @return PoidsAdjonctions
+     */
+    public function setAdjonction(\OrthoBundle\Entity\Adjonctions $adjonction = null)
+    {
+        $this->adjonction = $adjonction;
+
+        return $this;
+    }
+
+    /**
+     * Get adjonction
+     *
+     * @return \OrthoBundle\Entity\Adjonctions 
+     */
+    public function getAdjonction()
+    {
+        return $this->adjonction;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
+     * @return PoidsAdjonctions
+     */
+    public function setUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \OrthoBundle\Entity\Utilisateurs 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

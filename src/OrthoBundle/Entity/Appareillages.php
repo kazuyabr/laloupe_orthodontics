@@ -195,4 +195,78 @@ class Appareillages
     {
         return $this->infoCabinet;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poidsApp = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add poidsApp
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poidsApp
+     * @return Appareillages
+     */
+    public function addPoidsApp(\OrthoBundle\Entity\PoidsAppareillages $poidsApp)
+    {
+        $this->poidsApp[] = $poidsApp;
+
+        return $this;
+    }
+
+    /**
+     * Remove poidsApp
+     *
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poidsApp
+     */
+    public function removePoidsApp(\OrthoBundle\Entity\PoidsAppareillages $poidsApp)
+    {
+        $this->poidsApp->removeElement($poidsApp);
+    }
+
+    /**
+     * Get poidsApp
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoidsApp()
+    {
+        return $this->poidsApp;
+    }
+
+    /**
+     * Add boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     * @return Appareillages
+     */
+    public function addBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique[] = $boutonSpecifique;
+
+        return $this;
+    }
+
+    /**
+     * Remove boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     */
+    public function removeBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique->removeElement($boutonSpecifique);
+    }
+
+    /**
+     * Get boutonSpecifique
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoutonSpecifique()
+    {
+        return $this->boutonSpecifique;
+    }
 }

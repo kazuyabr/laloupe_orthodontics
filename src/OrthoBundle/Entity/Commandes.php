@@ -253,4 +253,101 @@ class Commandes
     {
         return $this->pathPJ3;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->adjonctions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
+     * @return Commandes
+     */
+    public function setUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \OrthoBundle\Entity\Utilisateurs 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Add appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     * @return Commandes
+     */
+    public function addAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages[] = $appareillages;
+
+        return $this;
+    }
+
+    /**
+     * Remove appareillages
+     *
+     * @param \OrthoBundle\Entity\Appareillages $appareillages
+     */
+    public function removeAppareillage(\OrthoBundle\Entity\Appareillages $appareillages)
+    {
+        $this->appareillages->removeElement($appareillages);
+    }
+
+    /**
+     * Get appareillages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAppareillages()
+    {
+        return $this->appareillages;
+    }
+
+    /**
+     * Add adjonctions
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $adjonctions
+     * @return Commandes
+     */
+    public function addAdjonction(\OrthoBundle\Entity\Adjonctions $adjonctions)
+    {
+        $this->adjonctions[] = $adjonctions;
+
+        return $this;
+    }
+
+    /**
+     * Remove adjonctions
+     *
+     * @param \OrthoBundle\Entity\Adjonctions $adjonctions
+     */
+    public function removeAdjonction(\OrthoBundle\Entity\Adjonctions $adjonctions)
+    {
+        $this->adjonctions->removeElement($adjonctions);
+    }
+
+    /**
+     * Get adjonctions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAdjonctions()
+    {
+        return $this->adjonctions;
+    }
 }
