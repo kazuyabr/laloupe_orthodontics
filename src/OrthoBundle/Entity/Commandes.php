@@ -9,6 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commandes
 {
+    private $adjonctions;
+    
+    private $appareillages;
+    
+    private $utilisateur;
     /**
      * @var int
      */

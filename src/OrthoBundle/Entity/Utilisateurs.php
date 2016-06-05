@@ -24,14 +24,10 @@ class Utilisateurs extends BaseUser
 
     private $boutonSpecifique;
 
+    private $commandes;
 
-
-
-
-
-
-
-
+    /* Fin variable relation Doctrine */
+    
     // GENERATED CODE
 
     /**

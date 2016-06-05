@@ -51,4 +51,8 @@ OrthoBundle\Entity\Utilisateurs:
             targetEntity: OrthoBundle\Entity\AppAdjLabo
             mappedBy: utilisateur
 
+        commandes:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: utilisateur
+
     lifecycleCallbacks: {  }

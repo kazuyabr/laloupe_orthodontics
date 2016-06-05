@@ -34,4 +34,33 @@ OrthoBundle\Entity\Commandes:
             type: string
             length: 255
             nullable: true
+
+    manyToMany:
+        appareillages:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            joinTable:
+                name: commandes_appareillages
+                joinColumns:
+                    commandes_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    appareillages_id:
+                        referencedColumnName: id
+
+        adjonctions:
+            targetEntity: OrthoBundle\Entity\Adjonctions
+            joinTable:
+                name: commandes_adjonctions
+                joinColumns:
+                    commandes_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    adjonctions_id:
+                        referencedColumnName: id
+
+    manyToOne:
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: commandes
+
     lifecycleCallbacks: {  }
