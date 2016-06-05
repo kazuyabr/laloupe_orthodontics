@@ -32,7 +32,7 @@ class AppareillageController extends Controller
             )));
         }
 
-        return $this->render('OrthoBundle:Default:crea_app.html.twig', array(
+        return $this->render('@Ortho/Appareillage/crea_app.html.twig', array(
             "form" => $form->createView()
         ));
     }
@@ -49,7 +49,7 @@ class AppareillageController extends Controller
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
         $recapAppareillage = $em->getRepository('OrthoBundle:Appareillages')->find($idAppareillage);
-        return $this->render('OrthoBundle:Default:recap_crea_app.html.twig', array(
+        return $this->render('@Ortho/Appareillage/recap_crea_app.html.twig', array(
             "recapAppareillage" => $recapAppareillage,
 
         ));
@@ -70,7 +70,7 @@ class AppareillageController extends Controller
 
         // On affiche la vue de fiche_cabinet, en prenant en paramètre
         // La liste des informations du formulaire
-        return $this->render('OrthoBundle:Default:fiche_app.html.twig', array(
+        return $this->render('@Ortho/Appareillage/fiche_app.html.twig', array(
             'affichagefiche' => $affichagefiche
         ));
     }
@@ -93,7 +93,7 @@ class AppareillageController extends Controller
             return $this->redirectToRoute('edit_app', array('id' => $appareillages->getId()));
         }
 
-        return $this->render('test/edit.html.twig', array(
+        return $this->render('@Ortho/Appareillage/fiche_app.html.twig', array(
             'appareillages' => $appareillages,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
