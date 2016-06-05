@@ -9,6 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PoidsAdjonctions
 {
+
+    public function __construct(Utilisateurs $utilisateurs, Adjonctions $adjonctions)
+    {
+        $this->utilisateur = $utilisateurs;
+        $this->adjonction = $adjonctions;
+    }
+
     private $utilisateur;
     private $adjonction;
     /**
