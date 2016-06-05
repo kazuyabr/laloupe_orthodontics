@@ -65,10 +65,10 @@
                             class="active" {% endif %}>
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulter
                                 <span class="caret"></span></a>
-                            <ul class="dropdown-menu tameremichel">
+                            <ul class="dropdown-menu">
                                 <li {% if app.request.get('_route') == 'fos_user_profile_show' or app.request.get('_route') == 'fos_user_profile_edit' %}
                                     class="active"{% endif %}>
-                                    <a href="{{ path('fos_user_profile_show') }}">Mon profile</a>
+                                    <a href="{{ path('fos_user_profile_show') }}">Mon profil</a>
                                 </li>
                                 <li {% if app.request.get('_route') == 'recup_commandes' %}
                                     class="active"{% endif %}>
@@ -90,7 +90,7 @@
                             class="active" {% endif %}>
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
                                 <span class="caret"></span></a>
-                            <ul class="dropdown-menu tameremichel">
+                            <ul class="dropdown-menu">
                                 <li {% if app.request.get('_route') == 'crea_cabinet' or
                                 app.request.get('_route') == 'fiche_cabinet' %}
                                     class="active" {% endif %}><a href="{{ path('crea_cabinet') }}">Ajouter un
@@ -105,6 +105,17 @@
                                 <li {% if app.request.get('_route') == 'crea_adj' %}
                                     class="active" {% endif %}><a href="{{ path('crea_adj') }}">Ajouter une
                                         adjonction</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Supprimer
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu" >
+                                <li><a href="#">Supprimer un laboratoire</a></li>
+                                <li><a href="#">Supprimer un cabinet</a></li>
+                                <li><a href="#">Supprimer un appareillage</a></li>
+                                <li><a href="#">Supprimer une adjonction</a></li>
                             </ul>
                         </li>
 
