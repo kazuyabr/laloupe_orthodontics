@@ -13,9 +13,9 @@
                     :</strong> {{ affichagerecap ? affichagerecap.dateretour|date('d-m-Y') }} <br/>
                 <strong>Impression 3D : </strong> <!-- Affichage du cadre F pour le prestataire d'impression 3D -->
                 <br/>
-                <strong>Travail à réaliser :</strong> {{ affichagerecap ? affichagerecap.comment }} <br/>
-                <strong>Code couleur :</strong> {{ affichagerecap ? affichagerecap.fidCouleur }} <br/>
-                <strong>Motifs :</strong> {{ affichagerecap ? affichagerecap.fidMotif }} <br/>
+                <strong>Travail à réaliser :</strong> {{ affichagerecap ? affichagerecap.commentaireLabo }} <br/>
+                <strong>Code couleur :</strong> {{ affichagerecap ? affichagerecap.couleur }} <br/>
+                <strong>Motifs :</strong> {{ affichagerecap ? affichagerecap.motif }} <br/>
                 <strong>Date de commande
                     :</strong> {{ affichagerecap ? affichagerecap.datecommande|date('d-m-Y à H:i') }} <br/>
                 <strong>Commande envoyée à :</strong> <!-- A AJOUTER : Le nom du labo destinataire --> <br/>

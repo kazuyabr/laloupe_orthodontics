@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Entity\PoidsAdjonctions;
-use OrthoBundle\Entity\Utilisateurs;
 use OrthoBundle\Form\Type\CommandesType;
 
 

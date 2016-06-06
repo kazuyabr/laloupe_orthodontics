@@ -30,11 +30,11 @@ class CommandesType extends AbstractType
             ->add('dateretour', 'date', array(
                     'widget' => 'single_text',
                     'format' => 'dd-MM-yyyy',
-                    'attr' => [
+                    'attr' => array(
                         'class' => 'form-control input-inline datepicker',
                         'data-provide' => 'datepicker',
                         'data-date-format' => 'dd-mm-yyyy'
-                    ])
+                    ))
             )
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
@@ -86,7 +86,6 @@ class CommandesType extends AbstractType
             ))
             ->add('commentairePrestataire3D', 'textarea', array(
                 'required' => false
-
             ));
     }
 

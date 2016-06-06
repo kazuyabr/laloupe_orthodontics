@@ -70,7 +70,7 @@ OrthoBundle\Entity\Commandes:
             inversedBy: commande
 
         motif:
-            targetEntity: OrthoBundle\Entity\Commandes
+            targetEntity: OrthoBundle\Entity\Motifs
             inversedBy: commandes
 
     lifecycleCallbacks:

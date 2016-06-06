@@ -10,6 +10,10 @@ class MotifsData extends AbstractFixture
 {
     public function load(ObjectManager $manager)
     {
+        $motif0 = new Motifs();
+        $motif0->setNomMotif('0 - Aucun');
+        $manager->persist($motif0);
+
         $motif1 = new Motifs();
         $motif1->setNomMotif('1 - Papillon');
         $manager->persist($motif1);

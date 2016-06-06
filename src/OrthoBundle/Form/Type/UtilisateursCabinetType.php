@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\UserBundle\Util\LegacyFormHelper;
+use OrthoBundle\Entity\Utilisateurs;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
@@ -25,21 +26,21 @@ class CabinetType extends AbstractType
             ->add('plain_password', 'password', array(
                 'label' => 'Mot de passe : '
             ))
-            ->add('nomCab', 'text', array(
+            ->add('nom', 'text', array(
                 'label' => 'Nom complet du Cabinet : '
             ))
-            ->add('adresseCab', 'text', array(
+            ->add('adresse', 'text', array(
                 'label' => 'Adresse : ',
                 'attr' => array(
                     'placeholder' => 'N°, Rue')
             ))
-            ->add('codepostalCab', 'number', array(
+            ->add('codepostal', 'number', array(
                 'label' => 'Code Postal : '
             ))
-            ->add('villeCab', 'text', array(
+            ->add('ville', 'text', array(
                 'label' => 'Ville : '
             ))
-            ->add('telephoneCab', 'number', array(
+            ->add('telephone', 'number', array(
                 'label' => 'Téléphone : '
             ))
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(

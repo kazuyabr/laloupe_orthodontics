@@ -1,17 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ninon
- * Date: 30/05/16
- * Time: 16:43
- */
+
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Utilisateurs;
 use OrthoBundle\Form\Type\CabinetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 
 class CabinetController extends Controller
 {
@@ -61,7 +54,7 @@ class CabinetController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagefiche = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find($idCabinet);
+        $affichagefiche = $em->getRepository('OrthoBundle:Utilisateurs')->find($idCabinet);
 
         // On affiche la vue de fiche_cabinet, en prenant en paramètre
         // La liste des informations du formulaire

@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Commandes
 {
 
+    // CUSTOM CODE
+
     public function __toString()
     {
         return $this->commentaireLabo;
@@ -20,6 +22,9 @@ class Commandes
     {
         $this->setDatecommande(new \DateTime());
     }
+
+    /* Variable relation Doctrine */
+
     private $adjonctions;
     
     private $appareillages;
@@ -28,7 +33,15 @@ class Commandes
     
     private $couleur;
 
+
+    /**
+     * @var \OrthoBundle\Entity\Motifs
+     */
     private $motif;
+
+    /* Fin variable relation Doctrine */
+
+    // GENERATED CODE
     /**
      * @var int
      */
@@ -397,10 +410,10 @@ class Commandes
     /**
      * Set motif
      *
-     * @param \OrthoBundle\Entity\Commandes $motif
+     * @param \OrthoBundle\Entity\Motifs $motif
      * @return Commandes
      */
-    public function setMotif(\OrthoBundle\Entity\Commandes $motif = null)
+    public function setMotif(\OrthoBundle\Entity\Motifs $motif = null)
     {
         $this->motif = $motif;
 
@@ -410,7 +423,7 @@ class Commandes
     /**
      * Get motif
      *
-     * @return \OrthoBundle\Entity\Commandes 
+     * @return \OrthoBundle\Entity\Motifs
      */
     public function getMotif()
     {

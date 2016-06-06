@@ -9,7 +9,7 @@ security:
         ROLE_CABINET:     ROLE_USER
         ROLE_LABORATOIRE: [ROLE_USER, ROLE_LABO]
         ROLE_TEAMNEO:     ROLE_TEAMNEO
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_LABO, ROLE_TEAMNEO, ROLE_ADMIN]
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
@@ -44,11 +44,4 @@ security:
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin/, role: ROLE_ADMIN }
-            - { path: ^/profile/, role: ROLE_CABINET }
-            - { path: ^/formulaire/, role: ROLE_CABINET }
-            - { path: ^/recap_formulaire/, role: ROLE_CABINET }
-            - { path: ^/cabinet, role: ROLE_LABORATOIRE }
-            - { path: ^/fichecabinet, role: ROLE_LABORATOIRE }
-            - { path: ^/laboratoire, role: ROLE_SUPER_ADMIN }
-            - { path: ^/fichelaboratoire, role: ROLE_SUPER_ADMIN }
 

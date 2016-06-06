@@ -27,6 +27,21 @@ class Utilisateurs extends BaseUser
     private $commandes;
 
     /* Fin variable relation Doctrine */
+
+    public function activationDuCompte()
+    {
+        $this->setEnabled(true);
+    }
+
+    public function attributionDuRole()
+    {
+        $this->setRoles(array('ROLE_ADMIN'));
+    }
+
+    public function getActualUser()
+    {
+        return $this->id;
+    }
     
     
     // GENERATED CODE

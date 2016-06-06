@@ -9,8 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Motifs
 {
+    // CUSTOM CODE
+
+    public function __toString()
+    {
+        return $this->nomMotif;
+    }
 
     private $commandes;
+
+
+    // GENERATED CODE
     /**
      * @var int
      */
