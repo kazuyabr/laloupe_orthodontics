@@ -1,15 +1,47 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+/*basic reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     margin: 0 1.5em;
     background-color: #f8f8f8;
     opacity: 0.9;
     font-family: montserrat, arial, verdana;
-
 }
 
 h3 {
     text-align: center;
+}
+
+a {
+    color: #ccff90;
+}
+
+li {
+    list-style-type: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: green;
+    text-decoration: none;
+}
+
+input[type=checkbox] {
+    float: left;
+}
+
+fieldset > label {
+    display: block;
 }
 
 #ours {
@@ -45,6 +77,7 @@ h3 {
 #commandes_couleur, #commandes_motif {
     vertical-align: middle;
     width: 20%;
+    font-size: 85%; /**/
 }
 
 #remplissageCadreCouleur,
@@ -121,11 +154,13 @@ input[type="file"] {
     margin: 0 -1.5em;
 }
 
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li > a,
+.dropdown-menu > li > a {
     color: #2e7d32;
 }
 
@@ -133,7 +168,10 @@ input[type="file"] {
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .open > li:hover,
 .navbar-inverse .navbar-nav > li > a:focus,
-.navbar-inverse .navbar-nav > li > a:hover {
+.navbar-inverse .navbar-nav > li > a:hover,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
     background-image: -webkit-linear-gradient(top, #353535 0%, #27AE60 100%);
     background-image: -o-linear-gradient(top, #353535 0%, #27AE60 100%);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#27AE60));
@@ -141,16 +179,32 @@ input[type="file"] {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#27AE60', GradientType=0);
 }
 
+ul.nav.navbar-nav {
+    width: 100%;
+}
+
+.navbar-inverse .navbar-nav > li.connect {
+    float: right;
+}
+
+.navbar-inverse .navbar-nav > li.connect > a,
+.navbar-inverse .navbar-nav > li.connect > a:focus,
+.navbar-inverse .navbar-nav > li.connect > a:hover {
+    background: none;
+    color: #2e7d32;
+    right: 0;
+    display: inline-block;
+}
 
 .dropdown-menu {
     background-color: #ccff90;
+    padding: 0;
 }
 
 /*.header_recap {
     margin-left: auto;
     margin-right: auto;
 }
-
 
 .header_recap h2 {
     padding-top: 6px;
@@ -177,10 +231,6 @@ input[type="file"] {
     box-shadow: 8px 8px 0px black;
 }*/
 
-li {
-    list-style-type: none;
-}
-
 #upload {
     float: right;
     height: auto;
@@ -194,7 +244,6 @@ li {
     height: auto;
     border-right: 1px solid dimgrey;
     padding-right: 20px;
-
 }
 
 #boutoncde {
@@ -261,17 +310,6 @@ li {
 
 }
 
-a:hover, a:focus, a:active {
-    text-decoration: none;
-    color: green;
-
-}
-
-a {
-    text-decoration: none;
-    color: #ccff90;
-}
-
 #imageSchemaApp {
     width: 30%;
     text-align: center;
@@ -282,10 +320,7 @@ a {
 #commandes_fidAdj label,
 #commandes_appareillages label {
     display: block;
-}
-
-input[type=checkbox] {
-    float: left;
+    font-size: 85%;
 }
 
 .commentaireClass {
@@ -300,16 +335,6 @@ input[type=checkbox] {
 /* Intégration nouveau formulaire */
 
 /*custom font*/
-
-/*basic reset*/
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    height: 100%;
-}
 
 /*form styles*/
 #msform {
@@ -358,7 +383,7 @@ html {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 }
@@ -367,7 +392,7 @@ html {
 #msform .action-button {
     width: 100px;
     /*background:#76ff03;*/
-    background:#ccff90;
+    background: #ccff90;
     font-weight: bold;
     /*color: white;*/
     color: #2e7d32;
@@ -412,7 +437,7 @@ html {
 
 #progressbar li {
     list-style-type: none;
-    color:white ;
+    color: white;
     text-transform: uppercase;
     font-size: 9px;
     width: 33.33%;
@@ -453,17 +478,13 @@ html {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 
-#progressbar li.active:before,  #progressbar li.active:after {
+#progressbar li.active:before, #progressbar li.active:after {
     background: #76ff03;
 }
 
 #progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
     color: white;
-}
-
-fieldset > label {
-    display: block;
 }
 
 .blocAppAdj {
@@ -489,7 +510,7 @@ fieldset > label {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 }
@@ -505,7 +526,7 @@ fieldset > label {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 
@@ -525,6 +546,10 @@ fieldset > label {
 
 }
 
+.smallbloc .profileplace {
+    width: 100%;
+}
+
 #container {
     display: flex;
     flex-direction: row;
@@ -532,7 +557,6 @@ fieldset > label {
     padding-bottom: 10px;
 
 }
-
 
 #buttonprofile {
     background-color: #76ff03;
@@ -548,6 +572,3 @@ fieldset > label {
     width: 80%;
     margin: 35px;
 }
-
-
-

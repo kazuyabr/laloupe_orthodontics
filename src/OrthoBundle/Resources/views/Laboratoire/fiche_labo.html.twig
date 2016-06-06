@@ -1,22 +1,17 @@
 {# @OrthoBundle/Resources/views/Default/fiche_labo.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-    {# {{ dump(affichagefiche) }} #}
     <div id="msform">
-        {% if app.user %}
-            <!-- user is logged in -->
-
+        {% if app.user %} <!-- L'utilisateur est connecté -->
             <fieldset class="largebloc">
-                <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }}/>
+                <img class="coche_vert" src="{{ asset('bundles/ortho/img/coche_vert.png') }}"/>
                 <h2 class="fs-title">Ce laboratoire a bien été ajouté.</h2>
                 <h3 class="fs-subtitle"><span>Laboratoire : <br></span>{{ affichagefiche ? affichagefiche.nom }}</h3>
-
                 <div id="container">
                     <div class="profileplace">
                         <div><span>Identifiant : </span>{{ affichagefiche ? affichagefiche.username }}</div>
                         <div><span>Nom complet : <br></span>{{ affichagefiche ? affichagefiche.nom }}</div>
                         <div><span>E-mail : </span>{{ affichagefiche ? affichagefiche.email }}</div>
-
                     </div>
                     <div class="profileplace">
                         <div><span>Adresse : <br></span>{{ affichagefiche ? affichagefiche.adresse }}</div>
@@ -24,25 +19,16 @@
                             &nbsp;{{ affichagefiche ? affichagefiche.ville }}</div>
                         <div><span>Téléphone : </span>{{ affichagefiche ? affichagefiche.telephone }}</div>
                         <div><span>E-mail Labo : </span>{{ affichagefiche ? affichagefiche.email }}</div>
-
                     </div>
                 </div>
                 <div class="envoi_email_recapitulatif">
-                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('crea_labo') }}">Nouveau
-                        laboratoire</a>
+                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('crea_labo') }}">Nouveau laboratoire</a>
                 </div>
-
-
             </fieldset>
-        {% else %}
-            <!-- user is not logged in -->
+        {% else %} <!-- L'utilisateur n'est pas connecté -->
             <fieldset class="smallbloc">
                 Connectez-vous pour accéder à cette page.
             </fieldset>
-
         {% endif %}
-
     </div>
-
-
 {% endblock %}

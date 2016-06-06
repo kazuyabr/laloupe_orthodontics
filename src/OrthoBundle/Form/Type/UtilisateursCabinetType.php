@@ -30,6 +30,7 @@ class UtilisateursCabinetType extends AbstractType
                 'label' => 'Nom complet du Cabinet : '
             ))
             ->add('adresse', 'text', array(
+
                 'label' => 'Adresse : ',
                 'attr' => array(
                     'placeholder' => 'N°, Rue')

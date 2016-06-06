@@ -45,7 +45,16 @@ class UtilisateursLaboratoireType extends AbstractType
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
                 'label' => 'E-mail :',
                 'translation_domain' => 'FOSUserBundle'
-            ));
+            ))
+            ->add('adresseFacturation', 'text', array(
+                'label' => 'Adresse de Facturation :',
+                'attr' => array(
+                    'placeholder' => 'N°, Rue ...'
+                )
+            ))
+            ->add('codePostalFacturation')
+            ->add('villeFacturation')
+            ->add('telephoneFacturation');
 
     }
 

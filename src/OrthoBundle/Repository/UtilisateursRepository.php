@@ -23,4 +23,12 @@ class UtilisateursRepository extends EntityRepository
 
         return $queryBuilder->getQuery()->getResult();
     }
+
+    public function getTotalCabinet()
+    {
+        $queryBuilder = $this->createQueryBuilder('cabinet')
+            ->select('COUNT(cabinet.id)');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

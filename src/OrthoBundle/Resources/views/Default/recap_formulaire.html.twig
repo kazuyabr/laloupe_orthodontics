@@ -1,51 +1,39 @@
+{# @OrthoBundle/Resources/views/Default/recap_formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-    <form id="msform">
+    <div id="msform">
         <fieldset>
-            <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }}/>
+            <img class="coche_vert" src="{{ asset('bundles/ortho/img/coche_vert.png') }}"/>
             <h2>Votre formulaire a bien été envoyé ! Merci !</h2>
-
             <div class="affichage_recapitulatif_formulaire">
                 <!-- A AJOUTER : Nom du cabinet, etc... En lien avec la BDD -->
                 <strong>Nom du patient :</strong> {{ affichagerecap ? affichagerecap.referencePatient }} <br/>
                 <strong>Prénom du patient :</strong> {{ affichagerecap ? affichagerecap.prenomPatient }} <br/>
                 <strong>Date de retour souhaité
                     :</strong> {{ affichagerecap ? affichagerecap.dateretour|date('d-m-Y') }} <br/>
-                <strong>Impression 3D : </strong> <!-- Affichage du cadre F pour le prestataire d'impression 3D -->
+                <strong>Impression 3D : </strong> {{ affichagerecap.commentairePrestataire3D }}
                 <br/>
                 <strong>Travail à réaliser :</strong> {{ affichagerecap ? affichagerecap.commentaireLabo }} <br/>
                 <strong>Code couleur :</strong> {{ affichagerecap ? affichagerecap.couleur }} <br/>
                 <strong>Motifs :</strong> {{ affichagerecap ? affichagerecap.motif }} <br/>
-                <strong>Date de commande
-                    :</strong> {{ affichagerecap ? affichagerecap.datecommande|date('d-m-Y à H:i') }} <br/>
+                <strong>Date de commande :</strong> {{ affichagerecap ? affichagerecap.datecommande|date('d-m-Y à H:i') }} <br/>
                 <strong>Commande envoyée à :</strong> <!-- A AJOUTER : Le nom du labo destinataire --> <br/>
                 <strong>Info commerciale Cabinet :</strong> <!-- A AJOUTER : Les infos commerciales -->
             </div>
-
-            <div class="impression_recapitulatif">
-                <!-- Impression récapitulatif du formulaire -->
-            <span onclick="print()">
-                <img id="imprimante" src="{{ asset('bundles/ortho/img/imprimante.png') }}"/> Imprimer
-            </span>
+            <div class="impression_recapitulatif"> <!-- Impression de la commande -->
+                <span onclick="print()">
+                    <img id="imprimante" src="{{ asset('bundles/ortho/img/imprimante.png') }}"/> Imprimer
+                </span>
             </div>
-
-            <div class="envoi_email_recapitulatif">
+            <div class="envoi_email_recapitulatif"> <!-- Envoi de mail -->
                 <!-- A AJOUTER : Le service SwiftMailer -->
-                <img id="image_envoi_email" src=" {{ asset('bundles/ortho/img/envoi_par_email.png') }}"/> Recevoir par
-                email
-
+                <img id="image_envoi_email" src=" {{ asset('bundles/ortho/img/envoi_par_email.png') }}"/> Recevoir par email
                 <br/>
-                <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('ortho_formulaire') }}">Nouveau
-                    formulaire</a>
+                <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('ortho_formulaire') }}">
+                    Nouveau formulaire
+                </a>
             </div>
-
         </fieldset>
-    </form>
-    <!-- Appel de jQuery -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <!-- Appel du plugin CodePlayer -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-    <!-- Appel de notre fichier JavaScript -->
-    <script src="js/formulairejQuery.js"></script>
-
+    </div>
 {% endblock %}
+{% block javascript %}{% endblock %}
