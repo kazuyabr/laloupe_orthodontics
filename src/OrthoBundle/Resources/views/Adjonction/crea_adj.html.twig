@@ -1,0 +1,38 @@
+{# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div id="msform" >
+    {{ form_start(form) }}
+    <fieldset class="smallbloc">
+
+        <div class="creaplace">
+            {{ form_label(form.nom) }} <!-- Affiche le label -->
+            {{ form_errors(form.nom) }}
+            {{ form_widget(form.nom) }}
+
+            {{ form_label(form.famille) }}
+            {{ form_errors(form.famille) }}
+            {{ form_widget(form.famille) }}
+
+            {{ form_label(form.image) }}
+            {{ form_errors(form.image) }}
+            {{ form_widget(form.image) }}
+
+            {{ form_label(form.commentaire) }}
+            {{ form_errors(form.commentaire) }}
+            {{ form_widget(form.commentaire) }}
+
+        </div>
+
+
+
+        <div>
+            <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
+        </div>
+
+    </fieldset>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

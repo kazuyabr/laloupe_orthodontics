@@ -66,6 +66,18 @@ class Utilisateurs extends BaseUser
      */
     private $telephone;
 
+    private $mailBis;
+
+    private $mailTer;
+
+    private $adresseFacturation;
+
+    private $codePostalFacturation;
+
+    private $villeFacturation;
+
+    private $telephoneFacturation;
+
 
     /**
      * Get id
@@ -368,5 +380,143 @@ class Utilisateurs extends BaseUser
     public function getLabo()
     {
         return $this->labo;
+    }
+
+    /**
+     * Set mailBis
+     *
+     * @param string $mailBis
+     * @return Utilisateurs
+     */
+    public function setMailBis($mailBis)
+    {
+        $this->mailBis = $mailBis;
+
+        return $this;
+    }
+
+    /**
+     * Get mailBis
+     *
+     * @return string 
+     */
+    public function getMailBis()
+    {
+        return $this->mailBis;
+    }
+
+    /**
+     * Set mailTer
+     *
+     * @param string $mailTer
+     * @return Utilisateurs
+     */
+    public function setMailTer($mailTer)
+    {
+        $this->mailTer = $mailTer;
+
+        return $this;
+    }
+
+    /**
+     * Get mailTer
+     *
+     * @return string 
+     */
+    public function getMailTer()
+    {
+        return $this->mailTer;
+    }
+
+    /**
+     * Set adresseFacturation
+     *
+     * @param string $adresseFacturation
+     * @return Utilisateurs
+     */
+    public function setAdresseFacturation($adresseFacturation)
+    {
+        $this->adresseFacturation = $adresseFacturation;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseFacturation
+     *
+     * @return string 
+     */
+    public function getAdresseFacturation()
+    {
+        return $this->adresseFacturation;
+    }
+
+    /**
+     * Set codePostalFacturation
+     *
+     * @param string $codePostalFacturation
+     * @return Utilisateurs
+     */
+    public function setCodePostalFacturation($codePostalFacturation)
+    {
+        $this->codePostalFacturation = $codePostalFacturation;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostalFacturation
+     *
+     * @return string 
+     */
+    public function getCodePostalFacturation()
+    {
+        return $this->codePostalFacturation;
+    }
+
+    /**
+     * Set villeFacturation
+     *
+     * @param string $villeFacturation
+     * @return Utilisateurs
+     */
+    public function setVilleFacturation($villeFacturation)
+    {
+        $this->villeFacturation = $villeFacturation;
+
+        return $this;
+    }
+
+    /**
+     * Get villeFacturation
+     *
+     * @return string 
+     */
+    public function getVilleFacturation()
+    {
+        return $this->villeFacturation;
+    }
+
+    /**
+     * Set telephoneFacturation
+     *
+     * @param string $telephoneFacturation
+     * @return Utilisateurs
+     */
+    public function setTelephoneFacturation($telephoneFacturation)
+    {
+        $this->telephoneFacturation = $telephoneFacturation;
+
+        return $this;
+    }
+
+    /**
+     * Get telephoneFacturation
+     *
+     * @return string 
+     */
+    public function getTelephoneFacturation()
+    {
+        return $this->telephoneFacturation;
     }
 }

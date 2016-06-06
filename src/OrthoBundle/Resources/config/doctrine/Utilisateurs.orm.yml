@@ -24,6 +24,26 @@ OrthoBundle\Entity\Utilisateurs:
         telephone:
             type: string
             length: 255
+        mailBis:
+            type: string
+            length: 255
+            nullable: true
+        mailTer:
+            type: string
+            length: 255
+            nullable: true
+        adresseFacturation:
+            type: string
+            length: 255
+        codePostalFacturation:
+            type: string
+            length: 255
+        villeFacturation:
+            type: string
+            length: 255
+        telephoneFacturation:
+            type: string
+            length: 255
 
     manyToOne:
         categorie:

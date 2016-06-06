@@ -38,7 +38,7 @@ class LaboratoireController extends Controller
 
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Laboratoire, ainsi que l'affichage du formulaire
-        return $this->render('OrthoBundle:Default:crea_labo.html.twig', array(
+        return $this->render('@Ortho/Laboratoire/crea_labo.html.twig', array(
             'form'   => $form->createView()
         ));
 
@@ -58,9 +58,44 @@ class LaboratoireController extends Controller
 
         // On affiche la vue de fiche_laboratoire, en prenant en paramètre
         // La liste des informations du formulaire
-        return $this->render('OrthoBundle:Default:fiche_labo.html.twig', array(
+        return $this->render('@Ortho/Laboratoire/fiche_labo.html.twig', array(
             'affichagefiche' => $affichagefiche
         ));
     }
 
+    public function editLaboAction(Request $request, Laboratoire $laboratoire)
+    {
+        $deleteForm = $this->createDeleteForm($laboratoire);
+        $editForm = $this->createForm('Crud\Bundle\Form\TestType', $laboratoire);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($laboratoire);
+            $em->flush();
+
+            return $this->redirectToRoute('fiche_labo', array('id' => $laboratoire->getId()));
+        }
+
+        return $this->render('@Ortho/Laboratoire/fiche_labo.html.twig', array(
+            'Labo' => $laboratoire,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+    
+    public function deleteLaboAction(Request $request, Laboratoire $laboratoire)
+    {
+        $form = $this->createDeleteForm($laboratoire);
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($laboratoire);
+            $em->flush();
+        }
+    
+        return $this->redirectToRoute('sup_labo');
+    }
 }

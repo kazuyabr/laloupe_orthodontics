@@ -26,10 +26,12 @@ OrthoBundle\Entity\Appareillages:
             type: string
             length: 255
             column: info_labo
+            nullable: true
         infoCabinet:
             type: string
             length: 255
             column: info_cabinet
+            nullable: true
 
 
     oneToMany:

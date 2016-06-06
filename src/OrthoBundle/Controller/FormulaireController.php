@@ -14,12 +14,12 @@ class FormulaireController extends Controller
     public function createFormulaireAction()
     {
         // On crée une instance de l'entité Commandes
-        $commande  = new Commandes();
+        $commande = new Commandes();
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
         // "CommandesType.php" ainsi que l'instance de l'entité Commandes
-        $form    = $this->createForm(new CommandesType(), $commande);
+        $form = $this->createForm(new CommandesType(), $commande);
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
@@ -37,9 +37,9 @@ class FormulaireController extends Controller
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
+
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
-            foreach ($commande->getAppareillages() as $appareil)
-            {
+            foreach ($commande->getAppareillages() as $appareil) {
                 // On récupère le cabinet en question qui a passé la commande
                 $cabinet = $em->getRepository('OrthoBundle:Utilisateurs')->find($user->getId());
 
@@ -50,8 +50,7 @@ class FormulaireController extends Controller
                 $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['utilisateur' => $cabinet, 'appareillage' => $appareil ]);
 
                 // SI, le poids est déjà renseigné (Si il n'est pas "NULL" en BDD, Faire :
-                if (isset($poids))
-                {
+                if (isset($poids)) {
                     // [...] Appliquer la méthode incr() à notre poids (Voir PoidsAppareillages.php).
                     $poids->incrementation();
                 }
@@ -74,10 +73,10 @@ class FormulaireController extends Controller
                 {
                     $poidsAdjonction->incrementation();
                 }
+
                 else
                 {
                     $poidsAdjonction = new PoidsAdjonctions($cabinet, $adjonction);
-
                     $em->persist($poidsAdjonction);
                 }
             }
@@ -98,7 +97,7 @@ class FormulaireController extends Controller
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
             'nomimageapp' => $nomimageapp,
             'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj,
