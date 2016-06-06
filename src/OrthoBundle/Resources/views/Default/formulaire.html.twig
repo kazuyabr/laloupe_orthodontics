@@ -1,8 +1,12 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
-        , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
+    <h3 xmlns="http://www.w3.org/1999/html">
+        {{ actualUser[0].nomCab }} -
+        {{ actualUser[0].adresseCab }} -
+        {{ actualUser[0].codepostalCab }} {{ actualUser[0].villeCab }}
+        <!--. N° : {{ actualUser[0].telephoneCab }}-->
+    </h3>
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post">
         <!-- Barre de progression -->
         <ul id="progressbar">
