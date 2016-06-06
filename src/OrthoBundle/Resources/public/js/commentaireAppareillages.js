@@ -3,11 +3,9 @@ var checkboxesAppareillages = $('div#commandes_appareillages input[type=checkbox
 var textareaCommentaire = $('#commandes_comment');
 
 checkboxesAppareillages.on('click', function () {
-
     ($(this).prop('checked')) ? addCommentAppareillage($(this).val()) : removeCommentAppareillage($(this).val());
 
     textareaCommentaire.html('');
-
 });
 
 

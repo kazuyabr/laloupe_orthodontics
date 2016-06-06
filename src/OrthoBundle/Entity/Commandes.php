@@ -72,7 +72,11 @@ class Commandes
         $this->file1 = null;
     }
 
+    public function generatePathFilename(sfValidatedFile $file)
+    {
 
+        return $this->getId().$file->getExtension($file->getOriginalExtension());
+    }
 
     public $path2;
 

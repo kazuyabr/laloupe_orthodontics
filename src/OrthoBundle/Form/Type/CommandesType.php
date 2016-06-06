@@ -82,7 +82,13 @@ class CommandesType extends AbstractType
             ->add('comment2', 'textarea', array(
                 'required' => false
 
-            ));
+            ))
+
+            ->add('Envoyer', 'submit', array(
+                'attr' => array(
+                    'class' => 'action-button'
+                )
+            ) );
 
     }
 

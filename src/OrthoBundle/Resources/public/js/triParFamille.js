@@ -1,4 +1,13 @@
 // On crée un Objet JS qui va contenir la liste de tout les appareils
+var textareaCommentaire = $('#commandes_comment');
+
+function addCommentAppareillageModal(commentId) {
+    textareaCommentaire.val(textareaCommentaire.val() + "\n" + tableauCommentaireAppareillages[commentId]);
+}
+
+function removeCommentAppareillageModal(commentId) {
+    $('#commentaireEnfant' + commentId).remove();
+}
 
 $('.family-button').click(function(){ // Si l'élément avec la class="family-button" est cliqué, faire :
 
@@ -30,15 +39,19 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
         );
     }
 
-
     $('.blocAppareillage').on('click', function () {
         if ($('#modalbuttoncheck-'+$(this).attr('data-id')).length) {
             $(this).removeClass('selected');
             $('#modalbuttoncheck-'+$(this).attr('data-id')).remove();
+            removeCommentAppareillageModal($(this).attr('data-id'));
         }
         else {
             $(this).addClass('selected');
-        $('#msform').prepend('<input type="checkbox" checked="checked" style="display:none;" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />')
+            $('#msform').prepend('<input type="checkbox" checked="checked" style="display:none;" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />');
+            addCommentAppareillageModal($(this).attr('data-id'));
         }
     });
 });
+
+
+
