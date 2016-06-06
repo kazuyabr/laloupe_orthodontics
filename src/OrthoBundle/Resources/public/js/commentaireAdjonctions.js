@@ -4,6 +4,7 @@ var textareaCommentaire = $('#commandes_comment');
 
 checkboxesAdjonctions.on('click', function () {
 
+
     ($(this).prop('checked')) ? addCommentAdjonction($(this).val()) : removeCommentAdjonction($(this).val());
 
     textareaCommentaire.html('');
@@ -11,7 +12,7 @@ checkboxesAdjonctions.on('click', function () {
 
 
 function addCommentAdjonction(commentId) {
-    textareaCommentaire.val(textareaCommentaire.val() + "\n" + tableauCommentaireAdjonction[commentId]);
+    textareaCommentaire.val(textareaCommentaire.val() + "\n" + tableauCommentaireAdjonction[commentId].commentaire);
 }
 
 function removeCommentAdjonction(commentId) {

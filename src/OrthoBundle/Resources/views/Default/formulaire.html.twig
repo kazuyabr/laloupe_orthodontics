@@ -42,15 +42,15 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-
-                {{ form_widget(form.ajoutApp, { 'label': 'Bibilothèque Appareillages' }) }}
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal">
+                    Bibliothèque <br>
+                    Appareillages
+                </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
+
                     {% include 'modalFamilleAppareillages.html' %}
                     {% include 'modalListeAppareillages.html' %}
-                </div>
             </div>
 
             <div id='blocAdj' class='blocAppAdj'>
@@ -58,7 +58,18 @@
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
-                {{ form_widget(form.ajoutAdj, { 'label': 'Bibliothèque Adjonctions' }) }}
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModalAdjonctions">
+                    Bibliothèque <br>
+                    Adjonctions
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel "
+                     aria-hidden="true">
+                    {% include 'modalListeAdjonctions.html' %}
+                </div>
+
+
             </div>
             <div id="coulmot">
                 {{ form_label(form.fidCouleur, "Couleur : ") }}
@@ -73,6 +84,7 @@
             {{ form_label(form.comment, "Commentaires : ") }}
             {{ form_errors(form.comment) }}
             {{ form_widget(form.comment) }}
+
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
@@ -123,8 +135,7 @@
 
         var tableauCommentaireAdjonction = {
             {% for commentaire in commentaireAdjonction %}
-            "{{ commentaire['id'] }}" :
-            "{{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}" ,
+            "{{ commentaire.id }}" : {"id" : "{{ commentaire.id }}", "title" : "{{ commentaire.titreAdj }}", "img" : "{{ commentaire.imgAdj }}", "commentaire" : "{{ commentaire.commentairesAdj}}"  },
             {% endfor %}
         };
     </script>
@@ -132,9 +143,11 @@
     <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/affichageAdjonctions.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/triParFamilleAppareillages.js') }}"></script>
     <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAdjonctions.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAppareillagesModal.js') }}"></script>
+
 {% endblock %}

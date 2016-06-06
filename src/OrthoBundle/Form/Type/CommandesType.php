@@ -45,13 +45,6 @@ class CommandesType extends AbstractType
                     return $entityRepository->triParPoids();
                 }
             ))
-            ->add('ajoutApp', 'button', array(
-                'attr' => array(
-                    'class' => 'action-button',
-                    'data-toggle' => 'modal',
-                    'data-target' => '#myModal'
-                )
-            ))
 
             ->add('fidAdj', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
@@ -63,9 +56,6 @@ class CommandesType extends AbstractType
                 }
             ))
 
-            ->add('ajoutAdj', 'button', array(
-                'attr' => array('class' => 'action-button')
-            ))
             ->add('fidCouleur')
             ->add('fidMotif')
             ->add('comment', 'textarea')
