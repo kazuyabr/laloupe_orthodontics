@@ -115,26 +115,20 @@
 {% block javascript %}
     {{ parent() }}
     <script>
-        var appareillages = {
+        var tableauAppareillages = {
             {% for namepictures in nomimageapp %}
             "{{ namepictures.id }}": {
                 "title": "{{ namepictures.nom }}",
                 "img": "{{ namepictures.image }}",
-                "family": "{{ namepictures.famille }}"
-            },
-            {% endfor %}
-        };
-
-        var tableauCommentaireAppareillages = {
-            {% for commentaire in commentaireAppareil %}
-            "{{ commentaire['id'] }}" :
-                    "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+                "family": "{{ namepictures.famille }}",
+                "commentaire": "{{ namepictures.commentaire }}"
+            }{% if not loop.last %},{% endif %}
             {% endfor %}
         };
 
         var tableauCommentaireAdjonction = {
             {% for commentaire in commentaireAdjonction %}
-            "{{ commentaire.id }}" : {"id" : "{{ commentaire.id }}", "title" : "{{ commentaire.titreAdj }}", "img" : "{{ commentaire.imgAdj }}", "commentaire" : "{{ commentaire.commentairesAdj}}"  },
+            "{{ commentaire.id }}" : {"id" : "{{ commentaire.id }}", "title" : "{{ commentaire.nom }}", "img" : "{{ commentaire.image }}", "commentaire" : "{{ commentaire.commentaire}}"  },
             {% endfor %}
         };
     </script>

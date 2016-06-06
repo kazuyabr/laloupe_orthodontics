@@ -27,7 +27,6 @@ class FormulaireController extends Controller
 
         $user = $this->getUser();
 
-        $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
         $infoUserConnected = $em->getRepository('OrthoBundle:Utilisateurs')->getActualUser($user);
@@ -104,7 +103,6 @@ class FormulaireController extends Controller
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'form' => $form->createView(),
             'nomimageapp' => $nomimageapp,
-            'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj,
             'actualUser' => $infoUserConnected,
         ));

@@ -20,26 +20,18 @@ class Commandes
         return $this->commentaireLabo;
     }
 
-
-        public $path1;
-
-        /**
-         * @Assert\File(maxSize="600000000")
-         */
-        public $file1;
-
-        public $path3;
-
-        public $file3;
+    private $file1;
+    private $file2;
+    private $file3;
 
         public function getAbsolutePath1()
         {
-                return null === $this->path1 ? null : $this->getUploadRootDir1().'/'.$this->path1;
+                return null === $this->pathPJ1 ? null : $this->getUploadRootDir1().'/'.$this->pathPJ1;
         }
 
         public function getWebPath1()
         {
-                return null === $this->path1 ? null : $this->getUploadDir1().'/'.$this->path1;
+                return null === $this->pathPJ1 ? null : $this->getUploadDir1().'/'.$this->pathPJ1;
         }
 
         protected function getUploadRootDir1()
@@ -72,7 +64,7 @@ class Commandes
 
                 // définit la propriété « path » comme étant le nom de fichier où vous
                 // avez stocké le fichier
-                $this->path1 = $this->file1->getClientOriginalName();
+                $this->pathPJ1 = $this->file1->getClientOriginalName();
 
                 // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
                 $this->file1 = null;
@@ -84,18 +76,15 @@ class Commandes
                 return $this->getId().$file->getExtension($file->getOriginalExtension());
         }
 
-        public $path2;
-
-        public $file2;
 
         public function getAbsolutePath2()
         {
-                return null === $this->path2 ? null : $this->getUploadRootDir2().'/'.$this->path2;
+                return null === $this->pathPJ2 ? null : $this->getUploadRootDir2().'/'.$this->pathPJ2;
         }
 
         public function getWebPath2()
         {
-                return null === $this->path2 ? null : $this->getUploadDir2().'/'.$this->path2;
+                return null === $this->pathPJ2 ? null : $this->getUploadDir2().'/'.$this->pathPJ2;
         }
 
         protected function getUploadRootDir2()
@@ -128,7 +117,7 @@ class Commandes
 
                 // définit la propriété « path » comme étant le nom de fichier où vous
                 // avez stocké le fichier
-                $this->path2 = $this->file2->getClientOriginalName();
+                $this->pathPJ2 = $this->file2->getClientOriginalName();
 
                 // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
                 $this->file2 = null;
@@ -138,12 +127,12 @@ class Commandes
 
         public function getAbsolutePath3()
         {
-                return null === $this->path3 ? null : $this->getUploadRootDir3().'/'.$this->path3;
+                return null === $this->pathPJ3 ? null : $this->getUploadRootDir3().'/'.$this->pathPJ3;
         }
 
         public function getWebPath3()
         {
-                return null === $this->path3 ? null : $this->getUploadDir3().'/'.$this->path3;
+                return null === $this->pathPJ3 ? null : $this->getUploadDir3().'/'.$this->pathPJ3;
         }
 
         protected function getUploadRootDir3()
@@ -176,7 +165,7 @@ class Commandes
 
                 // définit la propriété « path » comme étant le nom de fichier où vous
                 // avez stocké le fichier
-                $this->path3 = $this->file3->getClientOriginalName();
+                $this->pathPJ3 = $this->file3->getClientOriginalName();
 
                 // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
                 $this->file3 = null;
