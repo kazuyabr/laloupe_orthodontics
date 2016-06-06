@@ -5,6 +5,7 @@ namespace OrthoBundle\Controller;
 use OrthoBundle\Entity\Adjonctions;
 use OrthoBundle\Form\Type\AjoutAdjType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class AdjonctionController extends Controller
@@ -55,9 +56,12 @@ class AdjonctionController extends Controller
 
     }
 
-    public function editAdjonctionAction(Request $request, Adjonctions $adjonctions)
+    public function editAdjonctionAction(Adjonctions $adjonctions)
     {
+
         $deleteForm = $this->createDeleteForm($adjonctions);
+        $request = $this->getRequest();
+
         $editForm = $this->createForm('OrthoBundle\Form\Type\AjoutAdjType', $adjonctions);
         $editForm->handleRequest($request);
 
@@ -80,23 +84,11 @@ class AdjonctionController extends Controller
      * Delete.
      *
      */
-    public function deleteAppareillageAction(Request $request, Appareillages $appareillages)
-    {
-        $form = $this->createDeleteForm($appareillages);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($appareillages);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('sup_app');
-    }
-
-    public function deleteAdjonctionAction(Request $request, Adjonctions $adjonctions)
+    public function deleteAdjonctionAction(Adjonctions $adjonctions)
     {
         $form = $this->createDeleteForm($adjonctions);
+        $request = $this->getRequest();
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -106,6 +98,15 @@ class AdjonctionController extends Controller
         }
 
         return $this->redirectToRoute('sup_adj');
+    }
+
+
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+            ;
     }
 
 }
