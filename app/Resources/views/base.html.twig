@@ -40,12 +40,21 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
+                    <li {% if app.request.get('_route') == 'fos_user_security_login' or
+                    app.request.get('_route') == 'fos_user_security_logout' %}
+                        class="active"{% endif %}>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">
+                                {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}
+                    </li>
+
                     {% if app.user %}
                         <!-- user is logged in -->
-                        <li {% if app.request.get('_route') == 'fos_user_security_logout' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                        </li>
 
                         {#{% if is_granted('ROLE_SUPER_ADMIN') %}#}
                         <!-- user is logged in ROLE_ADMIN -->
@@ -128,10 +137,6 @@
 
                     {% else %}
                         <!-- user is NOT logged in -->
-                        <li {% if app.request.get('_route') == 'fos_user_security_login' %}
-                            class="active"{% endif %}>
-                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                        </li>
 
                     {% endif %}
 
@@ -139,12 +144,20 @@
                         <a href="http://www.labo-orthodontics.fr" target="_blank">Site du laboratoire</a>
                     </li>
 
+                    <li class="connect">
+                        <a>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            {% endif %}
+                        </a>
+                    </li>
                 </ul>
 
             </div>
         </nav>
     </div>
 {% endblock %}
+
 
 {% block body %}{% endblock %}
 
