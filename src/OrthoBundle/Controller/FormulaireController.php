@@ -7,6 +7,7 @@ use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Form\Type\CommandesType;
+use Symfony\Component\BrowserKit\Request;
 
 
 class FormulaireController extends Controller
@@ -37,6 +38,11 @@ class FormulaireController extends Controller
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
         if ($form->isValid() && $form->isSubmitted())
         {
+
+            $commande->upload1();
+            $commande->upload2();
+            $commande->upload3();
+
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
@@ -92,7 +98,6 @@ class FormulaireController extends Controller
                 'id' => $commande->getId(),
             )));
         }
-
 
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire

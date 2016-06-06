@@ -101,6 +101,7 @@
 	// Picker object
 
 	var Datepicker = function(element, options){
+		console.log(element);
 		$(element).data('datepicker', this);
 		this._process_options(options);
 
@@ -135,6 +136,7 @@
 		}
 		else {
 			this.picker.addClass('datepicker-dropdown dropdown-menu');
+			this.picker.css('top', '50%');
 		}
 
 		if (this.o.rtl){

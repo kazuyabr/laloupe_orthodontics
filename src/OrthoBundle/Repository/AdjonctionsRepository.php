@@ -29,7 +29,6 @@ class AdjonctionsRepository extends EntityRepository
 
         // On sélectionne tout les id, ainsi que tout les commentaires
         $queryBuilder->select('adjonction.id', 'adjonction.nom', 'adjonction.commentaire', 'adjonction.famille');
-
         return $queryBuilder->getQuery()->getResult();
     }
 }

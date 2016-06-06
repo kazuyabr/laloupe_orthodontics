@@ -555,8 +555,20 @@ ul.nav.navbar-nav {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 10px;
-
 }
+
+.blocAppareillage.selected
+{
+    background-color: #2b669a;
+}
+
+.blocAppareillage:hover
+{
+    cursor: pointer;
+    background-color: #d4d4d4;
+}
+
+
 
 #buttonprofile {
     background-color: #76ff03;

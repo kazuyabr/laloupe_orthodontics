@@ -30,7 +30,6 @@
             {{ form_label(form.dateretour, "Date de retour souhaitée* : ") }}
             {{ form_errors(form.dateretour) }}
             {{ form_widget(form.dateretour) }}
-
             <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
         <fieldset class="largebloc"> <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
@@ -41,21 +40,31 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                {{ form_widget(form.ajoutApp, { 'label': 'Bibilothèque Appareillages' }) }}
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal">
+                    Bibliothèque <br>
+                    Appareillages
+                </button>
 
-                <!-- Modal Appareillage -->
-                {% include '@Ortho/Default/modalApp.html.twig' %}
+                <!-- Modal -->
+
+                    {% include 'modalFamilleAppareillages.html' %}
+                    {% include 'modalListeAppareillages.html' %}
             </div>
-
             <div id='blocAdj' class='blocAppAdj'>
                 {{ form_label(form.adjonctions, "Adjonctions : ") }}
                 {{ form_errors(form.adjonctions) }}
                 {{ form_widget(form.adjonctions) }}
 
-                {{ form_widget(form.ajoutAdj, { 'label': 'Bibliothèque Adjonctions' }) }}
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModalAdjonctions">
+                    Bibliothèque <br>
+                    Adjonctions
+                </button>
 
-                <!-- Modal Adjonction -->
-                {#{% include '@Ortho/Default/...' %}#}
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel "
+                     aria-hidden="true">
+                    {% include 'modalListeAdjonctions.html' %}
+                </div>
             </div>
 
             <div id="coulmot">
@@ -95,6 +104,8 @@
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
 
+            <input type="button" name="previous" class="previous action-button" value="Précédent"/>
+
             {{ form_rest(form) }}
             {{ form_end(form) }}
         </fieldset>
@@ -102,6 +113,7 @@
 {% endblock %}
 
 {% block javascript %}
+    {{ parent() }}
     <script>
         var appareillages = {
             {% for namepictures in nomimageapp %}
@@ -112,88 +124,27 @@
             },
             {% endfor %}
         };
+
+        var tableauCommentaireAppareillages = {
+            {% for commentaire in commentaireAppareil %}
+            "{{ commentaire['id'] }}" :
+                    "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
+            {% endfor %}
+        };
+
+        var tableauCommentaireAdjonction = {
+            {% for commentaire in commentaireAdjonction %}
+            "{{ commentaire.id }}" : {"id" : "{{ commentaire.id }}", "title" : "{{ commentaire.titreAdj }}", "img" : "{{ commentaire.imgAdj }}", "commentaire" : "{{ commentaire.commentairesAdj}}"  },
+            {% endfor %}
+        };
     </script>
     <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/triParFamille.js') }}"></script>
-
-    <script>
-        // div display-none valable pour tous les ajouts de commentaire
-        var comment = $('#appCommentInter');
-
-        // Liste des appareillages | Affichage des commentaires dans le cadre
-        var tableauApp = {
-            {% for commentaire in commentaireAppareil %}
-            "{{ commentaire['id'] }}" :
-            "{{ commentaire['nom'] }} ({{ commentaire['famille'] }}) : \n{{ commentaire['commentaire'] }}" ,
-            {% endfor %}
-        };
-
-        var checkboxesApp = $('div#commandes_appareillages input[type=checkbox]');
-
-        checkboxesApp.on('click', function () {
-            if ($(this).prop('checked')) {
-                comment.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauApp[$(this).val()] + '</div>');
-            }
-            else {
-                $('#commentaireEnfant' + $(this).val()).remove();
-            }
-
-            $('#commandes_commentaireLabo').html('');
-
-            $('.commentaireClass').each(function () {
-                $('#commandes_commentaireLabo').append($(this).html() + "\n");
-            });
-        });
-
-        // Liste des adjonctions + Affichage des commentaires dans le cadre
-        var tableauAdj = {
-        {% for commentaire in commentaireAdjonction %}
-        "{{ commentaire['id'] }}" :
-        "{{ commentaire['nom'] }}({{ commentaire['famille'] }}) : \n{{ commentaire['commentaire'] }}" ,
-        {% endfor %}
-        };
-
-        var checkboxesAdjonctions = $('div#commandes_adjonctions input[type=checkbox]');
-
-        checkboxesAdj.on('click', function () {
-            if ($(this).prop('checked')) {
-                comment.append('<div class="commentaireClass" id="commentaireEnfant' + $(this).val() + '">' + tableauAdj[$(this).val()] + '</div>');
-            }
-            else {
-                $('#commentaireEnfant' + $(this).val()).remove();
-            }
-
-            $('#commandes_commentaireLabo').html('');
-
-            $('.commentaireClass').each(function () {
-                $('#commandes_commentaireLabo').append($(this).html() + "\n");
-            });
-        });
-
-        // Affichage commentaire PJ dans commentaire principale
-        /*
-         $('#commandes_comment2').change(function () {
-         $('#commandes_comment').val($(this).val());
-         });
-         */
-        $('#commandes_comment2').change(function () {
-            comment.append('<div class="commentaireClass" id="commentaireEnfant2' + $(this).val() + '">' + '</div>');
-
-            $('#commandes_comment').html($('#commandes_comment').val() + "- " + $(this).val() + ".");
-
-        });
-
-        // Affichage des images pour Couleurs et Motifs
-        var monSelectCouleur = $('#commandes_fidCouleur');
-        monSelectCouleur.on('change', function () {
-            $('#remplissageCadreCouleur').attr('src', "{{ asset('bundles/ortho/img/couleurs/') }}" + monSelectCouleur.val() + ".png");
-        });
-
-        var monSelectMotif = $('#commandes_fidMotif');
-        monSelectMotif.on('change', function () {
-            $('#remplissageCadreMotif').attr('src', "{{ asset('bundles/ortho/img/motifs/') }}" + monSelectMotif.val() + ".png");
-        });
-    </script>
+    <script src="{{ asset('bundles/ortho/js/affichageAdjonctions.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/triParFamilleAppareillages.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/commentaireAdjonctions.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/commentaireAppareillagesModal.js') }}"></script>
 {% endblock %}
