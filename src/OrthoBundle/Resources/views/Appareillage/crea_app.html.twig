@@ -1,30 +1,37 @@
 {# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
+
+    {% block li %}
+        {#
+        si besoin d'un onglet particulier dans nav
+        <li><a href="" target="_blank"></a></li>
+        #}
+    {% endblock %}
+
 {% block body %}
 
-    <div id="msform" >
+    <div id="msform">
         {{ form_start(form) }}
         <fieldset class="smallbloc">
 
-                <div class="creaplace">
-                    {{ form_label(form.titreApp) }} <!-- Affiche le label -->
-                    {{ form_errors(form.titreApp) }}
-                    {{ form_widget(form.titreApp) }}
+            <div class="creaplace">
+                {{ form_label(form.titreApp) }} <!-- Affiche le label -->
+                {{ form_errors(form.titreApp) }}
+                {{ form_widget(form.titreApp) }}
 
-                    {{ form_label(form.familleApp) }}
-                    {{ form_errors(form.familleApp) }}
-                    {{ form_widget(form.familleApp) }}
+                {{ form_label(form.familleApp) }}
+                {{ form_errors(form.familleApp) }}
+                {{ form_widget(form.familleApp) }}
 
-                    {{ form_label(form.imgApp) }}
-                    {{ form_errors(form.imgApp) }}
-                    {{ form_widget(form.imgApp) }}
+                {{ form_label(form.imgApp) }}
+                {{ form_errors(form.imgApp) }}
+                {{ form_widget(form.imgApp) }}
 
-                    {{ form_label(form.commentairesApp) }}
-                    {{ form_errors(form.commentairesApp) }}
-                    {{ form_widget(form.commentairesApp) }}
+                {{ form_label(form.commentairesApp) }}
+                {{ form_errors(form.commentairesApp) }}
+                {{ form_widget(form.commentairesApp) }}
 
-                </div>
-
+            </div>
 
 
             <div>

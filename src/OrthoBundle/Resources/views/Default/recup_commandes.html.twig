@@ -1,5 +1,13 @@
 {# @OrthoBundle/Resources/views/Default/recup_commandes.html.twig #}
 {% extends 'base.html.twig' %}
+
+    {% block li %}
+        {#
+        si besoin d'un onglet particulier dans nav
+        <li><a href="" target="_blank"></a></li>
+        #}
+    {% endblock %}
+
 {% block body %}
     <div id="msform">
         {% if app.user %}

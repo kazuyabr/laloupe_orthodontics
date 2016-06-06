@@ -1,5 +1,13 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
+
+    {% block li %}
+        {#
+        si besoin d'un onglet particulier dans nav
+        <li><a href="" target="_blank"></a></li>
+        #}
+    {% endblock %}
+
 {% block body %}
     <h3 xmlns="http://www.w3.org/1999/html">
         {{ actualUser[0].nomCab }} -
@@ -144,7 +152,8 @@
         {{ commentaire['id'] }} :
         "- {{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}." ,
         {% endfor %}
-        };
+        }
+        ;
 
         var checkboxesApp = $('div#commandes_appareillages input[type=checkbox]');
 
@@ -169,7 +178,8 @@
         {{ commentaire['id'] }} :
         "- {{ commentaire['titreAdj'] }} ({{ commentaire['familleAdj'] }}) : \n{{ commentaire['commentairesAdj'] }}." ,
         {% endfor %}
-        };
+        }
+        ;
 
         var checkboxesAdj = $('div#commandes_fidAdj input[type=checkbox]');
 

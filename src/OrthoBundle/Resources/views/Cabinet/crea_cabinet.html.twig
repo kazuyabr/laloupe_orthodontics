@@ -1,7 +1,14 @@
 {# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
-{% block body %}
 
+    {% block li %}
+        {#
+        si besoin d'un onglet particulier dans nav
+        <li><a href="" target="_blank"></a></li>
+        #}
+    {% endblock %}
+
+{% block body %}
     <form id="msform" action="{{ path('crea_cabinet') }}" method="post">
 
         {% if app.user %}
