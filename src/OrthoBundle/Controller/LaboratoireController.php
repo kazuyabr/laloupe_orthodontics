@@ -1,29 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ninon
- * Date: 30/05/16
- * Time: 16:43
- */
+
 namespace OrthoBundle\Controller;
 
-use OrthoBundle\Entity\Laboratoire;
-use OrthoBundle\Form\Type\LaboratoireType;
+use OrthoBundle\Entity\Utilisateurs;
+use OrthoBundle\Form\Type\UtilisateursLaboratoireType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 
 class LaboratoireController extends Controller
 {
     public function createAction()
     {
         // On crée une instance de l'entité Laboratoire
-        $laboratoire  = new Laboratoire();
+        $laboratoire  = new Utilisateurs();
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
-        // "LaboratoireType.php" ainsi que l'instance de l'entité Laboratoire
-        $form    = $this->createForm(new LaboratoireType(), $laboratoire);
+        // "UtilisateursLaboratoireType.php" ainsi que l'instance de l'entité Laboratoire
+        $form    = $this->createForm(new UtilisateursLaboratoireType(), $laboratoire);
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
@@ -33,8 +26,10 @@ class LaboratoireController extends Controller
 
         if ($form->isValid()) {
 
-            $laboratoire->activationDuCompte();
-            $laboratoire->attributionDuRole();
+            $laboratoire->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(2));
+            $laboratoire->setEnabled(true);
+            $laboratoire->setRoles(array('ROLE_LABORATOIRE'));
+
             $em->persist($laboratoire);
             $em->flush();
 
@@ -59,7 +54,7 @@ class LaboratoireController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagefiche = $em->getRepository('OrthoBundle:Laboratoire')->find($idLaboratoire);
+        $affichagefiche = $em->getRepository('OrthoBundle:Utilisateurs')->find($idLaboratoire);
 
         // On affiche la vue de fiche_laboratoire, en prenant en paramètre
         // La liste des informations du formulaire

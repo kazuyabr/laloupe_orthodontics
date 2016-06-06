@@ -3,22 +3,21 @@
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Utilisateurs;
-use OrthoBundle\Form\Type\CabinetType;
+use OrthoBundle\Form\Type\UtilisateursCabinetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use OrthoBundle\Entity\CategorieUtilisateurs;
 
 class CabinetController extends Controller
 {
     public function createAction()
     {
-
         // On crée une instance de l'entité cabinet
         $cabinet  = new Utilisateurs();
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
         // "cabinetType.php" ainsi que l'instance de l'entité cabinet
-
-        $form    = $this->createForm(new CabinetType(), $cabinet);
+        $form    = $this->createForm(new UtilisateursCabinetType(), $cabinet);
 
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
@@ -26,10 +25,13 @@ class CabinetController extends Controller
         // On hydrate notre formulaire
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isValid() && $form->isSubmitted())
+        {
 
-            $cabinet->activationDuCompte();
-            $cabinet->attributionDuRole();
+            $cabinet->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(1));
+            $cabinet->setEnabled(true);
+            $cabinet->setRoles(array('ROLE_CABINET'));
+
             $em->persist($cabinet);
             $em->flush();
 

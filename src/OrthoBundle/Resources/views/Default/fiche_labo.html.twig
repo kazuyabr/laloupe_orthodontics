@@ -9,21 +9,21 @@
             <fieldset class="largebloc">
                 <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }}/>
                 <h2 class="fs-title">Ce laboratoire a bien été ajouté.</h2>
-                <h3 class="fs-subtitle"><span>Laboratoire : <br></span>{{ affichagefiche ? affichagefiche.nomLabo }}</h3>
+                <h3 class="fs-subtitle"><span>Laboratoire : <br></span>{{ affichagefiche ? affichagefiche.nom }}</h3>
 
                 <div id="container">
                     <div class="profileplace">
                         <div><span>Identifiant : </span>{{ affichagefiche ? affichagefiche.username }}</div>
-                        <div><span>Nom complet : <br></span>{{ affichagefiche ? affichagefiche.nomLabo }}</div>
+                        <div><span>Nom complet : <br></span>{{ affichagefiche ? affichagefiche.nom }}</div>
                         <div><span>E-mail : </span>{{ affichagefiche ? affichagefiche.email }}</div>
 
                     </div>
                     <div class="profileplace">
-                        <div><span>Adresse : <br></span>{{ affichagefiche ? affichagefiche.adresseLabo }}</div>
-                        <div>{{ affichagefiche ? affichagefiche.codepostalLabo }}
-                            &nbsp;{{ affichagefiche ? affichagefiche.villeLabo }}</div>
-                        <div><span>Téléphone : </span>{{ affichagefiche ? affichagefiche.telephoneLabo }}</div>
-                        <div><span>E-mail Labo : </span>{{ affichagefiche ? affichagefiche.mailLabo }}</div>
+                        <div><span>Adresse : <br></span>{{ affichagefiche ? affichagefiche.adresse }}</div>
+                        <div>{{ affichagefiche ? affichagefiche.codepostal }}
+                            &nbsp;{{ affichagefiche ? affichagefiche.ville }}</div>
+                        <div><span>Téléphone : </span>{{ affichagefiche ? affichagefiche.telephone }}</div>
+                        <div><span>E-mail Labo : </span>{{ affichagefiche ? affichagefiche.email }}</div>
 
                     </div>
                 </div>

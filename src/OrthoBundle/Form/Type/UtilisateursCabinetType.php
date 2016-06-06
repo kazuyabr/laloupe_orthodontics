@@ -10,7 +10,7 @@ use OrthoBundle\Entity\Utilisateurs;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
-class CabinetType extends AbstractType
+class UtilisateursCabinetType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -55,7 +55,7 @@ class CabinetType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OrthoBundle\Entity\Cabinetsdentaires'
+            'data_class' => 'OrthoBundle\Entity\Utilisateurs'
         ));
     }
 }
