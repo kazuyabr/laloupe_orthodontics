@@ -1,8 +1,8 @@
 // On crée un Objet JS qui va contenir la liste de tout les appareils
-var textareaCommentaire = $('#commandes_comment');
+var textareaCommentaire = $('#commandes_commentaireLabo');
 
 function addCommentAppareillageModal(commentId) {
-    textareaCommentaire.val(textareaCommentaire.val() + "\n" + tableauCommentaireAppareillages[commentId]);
+    textareaCommentaire.val(textareaCommentaire.val() + "\n" + tableauAppareillages[commentId].commentaire);
 }
 
 function removeCommentAppareillageModal(commentId) {
@@ -15,15 +15,17 @@ $('.family-button').click(function(){ // Si l'élément avec la class="family-bu
     var app = []; // On déclare notre tableau trié (vide pour le moment)
 
     // Tant que i inférieur à la longueur de l'objet, faire :
-    for (i = 1; i < Object.keys(appareillages).length; i++)
+    for (i = 1; i < Object.keys(tableauAppareillages).length; i++)
     {
         // Si la famille de l'objet, à l'index [i] vaut la valeur de familyClicked, faire :
-        if (appareillages[i].family === familyClicked)
+        if (tableauAppareillages[i].family === familyClicked)
         {
             // On ajoute les données de cet appareillage dans le tableau trié.
-            app.push(appareillages[i]);
+            app.push(tableauAppareillages[i]);
         }
     }
+
+    console.log(app);
 
     // Pour chaque itération de boucle du tableau trié, faire :
     for (var compteur = 0; compteur < app.length; compteur++)
