@@ -310,7 +310,7 @@ ul.nav.navbar-nav {
 
 }
 
-#imageSchemaApp {
+#imageSchemaApp, #imageSchemaAdj {
     width: 30%;
     text-align: center;
 }

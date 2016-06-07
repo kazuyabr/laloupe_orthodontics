@@ -40,15 +40,15 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal2">
                     Bibliothèque <br>
                     Appareillages
                 </button>
 
                 <!-- Modal -->
 
-                    {% include 'modalFamilleAppareillages.html' %}
-                    {% include 'modalListeAppareillages.html' %}
+                {% include 'modalFamilleAppareillages.html' %}
+                {% include 'modalListeAppareillages.html' %}
             </div>
             <div id='blocAdj' class='blocAppAdj'>
                 {{ form_label(form.adjonctions, "Adjonctions : ") }}
@@ -60,11 +60,7 @@
                     Adjonctions
                 </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel "
-                     aria-hidden="true">
-                    {% include 'modalListeAdjonctions.html' %}
-                </div>
+                <!-- Modal -->{% include 'modalListeAdjonctions.html' %}
             </div>
 
             <div id="coulmot">
@@ -118,6 +114,7 @@
         var tableauAppareillages = {
             {% for namepictures in nomimageapp %}
             "{{ namepictures.id }}": {
+                "id": "{{ namepictures.id }}",
                 "title": "{{ namepictures.nom }}",
                 "img": "{{ namepictures.image }}",
                 "family": "{{ namepictures.famille }}",
@@ -128,7 +125,12 @@
 
         var tableauCommentaireAdjonction = {
             {% for commentaire in commentaireAdjonction %}
-            "{{ commentaire.id }}" : {"id" : "{{ commentaire.id }}", "title" : "{{ commentaire.nom }}", "img" : "{{ commentaire.image }}", "commentaire" : "{{ commentaire.commentaire}}"  },
+            "{{ commentaire.id }}" : {
+                "id" : "{{ commentaire.id }}",
+                "title" : "{{ commentaire.nom }}",
+                "img" : "{{ commentaire.image }}",
+                "commentaire" : "{{ commentaire.commentaire}}"
+            }{% if not loop.last %},{% endif %}
             {% endfor %}
         };
     </script>
