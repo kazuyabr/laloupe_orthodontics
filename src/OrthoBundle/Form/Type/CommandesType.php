@@ -45,14 +45,6 @@ class CommandesType extends AbstractType
                     return $entityRepository->orderApparelsByWeight();
                 }
             ))
-            ->add('ajoutApp', 'button', array(
-                'attr' => array(
-                    'class' => 'action-button',
-                    'data-toggle' => 'modal',
-                    'data-target' => '#myModal'
-                )
-            ))
-
             ->add('adjonctions', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
                 'property' => 'nom',
@@ -62,25 +54,19 @@ class CommandesType extends AbstractType
                     return $entityRepository->orderAdjonctionsByWeight();
                 }
             ))
-
-            ->add('ajoutAdj', 'button', array(
-                'attr' => array(
-                    'class' => 'action-button'
-                )
-            ))
             ->add('couleur')
             ->add('motif')
             
             ->add('commentaireLabo', 'textarea')
-            ->add('pathPJ1', 'file', array(
+            ->add('file1', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))
-            ->add('pathPJ2', 'file', array(
+            ->add('file2', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))
-            ->add('pathPJ3', 'file', array(
+            ->add('file3', 'file', array(
                 'mapped' => false,
                 'required' => false
             ))

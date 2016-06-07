@@ -22,17 +22,14 @@ OrthoBundle\Entity\Commandes:
             type: datetime
         commentaireLabo:
             type: text
-        pathPJ1:
+        path1:
             type: string
-            length: 255
             nullable: true
         pathPJ2:
             type: string
-            length: 255
             nullable: true
         pathPJ3:
             type: string
-            length: 255
             nullable: true
         commentairePrestataire3D:
             type: text
@@ -75,6 +72,6 @@ OrthoBundle\Entity\Commandes:
 
     lifecycleCallbacks:
         prePersist: [ setCreatedAtValue ]
-        postPersist: [ upload1, upload2, upload3 ]
-        postUpdate: [ upload1, upload2, upload3 ]
+        postPersist: [ upload1 ]
+        postUpdate: [ upload1 ]
 
