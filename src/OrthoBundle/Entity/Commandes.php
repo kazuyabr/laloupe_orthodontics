@@ -72,9 +72,10 @@ class Commandes
         $this->file1 = null;
     }
 
+    // Ou Path est le nom du champ ciblé lors de l'upload
     public function generatePathFilename(sfValidatedFile $file)
     {
-
+        // On a maintenant accès à notre fichier, on peut donc lui donner un nom basé sur son id ou son slug ou tout autre chose.
         return $this->getId().$file->getExtension($file->getOriginalExtension());
     }
 
