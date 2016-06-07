@@ -59,15 +59,12 @@ class CommandesType extends AbstractType
             
             ->add('commentaireLabo', 'textarea')
             ->add('file1', 'file', array(
-                'mapped' => false,
                 'required' => false
             ))
             ->add('file2', 'file', array(
-                'mapped' => false,
                 'required' => false
             ))
             ->add('file3', 'file', array(
-                'mapped' => false,
                 'required' => false
             ))
             ->add('commentairePrestataire3D', 'textarea', array(

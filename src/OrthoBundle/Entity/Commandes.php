@@ -20,7 +20,6 @@ class Commandes
         return $this->commentaireLabo;
     }
 
-    public $file2;
     public $file3;
 
     public function getAbsolutePath1()
@@ -70,8 +69,110 @@ class Commandes
     }
 
 
+    // Ou Path est le nom du champ ciblé lors de l'upload
+    public function generatePathFilename(sfValidatedFile $file)
+    {
+        // On a maintenant accès à notre fichier, on peut donc lui donner un nom basé sur son id ou son slug ou tout autre chose.
+        return $this->getId().$file->getExtension($file->getOriginalExtension());
+    }
+
+    public $path2;
+
+    public $file2;
+
+    public function getAbsolutePath2()
+    {
+        return null === $this->path2 ? null : $this->getUploadRootDir2().'/'.$this->path2;
+    }
+
+    public function getWebPath2()
+    {
+        return null === $this->path2 ? null : $this->getUploadDir2().'/'.$this->path2;
+    }
+
+    protected function getUploadRootDir2()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../web/'.$this->getUploadDir2();
+    }
+
+    protected function getUploadDir2()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return 'uploads';
+    }
+
+    public function upload2()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file2) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file2->move($this->getUploadRootDir2(), $this->file2->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path2 = $this->file2->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file2 = null;
+    }
 
 
+
+    public function getAbsolutePath3()
+    {
+        return null === $this->path3 ? null : $this->getUploadRootDir3().'/'.$this->path3;
+    }
+
+    public function getWebPath3()
+    {
+        return null === $this->path3 ? null : $this->getUploadDir3().'/'.$this->path3;
+    }
+
+    protected function getUploadRootDir3()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../web/'.$this->getUploadDir3();
+    }
+
+    protected function getUploadDir3()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return 'uploads';
+    }
+
+    public function upload3()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file3) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file3->move($this->getUploadRootDir3(), $this->file3->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path3 = $this->file3->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file3 = null;
+    }
 
     public function setCreatedAtValue()
     {
