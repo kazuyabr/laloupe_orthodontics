@@ -36,10 +36,6 @@ class FormulaireController extends Controller
 
         if ($form->isValid() && $form->isSubmitted())
         {
-            $commande->upload1();
-            $commande->upload2();
-            $commande->upload3();
-
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
                 // On récupère le cabinet en question qui a passé la commande
