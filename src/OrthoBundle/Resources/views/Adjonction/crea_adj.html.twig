@@ -20,25 +20,11 @@
                     {{ form_label(form.commentaire) }}
                     {{ form_errors(form.commentaire) }}
                     {{ form_widget(form.commentaire) }}
+
+                    <input type="submit" name="previous" class="action-button" value="ENVOYER" />
                 </div>
-                <div class="creaplace">
-                    {{ form_label(form.titreAdj) }} <!-- Affiche le label -->
-                    {{ form_errors(form.titreAdj) }}
-                    {{ form_widget(form.titreAdj) }}
 
-                    {{ form_label(form.familleAdj) }}
-                    {{ form_errors(form.familleAdj) }}
-                    {{ form_widget(form.familleAdj) }}
 
-                    {{ form_label(form.imgAdj) }}
-                    {{ form_errors(form.imgAdj) }}
-                    {{ form_widget(form.imgAdj) }}
-
-                    {{ form_label(form.commentairesAdj) }}
-                    {{ form_errors(form.commentairesAdj) }}
-                    {{ form_widget(form.commentairesAdj) }}
-                </div>
-                <input type="submit" name="previous" class="action-button" value="ENVOYER" />
             </fieldset>
         {{ form_end(form) }}
     </div>

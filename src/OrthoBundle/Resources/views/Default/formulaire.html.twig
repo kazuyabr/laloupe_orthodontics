@@ -44,9 +44,7 @@
                     Bibliothèque <br>
                     Appareillages
                 </button>
-
                 <!-- Modal -->
-
                 {% include 'modalListeAppareillages.html' %}
             </div>
             <div id='blocAdj' class='blocAppAdj'>
@@ -59,7 +57,8 @@
                     Adjonctions
                 </button>
 
-                <!-- Modal -->{% include 'modalListeAdjonctions.html' %}
+                <!-- Modal -->
+                {% include 'modalListeAdjonctions.html' %}
             </div>
 
             <div id="coulmot">
@@ -133,13 +132,13 @@
             {% endfor %}
         };
     </script>
-    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/affichageAdjonctions.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/triParFamilleAppareillages.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAdjonctions.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/commentaireAppareillagesModal.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/ajoutCommentairePrestataire.js') }}"></script>
 {% endblock %}

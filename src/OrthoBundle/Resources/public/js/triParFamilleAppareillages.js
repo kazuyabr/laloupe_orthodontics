@@ -34,7 +34,7 @@ $('.blocAppareillage').on('click', function () {
     }
     else {
         $(this).addClass('selected');
-        $('#msform').prepend('<input type="checkbox" checked="checked"  name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />');
+        $('#msform').prepend('<input type="checkbox" checked="checked" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />');
         addCommentAppareillageModal($(this).attr('data-id'));
     }
 });

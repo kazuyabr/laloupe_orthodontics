@@ -3,7 +3,7 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-    <form id="msform">
+    <div id="msform">
         {{ form_start(form) }}
         <fieldset class="largebloc">
             <div id="container">
@@ -20,70 +20,64 @@
                     {{ form_errors(form.current_password) }}
                     {{ form_widget(form.current_password) }}
                 </div>
-
                 <div class="profileplace">
-                    <p><strong>Adresse de livraison</strong></p>
-                    {{ form_label(form.adresseCab) }} <!-- Affiche le label -->
-                    {{ form_errors(form.adresseCab) }} <!-- Affiche erreur si champ vide -->
-                    {{ form_widget(form.adresseCab) }}
+                    <p>
+                        <strong>Adresse de livraison</strong>
+                    </p>
+                    {{ form_label(form.adresse) }} <!-- Affiche le label -->
+                    {{ form_errors(form.adresse) }} <!-- Affiche erreur si champ vide -->
+                    {{ form_widget(form.adresse) }}
 
-                    {{ form_label(form.codepostalCab) }}
-                    {{ form_errors(form.codepostalCab) }}
-                    {{ form_widget(form.codepostalCab) }}
+                    {{ form_label(form.codePostal) }}
+                    {{ form_errors(form.codePostal) }}
+                    {{ form_widget(form.codePostal) }}
 
-                    {{ form_label(form.villeCab) }}
-                    {{ form_errors(form.villeCab) }}
-                    {{ form_widget(form.villeCab) }}
+                    {{ form_label(form.ville) }}
+                    {{ form_errors(form.ville) }}
+                    {{ form_widget(form.ville) }}
 
-                    {{ form_label(form.telephoneCab) }}
-                    {{ form_errors(form.telephoneCab) }}
-                    {{ form_widget(form.telephoneCab) }}
+                    {{ form_label(form.telephone) }}
+                    {{ form_errors(form.telephone) }}
+                    {{ form_widget(form.telephone) }}
                 </div>
-
                 <div class="profileplace">
                     <p><strong>Adresse de facturation</strong></p>
-                    {{ form_label(form.adressebisCab) }} <!-- Affiche le label -->
-                    {{ form_errors(form.adressebisCab) }} <!-- Affiche erreur si champ vide -->
-                    {{ form_widget(form.adressebisCab) }}
-                    </br>
-                    {{ form_label(form.codepostalbisCab) }}
-                    {{ form_errors(form.codepostalbisCab) }}
-                    {{ form_widget(form.codepostalbisCab) }}
-                    </br>
-                    {{ form_label(form.villebisCab) }}
-                    {{ form_errors(form.villebisCab) }}
-                    {{ form_widget(form.villebisCab) }}
-                    </br>
-                    {{ form_label(form.telephonebisCab) }}
-                    {{ form_errors(form.telephonebisCab) }}
-                    {{ form_widget(form.telephonebisCab) }}
+                    {{ form_label(form.adresseFacturation) }} <!-- Affiche le label -->
+                    {{ form_errors(form.adresseFacturation) }} <!-- Affiche erreur si champ vide -->
+                    {{ form_widget(form.adresseFacturation) }}
+                    <br />
+                    {{ form_label(form.codePostalFacturation) }}
+                    {{ form_errors(form.codePostalFacturation) }}
+                    {{ form_widget(form.codePostalFacturation) }}
+                    <br />
+                    {{ form_label(form.villeFacturation) }}
+                    {{ form_errors(form.villeFacturation) }}
+                    {{ form_widget(form.villeFacturation) }}
+                    <br />
+                    {{ form_label(form.telephoneFacturation) }}
+                    {{ form_errors(form.telephoneFacturation) }}
+                    {{ form_widget(form.telephoneFacturation) }}
                 </div>
 
                 <div class="profileplace">
                     <p><strong>Envoi du récapitulatif</strong></p>
 
-                    {{ form_label(form.mailCab) }}
-                    {{ form_errors(form.mailCab) }}
-                    {{ form_widget(form.mailCab) }}
+                    {{ form_label(form.mailBis) }}
+                    {{ form_errors(form.mailBis) }}
+                    {{ form_widget(form.mailBis) }}
 
-                    {{ form_label(form.emailbisCab) }}
-                    {{ form_errors(form.emailbisCab) }}
-                    {{ form_widget(form.emailbisCab) }}
-
-                    {{ form_label(form.emailterCab) }}
-                    {{ form_errors(form.emailterCab) }}
-                    {{ form_widget(form.emailterCab) }}
+                    {{ form_label(form.mailTer) }}
+                    {{ form_errors(form.mailTer) }}
+                    {{ form_widget(form.mailTer) }}
                 </div>
             </div>
 
-            <a href="{{ path('fos_user_profile_show') }}"><input style="width: inherit" type="button" name="previous"
-                                                                 class="previous action-button"
-                                                                 value="Retour au profile"/></a>
+            <a href="{{ path('fos_user_profile_show') }}">
+                <input style="width: inherit" type="button" name="previous"
+                    class="previous action-button" value="Retour au profil"/>
+            </a>
             <input class="action-button" type="submit" value="{{ 'profile.edit.submit'|trans }}"/>
-
         </fieldset>
-    </form>
-    {{ form_end(form) }}
-
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
-{% block javascript %}{% endblock %}

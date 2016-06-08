@@ -9,6 +9,7 @@
                     <h3 class="fs-subtitle">Tous les champs sont obligatoires.</h3>
                     <div id="container">
                         <div class="profileplace">
+                            <h3>Identifiants :</h3>
                             {{ form_label(form.username) }}
                             {{ form_errors(form.username) }}
                             {{ form_widget(form.username) }}
@@ -26,6 +27,7 @@
                             {{ form_widget(form.email) }}
                         </div>
                         <div class="profileplace">
+                            <h3>Coordonnées :</h3>
                             {{ form_label(form.adresse) }}
                             {{ form_errors(form.adresse) }}
                             {{ form_widget(form.adresse) }}
@@ -41,7 +43,35 @@
                             {{ form_label(form.telephone) }}
                             {{ form_errors(form.telephone) }}
                             {{ form_widget(form.telephone) }}
-                            {{ form_rest(form) }}
+                        </div>
+                        <div class="profileplace">
+                            <h3>Lieu de facturation :</h3>
+                            {{ form_label(form.adresseFacturation) }}
+                            {{ form_errors(form.adresseFacturation) }}
+                            {{ form_widget(form.adresseFacturation) }}
+
+                            {{ form_label(form.codePostalFacturation) }}
+                            {{ form_errors(form.codePostalFacturation) }}
+                            {{ form_widget(form.codePostalFacturation) }}
+
+                            {{ form_label(form.villeFacturation) }}
+                            {{ form_errors(form.villeFacturation) }}
+                            {{ form_widget(form.villeFacturation) }}
+
+                            {{ form_label(form.telephoneFacturation) }}
+                            {{ form_errors(form.telephoneFacturation) }}
+                            {{ form_widget(form.telephoneFacturation) }}
+                        </div>
+                        <div class="profileplace">
+                            <h3></h3>
+
+                            {{ form_label(form.mailBis) }}
+                            {{ form_errors(form.mailBis) }}
+                            {{ form_widget(form.mailBis) }}
+
+                            {{ form_label(form.mailTer) }}
+                            {{ form_errors(form.mailTer) }}
+                            {{ form_widget(form.mailTer) }}
                         </div>
                     </div>
                     <input type="submit" name="previous" class="action-button" value="ENVOYER"/>

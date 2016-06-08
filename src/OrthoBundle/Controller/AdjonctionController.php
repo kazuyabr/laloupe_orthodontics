@@ -11,7 +11,6 @@ class AdjonctionController extends Controller
 {
     /*
      * Creation adjonctions.
-     *
      */
     public function creationAdjonctionAction()
     {
@@ -52,7 +51,6 @@ class AdjonctionController extends Controller
             "recapAdjonction" => $recapAdjonction,
 
         ));
-
     }
 
     public function editAdjonctionAction(Request $request, Adjonctions $adjonctions)

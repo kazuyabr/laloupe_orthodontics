@@ -52,9 +52,27 @@ class UtilisateursLaboratoireType extends AbstractType
                     'placeholder' => 'N°, Rue ...'
                 )
             ))
-            ->add('codePostalFacturation')
-            ->add('villeFacturation')
-            ->add('telephoneFacturation');
+            ->add('codePostalFacturation', 'text', array(
+                'label' => 'Code Postal :'
+            ))
+            ->add('villeFacturation', 'text', array(
+                'label' => 'Ville',
+                'attr' => array(
+                    'placeholder' => 'Ville :'
+                )
+            ))
+            ->add('telephoneFacturation', 'text', array(
+                'label' => 'Téléphone :',
+                'attr' => array(
+                    'placeholder' => '09.87.65.43.21'
+                )
+            ))
+            ->add('mailBis', 'email', array(
+                'required' => false
+            ))
+            ->add('mailTer', 'email', array(
+                'required' => false
+            ));
 
     }
 

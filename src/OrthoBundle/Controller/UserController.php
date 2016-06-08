@@ -19,13 +19,11 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $totalCabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getTotalCabinet();
+        $totalCabinet = $em->getRepository('OrthoBundle:Utilisateurs')->getTotalCabinet();
 
-        $totalLabo = $em->getRepository('OrthoBundle:Laboratoire')->getTotalLabo();
         
         return $this->render('OrthoBundle:Default:recup_user.html.twig', array(
             'totalCabinet' => $totalCabinet,
-            'totalLabo' => $totalLabo
         ));
 
 

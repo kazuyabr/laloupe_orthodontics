@@ -47,7 +47,33 @@ class UtilisateursCabinetType extends AbstractType
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
                 'label' => 'E-mail :',
                 'translation_domain' => 'FOSUserBundle'
-            ));
+            ))
+            ->add('adresseFacturation', 'text', array(
+                'label' => 'Adresse de Facturation :',
+                'attr' => array(
+                    'placeholder' => "N°, Rue .."
+                )
+            ))
+            ->add('codePostalFacturation', 'text', array(
+                'label' => 'Code Postal',
+                'attr' => array(
+                    'placeholder' => 'Code Postal'
+                )
+            ))
+            ->add('villeFacturation', 'text', array(
+                'label' => 'Ville',
+                'attr' => array(
+                    'placeholder' => 'Ville'
+                )
+            ))
+            ->add('telephoneFacturation', 'text', array(
+                'label' => 'Téléphone :',
+                'attr' => array(
+                    'placeholder' => '09.87.65.43.21'
+                )
+            ))
+            ->add('mailBis', 'email')
+            ->add('mailTer', 'email');
     }
 
     /**

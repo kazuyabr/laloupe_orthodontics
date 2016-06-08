@@ -12,16 +12,15 @@ class CabinetController extends Controller
 {
     public function createAction()
     {
-        // On crée une instance de l'entité cabinet
+        // On crée une instance de l'entité Utilisateurs
         $cabinet  = new Utilisateurs();
 
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
-        // "cabinetType.php" ainsi que l'instance de l'entité cabinet
+        // "UtilisateursCabinetType.php" ainsi que l'instance de l'entité Utlisateurs
         $form    = $this->createForm(new UtilisateursCabinetType(), $cabinet);
-
-
+        
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
 
@@ -30,7 +29,6 @@ class CabinetController extends Controller
 
         if ($form->isValid() && $form->isSubmitted())
         {
-
             $cabinet->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(1));
             $cabinet->setEnabled(true);
             $cabinet->setRoles(array('ROLE_CABINET'));
@@ -46,7 +44,6 @@ class CabinetController extends Controller
         return $this->render('@Ortho/Cabinet/crea_cabinet.html.twig', array(
             'form' => $form->createView()
         ));
-
     }
 
     public function showAction($id)
