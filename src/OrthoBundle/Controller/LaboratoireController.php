@@ -10,7 +10,7 @@ class LaboratoireController extends Controller
 {
     public function createAction()
     {
-        // On crée une instance de l'entité Laboratoire
+        // On crée une instance de l'entité Utilisateurs
         $laboratoire  = new Utilisateurs();
         $request = $this->getRequest();
 
@@ -24,7 +24,7 @@ class LaboratoireController extends Controller
         // On hydrate notre formulaire
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isValid() && $form->isSubmitted()) {
 
             $laboratoire->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(2));
             $laboratoire->setEnabled(true);
@@ -33,7 +33,9 @@ class LaboratoireController extends Controller
             $em->persist($laboratoire);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('fiche_labo', array('id' => $laboratoire->getId())));
+            return $this->redirect($this->generateUrl('fiche_labo', array(
+                'id' => $laboratoire->getId()
+            )));
         }
 
         // On affiche la page formulaire, qui prend en paramètre
