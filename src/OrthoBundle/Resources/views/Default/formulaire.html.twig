@@ -1,7 +1,7 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
+        <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
         , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post" {{ form_enctype(form) }}>
         <!-- Barre de progression -->
@@ -49,8 +49,8 @@
                     Appareillages
                 </button>
 
-                    {% include 'modalFamilleAppareillages.html' %}
                     {% include 'modalListeAppareillages.html' %}
+
             </div>
 
             <div id='blocAdj' class='blocAppAdj'>
@@ -91,6 +91,7 @@
             <h2 class="fs-title">Pièces jointes complémentaires :</h2>
             <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
 
+
             {{ form_label(form.file1, "Arcade Maxilaire :") }}
             {{ form_errors(form.file1) }}
             {{ form_widget(form.file1) }}
@@ -103,11 +104,9 @@
             {{ form_errors(form.file3) }}
             {{ form_widget(form.file3) }}
 
-            {{ form_label(form.comment2, "Autres commentaires :") }}
-            {{ form_errors(form.comment2) }}
-            {{ form_widget(form.comment2) }}
 
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
+            <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
 
             {{ form_rest(form) }}
             {{ form_end(form) }}
@@ -118,34 +117,35 @@
 {% block javascript %}
     {{ parent() }}
     <script>
-        var appareillages = {
+        var tableauAppareillages = {
             {% for namepictures in nomimageapp %}
-            "{{ namepictures.id }}" : {"id": "{{ namepictures.id }}","title": "{{ namepictures.titreApp }}", "img": "{{ namepictures.imgApp }}", "family": "{{ namepictures.familleApp}}"},
+            "{{ namepictures.id }}": {
+                "id": "{{ namepictures.id }}",
+                "title": "{{ namepictures.titreApp }}",
+                "img": "{{ namepictures.imgApp }}",
+                "family": "{{ namepictures.familleApp }}",
+                "commentaire": "{{ namepictures.commentairesApp }}"
+            }{% if not loop.last %},{% endif %}
             {% endfor %}
         };
-
-        var tableauCommentaireAppareillages = {
-            {% for commentaire in commentaireAppareil %}
-            "{{ commentaire['id'] }}" :
-            "{{ commentaire['titreApp'] }} ({{ commentaire['familleApp'] }}) : \n{{ commentaire['commentairesApp'] }}" ,
-            {% endfor %}
-        };
-
         var tableauCommentaireAdjonction = {
             {% for commentaire in commentaireAdjonction %}
-            "{{ commentaire.id }}" : {"id" : "{{ commentaire.id }}", "title" : "{{ commentaire.titreAdj }}", "img" : "{{ commentaire.imgAdj }}", "commentaire" : "{{ commentaire.commentairesAdj}}"  },
+            "{{ commentaire.id }}" : {
+                "id" : "{{ commentaire.id }}",
+                "title" : "{{ commentaire.titreAdj }}",
+                "img" : "{{ commentaire.imgAdj }}",
+                "commentaire" : "{{ commentaire.commentairesAdj}}"
+            }{% if not loop.last %},{% endif %}
             {% endfor %}
         };
     </script>
-
-    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/recherchejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/affichageAdjonctions.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/triParFamilleAppareillages.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAdjonctions.js') }}"></script>
-    <script src="{{ asset('bundles/ortho/js/commentaireAppareillagesModal.js') }}"></script>
-
+    <script src="{{ asset('bundles/ortho/js/ajoutCommentairePrestataire.js') }}"></script>
 {% endblock %}

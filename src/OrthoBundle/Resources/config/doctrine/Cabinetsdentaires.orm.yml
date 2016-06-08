@@ -34,6 +34,41 @@ OrthoBundle\Entity\Cabinetsdentaires:
             length: 255
             column: telephone_cab
             nullable: true
+        adressebisCab:
+            type: string
+            length: 255
+            column: adressebis_cab
+            nullable: true
+        codepostalbisCab:
+            type: string
+            length: 255
+            column: codepostalbis_cab
+            nullable: true
+        villebisCab:
+            type: string
+            length: 255
+            column: villebis_cab
+            nullable: true
+        telephonebisCab:
+            type: string
+            length: 255
+            column: telephonebis_cab
+            nullable: true
+        mailCab:
+            type: string
+            length: 255
+            column: mail_cab
+            nullable: true
+        emailbisCab:
+            type: string
+            length: 255
+            column: emailbis_cab
+            nullable: true
+        emailterCab:
+            type: string
+            length: 255
+            column: emailter_cab
+            nullable: true
 
     manyToOne:
         fidLabo:
@@ -51,4 +86,5 @@ OrthoBundle\Entity\Cabinetsdentaires:
         poidsAdjonction:
             targetEntity: OrthoBundle\Entity\PoidsAdjonctions
             mappedBy: cabinet
+
     lifecycleCallbacks: {  }

@@ -1,0 +1,44 @@
+{# @OrthoBundle/Resources/views/Default/fiche_cabinet.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+    {# {{ dump(affichagefiche) }} #}
+    <div id="msform">
+        {% if app.user %}
+            <!-- user is logged in -->
+
+            <fieldset class="largebloc">
+                <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }}/>
+                <h2 class="fs-title">Ce cabinet a bien été ajouté.</h2>
+                <h3 class="fs-subtitle"><span>Cabinet : <br></span>{{ affichagefiche ? affichagefiche.nomCab }}</h3>
+
+                <div id="container">
+                    <div class="profileplace">
+                        <div><span>Identifiant : </span>{{ affichagefiche ? affichagefiche.username }}</div>
+                        <div><span>Nom complet : <br></span>{{ affichagefiche ? affichagefiche.nomCab }}</div>
+                        <div><span>E-mail : </span>{{ affichagefiche ? affichagefiche.email }}</div>
+
+                    </div>
+                    <div class="profileplace">
+                        <div><span>Adresse : <br></span>{{ affichagefiche ? affichagefiche.adresseCab }}</div>
+                        <div>{{ affichagefiche ? affichagefiche.codepostalCab }}
+                            &nbsp;{{ affichagefiche ? affichagefiche.villeCab }}</div>
+                        <div><span>Téléphone : </span>{{ affichagefiche ? affichagefiche.telephoneCab }}</div>
+
+                    </div>
+                </div>
+                <div class="envoi_email_recapitulatif">
+                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('crea_cabinet') }}">Nouveau
+                        cabinet</a>
+                </div>
+
+
+            </fieldset>
+        {% else %}
+            <!-- user is not logged in -->
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
+
+        {% endif %}
+    </div>
+{% endblock %}
