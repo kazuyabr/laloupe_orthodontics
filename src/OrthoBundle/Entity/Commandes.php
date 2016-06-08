@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\HttpFoundation;
 
-
-
 /**
  * Commandes
  * @ORM\Entity(repositoryClass="OrthoBundle\Repository\CommandesRepository")
@@ -29,7 +27,7 @@ class Commandes
     public function getAbsolutePath1()
     {
 
-        return null === $this->path1 ? null : $this->getUploadRootDir1().'/'.$this->id.'.'.$this->path1;
+        return null === $this->path1 ? null : $this->getUploadRootDir().'/'.$this->id.'.'.$this->path1;
 
     }
 
@@ -51,14 +49,15 @@ class Commandes
         return 'uploads';
     }
 
+    // CallBack : preUpdate | prePersist \\
     public function preUpload1()
     {
         if (null !== $this->file1) {
-
-            $this->path1= sha1(uniqid(mt_rand(),true)).'.'.$this->file1->guessExtension();
+            $this->path1= $this->file1->guessExtension();
         }
     }
 
+    // CallBacks : PostPersist | PostUpdate \\
     public function upload1()
     {
         // la propriété « file » peut être vide si le champ n'est pas requis
@@ -72,26 +71,38 @@ class Commandes
 
         // la méthode « move » prend comme arguments le répertoire cible et
         // le nom de fichier cible où le fichier doit être déplacé
-
-
-        $this->file1->move($this->getUploadRootDir1(), $this->id.'.'.$this->file1->getClientOriginalExtension());
-
+        $this->file1->move($this->getUploadRootDir(), $this->getReferencePatient().'M.'.$this->file1->guessExtension());
 
         // définit la propriété « path » comme étant le nom de fichier où vous
         // avez stocké le fichier
-        $this->path1 = $this->file1->getClientOriginalName();
+        $this->path1 = $this->getReferencePatient().'M.'.$this->file1->getClientOriginalExtension();
 
         // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
         $this->file1 = null;
     }
 
 
-    // Ou Path est le nom du champ ciblé lors de l'upload
-    public function generatePathFilename(sfValidatedFile $file)
-    {
-        // On a maintenant accès à notre fichier, on peut donc lui donner un nom basé sur son id ou son slug ou tout autre chose.
-        return $this->getId().$file->getExtension($file->getClientOriginalExtension());
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public $path2;
 
@@ -192,7 +203,7 @@ class Commandes
     /**
      * @var int
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
