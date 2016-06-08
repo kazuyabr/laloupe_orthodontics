@@ -24,21 +24,21 @@ class Commandes
 
     public function getAbsolutePath1()
     {
-        return null === $this->path1 ? null : $this->getUploadRootDir1().'/'.$this->path1;
+        return null === $this->path1 ? null : $this->getUploadRootDir().'/'.$this->path1;
     }
 
     public function getWebPath1()
     {
-        return null === $this->path1 ? null : $this->getUploadDir1().'/'.$this->path1;
+        return null === $this->path1 ? null : $this->getUploadDir().'/'.$this->path1;
     }
 
-    protected function getUploadRootDir1()
+    protected function getUploadRootDir()
     {
         // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
-        return __DIR__.'/../../../web/'.$this->getUploadDir1();
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
     }
 
-    protected function getUploadDir1()
+    protected function getUploadDir()
     {
         // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
         // le document/image dans la vue.
@@ -58,7 +58,7 @@ class Commandes
 
         // la méthode « move » prend comme arguments le répertoire cible et
         // le nom de fichier cible où le fichier doit être déplacé
-        $this->file1->move($this->getUploadRootDir1(), $this->file1->getClientOriginalName());
+        $this->file1->move($this->getUploadRootDir(), $this->file1->getClientOriginalName());
 
         // définit la propriété « path » comme étant le nom de fichier où vous
         // avez stocké le fichier
@@ -82,25 +82,12 @@ class Commandes
 
     public function getAbsolutePath2()
     {
-        return null === $this->path2 ? null : $this->getUploadRootDir2().'/'.$this->path2;
+        return null === $this->path2 ? null : $this->getUploadRootDir().'/'.$this->path2;
     }
 
     public function getWebPath2()
     {
-        return null === $this->path2 ? null : $this->getUploadDir2().'/'.$this->path2;
-    }
-
-    protected function getUploadRootDir2()
-    {
-        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
-        return __DIR__.'/../../../web/'.$this->getUploadDir2();
-    }
-
-    protected function getUploadDir2()
-    {
-        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
-        // le document/image dans la vue.
-        return 'uploads';
+        return null === $this->path2 ? null : $this->getUploadDir().'/'.$this->path2;
     }
 
     public function upload2()
@@ -116,7 +103,7 @@ class Commandes
 
         // la méthode « move » prend comme arguments le répertoire cible et
         // le nom de fichier cible où le fichier doit être déplacé
-        $this->file2->move($this->getUploadRootDir2(), $this->file2->getClientOriginalName());
+        $this->file2->move($this->getUploadRootDir(), $this->file2->getClientOriginalName());
 
         // définit la propriété « path » comme étant le nom de fichier où vous
         // avez stocké le fichier

@@ -25,7 +25,7 @@ OrthoBundle\Entity\Commandes:
         path1:
             type: string
             nullable: true
-        pathPJ2:
+        path2:
             type: string
             nullable: true
         pathPJ3:

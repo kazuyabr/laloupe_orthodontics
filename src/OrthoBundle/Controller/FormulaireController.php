@@ -36,6 +36,7 @@ class FormulaireController extends Controller
         if ($form->isValid() && $form->isSubmitted())
         {
             $commande->upload1();
+            $commande->upload2();
 
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
