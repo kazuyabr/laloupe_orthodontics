@@ -15,7 +15,9 @@
             </div>
             <a id="buttonprofile" class="action-button" href="{{ path('crea_app') }}">Créer un
                 nouvel appareillage</a>
-
+{% if recapAppareillage.titreApp is defined %}
+    {{ recapAppareillage.titreApp }}
+{% endif %}
         </fieldset>
     </form>
 
