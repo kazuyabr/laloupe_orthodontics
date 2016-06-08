@@ -28,7 +28,7 @@ OrthoBundle\Entity\Commandes:
         path2:
             type: string
             nullable: true
-        pathPJ3:
+        path3:
             type: string
             nullable: true
         commentairePrestataire3D:

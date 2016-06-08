@@ -22,6 +22,8 @@ class Commandes
 
     public $file3;
 
+    public $path3;
+
     public function getAbsolutePath1()
     {
         return null === $this->path1 ? null : $this->getUploadRootDir().'/'.$this->path1;
@@ -125,19 +127,6 @@ class Commandes
         return null === $this->path3 ? null : $this->getUploadDir3().'/'.$this->path3;
     }
 
-    protected function getUploadRootDir3()
-    {
-        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
-        return __DIR__.'/../../../web/'.$this->getUploadDir3();
-    }
-
-    protected function getUploadDir3()
-    {
-        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
-        // le document/image dans la vue.
-        return 'uploads';
-    }
-
     public function upload3()
     {
         // la propriété « file » peut être vide si le champ n'est pas requis
@@ -151,7 +140,7 @@ class Commandes
 
         // la méthode « move » prend comme arguments le répertoire cible et
         // le nom de fichier cible où le fichier doit être déplacé
-        $this->file3->move($this->getUploadRootDir3(), $this->file3->getClientOriginalName());
+        $this->file3->move($this->getUploadRootDir(), $this->file3->getClientOriginalName());
 
         // définit la propriété « path » comme étant le nom de fichier où vous
         // avez stocké le fichier
