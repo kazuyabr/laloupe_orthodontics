@@ -371,6 +371,9 @@ ul.nav.navbar-nav {
     height: 50px;
 }
 
+#msform h2 {
+    padding-bottom: 10px;
+}
 
 .profileplace {
     background: white;
@@ -414,3 +417,4 @@ ul.nav.navbar-nav {
     width: 80%;
     margin: 35px;
 }
+

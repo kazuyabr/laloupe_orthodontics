@@ -4,6 +4,8 @@ namespace OrthoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\HttpFoundation;
+
 
 
 /**
@@ -26,7 +28,9 @@ class Commandes
 
     public function getAbsolutePath1()
     {
-        return null === $this->path1 ? null : $this->getUploadRootDir().'/'.$this->path1;
+
+        return null === $this->path1 ? null : $this->getUploadRootDir1().'/'.$this->id.'.'.$this->path1;
+
     }
 
     public function getWebPath1()
@@ -47,6 +51,14 @@ class Commandes
         return 'uploads';
     }
 
+    public function preUpload1()
+    {
+        if (null !== $this->file1) {
+
+            $this->path1= sha1(uniqid(mt_rand(),true)).'.'.$this->file1->guessExtension();
+        }
+    }
+
     public function upload1()
     {
         // la propriété « file » peut être vide si le champ n'est pas requis
@@ -60,7 +72,10 @@ class Commandes
 
         // la méthode « move » prend comme arguments le répertoire cible et
         // le nom de fichier cible où le fichier doit être déplacé
-        $this->file1->move($this->getUploadRootDir(), $this->file1->getClientOriginalName());
+
+
+        $this->file1->move($this->getUploadRootDir1(), $this->id.'.'.$this->file1->getClientOriginalExtension());
+
 
         // définit la propriété « path » comme étant le nom de fichier où vous
         // avez stocké le fichier
@@ -75,7 +90,7 @@ class Commandes
     public function generatePathFilename(sfValidatedFile $file)
     {
         // On a maintenant accès à notre fichier, on peut donc lui donner un nom basé sur son id ou son slug ou tout autre chose.
-        return $this->getId().$file->getExtension($file->getOriginalExtension());
+        return $this->getId().$file->getExtension($file->getClientOriginalExtension());
     }
 
     public $path2;
@@ -548,6 +563,75 @@ class Commandes
     }
 
     /**
+     * Set path1
+     *
+     * @param string $path1
+     * @return Commandes
+     */
+    public function setPath1($path1)
+    {
+        $this->path1 = $path1;
+
+        return $this;
+    }
+
+    /**
+     * Get path1
+     *
+     * @return string 
+     */
+    public function getPath1()
+    {
+        return $this->path1;
+    }
+
+    /**
+     * Set path2
+     *
+     * @param string $path2
+     * @return Commandes
+     */
+    public function setPath2($path2)
+    {
+        $this->path2 = $path2;
+
+        return $this;
+    }
+
+    /**
+     * Get path2
+     *
+     * @return string 
+     */
+    public function getPath2()
+    {
+        return $this->path2;
+    }
+
+    /**
+     * Set path3
+     *
+     * @param string $path3
+     * @return Commandes
+     */
+    public function setPath3($path3)
+    {
+        $this->path3 = $path3;
+
+        return $this;
+    }
+
+    /**
+     * Get path3
+     *
+     * @return string 
+     */
+    public function getPath3()
+    {
+        return $this->path3;
+    }
+
+    /**
      * Set motif
      *
      * @param \OrthoBundle\Entity\Motifs $motif
@@ -592,4 +676,5 @@ class Commandes
     {
         return $this->commentairePrestataire3D;
     }
+
 }

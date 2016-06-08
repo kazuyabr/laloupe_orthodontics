@@ -71,7 +71,7 @@ OrthoBundle\Entity\Commandes:
             inversedBy: commandes
 
     lifecycleCallbacks:
-        prePersist: [ setCreatedAtValue ]
-        postPersist: [ upload1 ]
-        postUpdate: [ upload1 ]
 
+        prePersist: [ upload1, setCreatedAtValue ]
+        postPersist: [ upload1, upload2, upload3 ]
+        postUpdate: [ upload1, upload2, upload3 ]

@@ -5,6 +5,7 @@ function addCommentAdjonctionModal(commentId) {
 function removeCommentAdjonctionModal(commentId) {
     $('#commentaireEnfant' + commentId).remove();
 }
+console.log(tableauCommentaireAdjonction);
 
 // Pour chaque itération de boucle du tableau trié, faire :
 for (var compteur = 1; compteur < Object.keys(tableauCommentaireAdjonction).length; compteur++)

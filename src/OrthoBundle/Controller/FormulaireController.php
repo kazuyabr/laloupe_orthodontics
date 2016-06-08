@@ -33,6 +33,7 @@ class FormulaireController extends Controller
         $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
+
         if ($form->isValid() && $form->isSubmitted())
         {
             $commande->upload1();
@@ -105,3 +106,4 @@ class FormulaireController extends Controller
         ));
     }
 }
+
