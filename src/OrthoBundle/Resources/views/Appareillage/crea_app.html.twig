@@ -1,49 +1,30 @@
 {# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
+    {% block body %}
+        <div id="msform">
+            {{ form_start(form) }}
+                <fieldset class="smallbloc">
+                    <div class="creaplace">
+                        {{ form_label(form.nom) }} <!-- Affiche le label -->
+                        {{ form_errors(form.nom) }}
+                        {{ form_widget(form.nom) }}
 
-    {% block li %}
-        {#
-        si besoin d'un onglet particulier dans nav
-        <li><a href="" target="_blank"></a></li>
-        #}
+                        {{ form_label(form.famille) }}
+                        {{ form_errors(form.famille) }}
+                        {{ form_widget(form.famille) }}
+
+                        {{ form_label(form.image) }}
+                        {{ form_errors(form.image) }}
+                        {{ form_widget(form.image) }}
+
+                        {{ form_label(form.commentaire) }}
+                        {{ form_errors(form.commentaire) }}
+                        {{ form_widget(form.commentaire) }}
+
+                        <input type="submit" name="previous" class="action-button" value="ENVOYER" />
+
+                    </div>
+                </fieldset>
+            {{ form_end(form) }}
+        </div>
     {% endblock %}
-
-{% block body %}
-
-    <div id="msform">
-        {{ form_start(form) }}
-        <fieldset class="smallbloc">
-
-            <div class="creaplace">
-                {{ form_label(form.titreApp) }} <!-- Affiche le label -->
-                {{ form_errors(form.titreApp) }}
-                {{ form_widget(form.titreApp) }}
-
-                {{ form_label(form.familleApp) }}
-                {{ form_errors(form.familleApp) }}
-                {{ form_widget(form.familleApp) }}
-
-                {{ form_label(form.imgApp) }}
-                {{ form_errors(form.imgApp) }}
-                {{ form_widget(form.imgApp) }}
-
-                {{ form_label(form.commentairesApp) }}
-                {{ form_errors(form.commentairesApp) }}
-                {{ form_widget(form.commentairesApp) }}
-
-            </div>
-
-
-            <div>
-                <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
-            </div>
-
-        </fieldset>
-    </div>
-
-
-
-    {{ form_end(form) }}
-
-
-{% endblock %}

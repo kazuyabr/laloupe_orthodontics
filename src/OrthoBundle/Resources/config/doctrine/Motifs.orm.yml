@@ -1,0 +1,21 @@
+OrthoBundle\Entity\Motifs:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\MotifsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomMotif:
+            type: string
+            length: 255
+
+    oneToMany:
+        commandes:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: motif
+
+    lifecycleCallbacks: {  }

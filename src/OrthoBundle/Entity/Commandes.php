@@ -2,82 +2,182 @@
 
 namespace OrthoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Commandes
+ * @ORM\Entity(repositoryClass="OrthoBundle\Repository\CommandesRepository")
  */
 class Commandes
 {
 
     // CUSTOM CODE
 
-    private $pieceJointeAM;
+    public function __toString()
+    {
+        return $this->commentaireLabo;
+    }
+
+    public $file3;
+
+    public $path3;
+
+    public function getAbsolutePath1()
+    {
+        return null === $this->path1 ? null : $this->getUploadRootDir().'/'.$this->path1;
+    }
+
+    public function getWebPath1()
+    {
+        return null === $this->path1 ? null : $this->getUploadDir().'/'.$this->path1;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return 'uploads';
+    }
+
+    public function upload1()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file1) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file1->move($this->getUploadRootDir(), $this->file1->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path1 = $this->file1->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file1 = null;
+    }
+
+
+    // Ou Path est le nom du champ ciblé lors de l'upload
+    public function generatePathFilename(sfValidatedFile $file)
+    {
+        // On a maintenant accès à notre fichier, on peut donc lui donner un nom basé sur son id ou son slug ou tout autre chose.
+        return $this->getId().$file->getExtension($file->getOriginalExtension());
+    }
+
+    public $path2;
+
+    public $file2;
+
+    public function getAbsolutePath2()
+    {
+        return null === $this->path2 ? null : $this->getUploadRootDir().'/'.$this->path2;
+    }
+
+    public function getWebPath2()
+    {
+        return null === $this->path2 ? null : $this->getUploadDir().'/'.$this->path2;
+    }
+
+    public function upload2()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file2) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file2->move($this->getUploadRootDir(), $this->file2->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path2 = $this->file2->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file2 = null;
+    }
+
+
+
+    public function getAbsolutePath3()
+    {
+        return null === $this->path3 ? null : $this->getUploadRootDir3().'/'.$this->path3;
+    }
+
+    public function getWebPath3()
+    {
+        return null === $this->path3 ? null : $this->getUploadDir3().'/'.$this->path3;
+    }
+
+    public function upload3()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file3) {
+            return;
+        }
+
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
+
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file3->move($this->getUploadRootDir(), $this->file3->getClientOriginalName());
+
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path3 = $this->file3->getClientOriginalName();
+
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file3 = null;
+    }
 
     public function setCreatedAtValue()
     {
         $this->setDatecommande(new \DateTime());
     }
+
+    /* Variable relation Doctrine */
+
+    private $adjonctions;
     
-    private $testimage;
+    private $appareillages;
+    
+    private $utilisateur;
+    
+    private $couleur;
 
-    private $testimage1;
-
-    private $testimage2;
-
-    private $comment2;
-
-    private $ajoutApp;
-
-    private $ajoutAdj;
 
     /**
-     * Get ajoutApp
-     *
+     * @var \OrthoBundle\Entity\Motifs
      */
-    public function getAjoutApp()
-    {
-        return $this->ajoutApp;
-    }
+    private $motif;
 
+    /* Fin variable relation Doctrine */
+
+    // GENERATED CODE
     /**
-     * Set ajoutApp
-     *
+     * @var int
      */
-    public function setAjoutApp($ajoutApp)
-    {
-        $this->ajoutApp = $ajoutApp;
-
-        return $this;
-    }
-
-    /**
-     * Get ajoutAdj
-     *
-     */
-    public function getAjoutAdj()
-    {
-        return $this->ajoutAdj;
-    }
-
-    /**
-     * Set ajoutAdj
-     *
-     */
-    public function setAjoutAdj($ajoutAdj)
-    {
-        $this->ajoutAdj = $ajoutAdj;
-
-        return $this;
-    }
-
-
-
-    // GENRATED CODE
-
-    /**
-     * @var integer
-     */
-    private $id;
+    public $id;
 
     /**
      * @var string
@@ -92,66 +192,51 @@ class Commandes
     /**
      * @var \DateTime
      */
-    private $dateretour;
+    private $dateRetour;
 
     /**
      * @var \DateTime
      */
-    private $datecommande;
+    private $dateCommande;
 
     /**
      * @var string
      */
-    private $comment;
-
-    /**
-     * @var \OrthoBundle\Entity\Cabinetsdentaires
-     */
-    private $fidCabinet;
-
-    /**
-     * @var \OrthoBundle\Entity\Laboratoire
-     */
-    private $fidLaboratoire;
-
-    /**
-     * @var \OrthoBundle\Entity\Couleur
-     */
-    private $fidCouleur;
-
-    /**
-     * @var \OrthoBundle\Entity\Motif
-     */
-    private $fidMotif;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $appareillages;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $fidAdj;
+    private $commentaireLabo;
 
     /**
      * @var string
      */
-    private $photos;
+    public $path1;
+
 
     /**
-     * Constructor
+     * @Assert\File(maxSize="60000000")
      */
-    public function __construct()
-    {
-        $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->fidAdj = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    public $file1;
+
+
+    /**
+     * @var string
+     */
+    public $pathPJ2;
+
+    /**
+     * @var string
+     */
+    public $pathPJ3;
+
+    /**
+     * @var string
+     */
+    private $commentairePrestataire3D;
+
+
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -174,7 +259,7 @@ class Commandes
     /**
      * Get referencePatient
      *
-     * @return string
+     * @return string 
      */
     public function getReferencePatient()
     {
@@ -197,7 +282,7 @@ class Commandes
     /**
      * Get prenomPatient
      *
-     * @return string
+     * @return string 
      */
     public function getPrenomPatient()
     {
@@ -205,187 +290,172 @@ class Commandes
     }
 
     /**
-     * Set dateretour
+     * Set dateRetour
      *
-     * @param \DateTime $dateretour
+     * @param \DateTime $dateRetour
      * @return Commandes
      */
-    public function setDateretour($dateretour)
+    public function setDateRetour($dateRetour)
     {
-        $this->dateretour = $dateretour;
+        $this->dateRetour = $dateRetour;
 
         return $this;
     }
 
     /**
-     * Get dateretour
+     * Get dateRetour
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
-    public function getDateretour()
+    public function getDateRetour()
     {
-        return $this->dateretour;
+        return $this->dateRetour;
     }
 
     /**
-     * Set datecommande
+     * Set dateCommande
      *
-     * @param \DateTime $datecommande
+     * @param \DateTime $dateCommande
      * @return Commandes
      */
-    public function setDatecommande($datecommande)
+    public function setDateCommande($dateCommande)
     {
-        $this->datecommande = $datecommande;
+        $this->dateCommande = $dateCommande;
 
         return $this;
     }
 
     /**
-     * Get datecommande
+     * Get dateCommande
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
-    public function getDatecommande()
+    public function getDateCommande()
     {
-        return $this->datecommande;
+        return $this->dateCommande;
     }
 
     /**
-     * Set comment
+     * Set commentaireLabo
      *
-     * @param string $comment
+     * @param string $commentaireLabo
      * @return Commandes
      */
-    public function setComment($comment)
+    public function setCommentaireLabo($commentaireLabo)
     {
-        $this->comment = $comment;
+        $this->commentaireLabo = $commentaireLabo;
 
         return $this;
     }
 
     /**
-     * Get comment
+     * Get commentaireLabo
      *
-     * @return string
+     * @return string 
      */
-    public function getComment()
+    public function getCommentaireLabo()
     {
-        return $this->comment;
+        return $this->commentaireLabo;
     }
-    
+
     /**
-     * Set comment2
+     * Set pathPJ1
      *
-     * @param string $comment2
+     * @param string $pathPJ1
      * @return Commandes
      */
-    public function setComment2($comment2)
+    public function setPathPJ1($pathPJ1)
     {
-        $this->comment2 = $comment2;
+        $this->pathPJ1 = $pathPJ1;
 
         return $this;
     }
 
     /**
-     * Get comment2
+     * Get pathPJ1
      *
-     * @return string
+     * @return string 
      */
-    public function getComment2()
+    public function getPathPJ1()
     {
-        return $this->comment2;
+        return $this->pathPJ1;
     }
 
     /**
-     * Set fidCabinet
+     * Set pathPJ2
      *
-     * @param \OrthoBundle\Entity\Cabinetsdentaires $fidCabinet
+     * @param string $pathPJ2
      * @return Commandes
      */
-    public function setFidCabinet(\OrthoBundle\Entity\Cabinetsdentaires $fidCabinet = null)
+    public function setPathPJ2($pathPJ2)
     {
-        $this->fidCabinet = $fidCabinet;
+        $this->pathPJ2 = $pathPJ2;
 
         return $this;
     }
 
     /**
-     * Get fidCabinet
+     * Get pathPJ2
      *
-     * @return \OrthoBundle\Entity\Cabinetsdentaires
+     * @return string 
      */
-    public function getFidCabinet()
+    public function getPathPJ2()
     {
-        return $this->fidCabinet;
+        return $this->pathPJ2;
     }
 
     /**
-     * Set fidLaboratoire
+     * Set pathPJ3
      *
-     * @param \OrthoBundle\Entity\Laboratoire $fidLaboratoire
+     * @param string $pathPJ3
      * @return Commandes
      */
-    public function setFidLaboratoire(\OrthoBundle\Entity\Laboratoire $fidLaboratoire = null)
+    public function setPathPJ3($pathPJ3)
     {
-        $this->fidLaboratoire = $fidLaboratoire;
+        $this->pathPJ3 = $pathPJ3;
 
         return $this;
     }
 
     /**
-     * Get fidLaboratoire
+     * Get pathPJ3
      *
-     * @return \OrthoBundle\Entity\Laboratoire
+     * @return string 
      */
-    public function getFidLaboratoire()
+    public function getPathPJ3()
     {
-        return $this->fidLaboratoire;
+        return $this->pathPJ3;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->appareillages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->adjonctions = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Set fidCouleur
+     * Set utilisateur
      *
-     * @param \OrthoBundle\Entity\Couleur $fidCouleur
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
      * @return Commandes
      */
-    public function setFidCouleur(\OrthoBundle\Entity\Couleur $fidCouleur)
+    public function setUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur = null)
     {
-        $this->fidCouleur = $fidCouleur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get fidCouleur
+     * Get utilisateur
      *
-     * @return \OrthoBundle\Entity\Couleur
+     * @return \OrthoBundle\Entity\Utilisateurs 
      */
-    public function getFidCouleur()
+    public function getUtilisateur()
     {
-        return $this->fidCouleur;
-    }
-
-    /**
-     * Set fidMotif
-     *
-     * @param \OrthoBundle\Entity\Motif $fidMotif
-     * @return Commandes
-     */
-    public function setFidMotif(\OrthoBundle\Entity\Motif $fidMotif)
-    {
-        $this->fidMotif = $fidMotif;
-
-        return $this;
-    }
-
-    /**
-     * Get fidMotif
-     *
-     * @return \OrthoBundle\Entity\Motif
-     */
-    public function getFidMotif()
-    {
-        return $this->fidMotif;
+        return $this->utilisateur;
     }
 
     /**
@@ -414,7 +484,7 @@ class Commandes
     /**
      * Get appareillages
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getAppareillages()
     {
@@ -422,153 +492,104 @@ class Commandes
     }
 
     /**
-     * Add fidAdj
+     * Add adjonctions
      *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     * @param \OrthoBundle\Entity\Adjonctions $adjonctions
      * @return Commandes
      */
-    public function addFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    public function addAdjonction(\OrthoBundle\Entity\Adjonctions $adjonctions)
     {
-        $this->fidAdj[] = $fidAdj;
+        $this->adjonctions[] = $adjonctions;
 
         return $this;
     }
 
     /**
-     * Remove fidAdj
+     * Remove adjonctions
      *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdj
+     * @param \OrthoBundle\Entity\Adjonctions $adjonctions
      */
-    public function removeFidAdj(\OrthoBundle\Entity\Adjonctions $fidAdj)
+    public function removeAdjonction(\OrthoBundle\Entity\Adjonctions $adjonctions)
     {
-        $this->fidAdj->removeElement($fidAdj);
+        $this->adjonctions->removeElement($adjonctions);
     }
 
     /**
-     * Get fidAdj
+     * Get adjonctions
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFidAdj()
+    public function getAdjonctions()
     {
-        return $this->fidAdj;
+        return $this->adjonctions;
     }
-    
+
     /**
-     * Set photos
+     * Set couleur
      *
-     * @param string $photos
+     * @param \OrthoBundle\Entity\Couleurs $couleur
      * @return Commandes
      */
-    public function setPhotos($photos)
+    public function setCouleur(\OrthoBundle\Entity\Couleurs $couleur = null)
     {
-        $this->photos = $photos;
+        $this->couleur = $couleur;
 
         return $this;
     }
 
     /**
-     * Get photos
+     * Get couleur
+     *
+     * @return \OrthoBundle\Entity\Couleurs 
+     */
+    public function getCouleur()
+    {
+        return $this->couleur;
+    }
+
+    /**
+     * Set motif
+     *
+     * @param \OrthoBundle\Entity\Motifs $motif
+     * @return Commandes
+     */
+    public function setMotif(\OrthoBundle\Entity\Motifs $motif = null)
+    {
+        $this->motif = $motif;
+
+        return $this;
+    }
+
+    /**
+     * Get motif
+     *
+     * @return \OrthoBundle\Entity\Motifs
+     */
+    public function getMotif()
+    {
+        return $this->motif;
+    }
+
+    /**
+     * Set commentairePrestataire3D
+     *
+     * @param string $commentairePrestataire3D
+     * @return Commandes
+     */
+    public function setCommentairePrestataire3D($commentairePrestataire3D)
+    {
+        $this->commentairePrestataire3D = $commentairePrestataire3D;
+
+        return $this;
+    }
+
+    /**
+     * Get commentairePrestataire3D
      *
      * @return string 
      */
-    public function getPhotos()
+    public function getCommentairePrestataire3D()
     {
-        return $this->photos;
-    }
-    /**
-     * @var string
-     */
-
-    /**
-     * Set piecejointeAM
-     *
-     * @param string $piecejointeAM
-     * @return Commandes
-     */
-    public function setPiecejointeAM($piecejointeAM)
-    {
-        $this->piecejointeAM = $piecejointeAM;
-
-        return $this;
-    }
-
-    /**
-     * Get piecejointeAM
-     *
-     * @return string 
-     */
-    public function getPiecejointeAM()
-    {
-        return $this->piecejointeAM;
-    }
-
-    /**
-     * Set testimage
-     *
-     * @param string $testimage
-     * @return Commandes
-     */
-    public function setTestimage($testimage)
-    {
-        $this->testimage = $testimage;
-
-        return $this;
-    }
-
-    /**
-     * Get testimage
-     *
-     * @return string 
-     */
-    public function getTestimage()
-    {
-        return $this->testimage;
-    }
-
-    /**
-     * Set testimage1
-     *
-     * @param string $testimage1
-     * @return Commandes
-     */
-    public function setTestimage1($testimage1)
-    {
-        $this->testimage1 = $testimage1;
-
-        return $this;
-    }
-
-    /**
-     * Get testimage1
-     *
-     * @return string 
-     */
-    public function getTestimage1()
-    {
-        return $this->testimage1;
-    }
-
-    /**
-     * Set testimage2
-     *
-     * @param string $testimage2
-     * @return Commandes
-     */
-    public function setTestimage2($testimage2)
-    {
-        $this->testimage2 = $testimage2;
-
-        return $this;
-    }
-
-    /**
-     * Get testimage2
-     *
-     * @return string 
-     */
-    public function getTestimage2()
-    {
-        return $this->testimage2;
+        return $this->commentairePrestataire3D;
     }
 }

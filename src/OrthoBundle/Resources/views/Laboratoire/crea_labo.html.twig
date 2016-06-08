@@ -1,34 +1,14 @@
-{# @OrthoBundle/Resources/views/Default/crea_labo.html.twig #}
 {% extends 'base.html.twig' %}
-
-    {% block li %}
-        {#
-        si besoin d'un onglet particulier dans nav
-        <li><a href="" target="_blank"></a></li>
-        #}
-    {% endblock %}
-
-    {% block body %}
-        <form id="msform" action="{{ path('crea_labo') }}" method="post">
-
-            {% if app.user %}
-                <!-- user is logged in -->
-
-                <!-- Barre de progression
-                <ul id="progressbar">
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                -->
-                {{ form_start(form) }}
-
+{% block body %}
+    <form id="msform" action="{{ path('crea_labo') }}" method="post">
+        {% if app.user %} <!-- Si l'utilisateur est connecté -->
+            {{ form_start(form) }}
                 <fieldset class="largebloc">
                     <h2 class="fs-title">Ajouter un Laboratoire</h2>
                     <h3 class="fs-subtitle">Tous les champs sont obligatoires.</h3>
-
                     <div id="container">
                         <div class="profileplace">
+                            <h3>Identifiants :</h3>
                             {{ form_label(form.username) }}
                             {{ form_errors(form.username) }}
                             {{ form_widget(form.username) }}
@@ -37,37 +17,69 @@
                             {{ form_errors(form.plain_password) }}
                             {{ form_widget(form.plain_password) }}
 
-                            {{ form_label(form.nomLabo) }}
-                            {{ form_errors(form.nomLabo) }}
-                            {{ form_widget(form.nomLabo) }}
+                            {{ form_label(form.nom) }}
+                            {{ form_errors(form.nom) }}
+                            {{ form_widget(form.nom) }}
 
                             {{ form_label(form.email) }}
                             {{ form_errors(form.email) }}
                             {{ form_widget(form.email) }}
-
-                            {{ form_label(form.mailLabo) }}
-                            {{ form_errors(form.mailLabo) }}
-                            {{ form_widget(form.mailLabo) }}
                         </div>
                         <div class="profileplace">
-                            {{ form_rest(form) }}
+                            <h3>Coordonnées :</h3>
+
+                            {{ form_label(form.adresse) }}
+                            {{ form_errors(form.adresse) }}
+                            {{ form_widget(form.adresse) }}
+
+                            {{ form_label(form.codePostal) }}
+                            {{ form_errors(form.codePostal) }}
+                            {{ form_widget(form.codePostal) }}
+
+                            {{ form_label(form.ville) }}
+                            {{ form_errors(form.ville) }}
+                            {{ form_widget(form.ville) }}
+
+                            {{ form_label(form.telephone) }}
+                            {{ form_errors(form.telephone) }}
+                            {{ form_widget(form.telephone) }}
+                        </div>
+                        <div class="profileplace">
+                            <h3>Lieu de facturation :</h3>
+
+                            {{ form_label(form.adresseFacturation) }}
+                            {{ form_errors(form.adresseFacturation) }}
+                            {{ form_widget(form.adresseFacturation) }}
+
+                            {{ form_label(form.codePostalFacturation) }}
+                            {{ form_errors(form.codePostalFacturation) }}
+                            {{ form_widget(form.codePostalFacturation) }}
+
+                            {{ form_label(form.villeFacturation) }}
+                            {{ form_errors(form.villeFacturation) }}
+                            {{ form_widget(form.villeFacturation) }}
+
+                            {{ form_label(form.telephoneFacturation) }}
+                            {{ form_errors(form.telephoneFacturation) }}
+                            {{ form_widget(form.telephoneFacturation) }}
+                        </div>
+                        <div class="profileplace">
+                            {{ form_label(form.mailBis) }}
+                            {{ form_errors(form.mailBis) }}
+                            {{ form_widget(form.mailBis) }}
+
+                            {{ form_label(form.mailTer) }}
+                            {{ form_errors(form.mailTer) }}
+                            {{ form_widget(form.mailTer) }}
                         </div>
                     </div>
-
-
                     <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
-
                 </fieldset>
-                {{ form_end(form) }}
-            {% else %}
-                <!-- user is not logged in -->
-                <fieldset class="smallbloc">
-                    Connectez-vous pour accéder à cette page.
-                </fieldset>
-
-            {% endif %}
-
-        </form>
-
-    {% endblock %}
-{% block javascript %}{% endblock %}
+            {{ form_end(form) }}
+        {% else %}
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
+        {% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+OrthoBundle\Entity\Couleurs:
+    type: entity
+    table: null
+    repositoryClass: OrthoBundle\Repository\CouleursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomCouleur:
+            type: string
+            length: 255
+
+    oneToMany:
+        commande:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: couleur
+    lifecycleCallbacks: {  }

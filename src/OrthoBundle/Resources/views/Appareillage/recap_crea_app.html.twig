@@ -16,10 +16,10 @@
 
             <div class="affichage_recapitulatif_formulaire">
                 <!-- A AJOUTER : Nom du de l'appareillage, etc... En lien avec la BDD -->
-                <strong>Nom de l'appareillage : </strong>{{ recapAppareillage.titreApp }} </br>
-                <strong>Famille de l'appareillage : </strong>{{ recapAppareillage.familleApp }} </br>
-                <strong>Image : </strong>{{ recapAppareillage.imgApp }} </br>
-                <strong>Commentaires : </strong> {{ recapAppareillage.commentairesApp }}
+                <strong>Nom de l'appareillage : </strong>{{ recapAppareillage.nom }} </br>
+                <strong>Famille de l'appareillage : </strong>{{ recapAppareillage.famille }} </br>
+                <strong>Image : </strong>{{ recapAppareillage.image }} </br>
+                <strong>Commentaires : </strong> {{ recapAppareillage.commentaire }}
             </div>
             <a id="buttonprofile" class="action-button" href="{{ path('crea_app') }}">Créer un
                 nouvel appareillage</a>

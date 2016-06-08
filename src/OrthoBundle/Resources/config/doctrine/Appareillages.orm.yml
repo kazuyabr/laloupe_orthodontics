@@ -9,45 +9,38 @@ OrthoBundle\Entity\Appareillages:
             generator:
                 strategy: AUTO
     fields:
-        titreApp:
+        nom:
             type: string
             length: 255
-            column: titre_app
-        familleApp:
-            type: string
-            length: 3
-            column: famille_app
-            nullable: false
-        imgApp:
+            unique: true
+        famille:
             type: string
             length: 255
-            column: img_app
-        commentairesApp:
-            type: text
-            column: commentaires_app
-        infoComLaboApp:
+        image:
             type: string
             length: 255
-            column: info_com_labo_app
+        commentaire:
+            type: string
+            length: 255
+        infoLabo:
+            type: string
+            length: 255
+            column: info_labo
             nullable: true
-        infoComCabApp:
+        infoCabinet:
             type: string
             length: 255
-            column: info_com_cab_app
+            column: info_cabinet
             nullable: true
 
-    manyToMany:
-        commandes:
-            targetEntity: OrthoBundle\Entity\Commandes
-            mappedBy: appareillages
-
-        labos:
-            targetEntity: OrthoBundle\Entity\Laboratoire
-            mappedBy: appareillages
 
     oneToMany:
-        poids:
+        poidsApp:
             targetEntity: OrthoBundle\Entity\PoidsAppareillages
-            mappedBy: fidAppareillages
+            mappedBy: appareillage
 
-    lifecycleCallbacks: { }
+        boutonSpecifique:
+            targetEntity: OrthoBundle\Entity\AppAdjLabo
+            mappedBy: appareillage
+
+    lifecycleCallbacks: {  }

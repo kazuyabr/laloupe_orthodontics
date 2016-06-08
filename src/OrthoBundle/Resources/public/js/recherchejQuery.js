@@ -1,4 +1,4 @@
-$("#search").keyup(function() // A chaque levée d'une touche du clavier sur l'id search, on fera :
+$("#search, #search2").keyup(function() // A chaque levée d'une touche du clavier sur l'id search, on fera :
 {
     // Nouvelle regex qui comprend la valeur de l'input
     var myRegExp = new RegExp($(this).val(), 'i');
@@ -18,3 +18,4 @@ $("#search").keyup(function() // A chaque levée d'une touche du clavier sur l'i
         }
     });
 });
+
