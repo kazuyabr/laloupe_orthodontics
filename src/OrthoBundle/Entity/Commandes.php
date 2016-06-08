@@ -57,6 +57,24 @@ class Commandes
         }
     }
 
+    // CallBack : preUpdate | prePersist \\
+    public function preUpload2()
+    {
+        if (null !== $this->file2)
+        {
+            $this->path2 = $this->file2->guessExtension();
+        }
+    }
+
+    // CallBack : preUpdate | prePersist \\
+    public function preUpload3()
+    {
+        if(null !== $this->file3)
+        {
+            $this->path3 = $this->file3->guessExtension();
+        }
+    }
+
     // CallBacks : PostPersist | PostUpdate \\
     public function upload1()
     {
@@ -81,27 +99,52 @@ class Commandes
         $this->file1 = null;
     }
 
+    // CallBacks : PostPersist | PostUpdate \\
+    public function upload2()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file2) {
+            return;
+        }
 
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
 
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file2->move($this->getUploadRootDir(), $this->getReferencePatient().'m.'.$this->file2->guessExtension());
 
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path2 = $this->getReferencePatient().'m.'.$this->file2->getClientOriginalExtension();
 
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file2 = null;
+    }
 
+    public function upload3()
+    {
+        // la propriété « file » peut être vide si le champ n'est pas requis
+        if (null === $this->file3) {
+            return;
+        }
 
+        // utilisez le nom de fichier original ici mais
+        // vous devriez « l'assainir » pour au moins éviter
+        // quelconques problèmes de sécurité
 
+        // la méthode « move » prend comme arguments le répertoire cible et
+        // le nom de fichier cible où le fichier doit être déplacé
+        $this->file3->move($this->getUploadRootDir(), $this->getReferencePatient().'m.'.$this->file3->guessExtension());
 
+        // définit la propriété « path » comme étant le nom de fichier où vous
+        // avez stocké le fichier
+        $this->path3 = $this->getReferencePatient().'.'.$this->file3->getClientOriginalExtension();
 
-
-
-
-
-
-
-
-
-
-
-
-
+        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+        $this->file3 = null;
+    }
 
 
     public $path2;
@@ -118,28 +161,7 @@ class Commandes
         return null === $this->path2 ? null : $this->getUploadDir().'/'.$this->path2;
     }
 
-    public function upload2()
-    {
-        // la propriété « file » peut être vide si le champ n'est pas requis
-        if (null === $this->file2) {
-            return;
-        }
 
-        // utilisez le nom de fichier original ici mais
-        // vous devriez « l'assainir » pour au moins éviter
-        // quelconques problèmes de sécurité
-
-        // la méthode « move » prend comme arguments le répertoire cible et
-        // le nom de fichier cible où le fichier doit être déplacé
-        $this->file2->move($this->getUploadRootDir(), $this->file2->getClientOriginalName());
-
-        // définit la propriété « path » comme étant le nom de fichier où vous
-        // avez stocké le fichier
-        $this->path2 = $this->file2->getClientOriginalName();
-
-        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
-        $this->file2 = null;
-    }
 
 
 
@@ -153,28 +175,6 @@ class Commandes
         return null === $this->path3 ? null : $this->getUploadDir3().'/'.$this->path3;
     }
 
-    public function upload3()
-    {
-        // la propriété « file » peut être vide si le champ n'est pas requis
-        if (null === $this->file3) {
-            return;
-        }
-
-        // utilisez le nom de fichier original ici mais
-        // vous devriez « l'assainir » pour au moins éviter
-        // quelconques problèmes de sécurité
-
-        // la méthode « move » prend comme arguments le répertoire cible et
-        // le nom de fichier cible où le fichier doit être déplacé
-        $this->file3->move($this->getUploadRootDir(), $this->file3->getClientOriginalName());
-
-        // définit la propriété « path » comme étant le nom de fichier où vous
-        // avez stocké le fichier
-        $this->path3 = $this->file3->getClientOriginalName();
-
-        // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
-        $this->file3 = null;
-    }
 
     public function setCreatedAtValue()
     {
