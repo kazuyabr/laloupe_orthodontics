@@ -92,6 +92,6 @@ OrthoBundle\Entity\Commandes:
 
 
     lifecycleCallbacks:
-        prePersist: [ setCreatedAtValue ]
+        prePersist: [ upload1, setCreatedAtValue ]
         postPersist: [ upload1, upload2, upload3 ]
         postUpdate: [ upload1, upload2, upload3 ]

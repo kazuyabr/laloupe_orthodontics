@@ -42,12 +42,12 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
+                <!-- Modal -->
+
                 <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal">
                     Bibliothèque <br>
                     Appareillages
                 </button>
-
-                <!-- Modal -->
 
                     {% include 'modalFamilleAppareillages.html' %}
                     {% include 'modalListeAppareillages.html' %}
@@ -58,16 +58,14 @@
                 {{ form_errors(form.fidAdj) }}
                 {{ form_widget(form.fidAdj) }}
 
+                <!-- Modal -->
+
                 <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModalAdjonctions">
                     Bibliothèque <br>
                     Adjonctions
                 </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel "
-                     aria-hidden="true">
-                    {% include 'modalListeAdjonctions.html' %}
-                </div>
+                {% include 'modalListeAdjonctions.html' %}
 
 
             </div>
