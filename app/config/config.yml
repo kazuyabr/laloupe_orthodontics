@@ -68,7 +68,7 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: OrthoBundle\Entity\Laboratoire
+    user_class: OrthoBundle\Entity\Utilisateurs
     profile:
         form:
             type: app_user_edit

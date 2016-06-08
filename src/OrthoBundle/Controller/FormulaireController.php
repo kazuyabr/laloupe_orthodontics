@@ -7,8 +7,6 @@ use OrthoBundle\Entity\Commandes;
 use OrthoBundle\Entity\PoidsAppareillages;
 use OrthoBundle\Entity\PoidsAdjonctions;
 use OrthoBundle\Form\Type\CommandesType;
-use Symfony\Component\BrowserKit\Request;
-
 
 class FormulaireController extends Controller
 {
@@ -27,38 +25,40 @@ class FormulaireController extends Controller
 
         $user = $this->getUser();
 
-        $commentairesApp = $em->getRepository('OrthoBundle:Appareillages')->getComments();
         $commentairesAdj = $em->getRepository('OrthoBundle:Adjonctions')->getComments();
         $nomimageapp = $em->getRepository('OrthoBundle:Appareillages')->findAll();
-        $infoUserConnected = $em->getRepository('OrthoBundle:Cabinetsdentaires')->getActualUser($this->getUser());
+        $infoUserConnected = $em->getRepository('OrthoBundle:Utilisateurs')->getActualUser($user);
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
-        if ($form->isValid() && $form->isSubmitted()) {
+
+        if ($form->isValid() && $form->isSubmitted())
+        {
             $commande->upload1();
             $commande->upload2();
             $commande->upload3();
 
-
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
                 // On récupère le cabinet en question qui a passé la commande
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find($user->getId());
+                $cabinet = $em->getRepository('OrthoBundle:Utilisateurs')->find($user->getId());
 
                 // On récupère le poids en question en fonction du cabinet qui a passé la commande
                 // ET de l'appareil choisi, pour récupérer le poids précis
                 // ATTENTION : le $poids récupéré ici est un objet, contrairement au
                 // $poids dans l'entité "PoidsAppareillages.php" qui est un entier.
-                $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['cabinet' => $cabinet, 'fidAppareillages' => $appareil]);
+                $poids = $em->getRepository('OrthoBundle:PoidsAppareillages')->findOneBy(['utilisateur' => $cabinet, 'appareillage' => $appareil ]);
 
                 // SI, le poids est déjà renseigné (Si il n'est pas "NULL" en BDD, Faire :
                 if (isset($poids)) {
                     // [...] Appliquer la méthode incr() à notre poids (Voir PoidsAppareillages.php).
-                    $poids->incr();
-                } // SINON, (Si le poids est "NULL"), faire :
-                else {
+                    $poids->incrementation();
+                }
+                // SINON, (Si le poids est "NULL"), faire :
+                else
+                {
                     // [...] Déclaration d'une nouvelle instance de la classe PoidsAppareillages
                     $poids = new PoidsAppareillages($cabinet, $appareil);
 
@@ -66,17 +66,22 @@ class FormulaireController extends Controller
                 }
             }
 
-            foreach ($commande->getFidAdj() as $adjonction) {
-                $cabinet = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find(1);
-                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['cabinet' => $cabinet, 'fidAdjonction' => $adjonction]);
+            foreach ($commande->getAdjonctions() as $adjonction)
+            {
+                $cabinet = $em->getRepository('OrthoBundle:Utilisateurs')->find($user->getId());
+                $poidsAdjonction = $em->getRepository('OrthoBundle:PoidsAdjonctions')->findOneBy(['utilisateur' => $cabinet, 'adjonction' => $adjonction]);
 
-                if (isset($poidsAdjonction)) {
+                if (isset($poidsAdjonction))
+                {
                     $poidsAdjonction->incrementation();
-                } else {
-                    $poidsAdjonction = new PoidsAdjonctions($cabinet, $adjonction);
+                }
 
+                else
+                {
+                    $poidsAdjonction = new PoidsAdjonctions($cabinet, $adjonction);
                     $em->persist($poidsAdjonction);
                 }
+                
             }
 
             // On prépare la mise en Base de données
@@ -90,12 +95,12 @@ class FormulaireController extends Controller
                 'id' => $commande->getId(),
             )));
         }
+
         // On affiche la page formulaire, qui prend en paramètre
         // Notre instance de l'entité Commandes, ainsi que l'affichage du formulaire
         return $this->render('OrthoBundle:Default:formulaire.html.twig', array(
             'form' => $form->createView(),
             'nomimageapp' => $nomimageapp,
-            'commentaireAppareil' => $commentairesApp,
             'commentaireAdjonction' => $commentairesAdj,
             'actualUser' => $infoUserConnected,
         ));

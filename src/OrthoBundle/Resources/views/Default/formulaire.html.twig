@@ -1,8 +1,12 @@
 {# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-        <h3 xmlns="http://www.w3.org/1999/html">{{ actualUser[0].nomCab }}, {{ actualUser[0].adresseCab }}
-        , {{ actualUser[0].codepostalCab }} à {{ actualUser[0].villeCab }}. N° : {{ actualUser[0].telephoneCab }}</h3>
+    <h3 xmlns="http://www.w3.org/1999/html">
+        {{ actualUser[0].nom }} -
+        {{ actualUser[0].adresse }} -
+        {{ actualUser[0].codePostal }} {{ actualUser[0].ville }}
+        <!--. N° : {{ actualUser[0].telephone }}-->
+    </h3>
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post" {{ form_enctype(form) }}>
         <!-- Barre de progression -->
         <ul id="progressbar">
@@ -10,53 +14,43 @@
             <li></li>
             <li></li>
         </ul>
-
         {{ form_start(form) }}
-        <!-- Bloc n°1 : Les informations générales du patient -->
-        <fieldset class="smallbloc">
-            {{ form_label(form.referencePatient, "Référence du patient* :") }} <span id="securite_refPatient">Ce champ est obligatoire</span>
+        <fieldset class="smallbloc"> <!-- Bloc n°1 : Les informations générales du patient -->
+            {{ form_label(form.referencePatient, "Référence du patient") }}
             <h2 class="fs-title">Informations du patient</h2>
 
-            {{ form_label(form.referencePatient, "Référence du patient : ") }}
+            {{ form_label(form.referencePatient, "Référence du patient* : ") }}
             {{ form_errors(form.referencePatient) }}
             {{ form_widget(form.referencePatient) }}
 
-            {{ form_label(form.prenomPatient) }}
+            {{ form_label(form.prenomPatient, "Prénom* :") }}
             {{ form_errors(form.prenomPatient) }}
             {{ form_widget(form.prenomPatient) }}
 
-            {{ form_label(form.dateretour, "Date de retour souhaitée : ") }}
+            {{ form_label(form.dateretour, "Date de retour souhaitée* : ") }}
             {{ form_errors(form.dateretour) }}
             {{ form_widget(form.dateretour) }}
             <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
-
-        <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
-        <fieldset class="largebloc">
-
+        <fieldset class="largebloc"> <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
-
             <div id='blocApp' class='blocAppAdj'>
                 {{ form_label(form.appareillages, "Appareillages : ") }}
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                <!-- Modal -->
-
-                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal2">
                     Bibliothèque <br>
                     Appareillages
                 </button>
-
-                    {% include 'modalListeAppareillages.html' %}
-
+                <!-- Modal -->
+                {% include 'modalListeAppareillages.html' %}
             </div>
-
             <div id='blocAdj' class='blocAppAdj'>
-                {{ form_label(form.fidAdj, "Adjonctions : ") }}
-                {{ form_errors(form.fidAdj) }}
-                {{ form_widget(form.fidAdj) }}
+                {{ form_label(form.adjonctions, "Adjonctions : ") }}
+                {{ form_errors(form.adjonctions) }}
+                {{ form_widget(form.adjonctions) }}
 
                 <!-- Modal -->
 
@@ -65,32 +59,30 @@
                     Adjonctions
                 </button>
 
+                <!-- Modal -->
                 {% include 'modalListeAdjonctions.html' %}
-
-
             </div>
+
             <div id="coulmot">
-                {{ form_label(form.fidCouleur, "Couleur : ") }}
-                {{ form_errors(form.fidCouleur) }}
-                {{ form_widget(form.fidCouleur) }}
+                {{ form_label(form.couleur, "Couleur : ") }}
+                {{ form_errors(form.couleur) }}
+                {{ form_widget(form.couleur) }}
 
-                {{ form_label(form.fidMotif, "Motif :") }}
-                {{ form_errors(form.fidMotif) }}
-                {{ form_widget(form.fidMotif) }}
+                {{ form_label(form.motif, "Motif :") }}
+                {{ form_errors(form.motif) }}
+                {{ form_widget(form.motif) }}
             </div>
 
-            {{ form_label(form.comment, "Commentaires : ") }}
-            {{ form_errors(form.comment) }}
-            {{ form_widget(form.comment) }}
+            {{ form_label(form.commentaireLabo, "Commentaires : ") }}
+            {{ form_errors(form.commentaireLabo) }}
+            {{ form_widget(form.commentaireLabo) }}
 
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
-        <!-- Bloc n°3 : Les pièces jointes -->
-        <fieldset class="smallbloc">
-            <h2 class="fs-title">Pièces jointes complémentaires :</h2>
-            <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande :</h3>
-
+        <fieldset class="smallbloc"> <!-- Bloc n°3 : Les pièces jointes -->
+            <h2 class="fs-title">Pièces jointes complémentaires</h2>
+            <h3 class="fs-subtitle">Toutes les pièces jointes à apporter à la commande.</h3>
 
             {{ form_label(form.file1, "Arcade Maxilaire :") }}
             {{ form_errors(form.file1) }}
@@ -100,10 +92,13 @@
             {{ form_errors(form.file2) }}
             {{ form_widget(form.file2) }}
 
-            {{ form_label(form.file3, "Autres pièces jointes :") }}
+            {{ form_label(form.file3, "Autre pièces jointe :") }}
             {{ form_errors(form.file3) }}
             {{ form_widget(form.file3) }}
 
+            {{ form_label(form.commentairePrestataire3D, "Commentaires pour le prestataire 3D :") }}
+            {{ form_errors(form.commentairePrestataire3D) }}
+            {{ form_widget(form.commentairePrestataire3D) }}
 
             <input type="button" name="previous" class="previous action-button" value="Précédent"/>
             <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
@@ -113,7 +108,6 @@
         </fieldset>
     </form>
 {% endblock %}
-
 {% block javascript %}
     {{ parent() }}
     <script>
@@ -121,10 +115,10 @@
             {% for namepictures in nomimageapp %}
             "{{ namepictures.id }}": {
                 "id": "{{ namepictures.id }}",
-                "title": "{{ namepictures.titreApp }}",
-                "img": "{{ namepictures.imgApp }}",
-                "family": "{{ namepictures.familleApp }}",
-                "commentaire": "{{ namepictures.commentairesApp }}"
+                "title": "{{ namepictures.nom }}",
+                "img": "{{ namepictures.image }}",
+                "family": "{{ namepictures.famille }}",
+                "commentaire": "{{ namepictures.commentaire }}"
             }{% if not loop.last %},{% endif %}
             {% endfor %}
         };
@@ -132,9 +126,9 @@
             {% for commentaire in commentaireAdjonction %}
             "{{ commentaire.id }}" : {
                 "id" : "{{ commentaire.id }}",
-                "title" : "{{ commentaire.titreAdj }}",
-                "img" : "{{ commentaire.imgAdj }}",
-                "commentaire" : "{{ commentaire.commentairesAdj}}"
+                "title" : "{{ commentaire.nom }}",
+                "img" : "{{ commentaire.image }}",
+                "commentaire" : "{{ commentaire.commentaire}}"
             }{% if not loop.last %},{% endif %}
             {% endfor %}
         };

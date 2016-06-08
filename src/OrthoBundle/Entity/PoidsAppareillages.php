@@ -2,55 +2,38 @@
 
 namespace OrthoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * PoidsAppareillages
  */
 class PoidsAppareillages
 {
+    private $appareillage;
 
-    // CUSTOM CODE
-
-    // Constructeur pour le poids et l'appareillage. On ne peut pas créer une nouvelle instance de classe
-    // [...] Sans définir le cabinet en question et l'appareillage qui lui est lié.
-    public function __construct(Cabinetsdentaires $cabinet, Appareillages $appareil)
+    private $utilisateur;
+    
+    public function __construct(Utilisateurs $utilisateurs, Appareillages $appareillages)
     {
-        // Déclaration des variables du constructeur.
-        $this->cabinet = $cabinet;
-        $this->fidAppareillages = $appareil;
+        $this->appareillage = $appareillages;
+        $this->utilisateur = $utilisateurs;
     }
 
-    // Méthode incr() : Incrémentation du poids, si ce dernier est renseigné.
-    public function incr()
+    public function incrementation()
     {
-        // On incrémente juste de 1 avec le "++;"
         $this->poids++;
     }
 
-    
-    
-    // Déclaration du poids avec une valeur initiale de 1.
-    // Chaque nouvelle instance de PoidsAppareillages qui sera crée aura sa variable $poids
-    // Qui vaudra 1 (Visible sur la BDD)
-    private $poids = 1;
-
-    /* Déclaration des variables utilisés pour les relations Doctrine */
-    
-    private $fidLaboratoire;
-    
-    /* Fin de délcaration des variables utilisés pour les relations Doctrine */
-
-    
-    // GENERATED CODE
-    
     /**
      * @var int
      */
     private $id;
 
     /**
-     * @var \OrthoBundle\Entity\Appareillages
+     * @var int
      */
-    private $fidAppareillages;
+    private $poids = 1;
+
 
     /**
      * Get id
@@ -86,78 +69,48 @@ class PoidsAppareillages
     }
 
     /**
-     * Set fidAppareillages
+     * Set appareillage
      *
-     * @param \OrthoBundle\Entity\Appareillages $fidAppareillages
+     * @param \OrthoBundle\Entity\Appareillages $appareillage
      * @return PoidsAppareillages
      */
-    public function setFidAppareillages(\OrthoBundle\Entity\Appareillages $fidAppareillages = null)
+    public function setAppareillage(\OrthoBundle\Entity\Appareillages $appareillage = null)
     {
-        $this->fidAppareillages = $fidAppareillages;
+        $this->appareillage = $appareillage;
 
         return $this;
     }
 
     /**
-     * Get fidAppareillages
+     * Get appareillage
      *
      * @return \OrthoBundle\Entity\Appareillages 
      */
-    public function getFidAppareillages()
+    public function getAppareillage()
     {
-        return $this->fidAppareillages;
+        return $this->appareillage;
     }
 
     /**
-     * Set fidLaboratoire
+     * Set utilisateur
      *
-     * @param \OrthoBundle\Entity\Laboratoire $fidLaboratoire
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
      * @return PoidsAppareillages
      */
-    public function setFidLaboratoire(\OrthoBundle\Entity\Laboratoire $fidLaboratoire = null)
+    public function setUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur = null)
     {
-        $this->fidLaboratoire = $fidLaboratoire;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get fidLaboratoire
+     * Get utilisateur
      *
-     * @return \OrthoBundle\Entity\Laboratoire 
+     * @return \OrthoBundle\Entity\Utilisateurs 
      */
-    public function getFidLaboratoire()
+    public function getUtilisateur()
     {
-        return $this->fidLaboratoire;
-    }
-    
-    
-    /**
-     * @var \OrthoBundle\Entity\Cabinetsdentaires
-     */
-    private $cabinet;
-
-
-    /**
-     * Set cabinet
-     *
-     * @param \OrthoBundle\Entity\Cabinetsdentaires $cabinet
-     * @return PoidsAppareillages
-     */
-    public function setCabinet(\OrthoBundle\Entity\Cabinetsdentaires $cabinet = null)
-    {
-        $this->cabinet = $cabinet;
-
-        return $this;
-    }
-
-    /**
-     * Get cabinet
-     *
-     * @return \OrthoBundle\Entity\Cabinetsdentaires 
-     */
-    public function getCabinet()
-    {
-        return $this->cabinet;
+        return $this->utilisateur;
     }
 }

@@ -9,7 +9,7 @@ use FOS\UserBundle\Util\LegacyFormHelper;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
-class LaboratoireType extends AbstractType
+class UtilisateursLaboratoireType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -25,32 +25,55 @@ class LaboratoireType extends AbstractType
             ->add('plain_password', 'password', array(
                 'label' => 'Mot de passe : '
             ))
-            ->add('nomLabo', 'text', array(
+            ->add('nom', 'text', array(
                 'label' => 'Nom complet du Cabinet : '
             ))
-            ->add('adresseLabo', 'text', array(
+            ->add('adresse', 'text', array(
                 'label' => 'Adresse : ',
                 'attr' => array(
                     'placeholder' => 'N°, Rue')
             ))
-            ->add('codepostalLabo', 'number', array(
+            ->add('codePostal', 'number', array(
                 'label' => 'Code Postal : '
             ))
-            ->add('villeLabo', 'text', array(
+            ->add('ville', 'text', array(
                 'label' => 'Ville : '
             ))
-            ->add('telephoneLabo', 'number', array(
+            ->add('telephone', 'number', array(
                 'label' => 'Téléphone : '
             ))
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
                 'label' => 'E-mail :',
                 'translation_domain' => 'FOSUserBundle'
             ))
-            ->add('mailLabo', 'email', array(
-                'label' => 'E-mail Labo :'
+            ->add('adresseFacturation', 'text', array(
+                'label' => 'Adresse de Facturation :',
+                'attr' => array(
+                    'placeholder' => 'N°, Rue ...'
+                )
             ))
+            ->add('codePostalFacturation', 'text', array(
+                'label' => 'Code Postal :'
+            ))
+            ->add('villeFacturation', 'text', array(
+                'label' => 'Ville',
+                'attr' => array(
+                    'placeholder' => 'Ville :'
+                )
+            ))
+            ->add('telephoneFacturation', 'text', array(
+                'label' => 'Téléphone :',
+                'attr' => array(
+                    'placeholder' => '09.87.65.43.21'
+                )
+            ))
+            ->add('mailBis', 'email', array(
+                'required' => false
+            ))
+            ->add('mailTer', 'email', array(
+                'required' => false
+            ));
 
-        ;
     }
 
     /**
@@ -59,7 +82,7 @@ class LaboratoireType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OrthoBundle\Entity\Laboratoire'
+            'data_class' => 'OrthoBundle\Entity\Utilisateurs'
         ));
     }
 }

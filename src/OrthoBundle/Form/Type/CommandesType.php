@@ -30,36 +30,34 @@ class CommandesType extends AbstractType
             ->add('dateretour', 'date', array(
                     'widget' => 'single_text',
                     'format' => 'dd-MM-yyyy',
-                    'attr' => [
+                    'attr' => array(
                         'class' => 'form-control input-inline datepicker',
                         'data-provide' => 'datepicker',
                         'data-date-format' => 'dd-mm-yyyy'
-                    ])
+                    ))
             )
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
-                'property' => 'titre_app',
+                'property' => 'nom',
                 'expanded' => 'true',
                 'multiple' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
-                    return $entityRepository->triParPoids();
+                    return $entityRepository->orderApparelsByWeight();
                 }
             ))
-
-            ->add('fidAdj', 'entity', array(
+            ->add('adjonctions', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
-                'property' => 'titre_adj',
+                'property' => 'nom',
                 'multiple' => 'true',
                 'expanded' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
-                    return $entityRepository->triParPoids();
+                    return $entityRepository->orderAdjonctionsByWeight();
                 }
             ))
-
-            ->add('fidCouleur')
-            ->add('fidMotif')
-            ->add('comment', 'textarea')
-
+            ->add('couleur')
+            ->add('motif')
+            
+            ->add('commentaireLabo', 'textarea')
             ->add('file1', 'file', array(
                 'required' => false
             ))
@@ -69,17 +67,9 @@ class CommandesType extends AbstractType
             ->add('file3', 'file', array(
                 'required' => false
             ))
-            ->add('comment2', 'textarea', array(
+            ->add('commentairePrestataire3D', 'textarea', array(
                 'required' => false
-
-            ))
-
-            ->add('Envoyer', 'submit', array(
-                'attr' => array(
-                    'class' => 'action-button'
-                )
-            ) );
-
+            ));
     }
 
     /**

@@ -1,9 +1,9 @@
-OrthoBundle\Entity\Motif:
+OrthoBundle\Entity\Motifs:
     type: entity
     table: null
-    repositoryClass: OrthoBundle\Repository\MotifRepository
+    repositoryClass: OrthoBundle\Repository\MotifsRepository
     id:
-        idMotif:
+        id:
             type: integer
             id: true
             generator:
@@ -12,5 +12,10 @@ OrthoBundle\Entity\Motif:
         nomMotif:
             type: string
             length: 255
-            column: nom_motif
+
+    oneToMany:
+        commandes:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: motif
+
     lifecycleCallbacks: {  }

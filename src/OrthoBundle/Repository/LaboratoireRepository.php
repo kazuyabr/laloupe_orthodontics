@@ -12,5 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class LaboratoireRepository extends EntityRepository
 {
-    
+    public function getTotalLabo()
+    {
+        $queryBuilder = $this->createQueryBuilder('labo')
+            ->select('COUNT(labo.id)');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

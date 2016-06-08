@@ -11,17 +11,17 @@ class AdjonctionController extends Controller
 {
     /*
      * Creation adjonctions.
-     *
      */
     public function creationAdjonctionAction()
     {
         $nouvelleAdjonction = new Adjonctions();
         $request = $this->getRequest();
+
         $form = $this->createForm(new AjoutAdjType(), $nouvelleAdjonction);
         $form->handleRequest($request);
+
         //Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
-
         if ($form->isValid() && $form->isSubmitted()) {
             $em->persist($nouvelleAdjonction);
             $em->flush();
@@ -37,8 +37,7 @@ class AdjonctionController extends Controller
     }
 
     /*
-     * Recap adjonctions.
-     *
+     * Recap adjonctions
      */
     public function recapAdjonctionAction()
     {
@@ -48,11 +47,10 @@ class AdjonctionController extends Controller
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
         $recapAdjonction = $em->getRepository('OrthoBundle:Adjonctions')->find($idAdjonction);
-        return $this->render('OrthoBundle:Adjonction:crea_adj.html.twig', array(
+        return $this->render('OrthoBundle:Adjonction:recap_crea_adj.html.twig', array(
             "recapAdjonction" => $recapAdjonction,
 
         ));
-
     }
 
     public function editAdjonctionAction(Request $request, Adjonctions $adjonctions)

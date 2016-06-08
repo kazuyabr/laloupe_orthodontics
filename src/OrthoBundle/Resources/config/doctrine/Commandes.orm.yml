@@ -8,30 +8,20 @@ OrthoBundle\Entity\Commandes:
             id: true
             generator:
                 strategy: AUTO
-
-
     fields:
         referencePatient:
             type: string
-            length: 125
-            column: reference_patient
+            length: 255
         prenomPatient:
             type: string
-            length: 125
-            column: prenom_patient
-        dateretour:
+            length: 255
+            nullable: true
+        dateRetour:
             type: date
-        datecommande:
+        dateCommande:
             type: datetime
-        comment:
+        commentaireLabo:
             type: text
-            nullable: true
-        ajoutApp:
-            type: text
-            nullable: true
-        comment2:
-            type: text
-            nullable: true
         path1:
             type: string
             nullable: true
@@ -41,57 +31,47 @@ OrthoBundle\Entity\Commandes:
         path3:
             type: string
             nullable: true
-
-
-    manyToOne:
-        fidCabinet:
-            targetEntity: Cabinetsdentaires
-            joinColumn:
-                name: fid_cabinet
-                referencedColumn: id
-                nullable: true
-
-        fidLaboratoire:
-            targetEntity: Laboratoire
-            joinColumn:
-                name: fid_laboratoire
-                referencedColumn: id
-                nullable: true
-
-        fidCouleur:
-            targetEntity: OrthoBundle\Entity\Couleur
-            joinColumn:
-                name: fid_couleur
-                referencedColumnName: id_couleur
-                nullable: false
-
-        fidMotif:
-            targetEntity: OrthoBundle\Entity\Motif
-            joinColumn:
-                name: fid_motif
-                referencedColumnName: id_motif
-                nullable: false
-
+        commentairePrestataire3D:
+            type: text
 
     manyToMany:
-         appareillages:
-             targetEntity: Appareillages
-             inversedBy: commandes
+        appareillages:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            joinTable:
+                name: commandes_appareillages
+                joinColumns:
+                    commandes_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    appareillages_id:
+                        referencedColumnName: id
 
-         fidAdj:
-             targetEntity: Adjonctions
-             inversedBy: Commandes
-             joinTable:
-                 name: Commandes_Adjonctions
-                 joinColumns:
-                     Commandes_id:
-                         referencedColumn: id
-                 inverseJoinColumns:
-                     Adjonctions_id:
-                         referencedColumn: id
+        adjonctions:
+            targetEntity: OrthoBundle\Entity\Adjonctions
+            joinTable:
+                name: commandes_adjonctions
+                joinColumns:
+                    commandes_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    adjonctions_id:
+                        referencedColumnName: id
 
+    manyToOne:
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: commandes
+
+        couleur:
+            targetEntity: OrthoBundle\Entity\Couleurs
+            inversedBy: commande
+
+        motif:
+            targetEntity: OrthoBundle\Entity\Motifs
+            inversedBy: commandes
 
     lifecycleCallbacks:
+
         prePersist: [ upload1, setCreatedAtValue ]
         postPersist: [ upload1, upload2, upload3 ]
         postUpdate: [ upload1, upload2, upload3 ]

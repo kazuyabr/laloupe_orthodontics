@@ -9,7 +9,6 @@ function removeCommentAdjonctionModal(commentId) {
 // Pour chaque itération de boucle du tableau trié, faire :
 for (var compteur = 1; compteur < Object.keys(tableauCommentaireAdjonction).length; compteur++)
 {
-    // On ajoute dans l'élément qui a pour id="images-app" :
     $('#images-adjonctions').append('' +
         '<div class="col-xs-6">' +
             '<div class="blocAdjonction" data-id="' + tableauCommentaireAdjonction[compteur].id + '">' +
@@ -28,7 +27,7 @@ $('.blocAdjonction').on('click', function () {
     }
     else {
         $(this).addClass('selected');
-        $('#msform').prepend('<input type="checkbox" checked="checked" style="display:none;" name="commandes[appareillages][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />');
+        $('#msform').prepend('<input type="checkbox" checked="checked" style="display: none;" name="commandes[adjonctions][]" value="' + $(this).attr('data-id') + '" id="modalbuttoncheck-'+$(this).attr('data-id')+'" />');
         addCommentAdjonctionModal($(this).attr('data-id'));
     }
 });

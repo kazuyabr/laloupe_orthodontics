@@ -15,16 +15,16 @@ class AjoutappType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titreApp', 'text', array(
+            ->add('nom', 'text', array(
                 'label' => 'Nom de l appareillage : '
             ))
-            ->add('familleApp', 'text', array(
+            ->add('famille', 'text', array(
                 'label' => 'Famille de l appareillage : '
             ))
-            ->add('imgApp', 'text', array(
+            ->add('image', 'text', array(
                 'label' => 'Image : '
             ))
-            ->add('commentairesApp', 'textarea', array(
+            ->add('commentaire', 'textarea', array(
                 'label' => 'Commentaires : '
             ));
     }

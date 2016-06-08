@@ -1,9 +1,9 @@
-OrthoBundle\Entity\Couleur:
+OrthoBundle\Entity\Couleurs:
     type: entity
     table: null
-    repositoryClass: OrthoBundle\Repository\CouleurRepository
+    repositoryClass: OrthoBundle\Repository\CouleursRepository
     id:
-        idCouleur:
+        id:
             type: integer
             id: true
             generator:
@@ -12,5 +12,9 @@ OrthoBundle\Entity\Couleur:
         nomCouleur:
             type: string
             length: 255
-            column: nom_couleur
+
+    oneToMany:
+        commande:
+            targetEntity: OrthoBundle\Entity\Commandes
+            mappedBy: couleur
     lifecycleCallbacks: {  }
