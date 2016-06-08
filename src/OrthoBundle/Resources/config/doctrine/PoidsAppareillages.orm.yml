@@ -8,20 +8,20 @@ OrthoBundle\Entity\PoidsAppareillages:
             id: true
             generator:
                 strategy: AUTO
-
     fields:
         poids:
             type: integer
-            nullable: false
-            unique: false
 
     manyToOne:
-        fidAppareillages:
+        appareillage:
             targetEntity: OrthoBundle\Entity\Appareillages
-            inversedBy: poids
+            inversedBy: poidsApp
 
-        cabinet:
-            targetEntity: OrthoBundle\Entity\Cabinetsdentaires
-            inversedBy: poids
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: poidsApp
+
+
 
     lifecycleCallbacks: {  }
+

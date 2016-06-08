@@ -1,74 +1,87 @@
 {# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
 {% block body %}
-
-    <form id="msform" action="{{ path('crea_cabinet') }}" method="post">
-
-        {% if app.user %}
-            <!-- user is logged in -->
-
-            <!-- Barre de progression
-            <ul id="progressbar">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-            </ul>
-            -->
+    {% if app.user %}
+        <form id="msform" action="{{ path('crea_cabinet') }}" method="post">
             {{ form_start(form) }}
+                <fieldset class="largebloc">
+                    <h2 class="fs-title">Ajouter un Cabinet</h2>
+                    <h3 class="fs-subtitle">Tous les champs sont obligatoires.</h3>
+                    <div id="container">
+                        <div class="profileplace">
+                            <h3>Identifiants :</h3>
+                            {{ form_label(form.username) }}
+                            {{ form_errors(form.username) }}
+                            {{ form_widget(form.username) }}
 
-            <fieldset class="largebloc">
-                <h2 class="fs-title">Ajouter un Cabinet</h2>
-                <h3 class="fs-subtitle">Tous les champs sont obligatoires.</h3>
+                            {{ form_label(form.plain_password) }}
+                            {{ form_errors(form.plain_password) }}
+                            {{ form_widget(form.plain_password) }}
 
-                <div id="container">
-                    <div class="profileplace">
-                        {{ form_label(form.username) }}
-                        {{ form_errors(form.username) }}
-                        {{ form_widget(form.username) }}
+                            {{ form_label(form.nom) }}
+                            {{ form_errors(form.nom) }}
+                            {{ form_widget(form.nom) }}
 
-                        {{ form_label(form.plain_password) }}
-                        {{ form_errors(form.plain_password) }}
-                        {{ form_widget(form.plain_password) }}
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div class="profileplace">
+                            <h3>Coordonnées :</h3>
+                            {{ form_label(form.adresse) }}
+                            {{ form_errors(form.adresse) }}
+                            {{ form_widget(form.adresse) }}
 
-                        {{ form_label(form.nomCab) }}
-                        {{ form_errors(form.nomCab) }}
-                        {{ form_widget(form.nomCab) }}
+                            {{ form_label(form.codepostal) }}
+                            {{ form_errors(form.codepostal) }}
+                            {{ form_widget(form.codepostal) }}
 
-                        {{ form_label(form.email) }}
-                        {{ form_errors(form.email) }}
-                        {{ form_widget(form.email) }}
+                            {{ form_label(form.ville) }}
+                            {{ form_errors(form.ville) }}
+                            {{ form_widget(form.ville) }}
+
+                            {{ form_label(form.telephone) }}
+                            {{ form_errors(form.telephone) }}
+                            {{ form_widget(form.telephone) }}
+                        </div>
+                        <div class="profileplace">
+                            <h3>Lieu de facturation :</h3>
+                            {{ form_label(form.adresseFacturation) }}
+                            {{ form_errors(form.adresseFacturation) }}
+                            {{ form_widget(form.adresseFacturation) }}
+
+                            {{ form_label(form.codePostalFacturation) }}
+                            {{ form_errors(form.codePostalFacturation) }}
+                            {{ form_widget(form.codePostalFacturation) }}
+
+                            {{ form_label(form.villeFacturation) }}
+                            {{ form_errors(form.villeFacturation) }}
+                            {{ form_widget(form.villeFacturation) }}
+
+                            {{ form_label(form.telephoneFacturation) }}
+                            {{ form_errors(form.telephoneFacturation) }}
+                            {{ form_widget(form.telephoneFacturation) }}
+                        </div>
+                        <div class="profileplace">
+                            <h3></h3>
+
+                            {{ form_label(form.mailBis) }}
+                            {{ form_errors(form.mailBis) }}
+                            {{ form_widget(form.mailBis) }}
+
+                            {{ form_label(form.mailTer) }}
+                            {{ form_errors(form.mailTer) }}
+                            {{ form_widget(form.mailTer) }}
+                        </div>
                     </div>
-                    <div class="profileplace">
-                        {{ form_label(form.adresseCab) }}
-                        {{ form_errors(form.adresseCab) }}
-                        {{ form_widget(form.adresseCab) }}
-
-                        {{ form_label(form.codepostalCab) }}
-                        {{ form_errors(form.codepostalCab) }}
-                        {{ form_widget(form.codepostalCab) }}
-
-                        {{ form_label(form.villeCab) }}
-                        {{ form_errors(form.villeCab) }}
-                        {{ form_widget(form.villeCab) }}
-
-                        {{ form_label(form.telephoneCab) }}
-                        {{ form_errors(form.telephoneCab) }}
-                        {{ form_widget(form.telephoneCab) }}
-                    </div>
-                </div>
-
-
-                <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
-
-            </fieldset>
+                    <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
+                </fieldset>
             {{ form_end(form) }}
-        {% else %}
-            <!-- User is not logged in -->
-            <fieldset class="smallbloc">
-                <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour accéder à cette page.
-            </fieldset>
-        {% endif %}
-
-    </form>
-
+        </form>
+    {% else %}
+        <!-- User is not logged in -->
+        <fieldset class="smallbloc">
+            <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour accéder à cette page.
+        </fieldset>
+    {% endif %}
 {% endblock %}

@@ -3,36 +3,24 @@ OrthoBundle\Entity\AppAdjLabo:
     table: null
     repositoryClass: OrthoBundle\Repository\AppAdjLaboRepository
     id:
-        idAppAdjLabo:
+        id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
-    fields:
+
 
     manyToOne:
-        fidApp:
-            targetEntity: Appareillages
-            joinColumn:
-                name: fid_app
-                referencedColumn: id
-                nullable: false
-                unique: false
+        utilisateur:
+            targetEntity: OrthoBundle\Entity\Utilisateurs
+            inversedBy: boutonSpecifique
 
-        fidAdj:
-            targetEntity: Adjonctions
-            joinColumn:
-                name: fid_adj
-                referencedColumn: id
-                nullable: false
-                unique: false
+        appareillage:
+            targetEntity: OrthoBundle\Entity\Appareillages
+            inversedBy: boutonSpecifique
 
-        fidLabo:
-            targetEntity: Laboratoire
-            joinColumn:
-                name: fid_labo
-                referencedColumn: id
-                nullable: false
-                unique: false
+        adjonction:
+            targetEntity: OrthoBundle\Entity\Adjonctions
+            inversedBy: boutonSpecifique
 
     lifecycleCallbacks: {  }

@@ -9,70 +9,44 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Appareillages
 {
-    // CUSTOM CODE
+    private $boutonSpecifique;
     
-    
-    // GENERATED CODE
-    
+    private $poidsApp;
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
     /**
      * @var string
      */
-    private $titreApp;
+    private $nom;
 
     /**
      * @var string
      */
-    private $familleApp;
+    private $famille;
 
     /**
      * @var string
      */
-    private $imgApp;
+    private $image;
 
     /**
      * @var string
      */
-    private $commentairesApp;
+    private $commentaire;
 
     /**
      * @var string
      */
-    private $infoComLaboApp;
+    private $infoLabo;
 
     /**
      * @var string
      */
-    private $infoComCabApp;
+    private $infoCabinet;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $poids;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $commandes;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $labos;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->labos = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -85,239 +59,214 @@ class Appareillages
     }
 
     /**
-     * Set titreApp
+     * Set nom
      *
-     * @param string $titreApp
+     * @param string $nom
      * @return Appareillages
      */
-    public function setTitreApp($titreApp)
+    public function setNom($nom)
     {
-        $this->titreApp = $titreApp;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get titreApp
+     * Get nom
      *
      * @return string 
      */
-    public function getTitreApp()
+    public function getNom()
     {
-        return $this->titreApp;
+        return $this->nom;
     }
 
     /**
-     * Set familleApp
+     * Set famille
      *
-     * @param string $familleApp
+     * @param string $famille
      * @return Appareillages
      */
-    public function setFamilleApp($familleApp)
+    public function setFamille($famille)
     {
-        $this->familleApp = $familleApp;
+        $this->famille = $famille;
 
         return $this;
     }
 
     /**
-     * Get familleApp
+     * Get famille
      *
      * @return string 
      */
-    public function getFamilleApp()
+    public function getFamille()
     {
-        return $this->familleApp;
+        return $this->famille;
     }
 
     /**
-     * Set imgApp
+     * Set image
      *
-     * @param string $imgApp
+     * @param string $image
      * @return Appareillages
      */
-    public function setImgApp($imgApp)
+    public function setImage($image)
     {
-        $this->imgApp = $imgApp;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get imgApp
+     * Get image
      *
      * @return string 
      */
-    public function getImgApp()
+    public function getImage()
     {
-        return $this->imgApp;
+        return $this->image;
     }
 
     /**
-     * Set commentairesApp
+     * Set commentaire
      *
-     * @param string $commentairesApp
+     * @param string $commentaire
      * @return Appareillages
      */
-    public function setCommentairesApp($commentairesApp)
+    public function setCommentaire($commentaire)
     {
-        $this->commentairesApp = $commentairesApp;
+        $this->commentaire = $commentaire;
 
         return $this;
     }
 
     /**
-     * Get commentairesApp
+     * Get commentaire
      *
      * @return string 
      */
-    public function getCommentairesApp()
+    public function getCommentaire()
     {
-        return $this->commentairesApp;
+        return $this->commentaire;
     }
 
     /**
-     * Set infoComLaboApp
+     * Set infoLabo
      *
-     * @param string $infoComLaboApp
+     * @param string $infoLabo
      * @return Appareillages
      */
-    public function setInfoComLaboApp($infoComLaboApp)
+    public function setInfoLabo($infoLabo)
     {
-        $this->infoComLaboApp = $infoComLaboApp;
+        $this->infoLabo = $infoLabo;
 
         return $this;
     }
 
     /**
-     * Get infoComLaboApp
+     * Get infoLabo
      *
      * @return string 
      */
-    public function getInfoComLaboApp()
+    public function getInfoLabo()
     {
-        return $this->infoComLaboApp;
+        return $this->infoLabo;
     }
 
     /**
-     * Set infoComCabApp
+     * Set infoCabinet
      *
-     * @param string $infoComCabApp
+     * @param string $infoCabinet
      * @return Appareillages
      */
-    public function setInfoComCabApp($infoComCabApp)
+    public function setInfoCabinet($infoCabinet)
     {
-        $this->infoComCabApp = $infoComCabApp;
+        $this->infoCabinet = $infoCabinet;
 
         return $this;
     }
 
     /**
-     * Get infoComCabApp
+     * Get infoCabinet
      *
      * @return string 
      */
-    public function getInfoComCabApp()
+    public function getInfoCabinet()
     {
-        return $this->infoComCabApp;
+        return $this->infoCabinet;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poidsApp = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add poids
+     * Add poidsApp
      *
-     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poidsApp
      * @return Appareillages
      */
-    public function addPoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
+    public function addPoidsApp(\OrthoBundle\Entity\PoidsAppareillages $poidsApp)
     {
-        $this->poids[] = $poids;
+        $this->poidsApp[] = $poidsApp;
 
         return $this;
     }
 
     /**
-     * Remove poids
+     * Remove poidsApp
      *
-     * @param \OrthoBundle\Entity\PoidsAppareillages $poids
+     * @param \OrthoBundle\Entity\PoidsAppareillages $poidsApp
      */
-    public function removePoid(\OrthoBundle\Entity\PoidsAppareillages $poids)
+    public function removePoidsApp(\OrthoBundle\Entity\PoidsAppareillages $poidsApp)
     {
-        $this->poids->removeElement($poids);
+        $this->poidsApp->removeElement($poidsApp);
     }
 
     /**
-     * Get poids
+     * Get poidsApp
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPoids()
+    public function getPoidsApp()
     {
-        return $this->poids;
+        return $this->poidsApp;
     }
 
     /**
-     * Add commandes
+     * Add boutonSpecifique
      *
-     * @param \OrthoBundle\Entity\Commandes $commandes
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
      * @return Appareillages
      */
-    public function addCommande(\OrthoBundle\Entity\Commandes $commandes)
+    public function addBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
     {
-        $this->commandes[] = $commandes;
+        $this->boutonSpecifique[] = $boutonSpecifique;
 
         return $this;
     }
 
     /**
-     * Remove commandes
+     * Remove boutonSpecifique
      *
-     * @param \OrthoBundle\Entity\Commandes $commandes
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
      */
-    public function removeCommande(\OrthoBundle\Entity\Commandes $commandes)
+    public function removeBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
     {
-        $this->commandes->removeElement($commandes);
+        $this->boutonSpecifique->removeElement($boutonSpecifique);
     }
 
     /**
-     * Get commandes
+     * Get boutonSpecifique
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCommandes()
+    public function getBoutonSpecifique()
     {
-        return $this->commandes;
-    }
-
-    /**
-     * Add labos
-     *
-     * @param \OrthoBundle\Entity\Laboratoire $labos
-     * @return Appareillages
-     */
-    public function addLabo(\OrthoBundle\Entity\Laboratoire $labos)
-    {
-        $this->labos[] = $labos;
-
-        return $this;
-    }
-
-    /**
-     * Remove labos
-     *
-     * @param \OrthoBundle\Entity\Laboratoire $labos
-     */
-    public function removeLabo(\OrthoBundle\Entity\Laboratoire $labos)
-    {
-        $this->labos->removeElement($labos);
-    }
-
-    /**
-     * Get labos
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getLabos()
-    {
-        return $this->labos;
+        return $this->boutonSpecifique;
     }
 }

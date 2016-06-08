@@ -3,7 +3,6 @@
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Appareillages;
-use OrthoBundle\Form\Type\AppareillagesType;
 use OrthoBundle\Form\Type\AjoutappType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -12,7 +11,6 @@ class AppareillageController extends Controller
 {
     /*
      * Creation Appareillages
-     *
      */
     public function creationAppareillageAction()
     {

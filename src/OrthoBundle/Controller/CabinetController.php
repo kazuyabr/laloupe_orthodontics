@@ -1,43 +1,38 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ninon
- * Date: 30/05/16
- * Time: 16:43
- */
+
 namespace OrthoBundle\Controller;
 
-use OrthoBundle\Entity\Cabinetsdentaires;
-use OrthoBundle\Form\Type\CabinetType;
+use OrthoBundle\Entity\Utilisateurs;
+use OrthoBundle\Form\Type\UtilisateursCabinetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
+use OrthoBundle\Entity\CategorieUtilisateurs;
 
 
 class CabinetController extends Controller
 {
     public function createAction()
     {
+        // On crée une instance de l'entité Utilisateurs
+        $cabinet  = new Utilisateurs();
 
-        // On crée une instance de l'entité cabinet
-        $cabinet = new Cabinetsdentaires();
         $request = $this->getRequest();
 
         // On crée un nouveau formulaire qui prend en paramètres notre formulaire
-        // "cabinetType.php" ainsi que l'instance de l'entité cabinet
-
-        $form = $this->createForm(new CabinetType(), $cabinet);
-
+        // "UtilisateursCabinetType.php" ainsi que l'instance de l'entité Utlisateurs
+        $form    = $this->createForm(new UtilisateursCabinetType(), $cabinet);
+        
         // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
 
         // On hydrate notre formulaire
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isValid() && $form->isSubmitted())
+        {
+            $cabinet->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(1));
+            $cabinet->setEnabled(true);
+            $cabinet->setRoles(array('ROLE_CABINET'));
 
-            $cabinet->activationDuCompte();
-            $cabinet->attributionDuRole();
             $em->persist($cabinet);
             $em->flush();
 
@@ -49,7 +44,6 @@ class CabinetController extends Controller
         return $this->render('@Ortho/Cabinet/crea_cabinet.html.twig', array(
             'form' => $form->createView()
         ));
-
     }
 
     public function showAction($id)
@@ -62,7 +56,7 @@ class CabinetController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagefiche = $em->getRepository('OrthoBundle:Cabinetsdentaires')->find($idCabinet);
+        $affichagefiche = $em->getRepository('OrthoBundle:Utilisateurs')->find($idCabinet);
 
         // On affiche la vue de fiche_cabinet, en prenant en paramètre
         // La liste des informations du formulaire
@@ -70,48 +64,4 @@ class CabinetController extends Controller
             'affichagefiche' => $affichagefiche
         ));
     }
-
-    public function editCabAction(Request $request, Cabinetsdentaires $cabinetsdentaires)
-    {
-        $deleteForm = $this->createDeleteForm($cabinetsdentaires);
-        $editForm = $this->createForm('OrthoBundle\Form\Type\CabinetType', $cabinetsdentaires);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($cabinetsdentaires);
-            $em->flush();
-
-            return $this->redirectToRoute('fiche_cabinet', array('id' => $cabinetsdentaires->getId()));
-        }
-
-        return $this->render('@Ortho/Cabinet/fiche_cabinet.html.twig', array(
-            'test' => $cabinetsdentaires,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    public function deleteCabAction(Request $request, Cabinetsdentaires $cabinetsdentaires)
-    {
-        $form = $this->createDeleteForm($cabinetsdentaires);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($cabinetsdentaires);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('sup_cabinet');
-    }
-
-    private function createDeleteForm(Cabinetsdentaires $cabinetsdentaires)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('sup_cabinet', array('id' => $cabinetsdentaires->getId())))
-            ->setMethod('DELETE')
-            ->getForm();
-    }
-    
 }

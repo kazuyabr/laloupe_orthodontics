@@ -2,34 +2,27 @@
 
 namespace OrthoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * PoidsAdjonctions
  */
 class PoidsAdjonctions
 {
-    // CUSTOM CODE
 
-    private $fidAdjonction;
-
-    private $cabinet;
-
-    // Constructeur pour le poids et l'appareillage. On ne peut pas créer une nouvelle instance de classe
-    // [...] Sans définir le cabinet en question et l'appareillage qui lui est lié.
-    public function __construct(Cabinetsdentaires $cabinet, Adjonctions $adjonction)
+    public function __construct(Utilisateurs $utilisateurs, Adjonctions $adjonctions)
     {
-        // Déclaration des variables du constructeur.
-        $this->cabinet = $cabinet;
-        $this->fidAdjonction = $adjonction;
+        $this->utilisateur = $utilisateurs;
+        $this->adjonction = $adjonctions;
     }
 
-    // Méthode incrementation() : Incrémentation du poids, si ce dernier est renseigné.
     public function incrementation()
     {
-        // On incrémente juste de 1 avec le "++;"
         $this->poids++;
     }
 
-    // GENERATED CODE
+    private $utilisateur;
+    private $adjonction;
     /**
      * @var int
      */
@@ -75,48 +68,48 @@ class PoidsAdjonctions
     }
 
     /**
-     * Set fidAdjonction
+     * Set adjonction
      *
-     * @param \OrthoBundle\Entity\Adjonctions $fidAdjonction
+     * @param \OrthoBundle\Entity\Adjonctions $adjonction
      * @return PoidsAdjonctions
      */
-    public function setFidAdjonction(\OrthoBundle\Entity\Adjonctions $fidAdjonction = null)
+    public function setAdjonction(\OrthoBundle\Entity\Adjonctions $adjonction = null)
     {
-        $this->fidAdjonction = $fidAdjonction;
+        $this->adjonction = $adjonction;
 
         return $this;
     }
 
     /**
-     * Get fidAdjonction
+     * Get adjonction
      *
      * @return \OrthoBundle\Entity\Adjonctions 
      */
-    public function getFidAdjonction()
+    public function getAdjonction()
     {
-        return $this->fidAdjonction;
+        return $this->adjonction;
     }
 
     /**
-     * Set cabinet
+     * Set utilisateur
      *
-     * @param \OrthoBundle\Entity\Cabinetsdentaires $cabinet
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
      * @return PoidsAdjonctions
      */
-    public function setCabinet(\OrthoBundle\Entity\Cabinetsdentaires $cabinet = null)
+    public function setUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur = null)
     {
-        $this->cabinet = $cabinet;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get cabinet
+     * Get utilisateur
      *
-     * @return \OrthoBundle\Entity\Cabinetsdentaires 
+     * @return \OrthoBundle\Entity\Utilisateurs 
      */
-    public function getCabinet()
+    public function getUtilisateur()
     {
-        return $this->cabinet;
+        return $this->utilisateur;
     }
 }

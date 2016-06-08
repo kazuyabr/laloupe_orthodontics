@@ -1,0 +1,33 @@
+{# @OrthoBundle/Resources/views/Default/recup_commandes.html.twig #}
+{% extends 'base.html.twig' %}
+
+    {% block li %}
+        {#
+        si besoin d'un onglet particulier dans nav
+        <li><a href="" target="_blank"></a></li>
+        #}
+    {% endblock %}
+
+{% block body %}
+    <div id="msform">
+        {% if app.user %}
+            <!-- user is logged in -->
+
+            <fieldset class="smallbloc">
+                <h2 class="fs-title">Commandes</h2>
+                <div>
+                    <p>Nombre de commandes passées : {{ totalCommande[0][1] }}</p>
+                </div>
+            </fieldset>
+        {% else %}
+            <!-- user is not logged in -->
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
+
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}

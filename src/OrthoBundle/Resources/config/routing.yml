@@ -43,7 +43,6 @@ fiche_app:
     defaults: { _controller: OrthoBundle:Appareillage:showAppareillage}
     methods: [POST, GET]
 
-
 crea_adj:
     path:   /ajoutadj/
     defaults:    { _controller: OrthoBundle:Adjonction:creationAdjonction}
@@ -64,7 +63,6 @@ fiche_adj:
     defaults: { _controller: OrthoBundle:}
     methods: [POST, GET]
 
-
 crea_labo:
     path:     /laboratoire
     defaults: { _controller: OrthoBundle:Laboratoire:create }
@@ -75,9 +73,16 @@ fiche_labo:
     defaults: { _controller: OrthoBundle:Laboratoire:show }
     methods: [POST, GET]
 
+recup_commandes:
+    path:     /commandes
+    defaults: { _controller: OrthoBundle:Commandes:show }
+    methods: [POST, GET]
+
+recup_user:
+    path:     /utilisateurs
+    defaults: { _controller: OrthoBundle:User:show }
+
 sup_labo:
     path:    /suplabo/
     defaults:    { _controller: OrthoBundle:Laboratoire:deleteLabo }
     methods: [POST, GET]
-
-

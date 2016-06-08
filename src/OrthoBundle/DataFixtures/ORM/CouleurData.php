@@ -4,51 +4,51 @@ namespace OrthoBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use OrthoBundle\Entity\Couleur;
+use OrthoBundle\Entity\Couleurs;
 
-class CouleurData extends AbstractFixture
+class CouleursData extends AbstractFixture
 {
     public function load(ObjectManager $manager)
     {
-        $couleur1 = new Couleur();
-        $couleur1->setNomCouleur('Transparent [Défaut]');
-        $manager->persist($couleur1);
+        $Couleurs1 = new Couleurs();
+        $Couleurs1->setNomCouleur('Transparent [Défaut]');
+        $manager->persist($Couleurs1);
 
-        $couleur2 = new Couleur();
-        $couleur2->setNomCouleur('Orange');
-        $manager->persist($couleur2);
+        $Couleurs2 = new Couleurs();
+        $Couleurs2->setNomCouleur('Orange');
+        $manager->persist($Couleurs2);
 
-        $couleur3 = new Couleur();
-        $couleur3->setNomCouleur('Violet');
-        $manager->persist($couleur3);
+        $Couleurs3 = new Couleurs();
+        $Couleurs3->setNomCouleur('Violet');
+        $manager->persist($Couleurs3);
 
-        $couleur4 = new Couleur();
-        $couleur4->setNomCouleur('Rose');
-        $manager->persist($couleur4);
+        $Couleurs4 = new Couleurs();
+        $Couleurs4->setNomCouleur('Rose');
+        $manager->persist($Couleurs4);
 
-        $couleur5 = new Couleur();
-        $couleur5->setNomCouleur('Bleu');
-        $manager->persist($couleur5);
+        $Couleurs5 = new Couleurs();
+        $Couleurs5->setNomCouleur('Bleu');
+        $manager->persist($Couleurs5);
 
-        $couleur6 = new Couleur();
-        $couleur6->setNomCouleur('Rouge');
-        $manager->persist($couleur6);
+        $Couleurs6 = new Couleurs();
+        $Couleurs6->setNomCouleur('Rouge');
+        $manager->persist($Couleurs6);
 
-        $couleur7 = new Couleur();
-        $couleur7->setNomCouleur('Vert');
-        $manager->persist($couleur7);
+        $Couleurs7 = new Couleurs();
+        $Couleurs7->setNomCouleur('Vert');
+        $manager->persist($Couleurs7);
 
-        $couleur8 = new Couleur();
-        $couleur8->setNomCouleur('Jaune Fluo');
-        $manager->persist($couleur8);
+        $Couleurs8 = new Couleurs();
+        $Couleurs8->setNomCouleur('Jaune Fluo');
+        $manager->persist($Couleurs8);
 
-        $couleur9 = new Couleur();
-        $couleur9->setNomCouleur('Jaune');
-        $manager->persist($couleur9);
+        $Couleurs9 = new Couleurs();
+        $Couleurs9->setNomCouleur('Jaune');
+        $manager->persist($Couleurs9);
 
-        $couleur10 = new Couleur();
-        $couleur10->setNomCouleur('Paillettes');
-        $manager->persist($couleur10);
+        $Couleurs10 = new Couleurs();
+        $Couleurs10->setNomCouleur('Paillettes');
+        $manager->persist($Couleurs10);
 
         $manager->flush();
     }

@@ -9,41 +9,44 @@ OrthoBundle\Entity\Adjonctions:
             generator:
                 strategy: AUTO
     fields:
-        titreAdj:
+        nom:
             type: string
             length: 255
-            column: titre_adj
-        familleAdj:
+            unique: true
+        famille:
             type: string
-            length: 3
-            column: famille_adj
-        imgAdj:
+            length: '3'
+        image:
             type: string
             length: 255
-            nullable: true
-            column: img_adj
-        commentairesAdj:
+        commentaire:
             type: text
-            column: commentaires_adj
-        infoComLaboAdj:
+        infoLabo:
             type: string
             length: 255
-            column: info_com_labo_adj
+            column: info_labo
             nullable: true
-        infoComCabAdj:
+        infoCabinet:
             type: string
             length: 255
-            column: info_com_cab_adj
+            column: info_cabinet
             nullable: true
-
-    manyToMany:
-        fkidCommande:
-            targetEntity: Commandes
-            mappedBy: Adjonctions
 
     oneToMany:
         poids:
             targetEntity: OrthoBundle\Entity\PoidsAdjonctions
-            mappedBy: fidAdjonction
+            mappedBy: adjonction
+
+        boutonSpecifique:
+            targetEntity: OrthoBundle\Entity\AppAdjLabo
+            mappedBy: adjonction
+
+
+
+
+
+
+
+
 
     lifecycleCallbacks: {  }

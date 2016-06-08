@@ -2,258 +2,207 @@
 
 namespace OrthoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Adjonctions
  */
 class Adjonctions
 {
+    private $boutonSpecifique;
     
-    // CUSTOM CODE
-    
-    /* Déclaration des variables utilisées pour les relations Doctrine */
-    private $fkidCommande;
-
-
-    
-    // GENERATED CODE
-    
+    private $poids;
     /**
      * @var int
      */
     private $id;
-    
-    /**
-     * @var string
-     */
-    private $titreAdj;
 
     /**
      * @var string
      */
-    private $familleAdj;
+    private $nom;
 
     /**
      * @var string
      */
-    private $imgAdj;
+    private $famille;
 
     /**
      * @var string
      */
-    private $commentairesAdj;
-
-    /**
-     * @var int
-     */
-    private $compteurAdj;
+    private $image;
 
     /**
      * @var string
      */
-    private $infoComLaboAdj;
+    private $commentaire;
 
     /**
      * @var string
      */
-    private $infoComCabAdj;
+    private $infoLabo;
+
+    /**
+     * @var string
+     */
+    private $infoCabinet;
 
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Adjonctions
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set famille
+     *
+     * @param string $famille
+     * @return Adjonctions
+     */
+    public function setFamille($famille)
+    {
+        $this->famille = $famille;
+
+        return $this;
+    }
+
+    /**
+     * Get famille
+     *
+     * @return string 
+     */
+    public function getFamille()
+    {
+        return $this->famille;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Adjonctions
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     * @return Adjonctions
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string 
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set infoLabo
+     *
+     * @param string $infoLabo
+     * @return Adjonctions
+     */
+    public function setInfoLabo($infoLabo)
+    {
+        $this->infoLabo = $infoLabo;
+
+        return $this;
+    }
+
+    /**
+     * Get infoLabo
+     *
+     * @return string 
+     */
+    public function getInfoLabo()
+    {
+        return $this->infoLabo;
+    }
+
+    /**
+     * Set infoCabinet
+     *
+     * @param string $infoCabinet
+     * @return Adjonctions
+     */
+    public function setInfoCabinet($infoCabinet)
+    {
+        $this->infoCabinet = $infoCabinet;
+
+        return $this;
+    }
+
+    /**
+     * Get infoCabinet
+     *
+     * @return string 
+     */
+    public function getInfoCabinet()
+    {
+        return $this->infoCabinet;
+    }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->fkidCommande = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    /**
-     * Set titreAdj
-     *
-     * @param string $titreAdj
-     * @return Adjonctions
-     */
-    public function setTitreAdj($titreAdj)
-    {
-        $this->titreAdj = $titreAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get titreAdj
-     *
-     * @return string 
-     */
-    public function getTitreAdj()
-    {
-        return $this->titreAdj;
-    }
-
-    /**
-     * Set imgAdj
-     *
-     * @param string $imgAdj
-     * @return Adjonctions
-     */
-    public function setImgAdj($imgAdj)
-    {
-        $this->imgAdj = $imgAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get imgAdj
-     *
-     * @return string 
-     */
-    public function getImgAdj()
-    {
-        return $this->imgAdj;
-    }
-
-    /**
-     * Set commentairesAdj
-     *
-     * @param string $commentairesAdj
-     * @return Adjonctions
-     */
-    public function setCommentairesAdj($commentairesAdj)
-    {
-        $this->commentairesAdj = $commentairesAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get commentairesAdj
-     *
-     * @return string 
-     */
-    public function getCommentairesAdj()
-    {
-        return $this->commentairesAdj;
-    }
-
-    public function setCompteurAdj($compteurAdj)
-    {
-        $this->compteurAdj = $compteurAdj;
-
-        return $this;
-    }
-
-    public function getCompteurAdj()
-    {
-        return $this->compteurAdj;
-    }
-    
-
-    /**
-     * Set familleAdj
-     *
-     * @param string $familleAdj
-     * @return Adjonctions
-     */
-    public function setFamilleAdj($familleAdj)
-    {
-        $this->familleAdj = $familleAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get familleAdj
-     *
-     * @return string 
-     */
-    public function getFamilleAdj()
-    {
-        return $this->familleAdj;
-    }
-
-    /**
-     * Set infoComLaboAdj
-     *
-     * @param string $infoComLaboAdj
-     * @return Adjonctions
-     */
-    public function setInfoComLaboAdj($infoComLaboAdj)
-    {
-        $this->infoComLaboAdj = $infoComLaboAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get infoComLaboAdj
-     *
-     * @return string 
-     */
-    public function getInfoComLaboAdj()
-    {
-        return $this->infoComLaboAdj;
-    }
-
-    /**
-     * Set infoComCabAdj
-     *
-     * @param string $infoComCabAdj
-     * @return Adjonctions
-     */
-    public function setInfoComCabAdj($infoComCabAdj)
-    {
-        $this->infoComCabAdj = $infoComCabAdj;
-
-        return $this;
-    }
-
-    /**
-     * Get infoComCabAdj
-     *
-     * @return string 
-     */
-    public function getInfoComCabAdj()
-    {
-        return $this->infoComCabAdj;
-    }
-
-    /**
-     * Add fkidCommande
-     *
-     * @param \OrthoBundle\Entity\Commandes $fkidCommande
-     * @return Adjonctions
-     */
-    public function addFkidCommande(\OrthoBundle\Entity\Commandes $fkidCommande)
-    {
-        $this->fkidCommande[] = $fkidCommande;
-
-        return $this;
-    }
-
-    /**
-     * Remove fkidCommande
-     *
-     * @param \OrthoBundle\Entity\Commandes $fkidCommande
-     */
-    public function removeFkidCommande(\OrthoBundle\Entity\Commandes $fkidCommande)
-    {
-        $this->fkidCommande->removeElement($fkidCommande);
-    }
-
-    /**
-     * Get fkidCommande
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFkidCommande()
-    {
-        return $this->fkidCommande;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $poids;
-
 
     /**
      * Add poids
@@ -289,12 +238,35 @@ class Adjonctions
     }
 
     /**
-     * Get id
+     * Add boutonSpecifique
      *
-     * @return integer 
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     * @return Adjonctions
      */
-    public function getId()
+    public function addBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
     {
-        return $this->id;
+        $this->boutonSpecifique[] = $boutonSpecifique;
+
+        return $this;
+    }
+
+    /**
+     * Remove boutonSpecifique
+     *
+     * @param \OrthoBundle\Entity\AppAdjLabo $boutonSpecifique
+     */
+    public function removeBoutonSpecifique(\OrthoBundle\Entity\AppAdjLabo $boutonSpecifique)
+    {
+        $this->boutonSpecifique->removeElement($boutonSpecifique);
+    }
+
+    /**
+     * Get boutonSpecifique
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoutonSpecifique()
+    {
+        return $this->boutonSpecifique;
     }
 }

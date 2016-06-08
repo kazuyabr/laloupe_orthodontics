@@ -1,5 +1,13 @@
 {# @OrthoBundle/Resources/views/Default/fiche_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
+
+    {% block li %}
+        {#
+        si besoin d'un onglet particulier dans nav
+        <li><a href="" target="_blank"></a></li>
+        #}
+    {% endblock %}
+
 {% block body %}
     {# {{ dump(affichagefiche) }} #}
     <div id="msform">
@@ -7,23 +15,33 @@
             <!-- user is logged in -->
 
             <fieldset class="largebloc">
-                <img class="coche_vert" src={{ asset('bundles/ortho/img/coche_vert.png') }}/>
+                <img class="coche_vert" src="{{ asset('bundles/ortho/img/coche_vert.png') }}"/>
                 <h2 class="fs-title">Ce cabinet a bien été ajouté.</h2>
-                <h3 class="fs-subtitle"><span>Cabinet : <br></span>{{ affichagefiche ? affichagefiche.nomCab }}</h3>
+                <h3 class="fs-subtitle"><span>Cabinet : <br></span>{{ affichagefiche ? affichagefiche.nom }}</h3>
 
                 <div id="container">
                     <div class="profileplace">
-                        <div><span>Identifiant : </span>{{ affichagefiche ? affichagefiche.username }}</div>
-                        <div><span>Nom complet : <br></span>{{ affichagefiche ? affichagefiche.nomCab }}</div>
-                        <div><span>E-mail : </span>{{ affichagefiche ? affichagefiche.email }}</div>
+                        <span>Identifiant : </span>{{ affichagefiche ? affichagefiche.username }}
+                        <span>Nom complet : <br></span>{{ affichagefiche ? affichagefiche.nom }}
+                        <span>E-mail : </span>{{ affichagefiche ? affichagefiche.email }}
 
                     </div>
                     <div class="profileplace">
-                        <div><span>Adresse : <br></span>{{ affichagefiche ? affichagefiche.adresseCab }}</div>
-                        <div>{{ affichagefiche ? affichagefiche.codepostalCab }}
-                            &nbsp;{{ affichagefiche ? affichagefiche.villeCab }}</div>
-                        <div><span>Téléphone : </span>{{ affichagefiche ? affichagefiche.telephoneCab }}</div>
-
+                        <span>Adresse : <br></span>{{ affichagefiche ? affichagefiche.adresse }}
+                        {{ affichagefiche ? affichagefiche.codePostal }}
+                            &nbsp;{{ affichagefiche ? affichagefiche.ville }}
+                        <span>Téléphone : </span>{{ affichagefiche ? affichagefiche.telephone }}
+                    </div>
+                    <div class="profileplace">
+                        <h5>Lieu de facturation :</h5>
+                        <span>Adresse : {{ affichagefiche ? affichagefiche.adresseFacturation }}</span>
+                        <span>Code Postal : {{ affichagefiche ? affichagefiche.codePostalFacturation }}</span>
+                        <span>Ville : {{ affichagefiche ? affichagefiche.villeFacturation }}</span>
+                        <span>Téléphone : {{ affichagefiche ? affichagefiche.telephoneFacturation }}</span>
+                    </div>
+                    <div class="profileplace">
+                        <span>Mail 2 : {{ affichagefiche ? affichagefiche.mailBis }}</span>
+                        <span>Mail 3 : {{ affichagefiche ? affichagefiche.mailTer }}</span>
                     </div>
                 </div>
                 <div class="envoi_email_recapitulatif">
@@ -41,4 +59,6 @@
 
         {% endif %}
     </div>
+
 {% endblock %}
+{% block javascript %}{% endblock %}
