@@ -1,8 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-
+    <h2>Liste des appareillages</h2>
 
     {% for appareillages in appareillages %}
+
+    <div id="msform">
+        {% if app.user %} <!-- L'utilisateur est connecté -->
+            <fieldset class="smallbloc">
+
+            </fieldset>
+        {% else %} <!-- L'utilisateur n'est pas connecté -->
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
+        {% endif %}
+    </div>
+
+
 
         <div id="msform">
 
@@ -19,3 +33,5 @@
     {% endfor %}
 
 {% endblock %}
+
+

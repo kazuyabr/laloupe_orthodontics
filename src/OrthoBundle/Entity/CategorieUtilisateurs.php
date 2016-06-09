@@ -6,15 +6,22 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CategorieUtilisateurs
- * @ORM\Repository
  */
+
+
 class CategorieUtilisateurs
 {
     // CUSTOM CODE
-    
+    public function __toString()
+    {
+        return $this->categorieUtilisateur;
+    }
+
     /* Variable relation Doctrine */
     
     private $utilisateur;
+
+
     
 
     // GENERATED CODE
@@ -42,8 +49,6 @@ class CategorieUtilisateurs
 
     /**
      * Set categorieUtilisateur
-     *
-     * @param string $categorieUtilisateur
      * @return CategorieUtilisateurs
      */
     public function setCategorieUtilisateur($categorieUtilisateur)

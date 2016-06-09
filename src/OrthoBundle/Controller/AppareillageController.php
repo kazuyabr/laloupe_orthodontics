@@ -3,7 +3,7 @@
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Appareillages;
-use OrthoBundle\Form\Type\AppareillagesType;
+use OrthoBundle\Form\Type\AjoutappType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,7 +26,7 @@ class AppareillageController extends Controller
     public function newAction(Request $request)
     {
         $appareillages = new Appareillages();
-        $form = $this->createForm('OrthoBundle\Form\Type\AjoutappType', $appareillages);
+        $form = $this->createForm(new AjoutappType(), $appareillages);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

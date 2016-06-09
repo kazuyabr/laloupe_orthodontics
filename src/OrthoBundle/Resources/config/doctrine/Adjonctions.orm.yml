@@ -42,11 +42,4 @@ OrthoBundle\Entity\Adjonctions:
             mappedBy: adjonction
 
 
-
-
-
-
-
-
-
     lifecycleCallbacks: {  }

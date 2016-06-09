@@ -19,4 +19,4 @@ OrthoBundle\Entity\CategorieUtilisateurs:
             targetEntity: OrthoBundle\Entity\Utilisateurs
             mappedBy: categorie
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}

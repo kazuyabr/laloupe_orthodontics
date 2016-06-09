@@ -12,7 +12,7 @@ class UtlisateursData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $superAdminCredentials = new Utilisateurs();
-        $superAdminCredentials->setUsername('superadmin');
+        $superAdminCredentials->setUsername('Superadmin');
         $superAdminCredentials->setPlainPassword('superadmin');
         $superAdminCredentials->setCategorie($this->getReference('SuperAdmin'));
         $superAdminCredentials->setEnabled(true);

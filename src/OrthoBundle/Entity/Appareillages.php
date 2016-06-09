@@ -9,6 +9,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Appareillages
 {
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poidsApp = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+
     private $boutonSpecifique;
     
     private $poidsApp;
@@ -194,14 +206,6 @@ class Appareillages
     public function getInfoCabinet()
     {
         return $this->infoCabinet;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->poidsApp = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

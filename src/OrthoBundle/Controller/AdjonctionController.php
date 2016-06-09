@@ -13,7 +13,7 @@ class AdjonctionController extends Controller
 
 
     /**
-     * Lists all Test entities.
+     * Lists all Adjonctions entities.
      *
      */
     public function indexAction()
@@ -29,13 +29,13 @@ class AdjonctionController extends Controller
 
 
     /**
-     * Creates a new Test entity.
+     * Creates a new Adjonctions entity.
      *
      */
     public function newAction(Request $request)
     {
         $adjonctions = new Adjonctions();
-        $form = $this->createForm('OrthoBundle\Form\Type\AjoutAdjType', $adjonctions);
+        $form = $this->createForm( new AjoutAdjType(), $adjonctions);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class AdjonctionController extends Controller
     }
 
     /**
-     * Finds and displays a Test entity.
+     * Finds and displays a Adjonctions entity.
      *
      */
     public function showAction(Adjonctions $adjonctions)
@@ -67,7 +67,7 @@ class AdjonctionController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Test entity.
+     * Displays a form to edit an existing Adjonctions entity.
      *
      */
     public function editAction(Request $request, Adjonctions $adjonctions)
@@ -92,7 +92,7 @@ class AdjonctionController extends Controller
     }
 
     /**
-     * Deletes a Test entity.
+     * Deletes a Adjonctions entity.
      *
      */
     public function deleteAction(Request $request, Adjonctions $adjonctions)
@@ -110,9 +110,9 @@ class AdjonctionController extends Controller
     }
 
     /**
-     * Creates a form to delete a Test entity.
+     * Creates a form to delete a Adjonctions entity.
      *
-     * @param Test $test The Test entity
+     * @param Adjonctions $adjonctions The Adjonctions entity
      *
      * @return \Symfony\Component\Form\Form The form
      */

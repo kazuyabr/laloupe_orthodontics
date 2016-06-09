@@ -35,7 +35,7 @@ class CategorieUtilisateursData extends AbstractFixture implements OrderedFixtur
         $manager->flush();
 
         $this->addReference('Cabinet Dentaire', $categorie1);
-        $this->addReference('Laboraotire', $categorie2);
+        $this->addReference('Laboratoire', $categorie2);
         $this->addReference('TeamNéo3D', $categorie3);
         $this->addReference('SuperAdmin', $categorie4);
     }

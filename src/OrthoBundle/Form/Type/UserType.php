@@ -6,10 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\UserBundle\Util\LegacyFormHelper;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
-class UtilisateursLaboratoireType extends AbstractType
+class UtilisateursCabinetType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -18,6 +16,8 @@ class UtilisateursLaboratoireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('categorie'
+            )
             ->add('username', null, array(
                 'label' => 'Identifiant : ',
                 'translation_domain' => 'FOSUserBundle'
@@ -29,11 +29,12 @@ class UtilisateursLaboratoireType extends AbstractType
                 'label' => 'Nom complet du Cabinet : '
             ))
             ->add('adresse', 'text', array(
+
                 'label' => 'Adresse : ',
                 'attr' => array(
                     'placeholder' => 'N°, Rue')
             ))
-            ->add('codePostal', 'number', array(
+            ->add('codepostal', 'number', array(
                 'label' => 'Code Postal : '
             ))
             ->add('ville', 'text', array(
@@ -49,16 +50,19 @@ class UtilisateursLaboratoireType extends AbstractType
             ->add('adresseFacturation', 'text', array(
                 'label' => 'Adresse de Facturation :',
                 'attr' => array(
-                    'placeholder' => 'N°, Rue ...'
+                    'placeholder' => "N°, Rue .."
                 )
             ))
             ->add('codePostalFacturation', 'text', array(
-                'label' => 'Code Postal :'
+                'label' => 'Code Postal',
+                'attr' => array(
+                    'placeholder' => 'Code Postal'
+                )
             ))
             ->add('villeFacturation', 'text', array(
                 'label' => 'Ville',
                 'attr' => array(
-                    'placeholder' => 'Ville :'
+                    'placeholder' => 'Ville'
                 )
             ))
             ->add('telephoneFacturation', 'text', array(
@@ -67,13 +71,8 @@ class UtilisateursLaboratoireType extends AbstractType
                     'placeholder' => '09.87.65.43.21'
                 )
             ))
-            ->add('mailBis', 'email', array(
-                'required' => false
-            ))
-            ->add('mailTer', 'email', array(
-                'required' => false
-            ));
-
+            ->add('mailBis', 'email')
+            ->add('mailTer', 'email');
     }
 
     /**

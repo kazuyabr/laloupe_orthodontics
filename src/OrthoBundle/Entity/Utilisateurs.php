@@ -339,8 +339,6 @@ class Utilisateurs extends BaseUser
     /**
      * Set categorie
      *
-     * @param \OrthoBundle\Entity\CategorieUtilisateurs $categorie
-     * @return Utilisateurs
      */
     public function setCategorie(\OrthoBundle\Entity\CategorieUtilisateurs $categorie)
     {

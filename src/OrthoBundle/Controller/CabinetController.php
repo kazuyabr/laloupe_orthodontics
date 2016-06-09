@@ -26,11 +26,14 @@ class CabinetController extends Controller
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();
-        $form = $this->createForm('OrthoBundle\Form\Type\UtilisateursCabinetType', $Utilisateurs);
+        $form = $this->createForm(new UtilisateursCabinetType(), $Utilisateurs);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $Utilisateurs->setRoles(array('ROLE_CABINET'));
+            $Utilisateurs->setEnabled(true);
             $em->persist($Utilisateurs);
             $em->flush();
 
@@ -38,7 +41,7 @@ class CabinetController extends Controller
         }
 
         return $this->render('@Ortho/Cabinet/crea_cabinet.html.twig', array(
-            'cabinets' => $Utilisateurs,
+            'cabinet' => $Utilisateurs,
             'form' => $form->createView(),
         ));
     }
