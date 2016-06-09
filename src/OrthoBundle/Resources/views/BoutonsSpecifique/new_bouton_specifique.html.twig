@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="msform">
+        {{ form_start(form) }}
+            {{ form(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
+{% endblock %}
