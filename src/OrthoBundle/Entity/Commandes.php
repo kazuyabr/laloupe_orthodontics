@@ -8,8 +8,8 @@ use Symfony\Component\Form\Extension\HttpFoundation;
 
 /**
  * Commandes
- * @ORM\Entity(repositoryClass="OrthoBundle\Repository\CommandesRepository")
  */
+
 class Commandes
 {
 
@@ -181,6 +181,8 @@ class Commandes
         $this->setDatecommande(new \DateTime());
     }
 
+
+
     /* Variable relation Doctrine */
 
     private $adjonctions;
@@ -198,6 +200,10 @@ class Commandes
     private $motif;
 
     /* Fin variable relation Doctrine */
+
+
+
+
 
     // GENERATED CODE
     /**

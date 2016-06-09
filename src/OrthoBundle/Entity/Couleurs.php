@@ -7,8 +7,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Couleurs
  */
+
+
 class Couleurs
 {
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commande = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     public function __toString()
     {
@@ -58,13 +69,6 @@ class Couleurs
     public function getNomCouleur()
     {
         return $this->nomCouleur;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->commande = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

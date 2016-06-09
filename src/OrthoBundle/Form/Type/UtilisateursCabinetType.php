@@ -6,9 +6,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\UserBundle\Util\LegacyFormHelper;
-use OrthoBundle\Entity\Utilisateurs;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
 class UtilisateursCabinetType extends AbstractType
 {

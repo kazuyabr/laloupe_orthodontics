@@ -23,5 +23,5 @@ OrthoBundle\Entity\PoidsAppareillages:
 
 
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}
 

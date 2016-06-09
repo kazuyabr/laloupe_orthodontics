@@ -8,7 +8,19 @@ use Doctrine\ORM\Mapping as ORM;
  * Adjonctions
  */
 class Adjonctions
+
 {
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
     private $boutonSpecifique;
     
     private $poids;
@@ -195,14 +207,7 @@ class Adjonctions
     {
         return $this->infoCabinet;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->poids = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->boutonSpecifique = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
 
     /**
      * Add poids

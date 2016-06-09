@@ -26,7 +26,7 @@ class CabinetController extends Controller
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();
-        $form = $this->createForm('OrthoBundle\Form\Type\UtilisateursCabinetType', $Utilisateurs);
+        $form = $this->createForm(new UtilisateursCabinetType(), $Utilisateurs);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

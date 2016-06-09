@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CategorieUtilisateurs
- * @ORM\Repository
  */
+
+
 class CategorieUtilisateurs
 {
     // CUSTOM CODE
@@ -15,6 +16,8 @@ class CategorieUtilisateurs
     /* Variable relation Doctrine */
     
     private $utilisateur;
+
+
     
 
     // GENERATED CODE
