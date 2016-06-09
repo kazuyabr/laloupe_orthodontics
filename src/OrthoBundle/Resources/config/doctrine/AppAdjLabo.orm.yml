@@ -9,7 +9,6 @@ OrthoBundle\Entity\AppAdjLabo:
             generator:
                 strategy: AUTO
 
-
     manyToOne:
         utilisateur:
             targetEntity: OrthoBundle\Entity\Utilisateurs
