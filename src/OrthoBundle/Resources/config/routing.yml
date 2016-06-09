@@ -15,5 +15,8 @@ recup_commandes:
 
 recup_user:
     path:     /utilisateurs
-    defaults: { _controller: OrthoBundle:User:show }
+    defaults: { _controller: OrthoBundle:Utilisateur:index}
 
+recup_user2:
+    path:     /utilisateurs2
+    defaults: { _controller: OrthoBundle:Utilisateur:show }
