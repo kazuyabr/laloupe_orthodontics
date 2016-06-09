@@ -127,10 +127,10 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Supprimer
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Supprimer un laboratoire</a></li>
-                            <li><a href="#">Supprimer un cabinet</a></li>
-                            <li><a href="#">Supprimer un appareillage</a></li>
-                            <li><a href="#">Supprimer une adjonction</a></li>
+                            <li><a href="{{ path('sup_labo') }}">Supprimer un laboratoire</a></li>
+                            <li><a href="{{ path('sup_cabinet') }}">Supprimer un cabinet</a></li>
+                            <li><a href="{{ path('sup_app') }}">Supprimer un appareillage</a></li>
+                            <li><a href="{{ path('sup_adj', {'id': 'x'}) }}">Supprimer une adjonction</a></li>
                         </ul>
 
                     </li>

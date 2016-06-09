@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="msform">
-    <fieldset class="smallbloc">
+
     <h2>Modifier Adjonction : {{ adjonctions.id }}  {{ adjonctions.nom }}</h2>
 
     {{ form_start(edit_form) }}
@@ -20,6 +19,5 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
-    </fieldset>
-        </div>
+    
 {% endblock %}

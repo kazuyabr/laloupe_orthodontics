@@ -5,21 +5,21 @@ liste_app:
 
 fiche_app:
     path:     /ficheapp/{id}
-    defaults: { _controller: OrthoBundle:Appareillage:showAppareillage}
+    defaults: { _controller: "OrthoBundle:Appareillage:show"}
     methods: [POST, GET]
 
 crea_app:
     path:     /ajoutapp/
-    defaults: { _controller: OrthoBundle:Appareillage:creationAppareillage }
+    defaults: { _controller: "OrthoBundle:Appareillage:new" }
     methods: [POST, GET]
 
 edit_adj:
     path:     /{id}/editapp
-    defaults: { _controller: "OrthoBundle:Adjonction:edit" }
+    defaults: { _controller: "OrthoBundle:Appareillage:edit" }
     methods:  [GET, POST]
 
 sup_app:
     path:   /supapp/
-    defaults:   { _controller: OrthoBundle:Adjonction:deleteAppareillage:deleteAppareillage}
+    defaults:   { _controller: "OrthoBundle:Appareillage:delete"}
     methods: [POST, GET]
 
