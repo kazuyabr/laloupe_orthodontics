@@ -46,8 +46,7 @@ class Appareillages
      * @var string
      */
     private $infoCabinet;
-
-
+    
     /**
      * Get id
      *
