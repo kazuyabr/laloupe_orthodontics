@@ -13,14 +13,14 @@ class FormulaireControllerTest extends WebTestCase
             'OrthoBundle\DataFixtures\ORM\LoadAppareillagesData',
             'OrthoBundle\DataFixtures\ORM\LoadCouleurData',
             'OrthoBundle\DataFixtures\ORM\LoadMotifData',
-            'OrthoBundle\DataFixtures\ORM\LoadUtilisateursData'
+            'OrthoBundle\DataFixtures\ORM\LoadUtilisateursData',
         );
 
         $this->fixtures = $this->loadFixtures($fixtures, null, 'doctrine', true)->getReferenceRepository();
 
         $client = static::createClient(array(), array(
         'PHP_AUTH_USER' => 'superadmin',
-            'PHP_AUTH_PW' => 'superadmin',
+        'PHP_AUTH_PW' => 'superadmin',
         ));
 
         $crawler = $client->request('GET', '/');
@@ -37,9 +37,5 @@ class FormulaireControllerTest extends WebTestCase
         $client->submit($form);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertEquals('OrthoBundle\Controller\FormulaireController::createFormulaireAction', $client->getRequest()->attributes->get('_controller'));
-
-
-
-
     }
 }

@@ -41,12 +41,4 @@ OrthoBundle\Entity\Adjonctions:
             targetEntity: OrthoBundle\Entity\AppAdjLabo
             mappedBy: adjonction
 
-
-
-
-
-
-
-
-
     lifecycleCallbacks: {  }

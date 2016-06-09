@@ -22,7 +22,7 @@ class Commandes
 
     public $file3;
 
-    public $path3;
+    private $path3;
 
     public function getAbsolutePath1()
     {
@@ -147,7 +147,7 @@ class Commandes
     }
 
 
-    public $path2;
+    private $path2;
 
     public $file2;
 
@@ -233,7 +233,7 @@ class Commandes
     /**
      * @var string
      */
-    public $path1;
+    private $path1;
 
 
     /**
