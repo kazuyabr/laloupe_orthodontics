@@ -36,7 +36,7 @@ class LaboratoireController extends Controller
             return $this->redirectToRoute('fiche_labo', array('id' => $Utilisateurs->getId()));
         }
 
-        return $this->render('@Ortho/Laboratoire/liste_labo.html.twig', array(
+        return $this->render('@Ortho/Laboratoire/crea_labo.html.twig', array(
             'laboratoires' => $Utilisateurs,
             'form' => $form->createView(),
         ));

@@ -17,7 +17,7 @@ class AppareillageController extends Controller
 
         $adjonctions = $em->getRepository('OrthoBundle:Appareillages')->findAll();
 
-        return $this->render('OrthoBundle:Appareillage:liste_adj.html.twig', array(
+        return $this->render('OrthoBundle:Appareillage:liste_app.html.twig', array(
             'appareillages' => $adjonctions,
         ));
     }
