@@ -1,6 +1,18 @@
-photos:
-    resource: "@OrthoBundle/Resources/config/routing.yml"
+ortho_adj:
+    resource: "@OrthoBundle/Resources/config/routing/adjonctions.yml"
     prefix:   /
+
+ortho_app:
+    resource: "@OrthoBundle/Resources/config/routing/appareillages.yml"
+    prefix:   /
+
+ortho_cabinet:
+    resource: "@OrthoBundle/Resources/config/routing/cabinets.yml"
+    prefix: /
+
+ortho_laboratoire:
+    resource: "@OrthoBundle/Resources/config/routing/laboratoires.yml"
+    prefix: /
 
 ortho:
     resource: "@OrthoBundle/Resources/config/routing.yml"

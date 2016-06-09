@@ -8,71 +8,6 @@ recap_formulaire:
     defaults: { _controller: OrthoBundle:RecapFormulaire:showRecapFormulaire }
     methods: [POST, GET]
 
-crea_cabinet:
-    path:     /cabinet
-    defaults: { _controller: OrthoBundle:Cabinet:create }
-    methods: [POST, GET]
-
-fiche_cabinet:
-    path:     /fichecabinet/{id}
-    defaults: { _controller: OrthoBundle:Cabinet:show }
-    methods: [POST, GET]
-
-sup_cabinet:
-    path:   /supcabinet/
-    defaults:    { _controller: OrthoBundle:Cabinet:deleteCab }
-    methods: [POST, GET]
-
-crea_app:
-    path:     /ajoutapp/
-    defaults: { _controller: OrthoBundle:Appareillage:creationAppareillage }
-    methods: [POST, GET]
-
-recap_crea_app:
-    path:    /recapapp/
-    defaults: { _controller: OrthoBundle:Appareillage:recapAppareillage }
-    methods: [POST, GET]
-
-sup_app:
-    path:   /supapp/
-    defaults:   { _controller: OrthoBundle:Adjonction:deleteAppareillage:deleteAppareillage}
-    methods: [POST, GET]
-
-fiche_app:
-    path:     /ficheapp/{id}
-    defaults: { _controller: OrthoBundle:Appareillage:showAppareillage}
-    methods: [POST, GET]
-
-crea_adj:
-    path:   /ajoutadj/
-    defaults:    { _controller: OrthoBundle:Adjonction:creationAdjonction}
-    methods: [POST,GET]
-
-recap_crea_adj:
-   path:    /recapadj/
-   defaults:   { _controller: OrthoBundle:Adjonction:recapAdjonction}
-   methods: [POST,GET]
-
-sup_adj:
-    path:    /supadj/
-    defaults:    { _controller: OrthoBundle:Adjonction:deleteAdjonction }
-    methods: [POST, GET]
-
-fiche_adj:
-    path:     /ficheadj/
-    defaults: { _controller: OrthoBundle:}
-    methods: [POST, GET]
-
-crea_labo:
-    path:     /laboratoire
-    defaults: { _controller: OrthoBundle:Laboratoire:create }
-    methods: [POST, GET]
-
-fiche_labo:
-    path:     /fichelaboratoire/{id}
-    defaults: { _controller: OrthoBundle:Laboratoire:show }
-    methods: [POST, GET]
-
 recup_commandes:
     path:     /commandes
     defaults: { _controller: OrthoBundle:Commandes:show }
@@ -82,7 +17,3 @@ recup_user:
     path:     /utilisateurs
     defaults: { _controller: OrthoBundle:User:show }
 
-sup_labo:
-    path:    /suplabo/
-    defaults:    { _controller: OrthoBundle:Laboratoire:deleteLabo }
-    methods: [POST, GET]
