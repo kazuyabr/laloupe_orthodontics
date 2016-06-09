@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Adjonctions</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ adjonctions.id }}</td>
+        </tr>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('liste_adj') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('edit_adj', { 'id': adjonctions.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

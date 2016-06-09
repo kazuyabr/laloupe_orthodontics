@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+    {% for adjonctions in adjonctions %}
+
+        <div id="msform">
+
+
+            <a id="liste" href="{{ path('fiche_adj', { 'id': adjonctions.id }) }}">{{ adjonctions.id }}  {{ adjonctions.nom }}</a>
+                <br />
+                        <a id="lienedit" href="{{ path('fiche_adj', { 'id': adjonctions.id }) }}">Voir</a>
+                <br />
+                        <a id="lienedit" href="{{ path('edit_adj', { 'id': adjonctions.id }) }}">Editer</a>
+
+        </div>
+
+
+    {% endfor %}
+
+{% endblock %}

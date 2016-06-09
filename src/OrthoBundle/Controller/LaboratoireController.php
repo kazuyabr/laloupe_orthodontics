@@ -5,97 +5,97 @@ namespace OrthoBundle\Controller;
 use OrthoBundle\Entity\Utilisateurs;
 use OrthoBundle\Form\Type\UtilisateursLaboratoireType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class LaboratoireController extends Controller
 {
-    public function createAction()
+
+    public function indexAction()
     {
-        // On crée une instance de l'entité Laboratoire
-        $laboratoire  = new Utilisateurs();
-        $request = $this->getRequest();
-
-        // On crée un nouveau formulaire qui prend en paramètres notre formulaire
-        // "UtilisateursLaboratoireType.php" ainsi que l'instance de l'entité Laboratoire
-        $form    = $this->createForm(new UtilisateursLaboratoireType(), $laboratoire);
-
-        // Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
 
-        // On hydrate notre formulaire
+        $Utilisateurs = $em->getRepository('OrthoBundle:Utilisateurs')->findAll();
+
+        return $this->render('OrthoBundle:Laboratoire:liste_labo.html.twig', array(
+            'laboratoires' => $Utilisateurs,
+        ));
+    }
+
+
+    public function newAction(Request $request)
+    {
+        $Utilisateurs = new Utilisateurs();
+        $form = $this->createForm('OrthoBundle\Form\Type\UtilisateursLaboratoireType', $Utilisateurs);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-
-            $laboratoire->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(2));
-            $laboratoire->setEnabled(true);
-            $laboratoire->setRoles(array('ROLE_LABORATOIRE'));
-
-            $em->persist($laboratoire);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Utilisateurs);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('fiche_labo', array('id' => $laboratoire->getId())));
+            return $this->redirectToRoute('fiche_labo', array('id' => $Utilisateurs->getId()));
         }
 
-        // On affiche la page formulaire, qui prend en paramètre
-        // Notre instance de l'entité Laboratoire, ainsi que l'affichage du formulaire
-        return $this->render('@Ortho/Laboratoire/crea_labo.html.twig', array(
-            'form'   => $form->createView()
+        return $this->render('@Ortho/Laboratoire/liste_labo.html.twig', array(
+            'laboratoires' => $Utilisateurs,
+            'form' => $form->createView(),
         ));
-
     }
 
-    public function showAction($id)
+
+    public function showAction(Utilisateurs $utilisateurs)
     {
-        // On récupère l'ID du Laboratoire en question, passé dans l'URL
-        // Lors de la redirection du Laboratoire.
-        $idLaboratoire = $id;
+        $deleteForm = $this->createDeleteForm($utilisateurs);
 
-        // On appelle Doctrine
-        $em = $this->getDoctrine()->getManager();
-
-        // On récupère la liste des informations d'un formulaire en fonction de son ID
-        $affichagefiche = $em->getRepository('OrthoBundle:Utilisateurs')->find($idLaboratoire);
-
-        // On affiche la vue de fiche_laboratoire, en prenant en paramètre
-        // La liste des informations du formulaire
         return $this->render('@Ortho/Laboratoire/fiche_labo.html.twig', array(
-            'affichagefiche' => $affichagefiche
+            'laboratoires' => $utilisateurs,
+            'delete_form' => $deleteForm->createView(),
         ));
     }
 
-    public function editLaboAction(Request $request, Laboratoire $laboratoire)
+    public function editAction(Request $request, Utilisateurs $utilisateurs)
     {
-        $deleteForm = $this->createDeleteForm($laboratoire);
-        $editForm = $this->createForm('Crud\Bundle\Form\TestType', $laboratoire);
+        $deleteForm = $this->createDeleteForm($utilisateurs);
+        $editForm = $this->createForm('OrthoBundle\Form\Type\UtilisateursLaboratoireType', $utilisateurs);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($laboratoire);
+            $em->persist($utilisateurs);
             $em->flush();
 
-            return $this->redirectToRoute('fiche_labo', array('id' => $laboratoire->getId()));
+            return $this->redirectToRoute('edit_labo', array('id' => $utilisateurs->getId()));
         }
 
-        return $this->render('@Ortho/Laboratoire/fiche_labo.html.twig', array(
-            'Labo' => $laboratoire,
+        return $this->render('OrthoBundle:Laboratoire:edit_labo.html.twig', array(
+            'laboratoires' => $utilisateurs,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-    
-    public function deleteLaboAction(Request $request, Laboratoire $laboratoire)
+
+
+    public function deleteAction(Request $request, Utilisateurs $utilisateurs)
     {
-        $form = $this->createDeleteForm($laboratoire);
+        $form = $this->createDeleteForm($utilisateurs);
         $form->handleRequest($request);
-    
-        if ($form->isSubmitted() && $form->isValid()) 
-        {
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($laboratoire);
+            $em->remove($utilisateurs);
             $em->flush();
         }
-    
-        return $this->redirectToRoute('sup_labo');
+
+        return $this->redirectToRoute('liste_labo');
+    }
+
+
+    private function createDeleteForm(Utilisateurs $utilisateurs)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('sup_labo', array('id' => $utilisateurs->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
     }
 }

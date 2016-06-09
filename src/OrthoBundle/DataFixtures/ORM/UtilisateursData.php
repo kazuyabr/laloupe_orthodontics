@@ -23,11 +23,15 @@ class UtlisateursData extends AbstractFixture implements OrderedFixtureInterface
         $superAdminCredentials->setCodePostal('28000');
         $superAdminCredentials->setVille('Chartres');
         $superAdminCredentials->setTelephone('02.37.90.61.84');
-        
+        $superAdminCredentials->setAdresseFacturation("blabla");
+        $superAdminCredentials->setCodePostalFacturation("vkvkv");
+        $superAdminCredentials->setVilleFacturation("kijnj");
+        $superAdminCredentials->setTelephoneFacturation("sdfg");
+
         $manager->persist($superAdminCredentials);
         $manager->flush();
     }
-    
+
     public function getOrder()
     {
         return 2;

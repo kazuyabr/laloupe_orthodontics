@@ -1,0 +1,24 @@
+liste_labo:
+    path:     /listelaboratoire
+    defaults: { _controller: "OrthoBundle:Laboratoire:index" }
+    methods:  GET
+
+fiche_labo:
+    path:     /fichelaboratoire/{id}
+    defaults: { _controller: "OrthoBundle:Laboratoire:show" }
+    methods:  GET
+
+crea_labo:
+    path:     /laboratoire
+    defaults: { _controller: "OrthoBundle:Laboratoire:new"}
+    methods: [POST, GET]
+
+edit_labo:
+    path:     /{id}/editlabo
+    defaults: { _controller: "OrthoBundle:Laboratoire:edit" }
+    methods:  [GET, POST]
+
+sup_labo:
+    path:    /suplabo/
+    defaults:    { _controller: "OrthoBundle:Laboratoire:delete" }
+    methods: [POST, GET]
