@@ -8,7 +8,6 @@ function addCommentAppareillageModal(commentId) {
 function removeCommentAppareillageModal(commentId) {
     $('#commentaireEnfant' + commentId).remove();
 }
-
 // Pour chaque itération de boucle du tableau trié, faire :
 for (var compteur = 1; compteur < Object.keys(tableauAppareillages).length; compteur++)
 {

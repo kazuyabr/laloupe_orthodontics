@@ -22,7 +22,6 @@ class LaboratoireController extends Controller
         ));
     }
 
-
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();

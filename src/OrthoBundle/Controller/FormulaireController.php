@@ -33,10 +33,9 @@ class FormulaireController extends Controller
         $form->handleRequest($request);
 
         // Condition pour vérifier que le formlaire est valide et qu'il a bien été envoyé
+
         if ($form->isValid() && $form->isSubmitted())
         {
-            $commande->upload1();
-
             // Pour chaque Appareil contenu dans notre commande, qui auront dans la boucle la valeur $appareil, faire :
             foreach ($commande->getAppareillages() as $appareil) {
                 // On récupère le cabinet en question qui a passé la commande
@@ -103,3 +102,4 @@ class FormulaireController extends Controller
         ));
     }
 }
+

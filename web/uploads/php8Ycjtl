@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Détail d'une relation sur Symfony</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+
+
+		<!-- Bonjour ! Petit point pour vous détailler comment fonctionne une relation. Ici on verra la relation "manytoOne"
+		On verra le reste un peu plus tard ! C'est parti ! -->
+
+		<?php
+			/* Dans notre exemple, on a :
+
+			- des Laboratoires (avec un id_labo)
+			- Des Cabinets Dentaires
+
+			==> Un Cabinet Dentaire ne travaille qu'avec UN SEUL labo, mais un labo peut travailler avec PLUSIEURS cabinets dentaires
+			==> UN / PLUSIEURS == manytoOne
+
+			Maintenant, on écrit notre pavé sur Symfony !
+
+
+			---------------------------------------------------------------------------------------
+
+
+			// src/TonbundleBundle/Resources/config/doctrine/tonentity.orm.yml
+
+			1.	manyToOne:
+        	2.		fidLabo:
+            3.			targetEntity: Laboratoire
+            4.			inversedBy: Cabinetsdentaires
+            5.			joinColumn:
+            6.    			name: fid_labo
+            7.    			referencedColumn: id_labo
+            8.    			nullable: false
+
+			
+			[Nota d'avant-propos : Une relation, ça comporte deux tables, ça on le sait ? Mais on écrit où ? Dans notre partie
+			"Many" ? La partie "One" de notre relation ?? De manière générale, et c'est le plus simple, faîtes vos clés
+			(que ce soit en MySQL ou non, Symfony ou non), dans votre partie "One".]
+
+            1. Je dis que je veux faire une relation manytoOne [IMPORTANT : Vous devez ce bloc de code après la définition des
+            différents champs, soit après toutes vos colonnes sans foreign key particulière. Le "manytoOne" doit donc être écrit
+            après "fields", avant "lifecycleCallbacks", MAIS a la même hauteur que "fields". Sinon, ça ne marche pas !]
+			
+			2. "fidLabo" c'est tout simplement le nom de ma variable. C'est elle qui devra être présente dans votre entité
+			(Le long fichier où sont défini les Getters/Setters | Accesseurs/Mutateurs). On va ensuite, définir toutes les
+			caractéristiques de notre clé étrangère !
+
+			3. "targetEntity: Laboratoire" Défini le nom de la table qui va nous servir de liaison. Ce bout de phrase veut
+			dire : 'La relation va s'effectuer entre l'orm de la table où j'écris et cette table.' [ici, Laboratoire] [Et 
+			pour faire la liaison avec ce que j'ai dis en avant-propos, c'est votre table "Many".
+
+			4. "inversedBy: Cabinetsdentaires" Signifie quelle table va recevoir la clé étrangère [Votre table "One"].
+			Cette phrase signifie littéralement : 'Tu me stockeras la clé étrangère dans Cabinetsdentaires'
+
+			5. joinColumn : C'est la où on va définir les caractéristiques de notre variable "fidLabo".
+
+			6. "name: fid_labo" => Le nom qu'aura votre champ dans mySQL.
+
+			7. "referencedColumn: id_labo" => L'un des morceaux les plus importants ! On défini ici quel est le champ de
+			l'autre table [Laboratoire ici] qui va servir de référence à notre clé étrangère. On peut remplaçer cette 
+			phrase par : "Pour ma clé étrangère fidLabo, vas te servir des données de la colonne [id_labo], qui est située
+			dans la table [Laboratoire]."
+
+			8. nullable: false => Ca c'est facile, on défini que fid_labo ne peut être nul. Le champ ne peut prendre la
+			valeur "NULL".
+			[Nota : On peut rajouter toutes les options classiques après "referencedColumn : ...", comme "unique: true/false", 
+			etc etc...]
+
+			==> Dernière étape, mettre à jour votre base de données !
+
+			// php app/console doctrine:schema:update --dump-sql 
+			[Visualisez bien ce que Doctrine va effectuer en requête SQL, cela permet de bien vérifier que ça correspond bien
+			à ce que vous souhaitez faire.]
+
+			// php app/console doctrine:schema:update --force
+
+			Et c'est tout bon ! Si vous voulez vérifiez que la liaison a bien été faite, vous pouvez voir ça sur PhPMyAdmin par
+			exemple :
+
+			--> Allez sur votre table qui possède la clé étrangère (Cabinetsdentaires dans notre exemple)
+			--> "Structure" dans le menu du haut
+			--> En dessous de la description des tables, cliquez sur "Vue relationnelle" | "Relation view"
+			--> Et là, vous pouvez bien voir la relation qui a été faite entre vos deux tables
+			--> [ http://hpics.li/04ba767 ]
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
