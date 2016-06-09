@@ -22,7 +22,6 @@ class CabinetController extends Controller
         ));
     }
 
-
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();
@@ -31,6 +30,11 @@ class CabinetController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $Utilisateurs->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(1));
+            $Utilisateurs->setEnabled(true);
+            $Utilisateurs->setRoles(array('ROLE_CABINET'));
+
             $em->persist($Utilisateurs);
             $em->flush();
 
@@ -40,6 +44,7 @@ class CabinetController extends Controller
         return $this->render('@Ortho/Cabinet/crea_cabinet.html.twig', array(
             'cabinets' => $Utilisateurs,
             'form' => $form->createView(),
+            'id' => $Utilisateurs->getId()
         ));
     }
 
