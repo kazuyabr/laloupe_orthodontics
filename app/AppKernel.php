@@ -18,8 +18,6 @@ class AppKernel extends Kernel
             new OrthoBundle\OrthoBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-
-
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

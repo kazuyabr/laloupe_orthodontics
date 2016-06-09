@@ -30,60 +30,42 @@ class CommandesType extends AbstractType
             ->add('dateretour', 'date', array(
                     'widget' => 'single_text',
                     'format' => 'dd-MM-yyyy',
-                    'attr' => [
-                        'class' => 'form-control input-inline datepicker',
-                        'data-provide' => 'datepicker',
-                        'data-date-format' => 'dd-mm-yyyy'
-                    ])
+
+                    )
             )
             ->add('appareillages', 'entity', array(
                 'class' => 'OrthoBundle:Appareillages',
-                'property' => 'titre_app',
+                'property' => 'nom',
                 'expanded' => 'true',
                 'multiple' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
-                    return $entityRepository->triParPoids();
+                    return $entityRepository->orderApparelsByWeight();
                 }
             ))
-            ->add('ajoutApp', 'button', array(
-                'attr' => array(
-                    'class' => 'action-button',
-                    'data-toggle' => 'modal',
-                    'data-target' => '#myModal'
-                    )
-            ))
-
-            ->add('fidAdj', 'entity', array(
+            ->add('adjonctions', 'entity', array(
                 'class' => 'OrthoBundle:Adjonctions',
-                'property' => 'titre_adj',
+                'property' => 'nom',
                 'multiple' => 'true',
                 'expanded' => 'true',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $entityRepository) {
-                    return $entityRepository->triParPoids();
+                    return $entityRepository->orderAdjonctionsByWeight();
                 }
             ))
+            ->add('couleur')
+            ->add('motif')
             
-            ->add('ajoutAdj', 'button', array(
-                'attr' => array('class' => 'action-button')
-            ))
-            ->add('fidCouleur')
-            ->add('fidMotif')
-            ->add('comment', 'textarea')
-            ->add('testimage', 'file', array(
-                'mapped' => false,
+            ->add('commentaireLabo', 'textarea')
+            ->add('file1', 'file', array(
                 'required' => false
             ))
-            ->add('testimage1', 'file', array(
-                'mapped' => false,
+            ->add('file2', 'file', array(
                 'required' => false
             ))
-            ->add('testimage2', 'file', array(
-                'mapped' => false,
+            ->add('file3', 'file', array(
                 'required' => false
             ))
-            ->add('comment2', 'textarea', array(
+            ->add('commentairePrestataire3D', 'textarea', array(
                 'required' => false
-
             ));
     }
 

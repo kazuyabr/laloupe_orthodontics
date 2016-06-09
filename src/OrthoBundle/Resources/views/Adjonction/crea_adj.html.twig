@@ -1,38 +1,33 @@
 {# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
-
 {% block body %}
+    <div id="msform">
+        {{ form_start(form) }}
+            <fieldset class="smallbloc">
+                <div class="creaplace">
+                    {{ form_label(form.nom) }} <!-- Affiche le label -->
+                    {{ form_errors(form.nom) }}
+                    {{ form_widget(form.nom) }}
 
-<div id="msform" >
-    {{ form_start(form) }}
-    <fieldset class="smallbloc">
+                    {{ form_label(form.famille) }}
+                    {{ form_errors(form.famille) }}
+                    {{ form_widget(form.famille) }}
 
-        <div class="creaplace">
-            {{ form_label(form.titreAdj) }} <!-- Affiche le label -->
-            {{ form_errors(form.titreAdj) }}
-            {{ form_widget(form.titreAdj) }}
+                    {{ form_label(form.image) }}
+                    {{ form_errors(form.image) }}
+                    {{ form_widget(form.image) }}
 
-            {{ form_label(form.familleAdj) }}
-            {{ form_errors(form.familleAdj) }}
-            {{ form_widget(form.familleAdj) }}
+                    {{ form_label(form.commentaire) }}
+                    {{ form_errors(form.commentaire) }}
+                    {{ form_widget(form.commentaire) }}
 
-            {{ form_label(form.imgAdj) }}
-            {{ form_errors(form.imgAdj) }}
-            {{ form_widget(form.imgAdj) }}
+                    <input type="submit" name="previous" class="action-button" value="ENVOYER" />
 
-            {{ form_label(form.commentairesAdj) }}
-            {{ form_errors(form.commentairesAdj) }}
-            {{ form_widget(form.commentairesAdj) }}
-
-        </div>
+                </div>
 
 
+            </fieldset>
+        {{ form_end(form) }}
 
-        <div>
-            <input type="submit" name="previous" class="action-button" value="ENVOYER"/>
-        </div>
-
-    </fieldset>
-    {{ form_end(form) }}
-</div>
+    </div>
 {% endblock %}

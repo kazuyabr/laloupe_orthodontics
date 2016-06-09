@@ -10,58 +10,69 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdjonctionController extends Controller
 {
-    /*
-     * Creation adjonctions.
+
+
+    /**
+     * Lists all Test entities.
      *
      */
-    public function creationAdjonctionAction()
+    public function indexAction()
     {
-        $nouvelleAdjonction = new Adjonctions();
-        $request = $this->getRequest();
-        $form = $this->createForm(new AjoutAdjType(), $nouvelleAdjonction);
-        $form->handleRequest($request);
-        //Appel de Doctrine
         $em = $this->getDoctrine()->getManager();
 
-        if ($form->isValid() && $form->isSubmitted()) {
-            $em->persist($nouvelleAdjonction);
+        $adjonctions = $em->getRepository('OrthoBundle:Adjonctions')->findAll();
+
+        return $this->render('OrthoBundle:Adjonction:liste_adj.html.twig', array(
+            'adjonctions' => $adjonctions,
+        ));
+    }
+
+
+    /**
+     * Creates a new Test entity.
+     *
+     */
+    public function newAction(Request $request)
+    {
+        $adjonctions = new Adjonctions();
+        $form = $this->createForm('OrthoBundle\Form\Type\AjoutAdjType', $adjonctions);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($adjonctions);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('recap_crea_adj', array(
-                'id' => $nouvelleAdjonction->getId()
-            )));
+            return $this->redirectToRoute('fiche_adj', array('id' => $adjonctions->getId()));
         }
 
-        return $this->render('OrthoBundle:Adjonction:crea_adj.html.twig', array(
-            "form" => $form->createView()
+        return $this->render('@Ortho/Adjonction/crea_adj.html.twig', array(
+            'adjonctions' => $adjonctions,
+            'form' => $form->createView(),
         ));
     }
 
-    /*
-     * Recap adjonctions.
+    /**
+     * Finds and displays a Test entity.
      *
      */
-    public function recapAdjonctionAction()
+    public function showAction(Adjonctions $adjonctions)
     {
+        $deleteForm = $this->createDeleteForm($adjonctions);
 
-        $idAdjonction = intval($_GET['id']);
-
-        // Appel de Doctrine
-        $em = $this->getDoctrine()->getManager();
-        $recapAdjonction = $em->getRepository('OrthoBundle:Adjonctions')->find($idAdjonction);
-        return $this->render('OrthoBundle:Adjonction:crea_adj.html.twig', array(
-            "recapAdjonction" => $recapAdjonction,
-
+        return $this->render('@Ortho/Adjonction/fiche_adj.html.twig', array(
+            'adjonctions' => $adjonctions,
+            'delete_form' => $deleteForm->createView(),
         ));
-
     }
 
-    public function editAdjonctionAction(Adjonctions $adjonctions)
+    /**
+     * Displays a form to edit an existing Test entity.
+     *
+     */
+    public function editAction(Request $request, Adjonctions $adjonctions)
     {
-
         $deleteForm = $this->createDeleteForm($adjonctions);
-        $request = $this->getRequest();
-
         $editForm = $this->createForm('OrthoBundle\Form\Type\AjoutAdjType', $adjonctions);
         $editForm->handleRequest($request);
 
@@ -70,25 +81,23 @@ class AdjonctionController extends Controller
             $em->persist($adjonctions);
             $em->flush();
 
-            return $this->redirectToRoute('fiche_adj', array('id' => $adjonctions->getId()));
+            return $this->redirectToRoute('edit_adj', array('id' => $adjonctions->getId()));
         }
 
-        return $this->render('@Ortho/Adjonction/fiche_adj.html.twig', array(
+        return $this->render('OrthoBundle:Adjonction:edit_adj.html.twig', array(
             'adjonctions' => $adjonctions,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-    
-    /*
-     * Delete.
+
+    /**
+     * Deletes a Test entity.
      *
      */
-    public function deleteAdjonctionAction(Adjonctions $adjonctions)
+    public function deleteAction(Request $request, Adjonctions $adjonctions)
     {
         $form = $this->createDeleteForm($adjonctions);
-        $request = $this->getRequest();
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -97,16 +106,21 @@ class AdjonctionController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('sup_adj');
+        return $this->redirectToRoute('liste_adj');
     }
 
-
-    private function createDeleteForm($id)
+    /**
+     * Creates a form to delete a Test entity.
+     *
+     * @param Test $test The Test entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Adjonctions $adjonctions)
     {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-            ;
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('sup_adj', array('id' => $adjonctions->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
     }
-
 }

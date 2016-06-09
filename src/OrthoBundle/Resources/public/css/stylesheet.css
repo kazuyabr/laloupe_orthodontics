@@ -1,26 +1,61 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     margin: 0 1.5em;
     background-color: #f8f8f8;
     opacity: 0.9;
+    font-family: "Montserrat", "Arial", "Verdana";
 }
 
 h3 {
     text-align: center;
 }
 
-#ours {
-    width: 100%;
+a {
+    color: #ccff90;
 }
 
-/*#commandes_fidAdj {
-    width: 100%;
-    padding: 5px;
-    display: block;
-}*/
+li {
+    list-style-type: none;
+}
 
-#commandes_fidAdj,
+input {
+    margin: 0 0 10px;
+    /* margin: 10 px; */
+    vertical-align: sub;
+}
+
+input[type="file"] {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: green;
+    text-decoration: none;
+}
+
+input[type=checkbox] {
+    float: left;
+}
+
+fieldset > label {
+    display: block;
+}
+
+#commandes_adjonctions,
 #commandes_appareillages {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -28,11 +63,8 @@ h3 {
     padding: 0;
 }
 
-#commandes_dateretour,
-#commandes_ajoutApp,
-#commandes_ajoutAdj {
+#commandes_dateretour, #commandes_ajoutApp, #commandes_ajoutAdj{
     margin-bottom: 15px;
-
 }
 
 #commandes_dateretour {
@@ -40,21 +72,13 @@ h3 {
     width: 150px;
 }
 
-#commandes_fidCouleur,
-#commandes_fidMotif {
+#commandes_couleur, #commandes_motif {
     vertical-align: middle;
     width: 20%;
+    font-size: 85%; /**/
 }
 
-#remplissageCadreCouleur,
-#remplissageCadreMotif {
-    height: 75px;
-    margin-bottom: 15px;
-    vertical-align: text-top;
-}
-
-#commandes_comment,
-#commandes_comment2 {
+#commandes_commentaireLabo, #commandes_commentairePrestataire3D {
     padding: 5px;
     width: 100%;
     display: block;
@@ -73,66 +97,29 @@ h3 {
     /*margin-left: 0;*/
 }
 
-/*form {
-#formulairecommandes {
-
-    border-radius: 15px;
-    margin: 0 auto 40px;
-    width: 90%;
-    height: auto;
-    padding: 20px;
-    padding-bottom: 70px;
-   /* background-color: #20B2AA;
-}
-
-#formupload {
-    display: flex;
-
-}*/
-
-input {
-    margin: 0 0 10px;
-    /* margin: 10 px; */
-    vertical-align: sub;
-}
-
-input[type="file"] {
-    display: inline-block;
-    width: auto;
-    padding: 0;
-}
-
-/*button {
-    display: block;
-    margin-top: 10px !important;
-    text-align: center !important;
-    color: #4f4;
-    color: #20B2AA;
-}*/
-
 .navbar-inverse {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d2dfed+0,c8d7eb+26,bed0ea+51,a6c0e3+51,afc7e8+62,bad0ef+75,99b5db+88,799bc8+100;Grey+Blue+Gloss+%231 */
-    /*background: #20B2AA; /* Old browsers */
-    background: #ccff90; /*vert nouveau design*/
-    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2dfed', endColorstr='#799bc8', GradientType=0); /* IE6-9 */
+    background: #ccff90;
     border-radius: 0;
     border: none;
     margin: 0 -1.5em;
 }
 
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li > a,
+.dropdown-menu > li > a {
     color: #2e7d32;
 }
 
-.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > li:hover,
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .open > li:hover,
-.navbar-inverse .navbar-nav > li > a:focus,
-.navbar-inverse .navbar-nav > li > a:hover {
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
     background-image: -webkit-linear-gradient(top, #353535 0%, #27AE60 100%);
     background-image: -o-linear-gradient(top, #353535 0%, #27AE60 100%);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#27AE60));
@@ -140,21 +127,27 @@ input[type="file"] {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#27AE60', GradientType=0);
 }
 
+.navbar-inverse .navbar-nav > li.connect {
+    float: right;
+}
+
+.navbar-inverse .navbar-nav > li.connect > a,
+.navbar-inverse .navbar-nav > li.connect > a:focus,
+.navbar-inverse .navbar-nav > li.connect > a:hover {
+    background: none;
+    color: #2e7d32;
+    right: 0;
+    display: inline-block;
+}
+
+ul.nav.navbar-nav {
+    width: 100%;
+}
 
 .dropdown-menu {
     background-color: #ccff90;
+    padding: 0;
 }
-
-/*.header_recap {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.header_recap h2 {
-    padding-top: 6px;
-    text-align: center;
-}*/
 
 .coche_vert {
     text-align: center;
@@ -166,18 +159,6 @@ input[type="file"] {
 #imprimante, #image_envoi_email {
     width: 60px;
     height: 60px;
-}
-
-/*#lien_nouveau_formulaire {
-    color: black;
-    border: 1px solid black;
-    padding: 1em;
-    font-size: 18px;
-    box-shadow: 8px 8px 0px black;
-}*/
-
-li {
-    list-style-type: none;
 }
 
 #upload {
@@ -193,98 +174,24 @@ li {
     height: auto;
     border-right: 1px solid dimgrey;
     padding-right: 20px;
-
 }
 
 #boutoncde {
     float: right;
 }
 
-#remplissageCadreCouleur,
-#remplissageCadreMotif {
-    width: 60px;
-    height: 60px;
-}
+/* ------------------ */
 
-.ds_box {
-    background-color: #FFF;
-    border: 1px solid #000;
-    position: absolute;
-    z-index: 32767;
-}
-
-.ds_tbl {
-    background-color: #FFF;
-}
-
-.ds_head {
-    background-color: #333;
-    color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 2px;
-}
-
-.ds_subhead {
-    background-color: #CCC;
-    color: #000;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 32px;
-}
-
-.ds_cell {
-    background-color: #EEE;
-    color: #000;
-    font-size: 13px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.ds_cell:hover {
-    background-color: #F3F3F3;
-
-}
-
-/* This hover code won't work for IE */
-
-.modal-content ul {
-    border: 1px solid;
-    border-radius: 15px;
-
-}
-
-a:hover, a:focus, a:active {
-    text-decoration: none;
-    color: green;
-
-}
-
-a {
-    text-decoration: none;
-    color: #ccff90;
-}
-
-#imageSchemaApp {
+#imageSchemaApp, #imageSchemaAdj {
     width: 30%;
     text-align: center;
 }
 
 /* This hover code won't work for IE */
 
-#commandes_fidAdj label,
-#commandes_appareillages label {
+#commandes_adjonctions label, #commandes_appareillages label {
     display: block;
-}
-
-input[type=checkbox] {
-    float: left;
+    font-size: 85%;
 }
 
 .commentaireClass {
@@ -295,32 +202,18 @@ input[type=checkbox] {
     margin-bottom: 10px;
 }
 
-/*nouveau design*/
-/* Intégration nouveau formulaire */
+/* CSS Nouveau Design du Formulaire */
 
-/*custom font*/
-
-/*basic reset*/
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    font-family: montserrat, arial, verdana;
-}
-
-/*form styles*/
 #msform {
     /*width: 400px;*/
     width: 800px; /**/
     margin: 50px auto;
     text-align: center;
     position: relative;
+}
+
+#msform h2 {
+    padding-bottom: 10px;
 }
 
 #msform fieldset {
@@ -351,28 +244,24 @@ body {
     display: none;
 }
 
-/*inputs*/
-#msform input,
-#msform button,
-#msform textarea {
+/* Inputs */
+#msform input, #msform button, #msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: "Montserrat";
     color: #2C3E50;
     font-size: 13px;
 }
 
-/*buttons*/
+/* Buttons */
 #msform .action-button {
     width: 100px;
-    /*background:#76ff03;*/
-    background:#ccff90;
+    background: #ccff90;
     font-weight: bold;
-    /*color: white;*/
     color: #2e7d32;
     border: 0 none;
     border-radius: 1px;
@@ -381,16 +270,16 @@ body {
     margin: 10px 5px;
 }
 
-#msform a.action-button {
-    float: right;
-}
-
 #msform .action-button:hover,
 #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
-/*headings*/
+#msform a.action-button {
+    float: right;
+}
+
+/* Headers */
 .fs-title {
     font-size: 15px;
     text-transform: uppercase;
@@ -405,17 +294,16 @@ body {
     margin-bottom: 20px;
 }
 
-/*progressbar*/
+/* Barre de progression */
 #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
-    /*CSS counters to number the steps*/
     counter-reset: step;
 }
 
 #progressbar li {
     list-style-type: none;
-    color:white ;
+    color: white;
     text-transform: uppercase;
     font-size: 9px;
     width: 33.33%;
@@ -436,7 +324,7 @@ body {
     margin: 0 auto 5px auto;
 }
 
-/*progressbar connectors*/
+/* Connecteurs de la barre de progression */
 #progressbar li:after {
     content: '';
     width: 100%;
@@ -456,7 +344,7 @@ body {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 
-#progressbar li.active:before,  #progressbar li.active:after {
+#progressbar li.active:before, #progressbar li.active:after {
     background: #76ff03;
 }
 
@@ -465,9 +353,7 @@ body {
     color: white;
 }
 
-fieldset > label {
-    display: block;
-}
+/* ---------------- */
 
 .blocAppAdj {
     width: 47%;
@@ -485,33 +371,8 @@ fieldset > label {
     height: 50px;
 }
 
-.rectangeProfil {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 13px;
-}
-
 #msform h2 {
     padding-bottom: 10px;
-}
-
-.affichageCadreProfil {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 13px;
-
 }
 
 .profileplace {
@@ -523,9 +384,10 @@ fieldset > label {
     box-sizing: border-box;
     width: 40%;
     margin: 35px;
+}
 
-    /*stacking fieldsets above each other*/
-
+.smallbloc .profileplace {
+    width: 100%;
 }
 
 #container {
@@ -533,13 +395,16 @@ fieldset > label {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 10px;
-
 }
 
+.blocAppareillage.selected, .blocAppareillage:hover
+{
+    cursor: pointer;
+    background-color: #d4d4d4;
+}
 
 #buttonprofile {
     background-color: #76ff03;
-
 }
 
 .creaplace {
@@ -553,5 +418,10 @@ fieldset > label {
     margin: 35px;
 }
 
+#liste {
+    color: #2b542c;
+}
 
-
+#lienedit {
+    color: #76ff03;
+}

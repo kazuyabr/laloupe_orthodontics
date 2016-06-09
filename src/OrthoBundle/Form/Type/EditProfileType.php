@@ -42,39 +42,41 @@ class EditProfileType extends AbstractType
             'constraints' => new UserPassword(),
         ))
 
-        ->add('adresseCab', 'text', array(
+        ->add('adresse', 'text', array(
         'attr' => array('placeholder' => 'Adresse'),
         'label' => 'Adresse',))
 
-        ->add('codepostalCab', 'text', array( 'attr' => array( 'placeholder' => 'Code Postal'),
+        ->add('codePostal', 'text', array( 'attr' => array( 'placeholder' => 'Code Postal'),
             'label' => 'Code Postal',))
 
-        ->add('villeCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+        ->add('ville', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
             'label' => 'Ville'))
 
-        ->add('telephoneCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
+        ->add('telephone', 'text', array('attr' => array( 'placeholder' => 'Ville'),
             'label' => 'Téléphone'))
 
-        ->add('adressebisCab', 'text', array(
+        ->add('adresseFacturation', 'text', array(
             'attr' => array('placeholder' => 'Adresse'),
             'label' => 'Adresse',))
 
-        ->add('codepostalbisCab', 'text', array( 'attr' => array( 'placeholder' => 'Code Postal'),
+        ->add('codePostalFacturation', 'text', array( 'attr' => array( 'placeholder' => 'Code Postal'),
             'label' => 'Code Postal',))
 
-        ->add('villebisCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+        ->add('villeFacturation', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
             'label' => 'Ville'))
 
-        ->add('telephonebisCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
+        ->add('telephoneFacturation', 'text', array('attr' => array( 'placeholder' => 'Ville'),
             'label' => 'Téléphone'))
 
-        ->add('mailCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
-            'label' => 'Email 1'))
+        ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
+            'label' => 'E-mail 1',
+            'translation_domain' => 'FOSUserBundle'
+        ))
 
-        ->add('emailbisCab', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
+        ->add('mailBis', 'text', array( 'attr' => array( 'placeholder' => 'ville'),
             'label' => 'Email 2'))
 
-        ->add('emailterCab', 'text', array('attr' => array( 'placeholder' => 'Ville'),
+        ->add('mailTer', 'text', array('attr' => array( 'placeholder' => 'Ville'),
             'label' => 'Email 3'))    
         ;
 

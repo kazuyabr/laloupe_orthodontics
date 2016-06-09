@@ -15,16 +15,16 @@ class AjoutAdjType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titreAdj', 'text', array(
+            ->add('nom', 'text', array(
                 'label' => "Nom de l'adjonction : "
             ))
-            ->add('familleAdj', 'text', array(
+            ->add('famille', 'text', array(
                 'label' => "Famille de l'adjonction : "
             ))
-            ->add('imgAdj', 'text', array(
+            ->add('image', 'text', array(
                 'label' => 'Image : '
             ))
-            ->add('commentairesAdj', 'textarea', array(
+            ->add('commentaire', 'textarea', array(
                 'label' => 'Commentaires : '
             ));
     }

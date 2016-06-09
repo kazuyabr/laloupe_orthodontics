@@ -13,9 +13,4 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SuperAdminController extends Controller
 {
-    
-
-    
-
-    
 }

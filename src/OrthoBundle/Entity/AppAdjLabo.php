@@ -2,40 +2,22 @@
 
 namespace OrthoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * AppAdjLabo
  */
 class AppAdjLabo
 {
-    
-    
-    // CUSTOM CODE
-    
-    
-    
-    
-    
-    // GENERATED CODE
-    
-    /**
-     * @var int
-     */
-    private $idAppAdjLabo;
+    private $utilisateur;
 
-    /**
-     * @var int
-     */
-    private $fidApp;
+    private $adjonction;
 
+    private $appareillage;
     /**
      * @var int
      */
-    private $fidAdj;
-
-    /**
-     * @var int
-     */
-    private $fidLabo;
+    private $id;
 
 
     /**
@@ -45,85 +27,75 @@ class AppAdjLabo
      */
     public function getId()
     {
-        return $this->idAppAdjLabo;
+        return $this->id;
     }
 
     /**
-     * Set fidApp
+     * Set utilisateur
      *
-     * @param integer $fidApp
+     * @param \OrthoBundle\Entity\Utilisateurs $utilisateur
      * @return AppAdjLabo
      */
-    public function setFidApp($fidApp)
+    public function setUtilisateur(\OrthoBundle\Entity\Utilisateurs $utilisateur = null)
     {
-        $this->fidApp = $fidApp;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get fidApp
+     * Get utilisateur
      *
-     * @return integer 
+     * @return \OrthoBundle\Entity\Utilisateurs 
      */
-    public function getFidApp()
+    public function getUtilisateur()
     {
-        return $this->fidApp;
+        return $this->utilisateur;
     }
 
     /**
-     * Set fidAdj
+     * Set appareillage
      *
-     * @param integer $fidAdj
+     * @param \OrthoBundle\Entity\Appareillages $appareillage
      * @return AppAdjLabo
      */
-    public function setFidAdj($fidAdj)
+    public function setAppareillage(\OrthoBundle\Entity\Appareillages $appareillage = null)
     {
-        $this->fidAdj = $fidAdj;
+        $this->appareillage = $appareillage;
 
         return $this;
     }
 
     /**
-     * Get fidAdj
+     * Get appareillage
      *
-     * @return integer 
+     * @return \OrthoBundle\Entity\Appareillages 
      */
-    public function getFidAdj()
+    public function getAppareillage()
     {
-        return $this->fidAdj;
+        return $this->appareillage;
     }
 
     /**
-     * Set fidLabo
+     * Set adjonction
      *
-     * @param integer $fidLabo
+     * @param \OrthoBundle\Entity\Adjonctions $adjonction
      * @return AppAdjLabo
      */
-    public function setFidLabo($fidLabo)
+    public function setAdjonction(\OrthoBundle\Entity\Adjonctions $adjonction = null)
     {
-        $this->fidLabo = $fidLabo;
+        $this->adjonction = $adjonction;
 
         return $this;
     }
 
     /**
-     * Get fidLabo
+     * Get adjonction
      *
-     * @return integer 
+     * @return \OrthoBundle\Entity\Adjonctions 
      */
-    public function getFidLabo()
+    public function getAdjonction()
     {
-        return $this->fidLabo;
-    }
-
-    /**
-     * Get idAppAdjLabo
-     *
-     * @return integer 
-     */
-    public function getIdAppAdjLabo()
-    {
-        return $this->idAppAdjLabo;
+        return $this->adjonction;
     }
 }
