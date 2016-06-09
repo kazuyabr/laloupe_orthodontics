@@ -17,9 +17,6 @@ class CategorieUtilisateurs
     
     private $utilisateur;
 
-
-    
-
     // GENERATED CODE
     
     /**
