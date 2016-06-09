@@ -3,7 +3,7 @@
 namespace OrthoBundle\Controller;
 
 use OrthoBundle\Entity\Appareillages;
-use OrthoBundle\Form\Type\AjoutappType;
+use OrthoBundle\Form\Type\AppareillagesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,7 +17,7 @@ class AppareillageController extends Controller
 
         $adjonctions = $em->getRepository('OrthoBundle:Appareillages')->findAll();
 
-        return $this->render('OrthoBundle:Appareillage:liste_adj.html.twig', array(
+        return $this->render('OrthoBundle:Appareillage:liste_app.html.twig', array(
             'appareillages' => $adjonctions,
         ));
     }
@@ -26,7 +26,7 @@ class AppareillageController extends Controller
     public function newAction(Request $request)
     {
         $appareillages = new Appareillages();
-        $form = $this->createForm('OrthoBundle\Form\Type\AjoutAppType', $appareillages);
+        $form = $this->createForm('OrthoBundle\Form\Type\AjoutappType', $appareillages);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -57,7 +57,7 @@ class AppareillageController extends Controller
     public function editAction(Request $request, Appareillages $appareillages)
     {
         $deleteForm = $this->createDeleteForm($appareillages);
-        $editForm = $this->createForm('OrthoBundle\Form\Type\AjoutAppType', $appareillages);
+        $editForm = $this->createForm('OrthoBundle\Form\Type\AjoutappType', $appareillages);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

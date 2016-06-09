@@ -13,7 +13,7 @@ crea_app:
     defaults: { _controller: "OrthoBundle:Appareillage:new" }
     methods: [POST, GET]
 
-edit_adj:
+edit_app:
     path:     /{id}/editapp
     defaults: { _controller: "OrthoBundle:Appareillage:edit" }
     methods:  [GET, POST]

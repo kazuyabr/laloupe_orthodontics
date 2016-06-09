@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+    {% for appareillages in appareillages %}
+
+        <div id="msform">
+
+
+            <a id="liste" href="{{ path('fiche_app', { 'id': appareillages.id }) }}">{{ appareillages.id }}  {{ appareillages.nom }}</a>
+            <br />
+            <a id="lienedit" href="{{ path('fiche_app', { 'id': appareillages.id }) }}">Voir</a>
+            <br />
+            <a id="lienedit" href="{{ path('edit_app', { 'id': appareillages.id }) }}">Editer</a>
+
+        </div>
+
+
+    {% endfor %}
+
+{% endblock %}
