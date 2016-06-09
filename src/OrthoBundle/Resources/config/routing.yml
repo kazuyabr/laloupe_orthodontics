@@ -17,3 +17,12 @@ recup_user:
     path:     /utilisateurs
     defaults: { _controller: OrthoBundle:User:show }
 
+sup_labo:
+    path:    /suplabo/
+    defaults:    { _controller: OrthoBundle:Laboratoire:deleteLabo }
+    methods: [POST, GET]
+
+new_bouton_specifique:
+    path:    /ajouter/bouton-specifique
+    defaults: { _controller: OrthoBundle:BoutonsSpecifique:createSpecificButton }
+    methods: [POST, GET]

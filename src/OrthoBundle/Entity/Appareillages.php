@@ -9,6 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Appareillages
 {
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     private $boutonSpecifique;
     
     private $poidsApp;
