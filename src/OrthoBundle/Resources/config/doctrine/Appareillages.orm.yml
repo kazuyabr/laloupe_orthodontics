@@ -43,4 +43,4 @@ OrthoBundle\Entity\Appareillages:
             targetEntity: OrthoBundle\Entity\AppAdjLabo
             mappedBy: appareillage
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}

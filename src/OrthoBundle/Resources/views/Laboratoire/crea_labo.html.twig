@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
+
     <form id="msform" action="{{ path('crea_labo') }}" method="post">
         {% if app.user %} <!-- Si l'utilisateur est connecté -->
             {{ form_start(form) }}

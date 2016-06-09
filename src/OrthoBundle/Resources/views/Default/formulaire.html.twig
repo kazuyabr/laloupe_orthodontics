@@ -1,5 +1,5 @@
-{# @OrthoBundle/Resources/views/Default/formulaire.html.twig #}
 {% extends 'base.html.twig' %}
+
 {% block body %}
     <h3 xmlns="http://www.w3.org/1999/html">
         {{ actualUser[0].nom }} -
@@ -7,6 +7,7 @@
         {{ actualUser[0].codePostal }} {{ actualUser[0].ville }}
         <!--. N° : {{ actualUser[0].telephone }}-->
     </h3>
+
     <form id="msform" action="{{ path('ortho_formulaire') }}" method="post" {{ form_enctype(form) }}>
         <!-- Barre de progression -->
         <ul id="progressbar">
@@ -111,8 +112,11 @@
 
     </footer>
 {% endblock %}
+
+
 {% block javascript %}
     {{ parent() }}
+
     <script>
         var tableauAppareillages = {
             {% for namepictures in nomimageapp %}
@@ -136,6 +140,8 @@
             {% endfor %}
         };
     </script>
+
+
     <script src="{{ asset('bundles/ortho/js/formulairejQuery.js') }}"></script>
     <script src="{{ asset('bundles/ortho/plugins/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/calendrierFormulaire.js') }}"></script>
@@ -145,4 +151,5 @@
     <script src="{{ asset('bundles/ortho/js/commentaireAppareillages.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/commentaireAdjonctions.js') }}"></script>
     <script src="{{ asset('bundles/ortho/js/ajoutCommentairePrestataire.js') }}"></script>
+
 {% endblock %}

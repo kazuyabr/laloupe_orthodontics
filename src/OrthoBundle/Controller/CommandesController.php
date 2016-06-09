@@ -2,7 +2,6 @@
 
 namespace OrthoBundle\Controller;
 
-use OrthoBundle\Entity\Commandes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CommandesController extends Controller

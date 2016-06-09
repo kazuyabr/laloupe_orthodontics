@@ -1,21 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-
-
-    {% for adjonctions in adjonctions %}
-
         <div id="msform">
+            {% if app.user %} <!-- L'utilisateur est connecté -->
+                <fieldset class="largebloc">
+                    <h2 class="fs-title">Liste des adjonctions</h2>
+
+                {% for adjonction in adjonctions %}
+
+                    <a id="liste"
+                       href="{{ path('fiche_adj', { 'id': adjonction.id }) }}">{{ adjonction.id }}  {{ adjonction.nom }}</a>
+                    <br/>
+                    <a id="lienedit" href="{{ path('fiche_adj', { 'id': adjonction.id }) }}">Voir</a> &nbsp;
+                    <a id="lienedit" href="{{ path('edit_adj', { 'id': adjonction.id }) }}">Editer</a>
+                    <br/>
+
+                {% endfor %}
 
 
-            <a id="liste" href="{{ path('fiche_adj', { 'id': adjonctions.id }) }}">{{ adjonctions.id }}  {{ adjonctions.nom }}</a>
-                <br />
-                        <a id="lienedit" href="{{ path('fiche_adj', { 'id': adjonctions.id }) }}">Voir</a>
-                <br />
-                        <a id="lienedit" href="{{ path('edit_adj', { 'id': adjonctions.id }) }}">Editer</a>
-
+                </fieldset>
+            {% else %} <!-- L'utilisateur n'est pas connecté -->
+                <fieldset class="smallbloc">
+                    Connectez-vous pour accéder à cette page.
+                </fieldset>
+            {% endif %}
         </div>
-
-
-    {% endfor %}
-
 {% endblock %}

@@ -25,7 +25,7 @@ class LaboratoireController extends Controller
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();
-        $form = $this->createForm('OrthoBundle\Form\Type\UtilisateursLaboratoireType', $Utilisateurs);
+        $form = $this->createForm(new UtilisateursLaboratoireType(), $Utilisateurs);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,7 +36,7 @@ class LaboratoireController extends Controller
             return $this->redirectToRoute('fiche_labo', array('id' => $Utilisateurs->getId()));
         }
 
-        return $this->render('@Ortho/Laboratoire/liste_labo.html.twig', array(
+        return $this->render('@Ortho/Laboratoire/crea_labo.html.twig', array(
             'laboratoires' => $Utilisateurs,
             'form' => $form->createView(),
         ));

@@ -1,6 +1,6 @@
 liste_cabinet:
     path:     /listecab
-    defaults: { _controller: "OrthoBundle:Cabinet:index" }
+    defaults: { _controller: OrthoBundle:Cabinet:index }
     methods:  GET
 
 fiche_cabinet:
@@ -10,16 +10,16 @@ fiche_cabinet:
 
 crea_cabinet:
     path:     /cabinet
-    defaults: { _controller: OrthoBundle:Cabinet:create }
+    defaults: { _controller: OrthoBundle:Cabinet:new }
     methods: [POST, GET]
 
 edit_cabinet:
     path:     /{id}/editcabinet
-    defaults: { _controller: "OrthoBundle:Cabinet:edit" }
+    defaults: { _controller: OrthoBundle:Cabinet:edit }
     methods:  [GET, POST]
 
 sup_cabinet:
     path:   /supcabinet/
-    defaults:    { _controller: OrthoBundle:Cabinet:deleteCab }
+    defaults:    { _controller: OrthoBundle:Cabinet:delete }
     methods: [POST, GET]
 

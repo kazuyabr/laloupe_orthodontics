@@ -17,7 +17,7 @@ class AppareillageController extends Controller
 
         $adjonctions = $em->getRepository('OrthoBundle:Appareillages')->findAll();
 
-        return $this->render('OrthoBundle:Appareillage:liste_adj.html.twig', array(
+        return $this->render('OrthoBundle:Appareillage:liste_app.html.twig', array(
             'appareillages' => $adjonctions,
         ));
     }
@@ -26,7 +26,7 @@ class AppareillageController extends Controller
     public function newAction(Request $request)
     {
         $appareillages = new Appareillages();
-        $form = $this->createForm('OrthoBundle\Form\Type\AjoutAppType', $appareillages);
+        $form = $this->createForm(new AjoutappType(), $appareillages);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

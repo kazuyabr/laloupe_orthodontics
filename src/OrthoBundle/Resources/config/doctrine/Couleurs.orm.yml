@@ -17,4 +17,4 @@ OrthoBundle\Entity\Couleurs:
         commande:
             targetEntity: OrthoBundle\Entity\Commandes
             mappedBy: couleur
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}

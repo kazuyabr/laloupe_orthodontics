@@ -22,4 +22,4 @@ OrthoBundle\Entity\AppAdjLabo:
             targetEntity: OrthoBundle\Entity\Adjonctions
             inversedBy: boutonSpecifique
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}

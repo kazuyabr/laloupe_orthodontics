@@ -1,24 +1,24 @@
 liste_adj:
     path:     /listeadj
-    defaults: { _controller: "OrthoBundle:Adjonction:index" }
+    defaults: { _controller: OrthoBundle:Adjonction:index }
     methods:  GET
 
 fiche_adj:
     path:     /{id}/ficheadj
-    defaults: { _controller: "OrthoBundle:Adjonction:show" }
+    defaults: { _controller: OrthoBundle:Adjonction:show }
     methods:  GET
 
 crea_adj:
     path:     /creaadj
-    defaults: { _controller: "OrthoBundle:Adjonction:new" }
+    defaults: { _controller: OrthoBundle:Adjonction:new }
     methods:  [GET, POST]
 
 edit_adj:
     path:     /{id}/editadj
-    defaults: { _controller: "OrthoBundle:Adjonction:edit" }
+    defaults: { _controller: OrthoBundle:Adjonction:edit }
     methods:  [GET, POST]
 
 sup_adj:
     path:     /{id}/supadj
-    defaults: { _controller: "OrthoBundle:Adjonction:delete" }
+    defaults: { _controller: OrthoBundle:Adjonction:delete }
     methods:  DELETE

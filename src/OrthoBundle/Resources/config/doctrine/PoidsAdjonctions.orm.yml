@@ -24,4 +24,4 @@ OrthoBundle\Entity\PoidsAdjonctions:
 
 
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}

@@ -1,8 +1,9 @@
-{# @OrthoBundle/Resources/views/Default/crea_cabinet.html.twig #}
 {% extends 'base.html.twig' %}
+
 {% block body %}
     {% if app.user %}
         <form id="msform" action="{{ path('crea_cabinet') }}" method="post">
+
             {{ form_start(form) }}
                 <fieldset class="largebloc">
                     <h2 class="fs-title">Ajouter un Cabinet</h2>
@@ -26,6 +27,7 @@
                             {{ form_errors(form.email) }}
                             {{ form_widget(form.email) }}
                         </div>
+
                         <div class="profileplace">
                             <h3>Coordonnées :</h3>
                             {{ form_label(form.adresse) }}
@@ -44,6 +46,7 @@
                             {{ form_errors(form.telephone) }}
                             {{ form_widget(form.telephone) }}
                         </div>
+
                         <div class="profileplace">
                             <h3>Lieu de facturation :</h3>
                             {{ form_label(form.adresseFacturation) }}
@@ -62,6 +65,7 @@
                             {{ form_errors(form.telephoneFacturation) }}
                             {{ form_widget(form.telephoneFacturation) }}
                         </div>
+
                         <div class="profileplace">
                             <h3></h3>
 

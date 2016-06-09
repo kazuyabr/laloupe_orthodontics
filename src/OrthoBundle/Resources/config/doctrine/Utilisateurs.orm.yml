@@ -75,4 +75,4 @@ OrthoBundle\Entity\Utilisateurs:
             targetEntity: OrthoBundle\Entity\Commandes
             mappedBy: utilisateur
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}

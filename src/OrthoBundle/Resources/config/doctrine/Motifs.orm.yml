@@ -18,4 +18,4 @@ OrthoBundle\Entity\Motifs:
             targetEntity: OrthoBundle\Entity\Commandes
             mappedBy: motif
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: {}
