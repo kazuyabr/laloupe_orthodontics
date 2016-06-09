@@ -19,7 +19,7 @@ class FormulaireControllerTest extends WebTestCase
         $this->fixtures = $this->loadFixtures($fixtures, null, 'doctrine', true)->getReferenceRepository();
 
         $client = static::createClient(array(), array(
-        'PHP_AUTH_USER' => 'superadmin',
+        'PHP_AUTH_USER' => 'Superadmin',
             'PHP_AUTH_PW' => 'superadmin',
         ));
 
@@ -31,7 +31,7 @@ class FormulaireControllerTest extends WebTestCase
         $this->assertTrue($crawler->filter('form input[name="_password"]')->count() == 1);
 
         $form = $crawler->selectButton('Connexion')->form();
-        $form['_username'] = 'superadmin';
+        $form['_username'] = 'Superadmin';
         $form['_password'] = 'superadmin';
 
         $client->submit($form);
