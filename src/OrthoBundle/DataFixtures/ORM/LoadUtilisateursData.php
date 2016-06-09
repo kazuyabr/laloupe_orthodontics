@@ -28,6 +28,8 @@ class UtlisateursData extends AbstractFixture implements OrderedFixtureInterface
         $superAdminCredentials->setCodePostalFacturation('28000');
         $superAdminCredentials->setVilleFacturation('Chartres');
         $superAdminCredentials->setTelephoneFacturation('02.37.90.61.84');
+        $superAdminCredentials->setMailBis('blabla');
+        $superAdminCredentials->setMailTer('blabla');
 
         $manager->persist($superAdminCredentials);
         $manager->flush();
