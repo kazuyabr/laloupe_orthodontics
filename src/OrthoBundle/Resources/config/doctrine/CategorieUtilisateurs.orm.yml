@@ -1,6 +1,6 @@
 OrthoBundle\Entity\CategorieUtilisateurs:
     type: entity
-    table: null
+    table: categorie_utilisateurs
     repositoryClass: OrthoBundle\Repository\CategorieUtilisateursRepository
     id:
         id:

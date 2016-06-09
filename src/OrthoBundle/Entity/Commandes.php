@@ -230,6 +230,8 @@ class Commandes
      */
     private $commentaireLabo;
 
+    private $commentairePrestataire3d;
+
     /**
      * @var string
      */

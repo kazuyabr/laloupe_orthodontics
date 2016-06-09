@@ -1,6 +1,6 @@
 OrthoBundle\Entity\Adjonctions:
     type: entity
-    table: null
+    table: adjonctions
     repositoryClass: OrthoBundle\Repository\AdjonctionsRepository
     id:
         id:

@@ -1,6 +1,6 @@
 OrthoBundle\Entity\Appareillages:
     type: entity
-    table: null
+    table: appareillages
     repositoryClass: OrthoBundle\Repository\AppareillagesRepository
     id:
         id:

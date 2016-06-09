@@ -1,6 +1,6 @@
 OrthoBundle\Entity\Couleurs:
     type: entity
-    table: null
+    table: couleurs
     repositoryClass: OrthoBundle\Repository\CouleursRepository
     id:
         id:

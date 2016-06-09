@@ -1,6 +1,6 @@
 OrthoBundle\Entity\PoidsAppareillages:
     type: entity
-    table: null
+    table: poids_appareillages
     repositoryClass: OrthoBundle\Repository\PoidsAppareillagesRepository
     id:
         id:
