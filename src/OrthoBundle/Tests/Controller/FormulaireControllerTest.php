@@ -2,8 +2,7 @@
 
 namespace OrthoBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class FormulaireControllerTest extends WebTestCase
 {
