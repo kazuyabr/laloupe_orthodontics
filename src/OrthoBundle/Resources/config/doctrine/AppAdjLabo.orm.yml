@@ -1,6 +1,6 @@
 OrthoBundle\Entity\AppAdjLabo:
     type: entity
-    table: null
+    table: app_adj_labo
     repositoryClass: OrthoBundle\Repository\AppAdjLaboRepository
     id:
         id:

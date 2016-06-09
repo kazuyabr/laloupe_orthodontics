@@ -1,6 +1,6 @@
 OrthoBundle\Entity\PoidsAdjonctions:
     type: entity
-    table: null
+    table: poids_adjonctions
     repositoryClass: OrthoBundle\Repository\PoidsAdjonctionsRepository
     id:
         id:

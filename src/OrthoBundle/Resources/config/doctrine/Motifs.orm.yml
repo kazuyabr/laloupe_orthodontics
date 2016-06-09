@@ -1,6 +1,6 @@
 OrthoBundle\Entity\Motifs:
     type: entity
-    table: null
+    table: motifs
     repositoryClass: OrthoBundle\Repository\MotifsRepository
     id:
         id:

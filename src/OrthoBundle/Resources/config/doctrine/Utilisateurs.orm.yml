@@ -1,6 +1,6 @@
 OrthoBundle\Entity\Utilisateurs:
     type: entity
-    table: null
+    table: utilisateurs
     repositoryClass: OrthoBundle\Repository\UtilisateursRepository
     id:
         id:

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Adjonctions
 {
+    private $commandes;
     private $boutonSpecifique;
     
     private $poids;

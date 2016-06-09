@@ -12,6 +12,8 @@ class Appareillages
     private $boutonSpecifique;
     
     private $poidsApp;
+
+    private $commandes;
     /**
      * @var int
      */
@@ -46,6 +48,8 @@ class Appareillages
      * @var string
      */
     private $infoCabinet;
+
+    private $commentairePrestataire3d;
 
 
     /**

@@ -1,6 +1,6 @@
 OrthoBundle\Entity\Commandes:
     type: entity
-    table: null
+    table: commandes
     repositoryClass: OrthoBundle\Repository\CommandesRepository
     id:
         id:
