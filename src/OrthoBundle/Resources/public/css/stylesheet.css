@@ -190,8 +190,9 @@ ul.nav.navbar-nav {
 /* This hover code won't work for IE */
 
 #commandes_adjonctions label, #commandes_appareillages label {
-    display: block;
+    display: inline-table;
     font-size: 85%;
+    width: 100%;
 }
 
 .commentaireClass {
