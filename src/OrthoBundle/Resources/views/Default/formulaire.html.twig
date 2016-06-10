@@ -33,6 +33,7 @@
             {{ form_widget(form.dateretour) }}
             <input type="button" name="next" class="next action-button" value="Suivant"/>
         </fieldset>
+
         <fieldset class="largebloc"> <!-- Bloc n°2 : L'aspect technique | Appareillages & Adjonctions -->
             <h2 class="fs-title">Appareillages & Adjonctions</h2>
             <h3 class="fs-subtitle">Les choix dentaires à faire pour le patient</h3>
@@ -41,25 +42,25 @@
                 {{ form_errors(form.appareillages) }}
                 {{ form_widget(form.appareillages) }}
 
-                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModal2">
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal"
+                        data-target="#myModal2">
                     Bibliothèque <br>
                     Appareillages
                 </button>
                 <!-- Modal -->
                 {% include 'modalListeAppareillages.html' %}
             </div>
+
             <div id='blocAdj' class='blocAppAdj'>
                 {{ form_label(form.adjonctions, "Adjonctions : ") }}
                 {{ form_errors(form.adjonctions) }}
                 {{ form_widget(form.adjonctions) }}
 
-                <!-- Modal -->
-
-                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal" data-target="#myModalAdjonctions">
+                <button type="button" class="btn btn-primary btn-lg action-button" data-toggle="modal"
+                        data-target="#myModalAdjonctions">
                     Bibliothèque <br>
                     Adjonctions
                 </button>
-
                 <!-- Modal -->
                 {% include 'modalListeAdjonctions.html' %}
             </div>
@@ -131,11 +132,11 @@
         };
         var tableauCommentaireAdjonction = {
             {% for commentaire in commentaireAdjonction %}
-            "{{ commentaire.id }}" : {
-                "id" : "{{ commentaire.id }}",
-                "title" : "{{ commentaire.nom }}",
-                "img" : "{{ commentaire.image }}",
-                "commentaire" : "{{ commentaire.commentaire}}"
+            "{{ commentaire.id }}": {
+                "id": "{{ commentaire.id }}",
+                "title": "{{ commentaire.nom }}",
+                "img": "{{ commentaire.image }}",
+                "commentaire": "{{ commentaire.commentaire }}"
             }{% if not loop.last %},{% endif %}
             {% endfor %}
         };

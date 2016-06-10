@@ -9,14 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PoidsAppareillages
 {
-    private $appareillage;
-
     private $utilisateur;
-    
+    private $appareillage;
+           
     public function __construct(Utilisateurs $utilisateurs, Appareillages $appareillages)
     {
-        $this->appareillage = $appareillages;
         $this->utilisateur = $utilisateurs;
+        $this->appareillage = $appareillages;
     }
 
     public function incrementation()

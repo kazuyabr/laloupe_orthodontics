@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PoidsAdjonctions
 {
+    private $utilisateur;
+    private $adjonction;
 
     public function __construct(Utilisateurs $utilisateurs, Adjonctions $adjonctions)
     {
@@ -21,8 +23,6 @@ class PoidsAdjonctions
         $this->poids++;
     }
 
-    private $utilisateur;
-    private $adjonction;
     /**
      * @var int
      */
@@ -37,7 +37,7 @@ class PoidsAdjonctions
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -60,7 +60,7 @@ class PoidsAdjonctions
     /**
      * Get poids
      *
-     * @return integer 
+     * @return integer
      */
     public function getPoids()
     {
@@ -83,7 +83,7 @@ class PoidsAdjonctions
     /**
      * Get adjonction
      *
-     * @return \OrthoBundle\Entity\Adjonctions 
+     * @return \OrthoBundle\Entity\Adjonctions
      */
     public function getAdjonction()
     {
@@ -106,7 +106,7 @@ class PoidsAdjonctions
     /**
      * Get utilisateur
      *
-     * @return \OrthoBundle\Entity\Utilisateurs 
+     * @return \OrthoBundle\Entity\Utilisateurs
      */
     public function getUtilisateur()
     {

@@ -15,7 +15,7 @@ for (var compteur = 1; compteur < Object.keys(tableauAppareillages).length; comp
     $('#images-app').append('' +
         '<div class="col-xs-6">' +
         '<div class="blocAppareillage" data-id="' + tableauAppareillages[compteur].id + '">' +
-        '<img src="' + tableauAppareillages[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
+        '<input type="checkbox" style="display: none"><img src="' + tableauAppareillages[compteur].img +'" title="Appareillages" alt="Appareillages" id="imageSchemaApp" name="commandes[appareillages]"/><br />' +
         '<span class="nomAppareillageEnfant">' + tableauAppareillages[compteur].title  + ' ' + tableauAppareillages[compteur].family + '</span>' +
         '</div>' +
         '</div>'

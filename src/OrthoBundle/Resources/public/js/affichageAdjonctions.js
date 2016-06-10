@@ -13,7 +13,7 @@ for (var compteur = 1; compteur < Object.keys(tableauCommentaireAdjonction).leng
     $('#images-adjonctions').append('' +
         '<div class="col-xs-6">' +
             '<div class="blocAdjonction" data-id="' + tableauCommentaireAdjonction[compteur].id + '">' +
-                '<img src="' + tableauCommentaireAdjonction[compteur].img +'" title="Adjonctions" alt="Adjonctions" id="imageSchemaAdj" name="commandes[adjonctions]"/><br />' +
+                '<input type="checkbox" style="display: none"><img src="' + tableauCommentaireAdjonction[compteur].img +'" title="Adjonctions" alt="Adjonctions" id="imageSchemaAdj" name="commandes[adjonctions]"/><br />' +
                 '<span class="nomAppareillageEnfant">' + tableauCommentaireAdjonction[compteur].title + '</span>' +
             '</div>' +
         '</div>'
