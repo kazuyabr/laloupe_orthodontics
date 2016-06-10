@@ -1,25 +1,25 @@
 liste_user:
     path:     /liste/user
-    defaults: { _controller: OrthoBundle:User:index }
+    defaults: { _controller: OrthoBundle:Usergestion:index }
     methods:  GET
 
 fiche_user:
     path:     /fiche/user/{id}
-    defaults: { _controller: OrthoBundle:User:show }
+    defaults: { _controller: OrthoBundle:Usergestion:show }
     methods: [POST, GET]
 
 crea_user:
     path:     /ajouter/user
-    defaults: { _controller: OrthoBundle:User:new }
+    defaults: { _controller: OrthoBundle:Usergestion:new }
     methods: [POST, GET]
 
 edit_user:
     path:     /editer/user/{id}
-    defaults: { _controller: OrthoBundle:User:edit }
+    defaults: { _controller: OrthoBundle:Usergestion:edit }
     methods:  [GET, POST]
 
 sup_user:
-    path:   /supprimer/user/
-    defaults:    { _controller: OrthoBundle:User:delete }
-    methods: [POST, GET]
+    path:   /{id}/supprimer/user
+    defaults:    { _controller: OrthoBundle:Usergestion:delete }
+    methods:  DELETE
 

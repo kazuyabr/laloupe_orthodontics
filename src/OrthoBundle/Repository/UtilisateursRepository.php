@@ -32,4 +32,14 @@ class UtilisateursRepository extends EntityRepository
 
         return $queryBuilder->getQuery()->getResult();
     }
+
+    public function getUtilisateurs()
+    {
+        $queryBuilder = $this->createQueryBuilder('utilisateur');
+
+        // On sélectionne tout les id, ainsi que tout les commentaires
+        $queryBuilder->select('utilisateur.id', 'utilisateur.nom', 'utilisateur.categorie', 'utilisateur.codePostal', 'utilisateur.ville');
+        return $queryBuilder->getQuery()->getResult();
+    }
+
 }

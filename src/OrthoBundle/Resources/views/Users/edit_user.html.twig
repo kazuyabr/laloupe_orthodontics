@@ -3,23 +3,26 @@
 {% block body %}
     <div id="msform">
         <fieldset class="smallbloc">
-            <h2>Modifier Cabinet : {{ cabinets.id }}  {{ cabinets.nom }}</h2>
+            <h2>Modifier un utilisateur : {{ users.id }}  {{ users.nom }}</h2>
 
             {{ form_start(edit_form) }}
             {{ form_widget(edit_form) }}
             <input type="submit" value="Modifier" />
             {{ form_end(edit_form) }}
-
             <ul>
                 <li>
-                    <a href="{{ path('liste_cabinet') }}">Retour à la liste</a>
+                    <a href="{{ path('liste_user') }}">Retour à la liste</a>
                 </li>
                 <li>
                     {{ form_start(delete_form) }}
                     <input type="submit" value="Supprimer">
                     {{ form_end(delete_form) }}
+
                 </li>
             </ul>
         </fieldset>
     </div>
+
+
+
 {% endblock %}
