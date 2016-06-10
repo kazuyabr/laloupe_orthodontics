@@ -4,14 +4,24 @@
     <div id="msform">
         {% if app.user %} <!-- L'utilisateur est connecté -->
             <fieldset class="largebloc">
-                <h2 class="fs-title">Liste des cabinets</h2>
+                <h2 class="fs-title">Liste des utilisateurs</h2>
 
+                {% for utilisateur in users %}
 
+                    <a id="liste"
+                       href="{{ path('liste_user', { 'id': utilisateur.id }) }}">{{ utilisateur.id }}  {{ utilisateur.nom }}</a>
+                    <br/>
+                    <a id="lienedit" href="{{ path('fiche_user', { 'id': utilisateur.id }) }}">Voir</a> &nbsp;
+                    <br/>
+
+                {% endfor %}
             </fieldset>
+
         {% else %} <!-- L'utilisateur n'est pas connecté -->
             <fieldset class="smallbloc">
                 Connectez-vous pour accéder à cette page.
             </fieldset>
+
         {% endif %}
     </div>
 {% endblock %}

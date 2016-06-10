@@ -4,7 +4,7 @@ liste_user:
     methods:  GET
 
 fiche_user:
-    path:     /fiche/user/{id}
+    path:     /{id}/fiche/user/
     defaults: { _controller: OrthoBundle:Usergestion:show }
     methods: [POST, GET]
 
@@ -14,12 +14,11 @@ crea_user:
     methods: [POST, GET]
 
 edit_user:
-    path:     /editer/user/{id}
+    path:     /{id}/editer/user
     defaults: { _controller: OrthoBundle:Usergestion:edit }
     methods:  [GET, POST]
 
 sup_user:
-    path:   /{id}/supprimer/user
-    defaults:    { _controller: OrthoBundle:Usergestion:delete }
+    path:     /{id}/supprimer/user
+    defaults: { _controller: OrthoBundle:Usergestion:delete }
     methods:  DELETE
-

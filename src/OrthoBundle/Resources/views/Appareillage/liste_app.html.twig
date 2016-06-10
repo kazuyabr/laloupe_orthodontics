@@ -1,37 +1,28 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
-    <h2>Liste des appareillages</h2>
-
-    {% for appareillages in appareillages %}
-
     <div id="msform">
         {% if app.user %} <!-- L'utilisateur est connecté -->
             <fieldset class="smallbloc">
+                <h2 class="fs-title">Liste des appareillages</h2>
 
+                {% for appareillage in appareillages %}
+
+                    <a id="liste"
+                       href="{{ path('fiche_app', { 'id': appareillage.id }) }}">{{ appareillage.id }}  {{ appareillage.nom }}</a>
+                    <br/>
+                    <a id="lienedit" href="{{ path('fiche_app', { 'id': appareillage.id }) }}">Voir</a> &nbsp;
+                    <a id="lienedit" href="{{ path('edit_app', { 'id': appareillage.id }) }}">Editer</a>
+                    <br/>
+
+                {% endfor %}
             </fieldset>
+
         {% else %} <!-- L'utilisateur n'est pas connecté -->
             <fieldset class="smallbloc">
                 Connectez-vous pour accéder à cette page.
             </fieldset>
+
         {% endif %}
     </div>
-
-
-
-        <div id="msform">
-
-
-            <a id="liste" href="{{ path('fiche_app', { 'id': appareillages.id }) }}">{{ appareillages.id }}  {{ appareillages.nom }}</a>
-            <br />
-            <a id="lienedit" href="{{ path('fiche_app', { 'id': appareillages.id }) }}">Voir</a>
-            <br />
-            <a id="lienedit" href="{{ path('edit_app', { 'id': appareillages.id }) }}">Editer</a>
-
-        </div>
-
-
-    {% endfor %}
-
 {% endblock %}
-
-

@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
-        <div id="msform">
-            {% if app.user %} <!-- L'utilisateur est connecté -->
-                <fieldset class="largebloc">
-                    <h2 class="fs-title">Liste des adjonctions</h2>
+    <div id="msform">
+        {% if app.user %} <!-- L'utilisateur est connecté -->
+            <fieldset class="smallbloc">
+                <h2 class="fs-title">Liste des adjonctions</h2>
 
                 {% for adjonction in adjonctions %}
 
@@ -15,13 +16,13 @@
                     <br/>
 
                 {% endfor %}
+            </fieldset>
 
+        {% else %} <!-- L'utilisateur n'est pas connecté -->
+            <fieldset class="smallbloc">
+                Connectez-vous pour accéder à cette page.
+            </fieldset>
 
-                </fieldset>
-            {% else %} <!-- L'utilisateur n'est pas connecté -->
-                <fieldset class="smallbloc">
-                    Connectez-vous pour accéder à cette page.
-                </fieldset>
-            {% endif %}
-        </div>
+        {% endif %}
+    </div>
 {% endblock %}

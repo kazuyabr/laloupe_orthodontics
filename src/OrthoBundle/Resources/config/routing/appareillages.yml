@@ -1,6 +1,6 @@
 liste_app:
     path:     /listeapp
-    defaults: { _controller: 'OrthoBundle:Appareillage:index' }
+    defaults: { _controller: OrthoBundle:Appareillage:index }
     methods:  GET
 
 fiche_app:
