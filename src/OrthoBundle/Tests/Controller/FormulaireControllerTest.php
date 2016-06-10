@@ -9,10 +9,6 @@ class FormulaireControllerTest extends WebTestCase
     public function testConnexionFormulaire()
     {
         $fixtures = array(
-            'OrthoBundle\DataFixtures\ORM\LoadAdjonctionsData',
-            'OrthoBundle\DataFixtures\ORM\LoadAppareillagesData',
-            'OrthoBundle\DataFixtures\ORM\LoadCouleurData',
-            'OrthoBundle\DataFixtures\ORM\LoadMotifData',
             'OrthoBundle\DataFixtures\ORM\LoadUtilisateursData'
         );
 

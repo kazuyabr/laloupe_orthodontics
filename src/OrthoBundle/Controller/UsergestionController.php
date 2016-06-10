@@ -18,6 +18,7 @@ class UsergestionController extends Controller
         ));
     }
 
+
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();
@@ -36,7 +37,7 @@ class UsergestionController extends Controller
             'form' => $form->createView(),
         ));
     }
-
+    
     public function showAction(Utilisateurs $utilisateurs)
     {
         $deleteForm = $this->createDeleteForm($utilisateurs);
