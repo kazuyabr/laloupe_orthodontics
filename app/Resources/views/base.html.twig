@@ -97,14 +97,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu tameremichel">
-                            <li {% if app.request.get('_route') == 'crea_cabinet' or
-                            app.request.get('_route') == 'fiche_cabinet' %}
-                                class="active" {% endif %}><a href="{{ path('crea_cabinet') }}">Ajouter un
+                            <li {% if app.request.get('_route') == 'crea_user' %}
+                                class="active" {% endif %}><a href="{{ path('crea_user') }}">Ajouter un
                                     cabinet</a></li>
-                            <li {% if app.request.get('_route') == 'crea_labo' or
-                            app.request.get('_route') == 'fiche_labo' %}
-                                class="active" {% endif %}><a href="{{ path('crea_labo') }}">Ajouter un
-                                    laboratoire</a></li>
                             <li {% if app.request.get('_route') == 'crea_app' %}
                                 class="active" {% endif %}><a href="{{ path('crea_app') }}">Ajouter un
                                     appareillage</a></li>
@@ -120,13 +115,10 @@
                         class="active" {% endif %}>
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Supprimer
                             <span class="caret"></span></a>
-                        <ul class="dropdown-menu tameremichel">
+                        <ul class="dropdown-menu">
                             <li {% if app.request.get('_route') == 'liste_cabinet' %}
-                                class="active" {% endif %}><a href="{{ path('liste_cabinet') }}">
+                                class="active" {% endif %}><a href="{{ path('liste_user') }}">
                                     Supprimer un cabinet</a></li>
-                            <li {% if app.request.get('_route') == 'liste_labo' %}
-                                class="active" {% endif %}><a href="{{ path('liste_labo') }}">
-                                    Supprimer un laboratoire</a></li>
                             <li {% if app.request.get('_route') == 'liste_app' %}
                                 class="active" {% endif %}><a href="{{ path('liste_app') }}">
                                     Supprimer un appareillage</a></li>
@@ -138,8 +130,7 @@
 
                     <li class="dropdown">
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('sup_labo') }}">Supprimer un laboratoire</a></li>
-                            <li><a href="{{ path('sup_cabinet') }}">Supprimer un cabinet</a></li>
+                            <li><a href="{{ path('sup_user') }}">Supprimer un cabinet</a></li>
                             <li><a href="{{ path('sup_app', {'id': 'x'}) }}">Supprimer un appareillage</a></li>
                             <li><a href="{{ path('sup_adj', {'id': 'x'}) }}">Supprimer une adjonction</a></li>
                         </ul>
@@ -173,7 +164,7 @@
 
 {% block body %}{% endblock %}
 
-<script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
+
 <script src="{{ asset('bundles/ortho/js/formulaire.js') }}"></script>
 
 <!-- Appel de jQuery -->
@@ -193,7 +184,7 @@
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"
         integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
 
-
+<script src="{{ asset('bundles/ortho/js/bootstrap.min.js') }}"></script>
 
 {% block javascript %}{% endblock %}
 

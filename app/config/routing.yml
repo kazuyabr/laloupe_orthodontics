@@ -6,13 +6,11 @@ ortho_app:
     resource: "@OrthoBundle/Resources/config/routing/appareillages.yml"
     prefix:   /
 
-ortho_cabinet:
-    resource: "@OrthoBundle/Resources/config/routing/cabinets.yml"
+ortho_user:
+    resource: "@OrthoBundle/Resources/config/routing/users.yml"
     prefix: /
 
-ortho_laboratoire:
-    resource: "@OrthoBundle/Resources/config/routing/laboratoires.yml"
-    prefix: /
+
 
 ortho:
     resource: "@OrthoBundle/Resources/config/routing.yml"

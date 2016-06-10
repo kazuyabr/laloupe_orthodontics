@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\UserBundle\Util\LegacyFormHelper;
 
-class UtilisateursCabinetType extends AbstractType
+class UserType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder

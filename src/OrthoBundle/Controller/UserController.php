@@ -4,10 +4,9 @@
 namespace OrthoBundle\Controller;
 
 
-use OrthoBundle\Form\Type\U;
+use OrthoBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OrthoBundle\Entity\Utilisateurs;
-use OrthoBundle\Form\Type\UtilisateursCabinetType;
 use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
@@ -18,7 +17,7 @@ class UserController extends Controller
 
         $Utilisateurs = $em->getRepository('OrthoBundle:Utilisateurs')->findAll();
 
-        return $this->render('OrthoBundle:Cabinet:liste_cabinet.html.twig', array(
+        return $this->render('OrthoBundle:Users:liste_user.html.twig', array(
             'cabinets' => $Utilisateurs,
         ));
     }
@@ -27,7 +26,7 @@ class UserController extends Controller
     public function newAction(Request $request)
     {
         $Utilisateurs = new Utilisateurs();
-        $form = $this->createForm(new UtilisateursCabinetType(), $Utilisateurs);
+        $form = $this->createForm(new UserType(), $Utilisateurs);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -38,11 +37,11 @@ class UserController extends Controller
             $em->persist($Utilisateurs);
             $em->flush();
 
-            return $this->redirectToRoute('fiche_cabinet', array('id' => $Utilisateurs->getId()));
+            return $this->redirectToRoute('fiche_user', array('id' => $Utilisateurs->getId()));
         }
 
-        return $this->render('@Ortho/Cabinet/crea_cabinet.html.twig', array(
-            'cabinet' => $Utilisateurs,
+        return $this->render('@Ortho/Users/crea_user.html.twig', array(
+            'users' => $Utilisateurs,
             'form' => $form->createView(),
         ));
     }
@@ -52,8 +51,8 @@ class UserController extends Controller
     {
         $deleteForm = $this->createDeleteForm($utilisateurs);
 
-        return $this->render('@Ortho/Cabinet/fiche_cabinet.html.twig', array(
-            'cabinets' => $utilisateurs,
+        return $this->render('@Ortho/Users/fiche_user.html.twig', array(
+            'users' => $utilisateurs,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -61,7 +60,7 @@ class UserController extends Controller
     public function editAction(Request $request, Utilisateurs $utilisateurs)
     {
         $deleteForm = $this->createDeleteForm($utilisateurs);
-        $editForm = $this->createForm('OrthoBundle\Form\Type\UtilisateursCabinetType', $utilisateurs);
+        $editForm = $this->createForm(new UserType(), $utilisateurs);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -69,11 +68,11 @@ class UserController extends Controller
             $em->persist($utilisateurs);
             $em->flush();
 
-            return $this->redirectToRoute('edit_cabinet', array('id' => $utilisateurs->getId()));
+            return $this->redirectToRoute('edit_user', array('id' => $utilisateurs->getId()));
         }
 
-        return $this->render('OrthoBundle:Cabinet:edit_cabinet.html.twig', array(
-            'cabinets' => $utilisateurs,
+        return $this->render('OrthoBundle:Users:edit_user.html.twig', array(
+            'users' => $utilisateurs,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,14 +90,14 @@ class UserController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('liste_cabinet');
+        return $this->redirectToRoute('liste_user');
     }
 
 
     private function createDeleteForm(Utilisateurs $utilisateurs)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('sup_app', array('id' => $utilisateurs->getId())))
+            ->setAction($this->generateUrl('sup_user', array('id' => $utilisateurs->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }

@@ -9,48 +9,41 @@
             <fieldset class="largebloc">
                 <img class="coche_vert" src="{{ asset('bundles/ortho/img/coche_vert.png') }}"/>
                 <h2 class="fs-title">Ce cabinet a bien été ajouté.</h2>
-                <h3 class="fs-subtitle"><span>Cabinet : </span>{{ cabinets ? cabinets.nom }}</h3>
+                <h3 class="fs-subtitle"><span>Cabinet : </span>{{ users ? users.nom }}</h3>
 
                 <div id="container">
                     <div class="profileplace">
-                        <span>Identifiant : </span>{{ cabinets ? cabinets.username }}<br>
-                        <span>Nom complet : </span>{{ cabinets ? cabinets.nom }}<br>
-                        <span>E-mail : </span>{{ cabinets ? cabinets.email }}
+                        <span>Identifiant : </span>{{ users ? users.username }}<br>
+                        <span>Nom complet : </span>{{ users ? users.nom }}<br>
+                        <span>E-mail : </span>{{ users ? users.email }}
 
                     </div>
                     <div class="profileplace">
-                        <span>Adresse : </span>{{ cabinets ? cabinets.adresse }}<br>
-                        <span>Code Postal: </span>{{ cabinets ? cabinets.codePostal }}<br>
-                        <span>Ville : </span>{{ cabinets ? cabinets.ville }}
-                        <span>Téléphone : </span>{{ cabinets ? cabinets.telephone }}
+                        <span>Adresse : </span>{{ users ? users.adresse }}<br>
+                        <span>Code Postal: </span>{{ users ? users.codePostal }}<br>
+                        <span>Ville : </span>{{ users ? users.ville }}
+                        <span>Téléphone : </span>{{ users ? users.telephone }}
                     </div>
                     <div class="profileplace">
                         <h5>Adresse de facturation :</h5>
-                        <span>Adresse : {{ cabinets ? cabinets.adresseFacturation }}</span><br>
-                        <span>Code Postal : {{ cabinets ? cabinets.codePostalFacturation }}</span><br>
-                        <span>Ville : {{ cabinets ? cabinets.villeFacturation }}</span><br>
-                        <span>Téléphone : {{ cabinets ? cabinets.telephoneFacturation }}</span>
+                        <span>Adresse : {{ users ? users.adresseFacturation }}</span><br>
+                        <span>Code Postal : {{ users ? users.codePostalFacturation }}</span><br>
+                        <span>Ville : {{ users ? users.villeFacturation }}</span><br>
+                        <span>Téléphone : {{ users ? users.telephoneFacturation }}</span>
                     </div>
                     <div class="profileplace">
-                        <span>Mail 2 : {{ cabinets ? cabinets.mailBis }}</span><br>
-                        <span>Mail 3 : {{ cabinets ? cabinets.mailTer }}</span>
+                        <span>Mail 2 : {{ users ? users.mailBis }}</span><br>
+                        <span>Mail 3 : {{ users ? users.mailTer }}</span>
                     </div>
                 </div>
-                <ul>
-                    <li>
-                        <a href="{{ path('liste_cabinet') }}">Retour à la liste</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('edit_cabinet', { 'id': cabinets.id }) }}">Modifier</a>
-                    </li>
-                    <li>
-                        {{ form_start(delete_form) }}
-                        <input type="submit" value="Supprimer">
-                        {{ form_end(delete_form) }}
-                    </li>
-                </ul>
+
                 <div class="envoi_email_recapitulatif">
-                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('crea_cabinet') }}">Nouveau
+                    {{ form_start(delete_form) }}
+                    <input id="lien_nouveau_formulaire" class="action-button" type="submit" value="Supprimer">
+                    {{ form_end(delete_form) }}
+                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('liste_user') }}">Retour à la liste</a>
+                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('edit_user', { 'id': users.id }) }}">Modifier</a>
+                    <a id="lien_nouveau_formulaire" class="action-button" href="{{ path('crea_user') }}">Nouveau
                         cabinet</a>
                 </div>
 
