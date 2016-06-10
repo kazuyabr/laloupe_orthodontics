@@ -190,8 +190,9 @@ ul.nav.navbar-nav {
 /* This hover code won't work for IE */
 
 #commandes_adjonctions label, #commandes_appareillages label {
-    display: inline-table;
     font-size: 85%;
+    /* colonnage des boutons sur chrome display+width */
+    display: inline-table;
     width: 100%;
 }
 
@@ -269,6 +270,12 @@ ul.nav.navbar-nav {
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
+}
+
+#msform .action-button[data-toggle="modal"]{
+    /* retour à la ligne du texte des boutons bibliothèques*/
+    white-space: normal;
+    width: 120px;
 }
 
 #msform .action-button:hover,
