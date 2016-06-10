@@ -22,32 +22,6 @@ class LaboratoireController extends Controller
         ));
     }
 
-    public function newAction(Request $request)
-    {
-        $Utilisateurs = new Utilisateurs();
-        $form = $this->createForm(new UtilisateursLaboratoireType(), $Utilisateurs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $Utilisateurs->setCategorie($em->getRepository('OrthoBundle:CategorieUtilisateurs')->find(2));
-            $Utilisateurs->setEnabled(true);
-            $Utilisateurs->setRoles(array('ROLE_LABORATOIRE'));
-
-            $em->persist($Utilisateurs);
-            $em->flush();
-
-            return $this->redirectToRoute('fiche_labo', array('id' => $Utilisateurs->getId()));
-        }
-
-        return $this->render('@Ortho/Laboratoire/crea_labo.html.twig', array(
-            'laboratoires' => $Utilisateurs,
-            'form' => $form->createView(),
-            'id' => $Utilisateurs->getId()
-        ));
-    }
-
     public function showAction(Utilisateurs $utilisateurs)
     {
         $deleteForm = $this->createDeleteForm($utilisateurs);
